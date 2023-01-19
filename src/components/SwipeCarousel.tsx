@@ -13,7 +13,7 @@ export default function SwipeCarousel() {
   return (
     <Swiper
       slidesPerView={3}
-      spaceBetween={30}
+      spaceBetween={15}
       freeMode={true}
       modules={[FreeMode, Pagination]}
       className="mySwiper"
@@ -21,12 +21,12 @@ export default function SwipeCarousel() {
       {data.imgs.map((img) => {
         return (
           <SwiperSlide>
-            <img
+            <img className="rounded-xl"
               key={img.link}
               alt=""
               src={img.link}
             />
-            <p>{img.title}</p>
+            <p className="text-xs mt-1">{img.title}</p>
           </SwiperSlide>
         )
       })}
