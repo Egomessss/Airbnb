@@ -6,8 +6,8 @@ import React from "react"
 
 function SearchModal({ closeSearchModal }: any) {
   return (
-    <div className="h-full w-full fixed flex flex-col overflow-x-hidden overflow-y-auto inset-0 z-50 outline-none focus:outline-none min-h-screen">
-      <div className="flex items-center gap-12 p-4 bg-[#F7F7F7]">
+    <div className="h-full w-full fixed px-4 py-6 flex flex-col overflow-x-hidden overflow-y-auto inset-0 z-50 outline-none focus:outline-none min-h-screen">
+      <div className="flex items-center gap-12 bg-[#F7F7F7]">
         <ArrowLeftCircleIcon
           onClick={() => closeSearchModal()}
           className="h-10 w-10"
@@ -17,8 +17,8 @@ function SearchModal({ closeSearchModal }: any) {
           <p className=" hover:underline underline-offset-4">Experiences</p>
         </div>
       </div>
-      <div className="h-screen bg-white rounded-t-3xl shadow-xl flex justify-center">
-        <div className="flex p-2 mt-8 items-center gap-5 bg-[#F7F7F7] rounded-lg w-[342px] h-[60px] border-solid border-[1.5px] border-gray-300">
+      <div className="h-screen bg-white rounded-xl shadow-xl flex justify-center mt-4">
+        <div className="flex p-2 mt-8 items-center gap-5 bg-[#F7F7F7] rounded-xl w-[342px] h-[60px] border-solid border-[1.5px] border-gray-300">
           <MagnifyingGlassIcon className="h-5 w-5" />
           <input
             className="bg-inherit"
