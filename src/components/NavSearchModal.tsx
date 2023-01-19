@@ -23,7 +23,7 @@ function NavSearchModal({ closeModal }: any) {
           </div>
         </div>
       </header>
-      <body>
+      <section>
         <div className="flex flex-col gap-2">
           <div className="bg-white max-w-[366px] h-[324px] rounded-xl shadow-md">
             <div className=" flex flex-col gap-4">
@@ -57,7 +57,7 @@ function NavSearchModal({ closeModal }: any) {
             <p className="font-semibold">Add guests</p>
           </div>
         </div>
-      </body>
+      </section>
       <footer className="flex justify-between items-center sticky top-[100vh] bg-white rounded-lg shadow-md p-2">
         <p className="underline font-semibold">Clear all</p>
         <button className=" p-2 rounded-md w-[100px] text-white flex bg-[#E21C61]">

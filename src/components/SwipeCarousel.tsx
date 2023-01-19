@@ -24,7 +24,7 @@ export default function SwipeCarousel() {
             <img
               className="rounded-xl h-[142px] shadow-md"
               key={img.link}
-              alt=""
+              alt={img.title}
               src={img.link}
             />
             <p className="text-xs mt-1">{img.title}</p>
