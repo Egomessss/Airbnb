@@ -7,21 +7,22 @@ import "swiper/css/free-mode"
 import "swiper/css/pagination"
 
 // import required modules
-import { FreeMode, Pagination } from "swiper"
+import { FreeMode } from "swiper"
 
 export default function SwipeCarousel() {
   return (
     <Swiper
-      slidesPerView={3}
-      spaceBetween={15}
+      slidesPerView={2.3}
+      spaceBetween={1}
       freeMode={true}
-      modules={[FreeMode, Pagination]}
+      modules={[FreeMode]}
       className="mySwiper"
     >
       {data.imgs.map((img) => {
         return (
           <SwiperSlide>
-            <img className="rounded-xl"
+            <img
+              className="rounded-xl h-[142px] shadow-md"
               key={img.link}
               alt=""
               src={img.link}
