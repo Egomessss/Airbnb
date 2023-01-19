@@ -3,6 +3,7 @@ import { MagnifyingGlassIcon } from "@heroicons/react/24/solid"
 import React from "react"
 import SearchModal from "./SearchModal"
 import SwipeCarousel from "./SwipeCarousel"
+import data from "../assets/data.json"
 
 // remove active effect on search
 
@@ -44,7 +45,7 @@ function NavSearchModal({ closeModal }: any) {
               </div>
 
               <div className="p-2">
-                <SwipeCarousel />
+                <SwipeCarousel/>
               </div>
             </div>
           </div>

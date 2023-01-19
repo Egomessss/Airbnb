@@ -20,10 +20,9 @@ export default function SwipeCarousel() {
     >
       {data.imgs.map((img) => {
         return (
-          <SwiperSlide>
+          <SwiperSlide key={img.id}>
             <img
               className="rounded-xl h-[142px] shadow-md"
-              key={img.link}
               alt={img.title}
               src={img.link}
             />
