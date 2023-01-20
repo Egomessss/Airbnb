@@ -8,6 +8,7 @@ import data from "../assets/data.json"
 // remove active effect on search
 
 function NavSearchModal({ closeModal }: any) {
+  // sets the state for the search modal
   const [isSearching, setIsSearching] = React.useState(false)
 
   return (
@@ -38,6 +39,7 @@ function NavSearchModal({ closeModal }: any) {
                     placeholder="France"
                     onClick={() => setIsSearching(true)}
                   />
+                  {/* renders the search modal */}
                   {isSearching && (
                     <SearchModal closeSearchModal={setIsSearching} />
                   )}

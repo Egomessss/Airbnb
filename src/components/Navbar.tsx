@@ -5,7 +5,11 @@ import {
 } from "@heroicons/react/24/solid"
 import NavSearchModal from "./NavSearchModal"
 
+
+
+
 function Navbar() {
+  // !state for the NavSearchModal
   const [showModal, setShowModal] = React.useState(false)
 
   return (
@@ -13,11 +17,13 @@ function Navbar() {
       <div className="h-[55px] flex justify-around items-center border rounded-full shadow mt-3">
         <div className="">
           <MagnifyingGlassIcon
+          // opens the modal
             onClick={() => setShowModal(true)}
             className="h-5 w-5 text-gray-600 "
           />
         </div>
         <div
+        // opens the modal
           onClick={() => setShowModal(true)}
           className="flex flex-col w-[240px]"
         >
@@ -30,6 +36,7 @@ function Navbar() {
             </ul>
           </div>
         </div>
+        {/* renders the modal */}
         {showModal && <NavSearchModal closeModal={setShowModal} />}
         <div>
           <AdjustmentsHorizontalIcon className="h-5 w-5" />
