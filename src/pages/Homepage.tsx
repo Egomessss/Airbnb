@@ -1,4 +1,5 @@
 import React from "react"
+import HomepageCard from "../components/HomepageCard"
 import Navbar from "../components/Navbar"
 import ScrollFilter from "../components/ScrollFilter"
 
@@ -7,6 +8,7 @@ function Homepage() {
     <div>
       <Navbar />
       <ScrollFilter />
+      <HomepageCard/>
     </div>
   )
 }
