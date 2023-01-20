@@ -8,3 +8,8 @@
   color: black;
   font-family: 'Montserrat', sans-serif;
 }
+
+/* changes the pagination bullet color in the card components */
+.swiper-pagination-bullet-active{
+  background-color: white;
+}
