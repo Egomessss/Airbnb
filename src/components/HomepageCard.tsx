@@ -13,7 +13,28 @@ import data from "../assets/data.json"
 import { HeartIcon, StarIcon } from "@heroicons/react/24/outline"
 
 function HomepageCard() {
-  const [favorite, setFavorite] = React.useState(false)
+  // handles favorite post state
+  //   fetches state from localstorage and persists after reload
+  //   the "!" tells the compiler the value cannot be null
+  const [favorite, setFavorite] = React.useState(
+    JSON.parse(localStorage.getItem("my-fav-posts")!) || false
+  )
+
+  //   toogle between favorite or !favorite
+
+  //    reactively setting the favorite state in the local storage whenever it changes by using React's useEffect Hook
+  const toogleFavorite = () => {
+    setFavorite(!favorite)
+  }
+
+  // saves to local storage
+  
+  //   stringify the state because local storage only accepts strings
+
+  //  it is stored with every user interaction and retrieved for the initial state when rendering the component for the first time and therefore initializing its hooks
+  React.useEffect(() => {
+    localStorage.setItem("my-fav-posts", JSON.stringify(favorite))
+  }, [favorite])
 
   return (
     <div>
@@ -34,7 +55,12 @@ function HomepageCard() {
                       src={slide}
                     />
                     <div className="absolute top-4 right-4">
-                      {!favorite && <HeartIcon className="h-6 w-6" /> }
+                      <HeartIcon
+                        onClick={toogleFavorite}
+                        className={
+                          !favorite ? "h-6 w-6" : "h-6 w-6 fill-red-600"
+                        }
+                      />
                     </div>
                   </SwiperSlide>
                 )
