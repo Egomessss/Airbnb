@@ -19,12 +19,12 @@ function Navbar() {
       {/* logo */}
       <div className="flex justify-center items-center">
         <img
-          className="h-8 w-15 xl:block md:hidden"
+          className="h-8 w-15 hidden lg:flex"
           src={logo}
           alt="logo"
         />
         <img
-          className="h-8 w-15 hidden lg:block xl:hidden "
+          className="h-8 w-15 hidden sm:flex lg:hidden"
           src={logoMobile}
           alt="logo"
         />
@@ -63,7 +63,7 @@ function Navbar() {
 
       {/* navbar for screen over 760px */}
 
-      <div className=" md:hidden max-w-[382px] min-w-[365px] h-[55px] flex justify-around items-center border rounded-full shadow cursor-pointer hover:shadow-lg ">
+      <div className="hidden max-w-[382px] min-w-[365px] h-[55px] md:flex justify-around items-center border rounded-full shadow cursor-pointer hover:shadow-lg ">
         <div
           // opens the modal
           onClick={() => setShowModal(true)}
@@ -93,7 +93,7 @@ function Navbar() {
       </div>
 
       {/* right side nav */}
-      <div className="flex items-center gap-1 md:hidden">
+      <div className="items-center gap-1 hidden  md:flex">
         <div>
           <p className="rounded-full hover:bg-gray-100 p-2">Airbnb your home</p>
         </div>
