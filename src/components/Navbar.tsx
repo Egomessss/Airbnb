@@ -15,7 +15,7 @@ function Navbar() {
   const [showModal, setShowModal] = React.useState(false)
 
   return (
-    <nav className="flex justify-between items-center mt-3 ">
+    <nav className="flex justify-between items-center mt-3 gap-3 ">
       {/* logo */}
       <div className="flex justify-center items-center">
         <img
@@ -24,7 +24,7 @@ function Navbar() {
           alt="logo"
         />
         <img
-          className="h-8 w-15 hidden sm:flex lg:hidden"
+          className="h-8 w-15 hidden md:flex lg:hidden"
           src={logoMobile}
           alt="logo"
         />
@@ -32,7 +32,7 @@ function Navbar() {
       {/* midle and right side div */}
 
       {/* searchbar for mobile */}
-      <div className="md:hidden h-[55px] flex justify-around items-center border rounded-full shadow mt-3">
+      <div className="md:hidden h-[55px] w-full flex justify-around items-center border rounded-full shadow mt-3">
         <div className="">
           <MagnifyingGlassIcon
             // opens the modal
@@ -63,7 +63,7 @@ function Navbar() {
 
       {/* navbar for screen over 760px */}
 
-      <div className="hidden max-w-[382px] min-w-[365px] h-[55px] md:flex justify-around items-center border rounded-full shadow cursor-pointer hover:shadow-lg ">
+      <div className="hidden md:flex max-w-[382px] min-w-[365px] h-[55px] justify-around items-center border rounded-full shadow cursor-pointer hover:shadow-lg ">
         <div
           // opens the modal
           onClick={() => setShowModal(true)}
@@ -93,7 +93,7 @@ function Navbar() {
       </div>
 
       {/* right side nav */}
-      <div className="items-center gap-1 hidden  md:flex">
+      <div className="items-center gap-1 hidden md:flex">
         <div>
           <p className="rounded-full hover:bg-gray-100 p-2">Airbnb your home</p>
         </div>
