@@ -9,9 +9,15 @@
   font-family: "Montserrat", sans-serif;
 }
 
+.swiper-pagination-bullet {
+  background: white;
+  opacity: 0.7;
+}
+
 /* changes the pagination bullet color in the card components */
 .swiper-pagination-bullet-active {
   background-color: white;
+  opacity: 1;
 }
 
 /* changes the swiper arrows */
@@ -38,7 +44,6 @@
   background-color: white;
   box-shadow: 5px;
   font-weight: 900;
-  
 }
 .swiper-button-prev.swiper-button-disabled,
 .swiper-button-next.swiper-button-disabled {
@@ -51,7 +56,6 @@
   opacity: 0;
   cursor: auto;
   pointer-events: none;
-  
 }
 .swiper-navigation-disabled .swiper-button-prev,
 .swiper-navigation-disabled .swiper-button-next {
@@ -65,7 +69,6 @@
   letter-spacing: 0;
   font-variant: initial;
   line-height: 1;
-  
 }
 .swiper-button-prev,
 .swiper-rtl .swiper-button-next {
@@ -75,13 +78,11 @@
 .swiper-button-prev:after,
 .swiper-rtl .swiper-button-next:after {
   content: "prev";
-  
 }
 .swiper-button-next,
 .swiper-rtl .swiper-button-prev {
   right: 0;
   left: auto;
- 
 }
 .swiper-button-next:after,
 .swiper-rtl .swiper-button-prev:after {

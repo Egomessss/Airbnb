@@ -11,7 +11,6 @@ function Homepage() {
         <Navbar />
         <SwipeCarouselFilter />
       </div>
-
       <HomepageCard />
       <Footer />
     </div>
