@@ -52,11 +52,14 @@ function HomepageCard() {
                 {card.slides.map((slide) => {
                   return (
                     <SwiperSlide>
-                      <img
-                        className="rounded-xl object-cover h-[260px]"
-                        alt={card.location}
-                        src={slide}
-                      />
+                      <a href="">
+                        <img
+                          className="rounded-xl object-cover h-[260px]"
+                          alt={card.location}
+                          src={slide}
+                        />
+                      </a>
+
                       <div className="absolute top-4 right-4">
                         <HeartIcon
                           onClick={toogleFavorite}
