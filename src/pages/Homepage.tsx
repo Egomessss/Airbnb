@@ -6,16 +6,10 @@ import ScrollFilter from "../components/ScrollFilter"
 
 function Homepage() {
   return (
-    <div >
+    <div>
       <Navbar />
       <ScrollFilter />
-      <div className="flex flex-wrap gap-4">
-        <HomepageCard />
-        <HomepageCard />
-        <HomepageCard />
-        <HomepageCard />
-        <HomepageCard />
-        <HomepageCard />
+      <div className="flex flex-wrap gap-4 w-full">
         <HomepageCard />
         <HomepageCard />
         <HomepageCard />
