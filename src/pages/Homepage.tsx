@@ -9,15 +9,7 @@ function Homepage() {
     <div>
       <Navbar />
       <ScrollFilter />
-      <div className="flex flex-wrap gap-4 w-full">
-        <HomepageCard />
-        <HomepageCard />
-        <HomepageCard />
-        <HomepageCard />
-        <HomepageCard />
-        <HomepageCard />
-      </div>
-
+      <HomepageCard />
       <Footer />
     </div>
   )

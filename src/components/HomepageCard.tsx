@@ -39,37 +39,40 @@ function HomepageCard() {
   // !guardar state para cada card separado, provalmente nao dá porque o key e o mesmo
 
   return (
-    <div className="w-1/6">
+    <div className="flex gap-6 flex-wrap">
       {data.cardImgs.map((card) => {
         return (
-          <div className="pt-6">
-            <Swiper
-              pagination={true}
-              modules={[Pagination]}
-              className="relative"
-            >
-              {card.slides.map((slide) => {
-                return (
-                  <SwiperSlide>
-                    <img
-                      className="rounded-xl shadow-md object-cover"
-                      alt={card.location}
-                      src={slide}
-                    />
-                    <div className="absolute top-4 right-4">
-                      <HeartIcon
-                        onClick={toogleFavorite}
-                        className={
-                          !favorite
-                            ? "h-6 w-6 cursor-pointer text-white fill-black/40"
-                            : "h-6 w-6 fill-red-600 cursor-pointer"
-                        }
+          <div className="pt-6 w-[250px] h-[420px] flex flex-col justify-between flex-auto ">
+            <div>
+              <Swiper
+                pagination={true}
+                modules={[Pagination]}
+                className="relative"
+              >
+                {card.slides.map((slide) => {
+                  return (
+                    <SwiperSlide>
+                      <img
+                        className="rounded-xl object-cover h-[260px]"
+                        alt={card.location}
+                        src={slide}
                       />
-                    </div>
-                  </SwiperSlide>
-                )
-              })}
-            </Swiper>
+                      <div className="absolute top-4 right-4">
+                        <HeartIcon
+                          onClick={toogleFavorite}
+                          className={
+                            !favorite
+                              ? "h-6 w-6 cursor-pointer text-white fill-black/40"
+                              : "h-6 w-6 fill-red-600 cursor-pointer"
+                          }
+                        />
+                      </div>
+                    </SwiperSlide>
+                  )
+                })}
+              </Swiper>
+            </div>
+
             <div className="text-sm pt-2">
               <div className="flex justify-between">
                 <p className="font-semibold text-sm mt-1">{card.location}</p>
