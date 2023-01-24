@@ -3,9 +3,9 @@ import React from "react"
 
 function Footer() {
   return (
-    <footer className="mx-auto px-3 md:px-16 border-t-[1px] border-gray-400 bg-white shadow md:flex md:items-center md:justify-between md:p-6 fixed inset-x-0 bottom-0 z-10">
+    <footer className="text-sm mx-auto px-3 md:px-16 py-1 border-t-[1px] border-gray-400 bg-white md:flex md:items-center md:justify-between fixed inset-x-0 bottom-0 z-10">
       <div>
-        <ul className="flex flex-wrap items-center mt-3 text-sm text-gray-500 dark:text-gray-400 sm:mt-0">
+        <ul className="flex flex-wrap gap-2 items-center mt-3 sm:mt-0">
           <li>
             <a
               href="#"
@@ -65,7 +65,7 @@ function Footer() {
         </ul>
       </div>
       <div>
-        <ul className="flex flex-wrap items-center mt-3 text-sm text-bold sm:mt-0">
+        <ul className="flex flex-wrap items-center mt-3 text-sm font-semibold sm:mt-0">
           <li>
             <a
               href="#"

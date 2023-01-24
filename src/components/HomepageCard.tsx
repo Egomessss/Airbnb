@@ -36,8 +36,10 @@ function HomepageCard() {
     localStorage.setItem("my-fav-posts", JSON.stringify(favorite))
   }, [favorite])
 
+  // !guardar state para cada card separado, provalmente nao dá porque o key e o mesmo
+
   return (
-    <div className="w-[330px]">
+    <div className="w-1/6">
       {data.cardImgs.map((card) => {
         return (
           <div className="pt-6">
@@ -59,7 +61,7 @@ function HomepageCard() {
                         onClick={toogleFavorite}
                         className={
                           !favorite
-                            ? "h-6 w-6 cursor-pointer"
+                            ? "h-6 w-6 cursor-pointer text-white fill-black/40"
                             : "h-6 w-6 fill-red-600 cursor-pointer"
                         }
                       />
