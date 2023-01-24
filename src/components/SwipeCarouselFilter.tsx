@@ -15,27 +15,25 @@ import { AdjustmentsHorizontalIcon } from "@heroicons/react/24/outline"
 
 function SwipeCarouselFilter() {
   return (
-    <div className="flex items-center py-4">
+    <div className="flex items-center py-4 gap-2">
       <Swiper
         slidesPerView="auto"
-        spaceBetween={1}
+        spaceBetween={28}
         navigation={true}
         modules={[Navigation]}
-        className="
-      "
       >
         {data.imgs.map((img) => {
           return (
             <SwiperSlide
               key={img.id}
-              className="flex flex-col flex-auto flex-wrap h-[52px] items-center justify-center px-2 hover:underline active:underline focus:underine focus:underline"
+              className="flex flex-col flex-auto flex-wrap w-[77px] h-[56px] items-center justify-center px-2 hover:underline active:underline focus:underine focus:underline"
             >
               <img
                 className="h-[28px] w-[28px]"
                 alt={img.title}
                 src={img.link}
               />
-              <p className="text-xs mt-1">Contryside</p>
+              <p className="text-xs mt-1">Countryside</p>
             </SwiperSlide>
           )
         })}

@@ -17,7 +17,7 @@ function Navbar() {
   return (
     <nav className="flex justify-between items-center py-4 gap-3  border-b-[1.5px]">
       {/* logo */}
-      <div className="flex justify-center items-center">
+      <div className="flex justify-center items-center cursor-pointer">
         <img
           className="h-8 w-15 hidden lg:flex"
           src={logo}
