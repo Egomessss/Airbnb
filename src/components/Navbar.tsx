@@ -15,7 +15,7 @@ function Navbar() {
   const [showModal, setShowModal] = React.useState(false)
 
   return (
-    <nav className="flex justify-between items-center mt-3 gap-3 ">
+    <nav className="flex justify-between items-center py-4 gap-3  border-b-[1.5px]">
       {/* logo */}
       <div className="flex justify-center items-center">
         <img
