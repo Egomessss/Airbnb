@@ -97,8 +97,8 @@ function Navbar() {
         <div>
           <p className="rounded-full hover:bg-gray-100 p-2">Airbnb your home</p>
         </div>
-        <div className=" rounded-full hover:bg-gray-100">
-          <GlobeAltIcon className="h-11 p-3" />
+        <div>
+          <GlobeAltIcon className="h-11 p-3 rounded-full hover:bg-gray-100" />
         </div>
         <Dropdown />
       </div>
@@ -107,3 +107,5 @@ function Navbar() {
 }
 
 export default Navbar
+
+// fix the rounded shadow in the log in button

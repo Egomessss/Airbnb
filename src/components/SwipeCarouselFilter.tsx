@@ -6,7 +6,8 @@ import data from "../assets/data.json"
 // Import Swiper styles
 import "swiper/css"
 import "swiper/css/free-mode"
-import "swiper/css/pagination"
+  
+
 
 // import required modules
 import { FreeMode } from "swiper"
@@ -14,7 +15,7 @@ import { FreeMode } from "swiper"
 function SwipeCarouselFilter() {
   return (
     <Swiper
-      slidesPerView={4.6}
+      slidesPerView={14}
       spaceBetween={1}
       freeMode={true}
       modules={[FreeMode]}

@@ -31,8 +31,7 @@ export default function AccountMenu() {
             aria-haspopup="true"
             aria-expanded={open ? "true" : undefined}
           >
-            <div  className="flex items-center justify-between border-gray-200 border-2 p-2 rounded-r-full rounded-l-full gap-2 w-[72px] cursor-pointer  hover:shadow-lg">
-            
+            <div className="flex items-center justify-between border-gray-200 border-2 p-2 rounded-r-full rounded-l-full gap-2 w-[72px] cursor-pointer  hover:shadow-lg">
               <Bars3Icon className="h-6" />
               <UserCircleIcon className="h-7" />
             </div>
@@ -74,25 +73,12 @@ export default function AccountMenu() {
         transformOrigin={{ horizontal: "right", vertical: "top" }}
         anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
       >
-        <MenuItem>
-          <Avatar /> Profile
-        </MenuItem>
-        <MenuItem>
-          <Avatar /> My account
-        </MenuItem>
+        <MenuItem>Sign up</MenuItem>
+        <MenuItem>Log in</MenuItem>
         <Divider />
-        <MenuItem>
-          <ListItemIcon></ListItemIcon>
-          Add another account
-        </MenuItem>
-        <MenuItem>
-          <ListItemIcon></ListItemIcon>
-          Settings
-        </MenuItem>
-        <MenuItem>
-          <ListItemIcon></ListItemIcon>
-          Logout
-        </MenuItem>
+        <MenuItem>Airbnb your home</MenuItem>
+        <MenuItem>Host an experience</MenuItem>
+        <MenuItem>Help</MenuItem>
       </Menu>
     </React.Fragment>
   )

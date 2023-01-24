@@ -28,7 +28,7 @@ function HomepageCard() {
   }
 
   // saves to local storage
-  
+
   //   stringify the state because local storage only accepts strings
 
   //  it is stored with every user interaction and retrieved for the initial state when rendering the component for the first time and therefore initializing its hooks
@@ -37,7 +37,7 @@ function HomepageCard() {
   }, [favorite])
 
   return (
-    <div>
+    <div className="w-[330px]">
       {data.cardImgs.map((card) => {
         return (
           <div className="pt-6">
@@ -50,7 +50,7 @@ function HomepageCard() {
                 return (
                   <SwiperSlide>
                     <img
-                      className="rounded-xl h-[342px] shadow-md object-cover"
+                      className="rounded-xl shadow-md object-cover"
                       alt={card.location}
                       src={slide}
                     />
@@ -58,7 +58,9 @@ function HomepageCard() {
                       <HeartIcon
                         onClick={toogleFavorite}
                         className={
-                          !favorite ? "h-6 w-6" : "h-6 w-6 fill-red-600"
+                          !favorite
+                            ? "h-6 w-6 cursor-pointer"
+                            : "h-6 w-6 fill-red-600 cursor-pointer"
                         }
                       />
                     </div>
@@ -70,7 +72,7 @@ function HomepageCard() {
               <div className="flex justify-between">
                 <p className="font-semibold text-sm mt-1">{card.location}</p>
                 <div className="flex flex-row items-center gap-1">
-                  <StarIcon className="h-3 w-3" />
+                  <StarIcon className="h-4 w-4 fill-black" />
                   <p className="">{card.rating}</p>
                 </div>
               </div>
@@ -89,36 +91,3 @@ function HomepageCard() {
 }
 
 export default HomepageCard
-
-//  <div>
-{
-  /* <Swiper
-pagination={true}
-modules={[Pagination]}
-className="mySwiper"
->
-{data.cardImgs.map((card) => {
-  return (
-   
-      {card.slides.map((slide) => {
-        return (
-            <SwiperSlide key={card.location}>
-          <img
-            className="rounded-xl h-[142px] shadow-md"
-            alt={card.location}
-            src={slide}
-          />
-          </SwiperSlide>
-        )
-      })}
-      
-      <p className="text-xs mt-1">{card.location}</p>
-      <p className="text-xs mt-1">{card.host}</p>
-      <p className="text-xs mt-1">{card.date}</p>
-      <p className="text-xs mt-1">{card.rating}</p>
-      <p className="text-xs mt-1">{card.price}</p>
-  )
-})}
-</Swiper>
-</div> */
-}
