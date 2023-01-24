@@ -1,24 +1,26 @@
-import React from "react"
+import React, { useRef, useState } from "react"
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react"
 import data from "../assets/data.json"
 // Import Swiper styles
 import "swiper/css"
-import "swiper/css/free-mode"
+
+import "swiper/css/navigation"
 
 // import required modules
-import { FreeMode } from "swiper"
+import { Navigation } from "swiper"
+
 import { AdjustmentsHorizontalIcon } from "@heroicons/react/24/outline"
 
 function SwipeCarouselFilter() {
   return (
-    <div className="flex items-center">
+    <div className="flex items-center py-4">
       <Swiper
         slidesPerView="auto"
         spaceBetween={1}
-        freeMode={true}
-        modules={[FreeMode]}
+        navigation={true}
+        modules={[Navigation]}
         className="
       "
       >
@@ -26,7 +28,7 @@ function SwipeCarouselFilter() {
           return (
             <SwiperSlide
               key={img.id}
-              className="flex flex-col flex-auto flex-wrap h-[72px] items-center justify-center p-2 hover:underline active:underline focus:underine focus:underline"
+              className="flex flex-col flex-auto flex-wrap h-[52px] items-center justify-center px-2 hover:underline active:underline focus:underine focus:underline"
             >
               <img
                 className="h-[28px] w-[28px]"
