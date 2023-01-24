@@ -7,8 +7,11 @@ import SwipeCarouselFilter from "../components/SwipeCarouselFilter"
 function Homepage() {
   return (
     <div>
-      <Navbar />
-      <SwipeCarouselFilter/>
+      <div className="sticky top-0 z-10 bg-white">
+        <Navbar />
+        <SwipeCarouselFilter />
+      </div>
+
       <HomepageCard />
       <Footer />
     </div>
