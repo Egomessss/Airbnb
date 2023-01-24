@@ -1,5 +1,6 @@
 import { MapIcon } from "@heroicons/react/24/solid"
 import React from "react"
+import BottomNav from "../components/BottomNav"
 import Footer from "../components/Footer"
 import HomepageCard from "../components/HomepageCard"
 import Navbar from "../components/Navbar"
@@ -15,6 +16,7 @@ function Homepage() {
       </div>
       <HomepageCard />
       <StickyButton />
+      <BottomNav/>
       <Footer />
     </div>
   )

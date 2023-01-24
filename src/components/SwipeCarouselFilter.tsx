@@ -19,14 +19,14 @@ function SwipeCarouselFilter() {
       <Swiper
         slidesPerView="auto"
         spaceBetween={28}
-         navigation={true}
+        navigation={true}
         modules={[Navigation]}
       >
         {data.imgs.map((img) => {
           return (
             <SwiperSlide
               key={img.id}
-              className="flex flex-col flex-auto flex-wrap w-[77px] h-[56px] my-2 items-center justify-center hover:underline active:underline active:decoration-black active:decoration-2  focus:underline decoration-2 decoration-gray-300 underline-offset-8 cursor-pointer"
+              className="flex flex-col flex-auto flex-wrap w-[77px] h-[56px] my-2 items-center justify-center hover:underline hover:decoration-gray-300 focus:underline focus:decoration-black decoration-2  underline-offset-8 cursor-pointer"
             >
               <img
                 className="h-[28px] w-[28px]"
