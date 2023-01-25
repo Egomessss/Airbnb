@@ -14,7 +14,7 @@ export default function BottomNav() {
   const iconStyle = "h-6 w-6 mx-2 inline-block mb-1"
   const spanStyle = "tab tab-explore block text-xs focus:text-black"
   return (
-    <div className="flex justify-center items-center w-full md:hidden fixed inset-x-0 bottom-0 z-10 bg-white shadow py-2">
+    <div className="flex justify-center items-center w-full md:hidden fixed inset-x-0 bottom-0 bg-white shadow py-2">
       <a
         href="#"
         className={aStyle}

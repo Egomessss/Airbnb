@@ -1,84 +1,84 @@
-import * as React from "react"
-import Box from "@mui/material/Box"
-import Avatar from "@mui/material/Avatar"
-import Menu from "@mui/material/Menu"
-import MenuItem from "@mui/material/MenuItem"
-import ListItemIcon from "@mui/material/ListItemIcon"
-import Divider from "@mui/material/Divider"
-import IconButton from "@mui/material/IconButton"
-import Typography from "@mui/material/Typography"
-import Tooltip from "@mui/material/Tooltip"
+import React from "react"
+
+import { Fragment } from "react"
+import { Menu, Transition } from "@headlessui/react"
+
 import { Bars3Icon, UserCircleIcon } from "@heroicons/react/24/outline"
 
-export default function AccountMenu() {
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
-  const open = Boolean(anchorEl)
-  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorEl(event.currentTarget)
-  }
-  const handleClose = () => {
-    setAnchorEl(null)
-  }
+export default function Dropdown() {
+  const aStyle =
+    "block px-4 py-2 text-sm hover:bg-gray-100 active:bg-gray-100 active:font-semibold"
   return (
-    <React.Fragment>
-      <Box sx={{ display: "flex", alignItems: "center", textAlign: "center" }}>
-        <Tooltip title="Account settings">
-          <IconButton
-            onClick={handleClick}
-            size="small"
-            aria-controls={open ? "account-menu" : undefined}
-            aria-haspopup="true"
-            aria-expanded={open ? "true" : undefined}
-          >
-            <div className="flex items-center justify-between border-gray-200 border-2 p-2 rounded-3xl gap-2 w-[72px] cursor-pointer ">
-              <Bars3Icon className="h-6" />
-              <UserCircleIcon className="h-7" />
-            </div>
-          </IconButton>
-        </Tooltip>
-      </Box>
-      <Menu
-        anchorEl={anchorEl}
-        id="account-menu"
-        open={open}
-        onClose={handleClose}
-        onClick={handleClose}
-        PaperProps={{
-          elevation: 0,
-          sx: {
-            overflow: "visible",
-            filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
-            mt: 1.5,
-            "& .MuiAvatar-root": {
-              width: 32,
-              height: 32,
-              ml: -0.5,
-              mr: 1,
-            },
-            "&:before": {
-              content: '""',
-              display: "block",
-              position: "absolute",
-              top: 0,
-              right: 14,
-              width: 10,
-              height: 10,
-              bgcolor: "background.paper",
-              transform: "translateY(-50%) rotate(45deg)",
-              zIndex: 0,
-            },
-          },
-        }}
-        transformOrigin={{ horizontal: "right", vertical: "top" }}
-        anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
+    <Menu
+      as="div"
+      className="relative inline-block text-left"
+    >
+      <div>
+        <Menu.Button className="flex items-center justify-between border-gray-200 border-2 p-2 rounded-3xl gap-2 h-[40px] w-[72px] cursor-pointer hover:shadow-lg">
+          <Bars3Icon className="h-6" />
+          <UserCircleIcon className="h-7" />
+        </Menu.Button>
+      </div>
+
+      <Transition
+        as={Fragment}
+        enter="transition ease-out duration-100"
+        enterFrom="transform opacity-0 scale-95"
+        enterTo="transform opacity-100 scale-100"
+        leave="transition ease-in duration-75"
+        leaveFrom="transform opacity-100 scale-100"
+        leaveTo="transform opacity-0 scale-95"
       >
-        <MenuItem>Sign up</MenuItem>
-        <MenuItem>Log in</MenuItem>
-        <Divider />
-        <MenuItem>Airbnb your home</MenuItem>
-        <MenuItem>Host an experience</MenuItem>
-        <MenuItem>Help</MenuItem>
-      </Menu>
-    </React.Fragment>
+        <Menu.Items className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+          <div className="py-1">
+            <Menu.Item>
+              <a
+                href="#"
+                className={aStyle}
+              >
+                Sign up
+              </a>
+            </Menu.Item>
+            <Menu.Item>
+              <a
+                href="#"
+                className={aStyle}
+              >
+                Log in
+              </a>
+            </Menu.Item>
+            <Menu.Item>
+              <a
+                href="#"
+                className={aStyle}
+              >
+                Airbnb your home
+              </a>
+            </Menu.Item>
+            <form
+              method="POST"
+              action="#"
+            >
+              <Menu.Item>
+                <a
+                  type="submit"
+                  className={aStyle}
+                >
+                  Host an experience
+                </a>
+              </Menu.Item>
+              <Menu.Item>
+                <a
+                  type="submit"
+                  className={aStyle}
+                >
+                  Help
+                </a>
+              </Menu.Item>
+            </form>
+          </div>
+        </Menu.Items>
+      </Transition>
+    </Menu>
   )
 }

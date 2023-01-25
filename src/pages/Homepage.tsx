@@ -15,11 +15,18 @@ function Homepage() {
         <SwipeCarouselFilter />
       </div>
       <HomepageCard />
-      <StickyButton />
-      <BottomNav/>
+      <div className="sticky bottom-0 z-10 bg-white">
+        <StickyButton />
+        <BottomNav />
+      </div>
+
       <Footer />
     </div>
   )
 }
 
 export default Homepage
+
+// you can see the scrolling of the homecards trought the nav
+// prevent sticky button and bottom nav from showing the search modal
+// populate the cards and swipe carousel with the api data so no key error

@@ -1,10 +1,12 @@
 import Navbar from "./components/Navbar"
 import Homepage from "./pages/Homepage"
+import Listings from "./pages/Listings"
 
 function App() {
   return (
-    <div className=" mx-auto px-3 md:px-16 ">
-      <Homepage />
+    <div>
+      {/* <Homepage /> */}
+      <Listings/>
     </div>
   )
 }

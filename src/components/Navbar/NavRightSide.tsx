@@ -4,7 +4,7 @@ import Dropdown from "../Dropdown"
 
 function NavRightSide() {
   return (
-    <div className=" hidden md:flex items-center gap-1 h-[50px] w-[260px] min-w-[280px]">
+    <div className=" hidden md:flex items-center justify-between h-[50px] w-[260px] min-w-[280px]">
       <button className="hover:rounded-full hover:bg-gray-100 text-sm font-semibold whitespace-nowrap h-[30px] p-1">
         Airbnb your home
       </button>
