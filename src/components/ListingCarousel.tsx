@@ -26,6 +26,7 @@ function ListingCarousel() {
               <img
                 src={img}
                 alt=""
+                className="cover"
               />
             </SwiperSlide>
           )

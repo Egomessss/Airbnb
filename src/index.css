@@ -91,3 +91,17 @@
 .swiper-button-lock {
   display: none;
 }
+
+/* swiper listing pagination */
+
+.swiper-pagination-fraction {
+  bottom: 10px;
+  left: 320px;
+  width: 50px;
+  background-color: rgb(25, 25, 25);
+  opacity: 0.8;
+  color: white;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
