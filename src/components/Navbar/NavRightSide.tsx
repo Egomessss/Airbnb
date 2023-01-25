@@ -4,15 +4,11 @@ import Dropdown from "../Dropdown"
 
 function NavRightSide() {
   return (
-    <div className="flex items-center">
-      <div>
-        <p className="rounded-full hover:bg-gray-100  text-sm font-semibold whitespace-nowrap">
-          Airbnb your home
-        </p>
-      </div>
-      <div>
-        <GlobeAltIcon className="h-11 p-3 rounded-full hover:bg-gray-100" />
-      </div>
+    <div className=" hidden md:flex items-center gap-1 h-[50px] w-[260px] min-w-[280px]">
+      <button className="hover:rounded-full hover:bg-gray-100 text-sm font-semibold whitespace-nowrap h-[30px] p-1">
+        Airbnb your home
+      </button>
+      <GlobeAltIcon className="h-11 p-3 rounded-full hover:bg-gray-100" />
       <Dropdown />
     </div>
   )

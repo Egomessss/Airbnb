@@ -18,13 +18,23 @@ function Navbar() {
   const [showModal, setShowModal] = React.useState(false)
 
   return (
-    <nav className="py-2 md:py-4 border-b-[1.5px] flex justify-between relative">
+    <nav className="py-2 md:py-4 border-b-[1.5px] flex justify-between items-center gap-2">
+      {/* <div className="w-[200px] h-[50px]"></div>
+      <div className="w-[20px] h-[50px]"></div>
+      <div className="w-[200px] h-[50px]"></div> */}
+      {/* full scale */}
       <NavLeftSide />
 
-      <NavMiddleFull />
-
+      <NavMiddleFull
+        show={showModal}
+        setModal={setShowModal}
+      />
       <NavRightSide />
-      <NavMidleMobile />
+      {/* mobile nav */}
+      <NavMidleMobile
+        show={showModal}
+        setModal={setShowModal}
+      />
     </nav>
   )
 }
