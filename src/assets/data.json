@@ -149,32 +149,7 @@
       "date": "2-10 Feb",
       "rating": 5,
       "price": 455
-    }
-    ,
-    {
-      "slides": [
-        "https://a0.muscache.com/im/pictures/8b624fc9-48e2-4cf6-99d2-6345aa5c4095.jpg?im_w=720",
-        "https://a0.muscache.com/im/pictures/d512374c-a256-4737-9eca-39a383d09ffb.jpg?im_w=720"
-      ],
-      "location": " Montargil, Portugal",
-      "host": "Super Host",
-      "date": "2-10 Feb",
-      "rating": 5,
-      "price": 455
-    }
-    ,
-    {
-      "slides": [
-        "https://a0.muscache.com/im/pictures/8b624fc9-48e2-4cf6-99d2-6345aa5c4095.jpg?im_w=720",
-        "https://a0.muscache.com/im/pictures/d512374c-a256-4737-9eca-39a383d09ffb.jpg?im_w=720"
-      ],
-      "location": " Montargil, Portugal",
-      "host": "Super Host",
-      "date": "2-10 Feb",
-      "rating": 5,
-      "price": 455
-    }
-    ,
+    },
     {
       "slides": [
         "https://a0.muscache.com/im/pictures/8b624fc9-48e2-4cf6-99d2-6345aa5c4095.jpg?im_w=720",
@@ -196,20 +171,7 @@
       "date": "2-10 Feb",
       "rating": 5,
       "price": 455
-    }
-    ,
-    {
-      "slides": [
-        "https://a0.muscache.com/im/pictures/8b624fc9-48e2-4cf6-99d2-6345aa5c4095.jpg?im_w=720",
-        "https://a0.muscache.com/im/pictures/d512374c-a256-4737-9eca-39a383d09ffb.jpg?im_w=720"
-      ],
-      "location": " Montargil, Portugal",
-      "host": "Super Host",
-      "date": "2-10 Feb",
-      "rating": 5,
-      "price": 455
-    }
-    ,
+    },
     {
       "slides": [
         "https://a0.muscache.com/im/pictures/8b624fc9-48e2-4cf6-99d2-6345aa5c4095.jpg?im_w=720",
@@ -253,6 +215,45 @@
       "date": "2-10 Feb",
       "rating": 5,
       "price": 455
+    },
+    {
+      "slides": [
+        "https://a0.muscache.com/im/pictures/8b624fc9-48e2-4cf6-99d2-6345aa5c4095.jpg?im_w=720",
+        "https://a0.muscache.com/im/pictures/d512374c-a256-4737-9eca-39a383d09ffb.jpg?im_w=720"
+      ],
+      "location": " Montargil, Portugal",
+      "host": "Super Host",
+      "date": "2-10 Feb",
+      "rating": 5,
+      "price": 455
+    },
+    {
+      "slides": [
+        "https://a0.muscache.com/im/pictures/8b624fc9-48e2-4cf6-99d2-6345aa5c4095.jpg?im_w=720",
+        "https://a0.muscache.com/im/pictures/d512374c-a256-4737-9eca-39a383d09ffb.jpg?im_w=720"
+      ],
+      "location": " Montargil, Portugal",
+      "host": "Super Host",
+      "date": "2-10 Feb",
+      "rating": 5,
+      "price": 455
+    },
+    {
+      "slides": [
+        "https://a0.muscache.com/im/pictures/8b624fc9-48e2-4cf6-99d2-6345aa5c4095.jpg?im_w=720",
+        "https://a0.muscache.com/im/pictures/d512374c-a256-4737-9eca-39a383d09ffb.jpg?im_w=720"
+      ],
+      "location": " Montargil, Portugal",
+      "host": "Super Host",
+      "date": "2-10 Feb",
+      "rating": 5,
+      "price": 455
     }
+  ],
+  "listingImgs": [
+    "https://a0.muscache.com/im/pictures/8b624fc9-48e2-4cf6-99d2-6345aa5c4095.jpg?im_w=720",
+    "https://a0.muscache.com/im/pictures/d512374c-a256-4737-9eca-39a383d09ffb.jpg?im_w=720",
+    "https://a0.muscache.com/im/pictures/2673fc22-3efb-46b1-a204-f6acbdb2ecac.jpg?im_w=720",
+    "https://a0.muscache.com/im/pictures/2465d23e-d53b-4ff0-b7b1-2d18f365dbed.jpg?im_w=720"
   ]
 }

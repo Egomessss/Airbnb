@@ -1,4 +1,5 @@
 import React from "react"
+import ListingCarousel from "../components/ListingCarousel"
 import ListingNav from "../components/ListingNav"
 import Navbar from "../components/Navbar"
 
@@ -11,6 +12,7 @@ function Listings() {
       <div className="md:hidden">
         <ListingNav />
       </div>
+      <ListingCarousel/>
     </div>
   )
 }
