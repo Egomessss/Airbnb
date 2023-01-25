@@ -2,8 +2,8 @@ import { XCircleIcon } from "@heroicons/react/24/outline"
 import { MagnifyingGlassIcon } from "@heroicons/react/24/solid"
 import React from "react"
 import SearchModal from "./SearchModal"
-import SwipeCarousel from "./SwipeCarousel"
-import data from "../assets/data.json"
+import SwipeCarousel from "../SwipeCarousel"
+import data from "../../assets/data.json"
 
 // remove active effect on search
 

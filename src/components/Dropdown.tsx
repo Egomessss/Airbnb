@@ -31,7 +31,7 @@ export default function AccountMenu() {
             aria-haspopup="true"
             aria-expanded={open ? "true" : undefined}
           >
-            <div className="flex items-center justify-between border-gray-200 border-2 p-2 rounded-r-full rounded-l-full gap-2 w-[72px] cursor-pointer  hover:shadow-lg">
+            <div className="flex items-center justify-between border-gray-200 border-2 p-2 rounded-3xl gap-2 w-[72px] cursor-pointer ">
               <Bars3Icon className="h-6" />
               <UserCircleIcon className="h-7" />
             </div>
