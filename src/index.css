@@ -95,7 +95,7 @@
 /* swiper listing pagination */
 
 .swiper-pagination-fraction {
-  bottom: 10px;
+  bottom: 15px;
   left: 320px;
   width: 50px;
   background-color: rgb(25, 25, 25);

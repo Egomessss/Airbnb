@@ -12,7 +12,7 @@ import { Pagination } from "swiper"
 import data from "../assets/data.json"
 function ListingCarousel() {
   return (
-    <div className="-mx-3">
+    <div className="-mx-6">
       <Swiper
         className="mySwiper"
         pagination={{
@@ -26,7 +26,7 @@ function ListingCarousel() {
               <img
                 src={img}
                 alt=""
-                className="cover"
+                className="object-cover min-w-[390px] h-[260px]"
               />
             </SwiperSlide>
           )
