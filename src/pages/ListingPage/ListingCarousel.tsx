@@ -9,7 +9,7 @@ import "swiper/css/pagination"
 
 import { Pagination } from "swiper"
 
-import data from "../assets/data.json"
+import data from "../../assets/data.json"
 function ListingCarousel() {
   return (
     <div className="-mx-6">

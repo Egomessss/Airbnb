@@ -1,9 +1,9 @@
 import React from "react"
 
-import NavLeftSide from "./Navbar/NavLeftSide"
-import NavMiddleFull from "./Navbar/NavMiddleFull"
-import NavMidleMobile from "./Navbar/NavMidleMobile"
-import NavRightSide from "./Navbar/NavRightSide"
+import NavLeftSide from "./NavLeftSide"
+import NavMiddleFull from "./NavMiddleFull"
+import NavMidleMobile from "./NavMidleMobile"
+import NavRightSide from "./NavRightSide"
 
 function Navbar() {
  

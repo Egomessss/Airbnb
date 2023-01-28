@@ -9,7 +9,7 @@ import "swiper/css/pagination"
 // import required modules
 import { Pagination } from "swiper"
 
-import data from "../assets/data.json"
+import data from "../../assets/data.json"
 import { HeartIcon, StarIcon } from "@heroicons/react/24/outline"
 
 function HomepageCard() {

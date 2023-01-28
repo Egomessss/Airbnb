@@ -1,6 +1,6 @@
-import Navbar from "./components/Navbar"
-import Homepage from "./pages/Homepage"
-import Listings from "./pages/Listings"
+import Navbar from "./components/Navbar/Navbar"
+import Homepage from "./pages/Homepage/index"
+import Listings from "./pages/ListingPage/index"
 
 function App() {
   return (
