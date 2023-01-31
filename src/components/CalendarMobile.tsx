@@ -13,12 +13,20 @@ function CalendarMobile() {
     endDate: endDate,
     key: "selection",
   }
+
+  const handleSelection = (ranges) => {
+    setStartDate(ranges.selection.startDate)
+    setEndDate(ranges.selection.endDate)
+  }
+
   return (
     <div>
       <DateRange
         ranges={[selectionRange]}
+        onChange={handleSelection}
         minDate={new Date()}
         rangeColors={["black"]}
+        showDateDisplay={false}
       />
     </div>
   )

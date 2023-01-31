@@ -18,14 +18,9 @@ import Info from "./Info"
 
 import MobileBtn from "../../components/MobileBtn"
 import CalendarMobile from "../../components/CalendarMobile"
-
+import ReviewsCarousel from "./ReviewsCarousel"
 
 function ListingInfo() {
-
-
-
-
-
   return (
     // Intro
     <div>
@@ -180,7 +175,7 @@ function ListingInfo() {
           <ListingCarouselSpace />
         </div>
       </Info>
-{/* falta link */}
+      {/* falta link */}
       <Info>
         <div>
           <h2 className="text-xl font-semibold mb-4">What this place offers</h2>
@@ -208,14 +203,13 @@ function ListingInfo() {
           </div>
           <div className="mt-8">
             <MobileBtn
-            text={"Show all 37 amenities"}
-            link={""}
-          />
+              text={"Show all 37 amenities"}
+              link={""}
+            />
           </div>
-          
         </div>
       </Info>
-{/* adicionar mapa */}
+      {/* adicionar mapa */}
       <Info>
         <div>
           <h2 className="text-xl font-semibold mb-4">Where you'll be</h2>
@@ -228,17 +222,19 @@ function ListingInfo() {
         <h2 className="text-xl font-semibold mb-4">7 nights in Luz, Lagos</h2>
         <p className="text-sm">30 may 2023-5 Jun 2023</p>
 
-        <CalendarMobile
-        />
-        <button>Clear dates</button>
+        <CalendarMobile />
+        <button className="underline font-semibold text-sm">Clear dates</button>
       </Info>
 
       <Info>
-        <StarIcon className="h-4" />
-        <p> 4.89</p>
-        <p>110 reviews</p>
-        <ListingCarouselSpace />
-        <button>Show all 110 reviews</button>
+        <div className="flex gap-2 font-semibold text-xl items-center mb-6">
+          <StarIcon className="h-4" />
+          <p> 4.89</p>
+          <p>110 reviews</p>
+        </div>
+
+        <ReviewsCarousel />
+        <MobileBtn text={"Show all 110 reviews"}/>
       </Info>
 
       <Info>
