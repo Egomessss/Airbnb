@@ -1,20 +1,21 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState } from "react"
 // Import Swiper React components
-import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper, SwiperSlide } from "swiper/react"
 
 // Import Swiper styles
-import "swiper/css";
-import "swiper/css/pagination";
+import "swiper/css"
+import "swiper/css/pagination"
 
+import { MdOutlineSingleBed, MdOutlineKingBed } from "react-icons/md"
 
 // import required modules
-import { Pagination } from "swiper";
+import { Pagination } from "swiper"
 
 export default function App() {
   return (
     <>
       <Swiper
-        slidesPerView={3}
+        slidesPerView={2.1}
         spaceBetween={30}
         pagination={{
           clickable: true,
@@ -22,16 +23,43 @@ export default function App() {
         modules={[Pagination]}
         className="mySwiper"
       >
-        <SwiperSlide>Slide 1</SwiperSlide>
-        <SwiperSlide>Slide 2</SwiperSlide>
-        <SwiperSlide>Slide 3</SwiperSlide>
-        <SwiperSlide>Slide 4</SwiperSlide>
-        <SwiperSlide>Slide 5</SwiperSlide>
-        <SwiperSlide>Slide 6</SwiperSlide>
-        <SwiperSlide>Slide 7</SwiperSlide>
-        <SwiperSlide>Slide 8</SwiperSlide>
-        <SwiperSlide>Slide 9</SwiperSlide>
+        <SwiperSlide>
+          <div className="flex flex-col justify-center items-start py-6 px-4 border-[1px] rounded-lg w-[165px] h-[155px]">
+            <div className="flex">
+              <MdOutlineSingleBed className="h-8 w-8" />
+              <MdOutlineKingBed className="h-8 w-8" />
+            </div>
+            <div>
+              <h4 className="font-semibold">Bedroom 1</h4>
+              <p>1 double bed</p>
+            </div>
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div className="flex flex-col justify-center items-start py-6 px-4 border-[1px] rounded-lg w-[165px] h-[155px]">
+            <div className="flex">
+              <MdOutlineSingleBed className="h-8 w-8" />
+              <MdOutlineKingBed className="h-8 w-8" />
+            </div>
+            <div>
+              <h4 className="font-semibold">Bedroom 1</h4>
+              <p>1 double bed</p>
+            </div>
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div className="flex flex-col justify-center items-start py-6 px-4 border-[1px] rounded-lg w-[165px] h-[155px]">
+            <div className="flex">
+              <MdOutlineSingleBed className="h-8 w-8" />
+              <MdOutlineKingBed className="h-8 w-8" />
+            </div>
+            <div>
+              <h4 className="font-semibold">Bedroom 1</h4>
+              <p>1 double bed</p>
+            </div>
+          </div>
+        </SwiperSlide>
       </Swiper>
     </>
-  );
+  )
 }
