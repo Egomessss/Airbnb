@@ -1,6 +1,6 @@
 import { StarIcon, TrophyIcon } from "@heroicons/react/24/solid"
 import medal from "../assets/images/medal.png"
-import React from "react"
+import React, { useState } from "react"
 import {
   CalendarIcon,
   ChevronRightIcon,
@@ -15,8 +15,17 @@ import { TbBeach } from "react-icons/tb"
 import { SlDiamond } from "react-icons/sl"
 import { CiLocationOn, CiCalendar } from "react-icons/ci"
 import Info from "./Info"
+
 import MobileBtn from "../../components/MobileBtn"
+import CalendarMobile from "../../components/CalendarMobile"
+
+
 function ListingInfo() {
+
+
+
+
+
   return (
     // Intro
     <div>
@@ -218,7 +227,9 @@ function ListingInfo() {
       <Info>
         <h2 className="text-xl font-semibold mb-4">7 nights in Luz, Lagos</h2>
         <p className="text-sm">30 may 2023-5 Jun 2023</p>
-        <Calendar />
+
+        <CalendarMobile
+        />
         <button>Clear dates</button>
       </Info>
 
