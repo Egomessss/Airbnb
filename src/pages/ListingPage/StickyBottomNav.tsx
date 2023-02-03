@@ -8,7 +8,7 @@ function StickyBottomNav() {
           <span className="font-semibold"> £207</span>night
         </p>
         <a
-          className="font-semibold underline underline-offset-2"
+          className="font-semibold underline underline-offset-2 text-sm"
           href="#"
         >
           30 may-5 Jun

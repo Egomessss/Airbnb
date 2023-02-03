@@ -5,6 +5,7 @@ import ListingNav from "../ListingPage/ListingNav"
 import Navbar from "../../components/Navbar/Navbar"
 import StickyBottomNav from "./StickyBottomNav"
 import Footer from "../../components/Footer"
+import FooterMobile from "./FooterMobile"
 
 function Listings() {
   return (
@@ -17,7 +18,7 @@ function Listings() {
       </div>
       <ListingCarousel />
       <ListingInfo />
-      <Footer/>
+      <FooterMobile/>
       <StickyBottomNav/>
     </div>
   )
