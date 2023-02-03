@@ -4,13 +4,10 @@ import {
   StarIcon,
   TrophyIcon,
 } from "@heroicons/react/24/solid"
-import medal from "../assets/images/medal.png"
-import React, { useState } from "react"
+
 import {
-  CalendarIcon,
   ChevronRightIcon,
   LanguageIcon,
-  MapPinIcon,
   ShieldCheckIcon,
 } from "@heroicons/react/24/outline"
 import ListingCarousel from "./ListingCarousel"
@@ -25,6 +22,8 @@ import Info from "./Info"
 import MobileBtn from "../../components/MobileBtn"
 import CalendarMobile from "../../components/CalendarMobile"
 import ReviewsCarousel from "./ReviewsCarousel"
+import Map from "../../components/MapApi"
+import MapApi from "../../components/MapApi"
 
 function ListingInfo() {
   return (
@@ -45,7 +44,7 @@ function ListingInfo() {
               110 reviews
             </li>
             <li className="flex gap-1 items-center font-normal">
-              <TrophyIcon className="h-3 " />
+              <FaMedal className="h-3 " />
               Superhost
             </li>
           </ul>
@@ -220,7 +219,9 @@ function ListingInfo() {
         <div>
           <h2 className="text-xl font-semibold mb-4">Where you'll be</h2>
           <p className="mb-4">Luz, Lagos, Faro, Portugal</p>
-          <div className="w-[342px] h-[218px] border-black border-2"></div>
+          <div className="w-[342px] h-[218px] border-black border-2">
+            <MapApi />
+          </div>
         </div>
       </Info>
 
