@@ -2,7 +2,7 @@ import { Fragment, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 
-export default function SearchPopOver({open, setOpen}) {
+export default function PopOver({open, setOpen}) {
  
 
   return (
@@ -74,30 +74,3 @@ export default function SearchPopOver({open, setOpen}) {
     </Transition.Root>
   )
 }
-
-
-
-
-// return (
-//     <div className="h-[160px] w-full bg-white z-50">
-//       {/* top section */}
-//       <div className="flex justify-between w-full">
-//         <NavLeftSide />
-//         <div className="flex items-center w-[444px]">
-//           <ul className="flex justify-between items-center gap-6 font-medium">
-//             <li>
-//               <button> Stays</button>
-//             </li>
-//             <li>
-//               <button>Experiences</button>
-//             </li>
-//             <li>
-//               <button>Online Experiences</button>
-//             </li>
-//           </ul>
-//         </div>
-//         <NavRightSide />
-//       </div>
-//       {/* Middle section */}
-      
-//     </div>

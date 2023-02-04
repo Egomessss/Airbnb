@@ -10,15 +10,15 @@ function Navbar() {
  
 
   return (
-    <nav className="py-2 md:py-4 border-b-[1.5px] flex justify-between items-center gap-2">
+    <nav className="py-2 md:pt-4 border-b-[1.5px] flex justify-between items-center gap-2">
       {/* full scale */}
       {/* <NavLeftSide /> */}
 
-      {/* <NavMiddleFull /> */}
+      <NavMiddleFull />
       {/* <NavRightSide /> */}
       {/* mobile nav */}
       {/* <NavMidleMobile /> */}
-      <SearchPopOver/>
+      {/* <SearchPopOver/> */}
     </nav>
   )
 }
