@@ -4,6 +4,7 @@ import NavLeftSide from "./NavLeftSide"
 import NavMiddleFull from "./NavMiddleFull"
 import NavMidleMobile from "./NavMidleMobile"
 import NavRightSide from "./NavRightSide"
+import SearchPopOver from "./SearchPopOver"
 
 function Navbar() {
  
@@ -11,12 +12,13 @@ function Navbar() {
   return (
     <nav className="py-2 md:py-4 border-b-[1.5px] flex justify-between items-center gap-2">
       {/* full scale */}
-      <NavLeftSide />
+      {/* <NavLeftSide /> */}
 
-      <NavMiddleFull />
-      <NavRightSide />
+      {/* <NavMiddleFull /> */}
+      {/* <NavRightSide /> */}
       {/* mobile nav */}
-      <NavMidleMobile />
+      {/* <NavMidleMobile /> */}
+      <SearchPopOver/>
     </nav>
   )
 }

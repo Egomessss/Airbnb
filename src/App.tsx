@@ -7,10 +7,10 @@ import SearchPage from "./pages/SearchPage"
 function App() {
   return (
     <div>
-      {/* <Homepage /> */}
+      <Homepage />
       {/* <Listings/> */}
       {/* <SearchPage /> */}
-      <MapPage/>
+      {/* <MapPage/> */}
     </div>
   )
 }

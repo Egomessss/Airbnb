@@ -9,7 +9,7 @@ import SwipeCarouselFilter from "../../components/SwipeCarouselFilter"
 
 function Homepage() {
   return (
-    <div className="relative px-20">
+    <div className="relative px-6 md:px-20">
       <div className="sticky top-0 z-10 bg-white">
         <Navbar />
         <SwipeCarouselFilter />
