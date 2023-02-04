@@ -5,7 +5,7 @@ import SearchPage from "./pages/SearchPage"
 
 function App() {
   return (
-    <div className="px-20">
+    <div>
       {/* <Homepage /> */}
       {/* <Listings/> */}
       <SearchPage />
