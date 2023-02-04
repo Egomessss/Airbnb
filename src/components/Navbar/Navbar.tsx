@@ -12,12 +12,12 @@ function Navbar() {
   return (
     <nav className="py-2 md:pt-4 border-b-[1.5px] flex justify-between items-center gap-2">
       {/* full scale */}
-      {/* <NavLeftSide /> */}
+      <NavLeftSide />
 
       <NavMiddleFull />
-      {/* <NavRightSide /> */}
+      <NavRightSide />
       {/* mobile nav */}
-      {/* <NavMidleMobile /> */}
+      <NavMidleMobile />
       {/* <SearchPopOver/> */}
     </nav>
   )

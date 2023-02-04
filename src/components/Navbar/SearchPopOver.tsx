@@ -1,13 +1,19 @@
-import { Fragment, useState } from 'react'
-import { Dialog, Transition } from '@headlessui/react'
-import { XMarkIcon } from '@heroicons/react/24/outline'
+import { Fragment, useState } from "react"
+import { Dialog, Transition } from "@headlessui/react"
 
-export default function SearchPopOver({open, setOpen}) {
- 
+import TopNavSearch from "./NavbarSearch/TopNavSearch"
 
+export default function SearchPopOver({ open, setOpen }:any) {
   return (
-    <Transition.Root show={open} as={Fragment}>
-      <Dialog as="div" className="relative z-10" onClose={setOpen}>
+    <Transition.Root
+      show={open}
+      as={Fragment}
+    >
+      <Dialog
+        as="div"
+        className="relative z-10"
+        onClose={setOpen}
+      >
         <Transition.Child
           as={Fragment}
           enter="ease-in-out duration-500"
@@ -22,7 +28,7 @@ export default function SearchPopOver({open, setOpen}) {
 
         <div className="fixed inset-0 overflow-hidden">
           <div className="absolute inset-0 overflow-hidden">
-            <div className="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
+            <div className="pointer-events-none fixed top-0 flex max-w-full ">
               <Transition.Child
                 as={Fragment}
                 enter="transform transition ease-in-out duration-500 sm:duration-700"
@@ -32,38 +38,11 @@ export default function SearchPopOver({open, setOpen}) {
                 leaveFrom="translate-x-0"
                 leaveTo="translate-x-full"
               >
+                {/* Content */}
                 <Dialog.Panel className="pointer-events-auto relative w-screen max-w-md">
-                  <Transition.Child
-                    as={Fragment}
-                    enter="ease-in-out duration-500"
-                    enterFrom="opacity-0"
-                    enterTo="opacity-100"
-                    leave="ease-in-out duration-500"
-                    leaveFrom="opacity-100"
-                    leaveTo="opacity-0"
-                  >
-                    <div className="absolute top-0 left-0 -ml-8 flex pt-4 pr-2 sm:-ml-10 sm:pr-4">
-                      <button
-                        type="button"
-                        className="rounded-md text-gray-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-white"
-                        onClick={() => setOpen(false)}
-                      >
-                        <span className="sr-only">Close panel</span>
-                        <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-                      </button>
-                    </div>
-                  </Transition.Child>
-                  <div className="flex h-full flex-col overflow-y-scroll bg-white py-6 shadow-xl">
-                    <div className="px-4 sm:px-6">
-                      <Dialog.Title className="text-lg font-medium text-gray-900">Panel title</Dialog.Title>
-                    </div>
-                    <div className="relative mt-6 flex-1 px-4 sm:px-6">
-                      {/* Replace with your content */}
-                      <div className="absolute inset-0 px-4 sm:px-6">
-                        <div className="h-full border-2 border-dashed border-gray-200" aria-hidden="true" />
-                      </div>
-                      {/* /End replace */}
-                    </div>
+                  <div className="flex h-[160px] w-screen flex-col bg-white py-4 px-20 shadow-xl">
+                    <TopNavSearch />
+
                   </div>
                 </Dialog.Panel>
               </Transition.Child>
@@ -74,30 +53,3 @@ export default function SearchPopOver({open, setOpen}) {
     </Transition.Root>
   )
 }
-
-
-
-
-// return (
-//     <div className="h-[160px] w-full bg-white z-50">
-//       {/* top section */}
-//       <div className="flex justify-between w-full">
-//         <NavLeftSide />
-//         <div className="flex items-center w-[444px]">
-//           <ul className="flex justify-between items-center gap-6 font-medium">
-//             <li>
-//               <button> Stays</button>
-//             </li>
-//             <li>
-//               <button>Experiences</button>
-//             </li>
-//             <li>
-//               <button>Online Experiences</button>
-//             </li>
-//           </ul>
-//         </div>
-//         <NavRightSide />
-//       </div>
-//       {/* Middle section */}
-      
-//     </div>
