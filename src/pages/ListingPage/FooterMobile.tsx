@@ -4,7 +4,7 @@ import Info from "./Info"
 
 function FooterMobile() {
   return (
-    <div className="bg-[#F7F7F7] -mx-6 px-6 mb-[80px]">
+    <div className="bg-[#F7F7F7] -mx-6 md:-mx-20 md:px-20 px-6 mb-[80px] md:flex justify-between ">
       <Info>
         <h2 className="mb-2 font-semibold">Support</h2>
         <ul className="text-sm flex flex-col gap-2">
