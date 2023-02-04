@@ -4,9 +4,9 @@ import Listings from "./pages/ListingPage/index"
 
 function App() {
   return (
-    <div>
-      {/* <Homepage /> */}
-      <Listings/>
+    <div className="px-20">
+      <Homepage />
+      {/* <Listings/> */}
     </div>
   )
 }

@@ -219,7 +219,7 @@ function ListingInfo() {
         <div>
           <h2 className="text-xl font-semibold mb-4">Where you'll be</h2>
           <p className="mb-4">Luz, Lagos, Faro, Portugal</p>
-          <div className="w-[342px] h-[218px] border-black border-2">
+          <div className="w-[342px] h-[218px] rounded-lg">
             <MapApi />
           </div>
         </div>
