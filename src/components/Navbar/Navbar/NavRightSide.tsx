@@ -1,6 +1,6 @@
 import { GlobeAltIcon } from "@heroicons/react/24/outline"
 import React from "react"
-import Dropdown from "../Dropdown"
+import Dropdown from "../../Dropdown"
 
 function NavRightSide() {
   return (

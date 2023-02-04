@@ -1,6 +1,6 @@
 import React from 'react'
-import NavLeftSide from '../NavLeftSide'
-import NavRightSide from '../NavRightSide'
+import NavLeftSide from '../Navbar/NavLeftSide'
+import NavRightSide from '../Navbar/NavRightSide'
 
 function TopNavSearch() {
   return (

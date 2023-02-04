@@ -1,7 +1,7 @@
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline"
 import React, { useState } from "react"
-import NavSearchModal from "./NavSearchModal"
-import SearchPopOver from "./SearchPopOver"
+
+import SearchPopOver from "../NavbarSearch"
 
 function NavMiddleFull() {
   // !state for the NavSearchModal

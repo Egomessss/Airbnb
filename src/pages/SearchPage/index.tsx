@@ -3,7 +3,7 @@ import { MapIcon } from "@heroicons/react/24/solid"
 
 import BottomNav from "../../components/BottomNav"
 
-import Navbar from "../../components/Navbar/Navbar"
+import Navbar from "../../components/Navbar/Navbar/Navbar"
 
 import SwipeCarouselFilter from "../../components/SwipeCarouselFilter"
 

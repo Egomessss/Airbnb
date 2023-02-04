@@ -1,6 +1,6 @@
 import React from "react"
-import logo from "../../assets/images/logo.png"
-import logoMobile from "../../assets/images/logoMobile.png"
+import logo from "../../../assets/images/logo.png"
+import logoMobile from "../../../assets/images/logoMobile.png"
 
 function NavLeftSide() {
   return (

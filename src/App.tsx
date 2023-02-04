@@ -1,4 +1,4 @@
-import Navbar from "./components/Navbar/Navbar"
+import Navbar from "./components/Navbar/Navbar/Navbar"
 import Homepage from "./pages/Homepage/index"
 import Listings from "./pages/ListingPage/index"
 import MapPage from "./pages/MapPage"

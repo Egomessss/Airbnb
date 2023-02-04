@@ -3,7 +3,7 @@ import React from "react"
 import BottomNav from "../../components/BottomNav"
 import Footer from "../../components/Footer"
 import HomepageCard from "../../components/ListingCard"
-import Navbar from "../../components/Navbar/Navbar"
+import Navbar from "../../components/Navbar/Navbar/Navbar"
 import StickyButton from "../../components/StickyButton"
 import SwipeCarouselFilter from "../../components/SwipeCarouselFilter"
 
