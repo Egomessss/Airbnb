@@ -1,6 +1,7 @@
 import Navbar from "./components/Navbar/Navbar"
 import Homepage from "./pages/Homepage/index"
 import Listings from "./pages/ListingPage/index"
+import MapPage from "./pages/MapPage"
 import SearchPage from "./pages/SearchPage"
 
 function App() {
@@ -8,9 +9,12 @@ function App() {
     <div>
       {/* <Homepage /> */}
       {/* <Listings/> */}
-      <SearchPage />
+      {/* <SearchPage /> */}
+      <MapPage/>
     </div>
   )
 }
 
 export default App
+
+// hide api key

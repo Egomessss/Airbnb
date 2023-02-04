@@ -2,12 +2,11 @@ import React from "react"
 import { MapIcon } from "@heroicons/react/24/solid"
 
 import BottomNav from "../../components/BottomNav"
-import Footer from "../../components/Footer"
 
 import Navbar from "../../components/Navbar/Navbar"
-import StickyButton from "../../components/StickyButton"
+
 import SwipeCarouselFilter from "../../components/SwipeCarouselFilter"
-import ListingCard from "../../components/ListingCard"
+
 import FooterMobile from "../ListingPage/FooterMobile"
 import SearchCard from "./SearchCard"
 import MapApi from "../../components/MapApi"

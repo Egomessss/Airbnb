@@ -5,6 +5,7 @@ import NavSearchModal from "./NavSearchModal"
 function NavMiddleFull() {
   // !state for the NavSearchModal
   const [showModal, setShowModal] = React.useState(false)
+  
   return (
     <div
       // opens the modal

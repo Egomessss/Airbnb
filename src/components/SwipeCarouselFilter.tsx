@@ -15,7 +15,7 @@ import { AdjustmentsHorizontalIcon } from "@heroicons/react/24/outline"
 
 function SwipeCarouselFilter() {
   return (
-    <div className="flex items-center gap-2">
+    <div className="flex items-center gap-2 py-6">
       <Swiper
         slidesPerView="auto"
         spaceBetween={28}
