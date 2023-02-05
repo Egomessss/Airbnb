@@ -55,7 +55,7 @@ export default function DestinationPopOver({ children }: any) {
               leaveTo="opacity-0 translate-y-1"
             >
               <Popover.Panel className="absolute left-[80%] z-50 mt-5 w-screen max-w-sm -translate-x-1/2 transform ">
-                <div className="bg-white w-[494px] h-[470px] rounded-[40px] px-12 py-10">
+                <div className="bg-white w-[494px] h-[470px] rounded-[40px] px-12 py-10 border-[1px]">
                   <p className="text-sm font-semibold mb-8">Search by region</p>
                   <div className="relative grid gap-y-7 grid-cols-3">
                     {data.map((img) => {
