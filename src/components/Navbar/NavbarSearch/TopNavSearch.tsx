@@ -11,13 +11,13 @@ function TopNavSearch() {
       <div className="flex justify-center items-center w-[444px]">
         <ul className="flex justify-between items-center gap-6 font-medium">
           <li>
-            <button> Stays</button>
+            <button className='hover:underline underline-offset-8 decoration-2 hover:text-gray-500'> Stays</button>
           </li>
           <li>
-            <button>Experiences</button>
+            <button className='hover:underline underline-offset-8 decoration-2 hover:text-gray-500'>Experiences</button>
           </li>
           <li>
-            <button>Online Experiences</button>
+            <button className='hover:underline underline-offset-8 decoration-2 hover:text-gray-500'>Online Experiences</button>
           </li>
         </ul>
       </div>
