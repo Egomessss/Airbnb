@@ -57,7 +57,7 @@ export default function DestinationPopOver({ children }: any) {
               <Popover.Panel className="absolute left-[80%] z-50 mt-5 w-screen max-w-sm -translate-x-1/2 transform ">
                 <div className="bg-white w-[494px] h-[470px] rounded-[40px] px-12 py-10">
                   <p className="text-sm font-semibold mb-8">Search by region</p>
-                  <div className="relative grid gap-2 grid-cols-3">
+                  <div className="relative grid gap-y-7 grid-cols-3">
                     {data.map((img) => {
                       return (
                         <div>
@@ -66,7 +66,7 @@ export default function DestinationPopOver({ children }: any) {
                             alt={img.title}
                             src={img.link}
                           />
-                          <p className="text-xs mt-2">Countryside</p>
+                          <p className="text-xs mt-2 font-medium">Countryside</p>
                         </div>
                       )
                     })}
