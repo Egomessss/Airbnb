@@ -105,3 +105,17 @@
   font-size: 0.8rem;
   font-weight: 500;
 }
+
+
+
+/* range picker css */
+/* hides the defined range */
+
+.rdrDefinedRangesWrapper {
+  display: none;
+}
+
+.rdrDateRangePickerWrapper{
+display: flex;
+justify-content: center;
+}

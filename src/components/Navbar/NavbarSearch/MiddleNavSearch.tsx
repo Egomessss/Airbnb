@@ -2,6 +2,7 @@ import { MagnifyingGlassIcon } from "@heroicons/react/24/outline"
 import React from "react"
 import { Popover } from "@headlessui/react"
 import DestinationPopOver from "./DestinationPopOver"
+import CheckInPopOver from "./CheckInPopOver"
 
 function MiddleNavSearch() {
   return (
@@ -17,10 +18,10 @@ function MiddleNavSearch() {
           </DestinationPopOver>
         </div>
         <div className="border-l-[1px] px-4 border-gray-400">
-          <DestinationPopOver>
+          <CheckInPopOver>
             <p className="text-xs font-semibold text-left">Check in</p>
             <p className="text-sm  text-gray-400">Add dates</p>
-          </DestinationPopOver>
+          </CheckInPopOver>
         </div>
         <div className="border-l-[1px] px-4 border-gray-400">
           <DestinationPopOver>
