@@ -1,48 +1,51 @@
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline"
 import React from "react"
-import { Popover } from "@headlessui/react"
+
 import DestinationPopOver from "./DestinationPopOver"
 import CheckInPopOver from "./CheckInPopOver"
 import GuestsPopOver from "./GuestsPopOver"
 
 function MiddleNavSearch() {
   return (
-    <div className="w-full flex justify-center py-4">
-      <div className="hidden md:flex w-[802px] h-[65px] justify-around items-center border-[1px] border-gray-300 rounded-full shadow cursor-pointer hover:shadow-lg bg-gray-200 ">
-        <div>
-          <DestinationPopOver>
-            <p>Where</p>
-            <input
-              type="text"
-              placeholder="Search Destinations"
-            />
-          </DestinationPopOver>
-        </div>
-        <div>
-          <CheckInPopOver>
+    <nav className="flex w-full justify-center py-4">
+      <div className="hidden h-[65px] w-[848px] cursor-pointer items-center justify-between rounded-full border-[1px] border-gray-300 bg-white shadow hover:shadow-lg md:flex ">
+        <DestinationPopOver>
+          <p className="text-left text-xs font-semibold">Where</p>
+          <input
+            className="bg-inherit text-black"
+            type="text"
+            placeholder="Search Destinations"
+          />
+        </DestinationPopOver>
+
+        <CheckInPopOver>
           <div className="flex">
-             <div className="border-l-[1px] px-4 border-gray-400">
-              <p className="text-xs font-semibold text-left">Check in</p>
-              <p className="text-sm  text-gray-400">Add dates</p>
+            <div className="rounded-full border-l-[1px] border-gray-300 px-4  hover:bg-gray-300">
+              <p className="text-left text-xs font-semibold">Check in</p>
+              <p className="whitespace-nowrap text-sm  text-gray-400">
+                Add dates
+              </p>
             </div>
-            <div className="border-l-[1px] px-4 border-gray-400">
-              <p className="text-xs font-semibold text-left">Check out</p>
-              <p className="text-sm  text-gray-400">Add dates</p>
+            <div className="rounded-full border-l-[1px] border-gray-300 px-4  hover:bg-gray-300">
+              <p className="text-left text-xs font-semibold">Check out</p>
+              <p className="whitespace-nowrap text-sm  text-gray-400">
+                Add dates
+              </p>
             </div>
           </div>
-          </CheckInPopOver>
-        </div>
-        <div className="border-l-[1px] px-4 border-gray-400">
-          <GuestsPopOver>
-            <p className="text-xs font-semibold text-left">Who</p>
-            <p className="text-sm text-gray-400">Add guests</p>
-          </GuestsPopOver>
-        </div>
-        <button>
-          <MagnifyingGlassIcon className="h-12 w-12 p-2 text-white  rounded-full bg-red-500 " />
+        </CheckInPopOver>
+
+        <GuestsPopOver>
+          <p className="text-left text-xs font-semibold">Who</p>
+          <p className="whitespace-nowrap text-sm text-gray-400">Add guests</p>
+        </GuestsPopOver>
+
+        <button className="mr-2 flex h-[50px] w-[120px] items-center justify-center gap-2 rounded-3xl bg-[#DA0A64] text-white">
+          <MagnifyingGlassIcon className="h-5 w-5" />
+          <p className="font-semibold">Search</p>
         </button>
       </div>
-    </div>
+    </nav>
   )
 }
 
