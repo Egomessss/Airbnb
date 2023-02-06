@@ -27,7 +27,7 @@ export default function GuestsPopOver({ children }: any) {
             leaveFrom="opacity-100 translate-y-0"
             leaveTo="opacity-0 translate-y-1"
           >
-            <Popover.Panel className="absolute right-24 z-50 mt-5 w-screen max-w-sm translate-x-1/2 ">
+            <Popover.Panel className="absolute right-8 z-50 mt-6 w-screen max-w-sm translate-x-1/2 ">
               <div className="flex h-[400px] w-[405px] flex-col items-center justify-center rounded-[40px] border-[1px] bg-white px-12 py-10">
                 <div className="flex w-[350px] justify-between border-b-2 py-6">
                   <div className="flex flex-col">

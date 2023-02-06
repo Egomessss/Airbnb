@@ -53,7 +53,7 @@ export default function DestinationPopOver({ children }: any) {
             leaveFrom="opacity-100 translate-y-0"
             leaveTo="opacity-0 translate-y-1"
           >
-            <Popover.Panel className="absolute left-[80%] z-50 mt-5 w-screen max-w-sm -translate-x-1/2 transform ">
+            <Popover.Panel className="absolute top-14 left-[70%] z-50 mt-5 w-screen max-w-sm -translate-x-1/2 transform ">
               <div className="h-[470px] w-[494px] rounded-[40px] border-[1px] bg-white px-12 py-10">
                 <p className="mb-8 text-sm font-semibold">Search by region</p>
                 <div className="relative grid grid-cols-3 gap-y-7">
