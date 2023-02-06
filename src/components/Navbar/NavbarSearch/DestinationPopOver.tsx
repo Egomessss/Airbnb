@@ -38,7 +38,7 @@ export default function DestinationPopOver({ children }: any) {
   ]
 
   return (
-    <Popover className="relative flex justify-start items-center w-[327px] h-full hover:bg-gray-300 rounded-full">
+    <Popover className="relative flex h-full w-[35%] items-center px-6 justify-start rounded-full hover:bg-gray-300">
       {({ open }) => (
         <>
           <Popover.Button>
@@ -54,18 +54,18 @@ export default function DestinationPopOver({ children }: any) {
             leaveTo="opacity-0 translate-y-1"
           >
             <Popover.Panel className="absolute left-[80%] z-50 mt-5 w-screen max-w-sm -translate-x-1/2 transform ">
-              <div className="bg-white w-[494px] h-[470px] rounded-[40px] px-12 py-10 border-[1px]">
-                <p className="text-sm font-semibold mb-8">Search by region</p>
-                <div className="relative grid gap-y-7 grid-cols-3">
+              <div className="h-[470px] w-[494px] rounded-[40px] border-[1px] bg-white px-12 py-10">
+                <p className="mb-8 text-sm font-semibold">Search by region</p>
+                <div className="relative grid grid-cols-3 gap-y-7">
                   {data.map((img) => {
                     return (
                       <div>
                         <img
-                          className="h-[122px] w-[122px] rounded-xl border-[1px] cursor-pointer hover:border-black"
+                          className="h-[122px] w-[122px] cursor-pointer rounded-xl border-[1px] hover:border-black"
                           alt={img.title}
                           src={img.link}
                         />
-                        <p className="text-xs mt-2 font-medium">Countryside</p>
+                        <p className="mt-2 text-xs font-medium">Countryside</p>
                       </div>
                     )
                   })}

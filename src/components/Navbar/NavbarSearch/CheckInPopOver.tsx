@@ -7,7 +7,7 @@ import RangePicker from "./RangePicker"
 export default function CheckInPopOver({ children }: any) {
   
   return (
-    <div className="flex justify-start items-center px-6 w-[129px] h-full ">
+    <div className="flex justify-start items-center">
       <Popover className="relative">
         {({ open }) => (
           <>
