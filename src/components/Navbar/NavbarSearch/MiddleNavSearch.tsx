@@ -1,22 +1,34 @@
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline"
-import React from "react"
+import React, { useState } from "react"
 
 import DestinationPopOver from "./DestinationPopOver"
 import CheckInPopOver from "./CheckInPopOver"
 import GuestsPopOver from "./GuestsPopOver"
 
 function MiddleNavSearch() {
+  const [searchInput, setSearchInput] = useState("Search Destinations")
+
+  const handleSearchInputChange = (e: any) => setSearchInput(e.target.value)
+  console.log(searchInput)
+
   return (
     <nav className="flex w-full justify-center py-4">
       <div className="hidden h-[65px] w-[820px] cursor-pointer items-center rounded-full border-[1px] border-gray-300 bg-white shadow hover:shadow-lg md:flex ">
-        <DestinationPopOver>
-          <p className="text-left text-xs font-semibold">Where</p>
-          <input
-            className="bg-inherit text-black"
-            type="text"
-            placeholder="Search Destinations"
-          />
-        </DestinationPopOver>
+        <div className="flex flex-col h-full w-[35%] items-center px-6 justify-center rounded-full hover:bg-gray-300">
+          <DestinationPopOver>
+            <p className="w-[180px] text-left text-xs font-semibold">Where</p>
+          </DestinationPopOver>
+          <div>
+            <input
+              className="bg-inherit text-sm text-gray-500 w-[180px]"
+              id="searchInput"
+              name="searchInput"
+              type="text"
+              onChange={handleSearchInputChange}
+              value={searchInput}
+            />
+          </div>
+        </div>
 
         <CheckInPopOver>
           <div className="flex items-center justify-center">

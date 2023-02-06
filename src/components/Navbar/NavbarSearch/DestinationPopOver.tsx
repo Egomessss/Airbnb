@@ -38,7 +38,7 @@ export default function DestinationPopOver({ children }: any) {
   ]
 
   return (
-    <Popover className="relative flex h-full w-[35%] items-center px-6 justify-start rounded-full hover:bg-gray-300">
+    <Popover className="relative">
       {({ open }) => (
         <>
           <Popover.Button>
