@@ -1,9 +1,9 @@
 import { Popover, Transition } from "@headlessui/react"
 import { ChevronDownIcon } from "@heroicons/react/20/solid"
-import { Fragment } from "react"
+import { Fragment, useState } from "react"
 import data from "../../../assets/data.json"
 
-export default function DestinationPopOver({ children }: any) {
+export default function DestinationPopOver() {
   const data = [
     {
       id: 1,
@@ -36,45 +36,66 @@ export default function DestinationPopOver({ children }: any) {
       link: "https://a0.muscache.com/im/pictures/4e762891-75a3-4fe1-b73a-cd7e673ba915.jpg?im_w=320",
     },
   ]
+  const [searchInput, setSearchInput] = useState("Search Destinations")
+
+  const [searching, setSearching] = useState(false)
+
+  const handleSearchInputChange = (e: any) => setSearchInput(e.target.value)
+  console.log(searchInput)
 
   return (
-    <Popover className="relative">
-      {({ open }) => (
-        <>
-          <Popover.Button>
-            <span>{children}</span>
-          </Popover.Button>
-          <Transition
-            as={Fragment}
-            enter="transition ease-out duration-200"
-            enterFrom="opacity-0 translate-y-1"
-            enterTo="opacity-100 translate-y-0"
-            leave="transition ease-in duration-150"
-            leaveFrom="opacity-100 translate-y-0"
-            leaveTo="opacity-0 translate-y-1"
-          >
-            <Popover.Panel className="absolute top-14 left-[70%] z-50 mt-5 w-screen max-w-sm -translate-x-1/2 transform ">
-              <div className="h-[470px] w-[494px] rounded-[40px] border-[1px] bg-white px-12 py-10">
-                <p className="mb-8 text-sm font-semibold">Search by region</p>
-                <div className="relative grid grid-cols-3 gap-y-7">
-                  {data.map((img) => {
-                    return (
-                      <div>
-                        <img
-                          className="h-[122px] w-[122px] cursor-pointer rounded-xl border-[1px] hover:border-black"
-                          alt={img.title}
-                          src={img.link}
-                        />
-                        <p className="mt-2 text-xs font-medium">Countryside</p>
-                      </div>
-                    )
-                  })}
+    <div>
+      <Popover className="relative">
+        {({ open }) => (
+          <>
+            <div className="flex flex-col items-center justify-center">
+              <Popover.Button className="text-left w-[200px] h-[20px] mt-3 text-xs font-semibold">
+                Where
+              </Popover.Button>
+              <input
+                className="w-[200px]  bg-inherit text-sm text-gray-500"
+                id="searchInput"
+                name="searchInput"
+                type="text"
+                onChange={handleSearchInputChange}
+                value={searchInput}
+              />
+            </div>
+
+            <Transition
+              as={Fragment}
+              enter="transition ease-out duration-200"
+              enterFrom="opacity-0 translate-y-1"
+              enterTo="opacity-100 translate-y-0"
+              leave="transition ease-in duration-150"
+              leaveFrom="opacity-100 translate-y-0"
+              leaveTo="opacity-0 translate-y-1"
+            >
+              <Popover.Panel className="absolute top-14 left-[70%] z-50 mt-5 w-screen max-w-sm -translate-x-1/2 transform ">
+                <div className="h-[470px] w-[494px] rounded-[40px] border-[1px] bg-white px-12 py-10">
+                  <p className="mb-8 text-sm font-semibold">Search by region</p>
+                  <div className="relative grid grid-cols-3 gap-y-7">
+                    {data.map((img) => {
+                      return (
+                        <div>
+                          <img
+                            className="h-[122px] w-[122px] cursor-pointer rounded-xl border-[1px] hover:border-black"
+                            alt={img.title}
+                            src={img.link}
+                          />
+                          <p className="mt-2 text-xs font-medium">
+                            Countryside
+                          </p>
+                        </div>
+                      )
+                    })}
+                  </div>
                 </div>
-              </div>
-            </Popover.Panel>
-          </Transition>
-        </>
-      )}
-    </Popover>
+              </Popover.Panel>
+            </Transition>
+          </>
+        )}
+      </Popover>
+    </div>
   )
 }

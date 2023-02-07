@@ -4,32 +4,24 @@ import React, { useState } from "react"
 import DestinationPopOver from "./DestinationPopOver"
 import CheckInPopOver from "./CheckInPopOver"
 import GuestsPopOver from "./GuestsPopOver"
+import DestinationAutocomplete from "./DestinationAutocomplete"
+
+// add debounce function to the search bar so it waits for the user to complete inputting in the search bar before the search starts
 
 function MiddleNavSearch() {
-  const [searchInput, setSearchInput] = useState("Search Destinations")
-
-  const handleSearchInputChange = (e: any) => setSearchInput(e.target.value)
-  console.log(searchInput)
+  
+  const [searching, setSearching] = useState(false)
 
   return (
     <nav className="flex w-full justify-center py-4">
       <div className="hidden h-[65px] w-[820px] cursor-pointer items-center rounded-full border-[1px] border-gray-300 bg-white shadow hover:shadow-lg md:flex ">
-        <div className="flex flex-col h-full w-[35%] items-center px-6 justify-center rounded-full hover:bg-gray-300">
-          <DestinationPopOver>
-            <p className="w-[180px] text-left text-xs font-semibold">Where</p>
-          </DestinationPopOver>
-          <div>
-            <input
-              className="bg-inherit text-sm text-gray-500 w-[180px]"
-              id="searchInput"
-              name="searchInput"
-              type="text"
-              onChange={handleSearchInputChange}
-              value={searchInput}
-            />
-          </div>
+        <div className="h-full w-[35%] rounded-full hover:bg-gray-300">
+          <DestinationPopOver/>
+          <DestinationAutocomplete />
         </div>
+        
 
+        
         <CheckInPopOver>
           <div className="flex items-center justify-center">
             <div className="rounded-full  border-gray-300 py-4 px-8  hover:bg-gray-300">
