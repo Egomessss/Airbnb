@@ -4,7 +4,8 @@ import React, { useState } from "react"
 import DestinationPopOver from "./DestinationPopOver"
 import CheckInPopOver from "./CheckInPopOver"
 import GuestsPopOver from "./GuestsPopOver"
-import DestinationAutocomplete from "./DestinationAutocomplete"
+
+import SearchInputModal from "./SearchInputModal"
 
 // add debounce function to the search bar so it waits for the user to complete inputting in the search bar before the search starts
 
@@ -12,9 +13,12 @@ function MiddleNavSearch() {
  
 // state for the inputbox
   const [searchInput, setSearchInput] = useState("")
-  console.log(searchInput)
 
+ 
+// sets the searchinput based on the user input and fetches the data accordingly
   const handleSearchInputChange = (e: any) => setSearchInput(e.target.value)
+
+
   return (
     <nav className="flex w-full justify-center py-4">
       <div className="hidden h-[65px] w-[820px] cursor-pointer items-center rounded-full border-[1px] border-gray-300 bg-white shadow hover:shadow-lg md:flex ">
@@ -30,7 +34,7 @@ function MiddleNavSearch() {
             value={searchInput}
           />
           {/* shows the modal if the user has input anything in the input box */}
-          {searchInput && <DestinationAutocomplete />}
+          {searchInput && <SearchInputModal />}
         </div>
 
         <CheckInPopOver>
