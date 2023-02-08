@@ -6,33 +6,33 @@ import data from "../../../assets/data.json"
 
 export default function DestinationAutocomplete({ children }: any) {
   return (
-    <Popover className="relative">
-      {({ open }) => (
-        <>
-          <Popover.Button>
-            <span>{children}</span>
-          </Popover.Button>
-          <Transition
-            as={Fragment}
-            enter="transition ease-out duration-200"
-            enterFrom="opacity-0 translate-y-1"
-            enterTo="opacity-100 translate-y-0"
-            leave="transition ease-in duration-150"
-            leaveFrom="opacity-100 translate-y-0"
-            leaveTo="opacity-0 translate-y-1"
-          >
-            <Popover.Panel className="absolute top-14 left-[70%] z-50 mt-5 w-screen max-w-sm -translate-x-1/2 transform ">
-              <div className="h-[470px] w-[494px] rounded-[40px] border-[1px] bg-white px-12 py-10">
-                <p className="mb-8 text-sm font-semibold">Search by region</p>
-                <div className="">
-                  <MapPinIcon />
-                  <p>Austurias</p>
-                </div>
-              </div>
-            </Popover.Panel>
-          </Transition>
-        </>
-      )}
-    </Popover>
+    <div className="absolute top-[75px] left-[65%] z-50 h-[400px] w-[354px] -translate-x-1/2 transform rounded-[40px] border-[1px] bg-white px-12 py-10 ">
+      <div className="flex items-center gap-4 py-4">
+        <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gray-200">
+          <MapPinIcon className="h-7 w-7" />
+        </div>
+        <p className="text-sm font-medium">Algarve, Portugal</p>
+      </div>
+      <div className="flex items-center gap-4 py-4">
+        <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gray-200">
+          <MapPinIcon className="h-7 w-7" />
+        </div>
+        <p className="text-sm font-medium">Algarve, Portugal</p>
+      </div>
+      <div className="flex items-center gap-4 py-4">
+        <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gray-200">
+          <MapPinIcon className="h-7 w-7" />
+        </div>
+        <p className="text-sm font-medium">Algarve, Portugal</p>
+      </div>
+      <div className="flex items-center gap-4 py-4">
+        <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gray-200">
+          <MapPinIcon className="h-7 w-7" />
+        </div>
+        <p className="text-sm font-medium">Algarve, Portugal</p>
+      </div>
+      
+    </div>
   )
 }
+

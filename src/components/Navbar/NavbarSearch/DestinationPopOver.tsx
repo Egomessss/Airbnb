@@ -2,6 +2,7 @@ import { Popover, Transition } from "@headlessui/react"
 import { ChevronDownIcon } from "@heroicons/react/20/solid"
 import { Fragment, useState } from "react"
 import data from "../../../assets/data.json"
+import DestinationAutocomplete from "./DestinationAutocomplete"
 
 export default function DestinationPopOver() {
   const data = [
@@ -36,12 +37,7 @@ export default function DestinationPopOver() {
       link: "https://a0.muscache.com/im/pictures/4e762891-75a3-4fe1-b73a-cd7e673ba915.jpg?im_w=320",
     },
   ]
-  const [searchInput, setSearchInput] = useState("Search Destinations")
-
-  const [searching, setSearching] = useState(false)
-
-  const handleSearchInputChange = (e: any) => setSearchInput(e.target.value)
-  console.log(searchInput)
+ 
 
   return (
     <div>
@@ -52,14 +48,6 @@ export default function DestinationPopOver() {
               <Popover.Button className="text-left w-[200px] h-[20px] mt-3 text-xs font-semibold">
                 Where
               </Popover.Button>
-              <input
-                className="w-[200px]  bg-inherit text-sm text-gray-500"
-                id="searchInput"
-                name="searchInput"
-                type="text"
-                onChange={handleSearchInputChange}
-                value={searchInput}
-              />
             </div>
 
             <Transition

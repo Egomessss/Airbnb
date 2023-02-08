@@ -7,14 +7,13 @@ import NavRightSide from "./NavRightSide"
 
 function Navbar() {
   return (
-    <nav className="py-2 md:pt-4 border-b-[1.5px] flex justify-between items-center gap-2">
+    <nav className="flex items-center justify-between gap-2 border-b-[1.5px] py-2 md:pt-4">
       {/* full scale */}
       <NavLeftSide />
-
-      <NavMiddleFull />
-      <NavRightSide />
+      <NavMiddleFull /> 
       {/* mobile nav */}
       <NavMidleMobile />
+      <NavRightSide />
     </nav>
   )
 }

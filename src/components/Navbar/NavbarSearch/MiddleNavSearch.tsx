@@ -9,19 +9,30 @@ import DestinationAutocomplete from "./DestinationAutocomplete"
 // add debounce function to the search bar so it waits for the user to complete inputting in the search bar before the search starts
 
 function MiddleNavSearch() {
-  
-  const [searching, setSearching] = useState(false)
+ 
+// state for the inputbox
+  const [searchInput, setSearchInput] = useState("")
+  console.log(searchInput)
 
+  const handleSearchInputChange = (e: any) => setSearchInput(e.target.value)
   return (
     <nav className="flex w-full justify-center py-4">
       <div className="hidden h-[65px] w-[820px] cursor-pointer items-center rounded-full border-[1px] border-gray-300 bg-white shadow hover:shadow-lg md:flex ">
-        <div className="h-full w-[35%] rounded-full hover:bg-gray-300">
-          <DestinationPopOver/>
-          <DestinationAutocomplete />
+        <div className="relative flex h-full w-[35%] flex-col items-center rounded-full hover:bg-gray-300">
+          <DestinationPopOver />
+          <input
+            className="w-[200px]  bg-inherit text-sm text-gray-500"
+            id="searchInput"
+            name="searchInput"
+            type="text"
+            onChange={handleSearchInputChange}
+            placeholder="Search Destinations"
+            value={searchInput}
+          />
+          {/* shows the modal if the user has input anything in the input box */}
+          {searchInput && <DestinationAutocomplete />}
         </div>
-        
 
-        
         <CheckInPopOver>
           <div className="flex items-center justify-center">
             <div className="rounded-full  border-gray-300 py-4 px-8  hover:bg-gray-300">

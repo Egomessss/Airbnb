@@ -7,26 +7,24 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 function App() {
   return (
     <div>
-      <Router>
-        <Routes>
-          <Route
-            path="/"
-            element={<Homepage />}
-          />
-          <Route
-            path="/Listings"
-            element={<Listings />}
-          />{" "}
-          <Route
-            path="/SearchPage"
-            element={<SearchPage />}
-          />{" "}
-          <Route
-            path="/MapPage"
-            element={<MapPage />}
-          />
-        </Routes>
-      </Router>
+      <Routes>
+        <Route
+          path="/"
+          element={<Homepage />}
+        />
+        <Route
+          path="/Listings"
+          element={<Listings />}
+        />{" "}
+        <Route
+          path="/SearchPage"
+          element={<SearchPage />}
+        />{" "}
+        <Route
+          path="/MapPage"
+          element={<MapPage />}
+        />
+      </Routes>
     </div>
   )
 }
@@ -34,3 +32,5 @@ function App() {
 export default App
 
 // hide api key
+// add the check in dates
+// debounce the searchinput so it only shows results after a user finishes typing
