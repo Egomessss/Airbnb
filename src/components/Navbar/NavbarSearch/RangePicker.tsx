@@ -15,6 +15,7 @@ export default function RangePicker() {
     endDate: endDate,
     key: "selection",
   }
+ 
 
   const handleSelection = (ranges: any) => {
     setStartDate(ranges.selection.startDate)

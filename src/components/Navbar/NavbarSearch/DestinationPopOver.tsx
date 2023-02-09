@@ -1,8 +1,8 @@
 import { Popover, Transition } from "@headlessui/react"
-import { ChevronDownIcon } from "@heroicons/react/20/solid"
+
 import { Fragment, useState } from "react"
-import data from "../../../assets/data.json"
-import DestinationAutocomplete from "./SearchInputModal"
+
+
 
 export default function DestinationPopOver() {
   const data = [
