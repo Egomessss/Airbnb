@@ -42,7 +42,7 @@ function HomepageCard() {
     <div className="flex gap-6 flex-wrap">
       {data.cardImgs.map((card) => {
         return (
-          <div className=" w-[240px] h-[420px] flex flex-col  flex-auto ">
+          <div className=" w-[340px] h-[460px] flex flex-col  flex-auto ">
             <div>
               <Swiper
                 pagination={true}
@@ -54,7 +54,7 @@ function HomepageCard() {
                     <SwiperSlide>
                       <a href="">
                         <img
-                          className="rounded-xl object-cover h-[260px]"
+                          className="rounded-xl object-cover h-[345px]"
                           alt={card.location}
                           src={slide}
                         />
