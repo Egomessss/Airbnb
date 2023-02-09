@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react"
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react"
-import data from "../assets/data.json"
+
 // Import Swiper styles
 import "swiper/css"
 
@@ -14,6 +14,49 @@ import { Navigation } from "swiper"
 import { AdjustmentsHorizontalIcon } from "@heroicons/react/24/outline"
 
 function SwipeCarouselFilter() {
+  const filter = [
+    {
+      id: 1,
+      title: "Surprise me",
+      link: "https://a0.muscache.com/pictures/ee9e2a40-ffac-4db9-9080-b351efc3cfc4.jpg",
+    },
+    {
+      id: 2,
+      title: "Beachfront",
+      link: "https://a0.muscache.com/pictures/bcd1adc0-5cee-4d7a-85ec-f6730b0f8d0c.jpg",
+    },
+    {
+      id: 3,
+      title: "Cabin",
+      link: "https://a0.muscache.com/pictures/732edad8-3ae0-49a8-a451-29a8010dcc0c.jpg",
+    },
+    {
+      id: 4,
+      title: "Boats",
+      link: "https://a0.muscache.com/pictures/687a8682-68b3-4f21-8d71-3c3aef6c1110.jpg",
+    },
+    {
+      id: 5,
+      title: "Tropical",
+      link: "https://a0.muscache.com/pictures/ee9e2a40-ffac-4db9-9080-b351efc3cfc4.jpg",
+    },
+    {
+      id: 6,
+      title: "Countryside",
+      link: "https://a0.muscache.com/pictures/6ad4bd95-f086-437d-97e3-14d12155ddfe.jpg",
+    },
+    {
+      id: 7,
+      title: "Mansions",
+      link: "https://a0.muscache.com/pictures/78ba8486-6ba6-4a43-a56d-f556189193da.jpg",
+    },
+    {
+      id: 8,
+      title: "Skiing",
+      link: "https://a0.muscache.com/pictures/c8bba3ed-34c0-464a-8e6e-27574d20e4d2.jpg",
+    },
+  ]
+
   return (
     <div className="flex items-center gap-2 py-6">
       <Swiper
@@ -22,23 +65,23 @@ function SwipeCarouselFilter() {
         navigation={true}
         modules={[Navigation]}
       >
-        {data.imgs.map((img) => {
+        {filter.map((data) => {
           return (
             <SwiperSlide
-              key={img.id}
-              className="flex flex-col flex-auto flex-wrap w-[77px] h-[51px] my-2 items-center justify-center hover:underline hover:decoration-gray-300 focus:underline focus:decoration-black decoration-2  underline-offset-8 cursor-pointer"
+              key={data.id}
+              className="my-2 flex h-[51px] w-[77px] flex-auto cursor-pointer flex-col flex-wrap items-center justify-center decoration-2 underline-offset-8 hover:underline hover:decoration-gray-300  focus:underline focus:decoration-black"
             >
               <img
                 className="h-[28px] w-[28px]"
-                alt={img.title}
-                src={img.link}
+                alt={data.title}
+                src={data.link}
               />
-              <p className="text-xs mt-1">Countryside</p>
+              <p className="mt-1 whitespace-nowrap text-xs">{data.title}</p>
             </SwiperSlide>
           )
         })}
       </Swiper>
-      <div className="hidden md:flex items-center gap-1 border-2 rounded-xl p-3 font-semibold">
+      <div className="hidden items-center gap-1 rounded-xl border-2 p-3 font-semibold md:flex">
         <AdjustmentsHorizontalIcon className="h-5" />
         <p className="text-xs">Filters</p>
       </div>

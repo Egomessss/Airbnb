@@ -1,8 +1,9 @@
 import Homepage from "./pages/Homepage/index"
-import Listings from "./pages/ListingPage/index"
+
 import MapPage from "./pages/MapPage"
 import SearchPage from "./pages/SearchPage"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+import ListingPage from "./pages/ListingPage/index"
 
 function App() {
   return (
@@ -17,8 +18,8 @@ function App() {
           element={<SearchPage />}
         />{" "}
         <Route
-          path="/Listings"
-          element={<Listings />}
+          path="/ListingPage"
+          element={<ListingPage />}
         />{" "}
         <Route
           path="/MapPage"

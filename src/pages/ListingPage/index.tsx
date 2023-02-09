@@ -7,7 +7,7 @@ import StickyBottomNav from "./StickyBottomNav"
 import Footer from "../../components/Footer"
 import FooterMobile from "./FooterMobile"
 
-function Listings() {
+export default function ListingPage() {
   return (
     <div className="max-w-[1200px] mx-auto px-6">
       <div className="hidden md:flex">
@@ -24,4 +24,4 @@ function Listings() {
   )
 }
 
-export default Listings
+

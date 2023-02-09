@@ -11,6 +11,7 @@ import { Pagination } from "swiper"
 
 import data from "../assets/data.json"
 import { HeartIcon, StarIcon } from "@heroicons/react/24/outline"
+import { Link } from "react-router-dom"
 
 function HomepageCard() {
   // handles favorite post state
@@ -39,10 +40,10 @@ function HomepageCard() {
   // !guardar state para cada card separado, provalmente nao dá porque o key e o mesmo
 
   return (
-    <div className="flex gap-6 flex-wrap">
+    <div className="flex flex-wrap gap-6">
       {data.cardImgs.map((card) => {
         return (
-          <div className=" w-[340px] h-[460px] flex flex-col  flex-auto ">
+          <div className=" flex h-[460px] w-[340px] flex-auto  flex-col ">
             <div>
               <Swiper
                 pagination={true}
@@ -52,21 +53,21 @@ function HomepageCard() {
                 {card.slides.map((slide) => {
                   return (
                     <SwiperSlide>
-                      <a href="">
+                      <Link to="/ListingPage">
                         <img
-                          className="rounded-xl object-cover h-[345px]"
+                          className="h-[345px] rounded-xl object-cover"
                           alt={card.location}
                           src={slide}
                         />
-                      </a>
+                      </Link>
 
                       <div className="absolute top-4 right-4">
                         <HeartIcon
                           onClick={toogleFavorite}
                           className={
                             !favorite
-                              ? "h-6 w-6 cursor-pointer text-white fill-black/40"
-                              : "h-6 w-6 fill-red-600 cursor-pointer"
+                              ? "h-6 w-6 cursor-pointer fill-black/40 text-white"
+                              : "h-6 w-6 cursor-pointer fill-red-600"
                           }
                         />
                       </div>
@@ -76,9 +77,9 @@ function HomepageCard() {
               </Swiper>
             </div>
 
-            <div className="text-sm pt-2">
+            <div className="pt-2 text-sm">
               <div className="flex justify-between">
-                <p className="font-semibold text-sm mt-1">{card.location}</p>
+                <p className="mt-1 text-sm font-semibold">{card.location}</p>
                 <div className="flex flex-row items-center gap-1">
                   <StarIcon className="h-4 w-4 fill-black" />
                   <p className="">{card.rating}</p>
