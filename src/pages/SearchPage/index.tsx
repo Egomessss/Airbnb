@@ -22,21 +22,21 @@ function SearchPage() {
         <SwipeCarouselFilter />
       </div>
       {/* mid section */}
-      <div className="flex gap-6 relative">
-        <div className="w-[60%] h-">
-          <p className="py-4 text-sm font-medium">
-            Over 1,000 homes within map area
+      <div className="relative flex">
+        <div className="w-[60%]">
+          <p className="pb-4 text-sm font-medium">
+            Over 8 homes in your search area
           </p>
 
           <SearchCard />
-          <div className="flex justify-center items-center py-6">
-            {" "}
+          <div className="flex items-center justify-center py-6">
+           
             <Stack spacing={2}>
               <Pagination count={10} />
             </Stack>
           </div>
         </div>
-        <div className="fixed right-0 w-[40%] h-[1071px] border-2 border-black -mr-6">
+        <div className="fixed right-0 -mr-6 h-[1071px] w-[40%] border-2 border-black">
           <MapApi />
         </div>
       </div>

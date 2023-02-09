@@ -50,6 +50,8 @@ function MiddleNavSearch() {
       link: "https://a0.muscache.com/im/pictures/4e762891-75a3-4fe1-b73a-cd7e673ba915.jpg?im_w=320",
     },
   ]
+  // destionation popover
+  const [destinationSelected, SetDestinationSelected] = useState(false)
 
   // !searchinput data
   // state for the inputbox
@@ -62,7 +64,21 @@ function MiddleNavSearch() {
   // sets the searchinput based on the user input and fetches the data accordingly
   const handleSearchInputChange = (e: any) => setSearchInput(e.target.value)
 
+  console.log(fetch('https://airbnb19.p.rapidapi.com/api/v1/searchDestination?query=Chicago&country=USA'))
+
   // !checkin data
+  const [openChooseDates, setOpenChooseDates] = useState(false)
+  const [openFlexibleDates, setOpenFlexibleDates] = useState(false)
+
+  const handleChooseDates = () => {
+    setOpenChooseDates(true)
+    setOpenFlexibleDates(false)
+  }
+
+  const handleFlexibleDates = () => {
+    setOpenChooseDates(false)
+    setOpenFlexibleDates(true)
+  }
 
   const [dateIncrement, SetDateIncrement] = useState(0)
 
@@ -109,7 +125,16 @@ function MiddleNavSearch() {
   return (
     <nav className="flex w-full justify-center py-4">
       <div className="hidden h-[65px] w-[820px] cursor-pointer items-center rounded-full border-[1px] border-gray-300 bg-white shadow hover:shadow-lg md:flex ">
-        <div className="relative flex h-full w-[35%] flex-col items-center rounded-full hover:bg-gray-300">
+        {/* destination popover */}
+        {/* this onclick is supposed to invert the colors */}
+        <div
+          onClick={() => SetDestinationSelected(true)}
+          className={
+            destinationSelected
+              ? "relative flex h-full w-[35%] flex-col items-center rounded-full bg-white"
+              : "relative flex h-full w-[35%] flex-col items-center rounded-full"
+          }
+        >
           <Popover className="relative">
             {({ open }) => (
               <>
@@ -178,7 +203,7 @@ function MiddleNavSearch() {
           <Popover className="relative">
             {({ open }) => (
               <>
-                <Popover.Button>
+                <Popover.Button onClick={() => setOpenChooseDates(true)}>
                   <div className="flex items-center justify-center">
                     <div className="rounded-full  border-gray-300 py-4 px-8  hover:bg-gray-300">
                       <p className="text-left text-xs font-semibold">
@@ -218,39 +243,81 @@ function MiddleNavSearch() {
                   <Popover.Panel className="absolute right-[22rem] z-50 mt-2 w-screen max-w-sm translate-x-1/2 ">
                     <div className="flex h-[470px] w-[820px] flex-col items-center justify-center rounded-[40px] border-[1px] bg-white px-12 py-10">
                       <div className="flex w-[300px] justify-between rounded-3xl bg-gray-300 p-1 ">
-                        <button className="rounded-3xl bg-white py-2 px-5 text-sm font-semibold ">
+                        <button
+                          onClick={handleChooseDates}
+                          className="rounded-3xl bg-white py-2 px-5 text-sm font-semibold "
+                        >
                           Choose dates
                         </button>
-                        <button className="rounded-3xl bg-white py-2 px-5 text-sm font-semibold ">
+                        <button
+                          onClick={handleFlexibleDates}
+                          className="rounded-3xl bg-white py-2 px-5 text-sm font-semibold "
+                        >
                           Flexible dates
                         </button>
                       </div>
-                      <DateRangePicker
-                        staticRanges={[]}
-                        inputRanges={[]}
-                        showDateDisplay={false}
-                        months={2}
-                        direction="horizontal"
-                        ranges={[selectionRange]}
-                        onChange={handleSelection}
-                      />
-                      <div className="mt-4 flex gap-4 text-xs">
-                        <button className="hover:border-1 w-24 rounded-3xl border-[1px] px-2 py-[8px] hover:border-black">
-                          Exact dates
-                        </button>
-                        <button className="hover:border-1 w-24 rounded-3xl border-[1px] px-2 py-[8px] hover:border-black">
-                          ± 1 day
-                        </button>
-                        <button className="hover:border-1 w-24 rounded-3xl border-[1px] px-2 py-[8px] hover:border-black">
-                          ± 2 days
-                        </button>
-                        <button className="hover:border-1 w-24 rounded-3xl border-[1px] px-2 py-[8px] hover:border-black">
-                          ± 3 days
-                        </button>
-                        <button className="hover:border-1 w-24 rounded-3xl border-[1px] px-2 py-[8px] hover:border-black">
-                          ± 7 days
-                        </button>
-                      </div>
+                      {/* conditional render if i click the popover button set the choose dates to true
+                      if i click the flexible dates it check the choose dates to false and the flexible dates to true */}
+
+                      {/* Choose dates */}
+                      {openChooseDates && (
+                        <div>
+                          <DateRangePicker
+                            staticRanges={[]}
+                            inputRanges={[]}
+                            showDateDisplay={false}
+                            months={2}
+                            direction="horizontal"
+                            ranges={[selectionRange]}
+                            onChange={handleSelection}
+                          />
+                          <div className="mt-4 flex gap-4 text-xs">
+                            <button className="hover:border-1 w-24 rounded-3xl border-[1px] px-2 py-[8px] hover:border-black">
+                              Exact dates
+                            </button>
+                            <button className="hover:border-1 w-24 rounded-3xl border-[1px] px-2 py-[8px] hover:border-black">
+                              ± 1 day
+                            </button>
+                            <button className="hover:border-1 w-24 rounded-3xl border-[1px] px-2 py-[8px] hover:border-black">
+                              ± 2 days
+                            </button>
+                            <button className="hover:border-1 w-24 rounded-3xl border-[1px] px-2 py-[8px] hover:border-black">
+                              ± 3 days
+                            </button>
+                            <button className="hover:border-1 w-24 rounded-3xl border-[1px] px-2 py-[8px] hover:border-black">
+                              ± 7 days
+                            </button>
+                          </div>
+                        </div>
+                      )}
+
+                      {/* Flexible dates */}
+                      {openFlexibleDates && (
+                        <div className="flex flex-col gap-6">
+                          <div className="height-[300px] p-[30px]">
+                            <h1 className="text-lg font-semibold ">
+                              How long would you like to stay?
+                            </h1>
+                            <div className=" flex items-center justify-center gap-2">
+                              <button className="rounded-3xl border-[1px] p-2 hover:border-black">
+                                Weekend
+                              </button>
+                              <button className="rounded-3xl border-[1px] p-2 hover:border-black">
+                                Week
+                              </button>
+                              <button className="rounded-3xl border-[1px] p-2 hover:border-black">
+                                Month
+                              </button>
+                            </div>
+                          </div>
+                          <div className="flex flex-col items-center justify-center">
+                            <h1 className="text-lg font-semibold">
+                              When do You want to go?
+                            </h1>
+                          </div>
+                        </div>
+                      )}
+                      <div></div>
                     </div>
                   </Popover.Panel>
                 </Transition>
@@ -366,8 +433,11 @@ function MiddleNavSearch() {
               </>
             )}
           </Popover>
-          <button className="flex h-[50px] w-[110px] items-center justify-center gap-2 rounded-3xl bg-[#DA0A64] text-white">
-            <Link to={/SearchPage}>
+          <button className="flex h-[50px] w-[110px] items-center justify-center rounded-3xl bg-[#DA0A64] text-white">
+            <Link
+              className="flex gap-2"
+              to={"/SearchPage"}
+            >
               <MagnifyingGlassIcon className="h-5 w-5" />
               <p className="font-semibold">Search</p>
             </Link>

@@ -55,7 +55,7 @@ function SearchCard() {
                     <SwiperSlide>
                       <a href="">
                         <img
-                          className="rounded-xl object-cover h-[260px]"
+                          className="rounded-xl object-cover h-[315px]"
                           alt={card.location}
                           src={slide}
                         />
