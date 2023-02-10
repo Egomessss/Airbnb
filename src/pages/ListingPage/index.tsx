@@ -4,7 +4,7 @@ import ListingInfo from "../ListingPage/ListingInfo"
 import ListingNav from "../ListingPage/ListingNav"
 import Navbar from "../../components/Navbar/Navbar/Navbar"
 import StickyBottomNav from "./StickyBottomNav"
-import Footer from "../../components/Footer"
+
 import FooterMobile from "./FooterMobile"
 
 export default function ListingPage() {

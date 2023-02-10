@@ -37,7 +37,7 @@ function SearchPage() {
           </div>
         </div>
         <div className="fixed right-0 -mr-6 h-[1071px] w-[40%] border-2 border-black">
-          <MapApi />
+          {/* <MapApi /> */}
         </div>
       </div>
       {/* bottom */}
