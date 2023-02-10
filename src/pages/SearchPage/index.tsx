@@ -29,7 +29,7 @@ function SearchPage() {
           </p>
 
           <SearchCard />
-          <div className="flex items-center justify-center py-6">
+          <div className="flex items-center justify-center py-8">
             <Stack spacing={2}>
               <Pagination count={2} />
             </Stack>
