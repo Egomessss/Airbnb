@@ -43,7 +43,7 @@ function SearchCard() {
     <div className="flex gap-6 flex-wrap">
       {data.searchPageCardImgs.map((card) => {
         return (
-          <div className=" w-[380px] h-[420px] flex flex-col  flex-auto ">
+          <div className=" w-[380px] h-[460px] flex flex-col  flex-auto ">
             <div>
               <Swiper
                 pagination={true}
