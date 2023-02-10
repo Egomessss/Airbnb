@@ -38,4 +38,7 @@ export default App
 // add 8 properties all around the world
 // add the availabily so i can book them
 //  add the location to mapbox
-// use a webscaper to get 8 properties data
+// only activate the filter that can be searched
+// make a database for the properties
+// 
+// autocomplete
