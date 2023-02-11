@@ -58,10 +58,10 @@ function SwipeCarouselFilter() {
   ]
 
   return (
-    <div className="flex items-center gap-2 py-6">
+    <div className="flex justify-center items-center gap-2 py-6 w-[600px] mx-auto">
       <Swiper
         slidesPerView="auto"
-        spaceBetween={28}
+        spaceBetween={60}
         navigation={true}
         modules={[Navigation]}
       >

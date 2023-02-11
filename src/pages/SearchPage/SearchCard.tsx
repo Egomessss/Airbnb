@@ -75,7 +75,7 @@ function SearchCard() {
                       <SwiperSlide key={card.id}>
                         <a href="">
                           <img
-                            className="h-[335px] rounded-xl object-cover"
+                            className="h-[335px] w-full rounded-xl object-cover"
                             alt={card.location}
                             src={slide}
                           />
