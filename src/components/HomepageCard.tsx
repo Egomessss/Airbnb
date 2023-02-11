@@ -7,7 +7,7 @@ import "swiper/css"
 import "swiper/css/pagination"
 
 // import required modules
-import { Pagination } from "swiper"
+import { Navigation, Pagination } from "swiper"
 
 import data from "../assets/data.json"
 import { HeartIcon, StarIcon } from "@heroicons/react/24/outline"
@@ -47,7 +47,8 @@ function HomepageCard() {
             <div>
               <Swiper
                 pagination={true}
-                modules={[Pagination]}
+                navigation={true}
+                modules={[Pagination, Navigation]}
                 className="relative"
               >
                 {card.slides.map((slide) => {

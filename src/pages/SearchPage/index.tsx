@@ -10,6 +10,7 @@ import SwipeCarouselFilter from "../../components/SwipeCarouselFilter"
 import FooterMobile from "../ListingPage/FooterMobile"
 import SearchCard from "./SearchCard"
 import MapApi from "../../components/MapApi"
+import FooterSearchPage from "./FooterSearchPage"
 
 function SearchPage() {
   return (
@@ -32,12 +33,14 @@ function SearchPage() {
           {/* <MapApi /> */}
         </div>
       </div>
-      {/* bottom */}
-      <div className="sticky bottom-0 z-10 bg-white">
+      {/* footer*/}
+    
+      <FooterSearchPage />
+      
+      {/* mobile navigation */}
+      <div className="hidden sticky bottom-0 z-10 bg-white">
         <BottomNav />
       </div>
-
-      <FooterMobile />
     </div>
   )
 }

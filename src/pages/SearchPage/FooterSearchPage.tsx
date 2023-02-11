@@ -1,10 +1,10 @@
 import { GlobeAltIcon } from "@heroicons/react/24/outline"
 import React from "react"
-import Info from "./Info"
+import Info from "../ListingPage/Info"
 
-function FooterMobile() {
+function FooterSearchPage() {
   return (
-    <div className="-mx-6 mb-[80px] hidden justify-between bg-[#F7F7F7] px-6 md:-mx-20 md:flex md:px-20 ">
+    <div className="-mx-6 hidden justify-between bg-[#F7F7F7] px-6 md:-mx-20 md:flex md:px-20 ">
       <Info>
         <h2 className="mb-2 font-semibold">Support</h2>
         <ul className="flex flex-col gap-2 text-sm">
@@ -115,4 +115,4 @@ function FooterMobile() {
   )
 }
 
-export default FooterMobile
+export default FooterSearchPage

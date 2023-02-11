@@ -7,7 +7,7 @@ import "swiper/css"
 import "swiper/css/pagination"
 import SearchPagination from "./SearchPagination"
 // import required modules
-import { Pagination } from "swiper"
+import { Pagination, Navigation } from "swiper"
 
 import data from "../../assets/data.json"
 
@@ -40,9 +40,8 @@ function SearchCard() {
   // !guardar state para cada card separado, provalmente nao dá porque o key e o mesmo
 
   // ! pagination
-// fetches the data from the json file
+  // fetches the data from the json file
   const [posts] = useState(data.cardImgs)
-
 
   const [currentPage, setCurrentPage] = useState(1)
   const [postsPerPage] = useState(4)
@@ -53,20 +52,23 @@ function SearchCard() {
   const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost)
 
   // change page
-  const changePage = (pageNumber)=> setCurrentPage(pageNumber)
+  const changePage = (pageNumber) => setCurrentPage(pageNumber)
 
   return (
     <div>
       <div className="flex flex-wrap gap-6">
         {currentPosts.map((card) => {
           return (
-            <div className=" flex h-[450px] w-[380px] flex-auto  flex-col " key={card.price}>
+            <div
+              className=" flex h-[450px] w-[380px] flex-auto  flex-col "
+              key={card.price}
+            >
               <div>
                 <Swiper
-                
-                  pagination={true}
-                  modules={[Pagination]}
-                  className="relative"
+                   navigation={true}
+                   pagination={true}
+                  modules={[Pagination, Navigation]}
+                  className="mySwiper"
                 >
                   {card.slides.map((slide) => {
                     return (
@@ -116,13 +118,12 @@ function SearchCard() {
       </div>
       <div className=" mt-5 flex justify-center">
         <SearchPagination
-        postsPerPage={postsPerPage}
-        totalPosts={posts.length}
-        changePage={changePage}
-        currentPage={currentPage}
-      />
+          postsPerPage={postsPerPage}
+          totalPosts={posts.length}
+          changePage={changePage}
+          currentPage={currentPage}
+        />
       </div>
-      
     </div>
   )
 }

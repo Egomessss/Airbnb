@@ -42,4 +42,4 @@ function SearchPagination({ postsPerPage, totalPosts, changePage, currentPage })
 
 // change the color of bg to black if selected
 
-export default Pagination
+export default SearchPagination
