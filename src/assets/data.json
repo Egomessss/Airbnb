@@ -119,14 +119,15 @@
   "cardImgs": [
     {
       "slides": [
-        "https://a0.muscache.com/im/pictures/8b624fc9-48e2-4cf6-99d2-6345aa5c4095.jpg?im_w=720",
+        "https://a0.muscache.com/im/pictures/miso/Hosting-40758951/original/7a2d8b51-f418-4e71-a90e-9ab783b84bab.jpeg?im_w=720",
         "https://a0.muscache.com/im/pictures/d512374c-a256-4737-9eca-39a383d09ffb.jpg?im_w=720"
       ],
       "location": " Montargil, Portugal",
       "host": "Super Host",
       "date": "2-10 Feb",
       "rating": 5,
-      "price": 455
+      "price": 451,
+      "id":1
     },
     {
       "slides": [
@@ -137,7 +138,8 @@
       "host": "Super Host",
       "date": "2-10 Feb",
       "rating": 5,
-      "price": 455
+      "price": 452,
+      "id":2
     },
     {
       "slides": [
@@ -148,7 +150,8 @@
       "host": "Super Host",
       "date": "2-10 Feb",
       "rating": 5,
-      "price": 455
+      "price": 453,
+      "id":3
     },{
       "slides": [
         "https://a0.muscache.com/im/pictures/8b624fc9-48e2-4cf6-99d2-6345aa5c4095.jpg?im_w=720",
@@ -158,7 +161,8 @@
       "host": "Super Host",
       "date": "2-10 Feb",
       "rating": 5,
-      "price": 455
+      "price": 454,
+      "id":4
     },
     {
       "slides": [
@@ -169,7 +173,8 @@
       "host": "Super Host",
       "date": "2-10 Feb",
       "rating": 5,
-      "price": 455
+      "price": 455,
+      "id":5
     },
     {
       "slides": [
@@ -180,7 +185,8 @@
       "host": "Super Host",
       "date": "2-10 Feb",
       "rating": 5,
-      "price": 455
+      "price": 456,
+      "id":6
     },
     {
       "slides": [
@@ -191,7 +197,8 @@
       "host": "Super Host",
       "date": "2-10 Feb",
       "rating": 5,
-      "price": 455
+      "price": 457,
+      "id":7
     },
     {
       "slides": [
@@ -202,55 +209,9 @@
       "host": "Super Host",
       "date": "2-10 Feb",
       "rating": 5,
-      "price": 455
+      "price": 458,
+      "id":8
     }
-  ],
-  
-  "searchPageCardImgs": [
-    {
-      "slides": [
-        "https://a0.muscache.com/im/pictures/8b624fc9-48e2-4cf6-99d2-6345aa5c4095.jpg?im_w=720",
-        "https://a0.muscache.com/im/pictures/d512374c-a256-4737-9eca-39a383d09ffb.jpg?im_w=720"
-      ],
-      "location": " Montargil, Portugal",
-      "host": "Super Host",
-      "date": "2-10 Feb",
-      "rating": 5,
-      "price": 455
-    },
-    {
-      "slides": [
-        "https://a0.muscache.com/im/pictures/8b624fc9-48e2-4cf6-99d2-6345aa5c4095.jpg?im_w=720",
-        "https://a0.muscache.com/im/pictures/d512374c-a256-4737-9eca-39a383d09ffb.jpg?im_w=720"
-      ],
-      "location": " Montargil, Portugal",
-      "host": "Super Host",
-      "date": "2-10 Feb",
-      "rating": 5,
-      "price": 455
-    },
-    {
-      "slides": [
-        "https://a0.muscache.com/im/pictures/8b624fc9-48e2-4cf6-99d2-6345aa5c4095.jpg?im_w=720",
-        "https://a0.muscache.com/im/pictures/d512374c-a256-4737-9eca-39a383d09ffb.jpg?im_w=720"
-      ],
-      "location": " Montargil, Portugal",
-      "host": "Super Host",
-      "date": "2-10 Feb",
-      "rating": 5,
-      "price": 455
-    },{
-      "slides": [
-        "https://a0.muscache.com/im/pictures/8b624fc9-48e2-4cf6-99d2-6345aa5c4095.jpg?im_w=720",
-        "https://a0.muscache.com/im/pictures/d512374c-a256-4737-9eca-39a383d09ffb.jpg?im_w=720"
-      ],
-      "location": " Montargil, Portugal",
-      "host": "Super Host",
-      "date": "2-10 Feb",
-      "rating": 5,
-      "price": 455
-    }
-  
   ],
   "listingImgs": [
     "https://a0.muscache.com/im/pictures/8b624fc9-48e2-4cf6-99d2-6345aa5c4095.jpg?im_w=720",

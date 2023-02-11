@@ -18,7 +18,7 @@ function SwipeCarouselFilter() {
     {
       id: 1,
       title: "Surprise me",
-      link: "https://a0.muscache.com/pictures/ee9e2a40-ffac-4db9-9080-b351efc3cfc4.jpg",
+      link: "https://a0.muscache.com/pictures/3726d94b-534a-42b8-bca0-a0304d912260.jpg",
     },
     {
       id: 2,

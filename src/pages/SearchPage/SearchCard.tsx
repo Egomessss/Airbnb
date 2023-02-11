@@ -1,19 +1,19 @@
-import React, { useRef, useState } from "react"
+import React, { useState } from "react"
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react"
 
 // Import Swiper styles
 import "swiper/css"
 import "swiper/css/pagination"
-
+import SearchPagination from "./SearchPagination"
 // import required modules
 import { Pagination } from "swiper"
 
 import data from "../../assets/data.json"
+
 import { HeartIcon, StarIcon } from "@heroicons/react/24/outline"
 
 function SearchCard() {
-  
   // handles favorite post state
   //   fetches state from localstorage and persists after reload
   //   the "!" tells the compiler the value cannot be null
@@ -39,62 +39,90 @@ function SearchCard() {
 
   // !guardar state para cada card separado, provalmente nao dá porque o key e o mesmo
 
+  // ! pagination
+// fetches the data from the json file
+  const [posts] = useState(data.cardImgs)
+
+
+  const [currentPage, setCurrentPage] = useState(1)
+  const [postsPerPage] = useState(4)
+
+  // get current posts
+  const indexOfLastPost = currentPage * postsPerPage
+  const indexOfFirstPost = indexOfLastPost - postsPerPage
+  const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost)
+
+  // change page
+  const changePage = (pageNumber)=> setCurrentPage(pageNumber)
+
   return (
-    <div className="flex gap-6 flex-wrap">
-      {data.searchPageCardImgs.map((card) => {
-        return (
-          <div className=" w-[380px] h-[450px] flex flex-col  flex-auto ">
-            <div>
-              <Swiper
-                pagination={true}
-                modules={[Pagination]}
-                className="relative"
-              >
-                {card.slides.map((slide) => {
-                  return (
-                    <SwiperSlide>
-                      <a href="">
-                        <img
-                          className="rounded-xl object-cover h-[335px]"
-                          alt={card.location}
-                          src={slide}
-                        />
-                      </a>
+    <div>
+      <div className="flex flex-wrap gap-6">
+        {currentPosts.map((card) => {
+          return (
+            <div className=" flex h-[450px] w-[380px] flex-auto  flex-col " key={card.price}>
+              <div>
+                <Swiper
+                
+                  pagination={true}
+                  modules={[Pagination]}
+                  className="relative"
+                >
+                  {card.slides.map((slide) => {
+                    return (
+                      <SwiperSlide key={card.id}>
+                        <a href="">
+                          <img
+                            className="h-[335px] rounded-xl object-cover"
+                            alt={card.location}
+                            src={slide}
+                          />
+                        </a>
 
-                      <div className="absolute top-4 right-4">
-                        <HeartIcon
-                          onClick={toogleFavorite}
-                          className={
-                            !favorite
-                              ? "h-6 w-6 cursor-pointer text-white fill-black/40"
-                              : "h-6 w-6 fill-red-600 cursor-pointer"
-                          }
-                        />
-                      </div>
-                    </SwiperSlide>
-                  )
-                })}
-              </Swiper>
-            </div>
-
-            <div className="text-sm pt-2">
-              <div className="flex justify-between">
-                <p className="font-semibold text-sm mt-1">{card.location}</p>
-                <div className="flex flex-row items-center gap-1">
-                  <StarIcon className="h-4 w-4 fill-black" />
-                  <p className="">{card.rating}</p>
-                </div>
+                        <div className="absolute top-4 right-4">
+                          <HeartIcon
+                            onClick={toogleFavorite}
+                            className={
+                              !favorite
+                                ? "h-6 w-6 cursor-pointer fill-black/40 text-white"
+                                : "h-6 w-6 cursor-pointer fill-red-600"
+                            }
+                          />
+                        </div>
+                      </SwiperSlide>
+                    )
+                  })}
+                </Swiper>
               </div>
 
-              <p className=" mt-1 ">{card.host}</p>
-              <p className=" mt-1">{card.date}</p>
-              <p className=" mt-1 underline underline-offset-2">
-                <span className="font-semibold">${card.price}</span> total
-              </p>
+              <div className="pt-2 text-sm">
+                <div className="flex justify-between">
+                  <p className="mt-1 text-sm font-semibold">{card.location}</p>
+                  <div className="flex flex-row items-center gap-1">
+                    <StarIcon className="h-4 w-4 fill-black" />
+                    <p className="">{card.rating}</p>
+                  </div>
+                </div>
+
+                <p className=" mt-1 ">{card.host}</p>
+                <p className=" mt-1">{card.date}</p>
+                <p className=" mt-1 underline underline-offset-2">
+                  <span className="font-semibold">${card.price}</span> total
+                </p>
+              </div>
             </div>
-          </div>
-        )
-      })}
+          )
+        })}
+      </div>
+      <div className=" mt-5 flex justify-center">
+        <SearchPagination
+        postsPerPage={postsPerPage}
+        totalPosts={posts.length}
+        changePage={changePage}
+        currentPage={currentPage}
+      />
+      </div>
+      
     </div>
   )
 }
