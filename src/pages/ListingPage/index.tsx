@@ -7,6 +7,8 @@ import StickyBottomNav from "./StickyBottomNav"
 
 import FooterMobile from "./FooterMobile"
 import ImageGrid from "./ImageGrid"
+import ListingDetails from "./ListingDetails"
+import Availability from "./Availability"
 
 export default function ListingPage() {
   return (
@@ -23,8 +25,16 @@ export default function ListingPage() {
       <div>
         <ImageGrid />
       </div>
+      <div className="flex relative">
+        <div className="max-w-[60%]">
+          <ListingDetails />
+        </div>
+        <div>
+          <Availability />
+        </div>
+      </div>
 
-      <ListingInfo />
+      {/* <ListingInfo /> */}
       <FooterMobile />
       <StickyBottomNav />
     </div>
