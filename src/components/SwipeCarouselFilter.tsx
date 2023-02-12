@@ -32,8 +32,8 @@ function SwipeCarouselFilter() {
     },
     {
       id: 4,
-      title: "Boats",
-      link: "https://a0.muscache.com/pictures/687a8682-68b3-4f21-8d71-3c3aef6c1110.jpg",
+      title: "Lake",
+      link: "https://a0.muscache.com/pictures/a4634ca6-1407-4864-ab97-6e141967d782.jpg",
     },
     {
       id: 5,
@@ -55,10 +55,15 @@ function SwipeCarouselFilter() {
       title: "Skiing",
       link: "https://a0.muscache.com/pictures/c8bba3ed-34c0-464a-8e6e-27574d20e4d2.jpg",
     },
+    {
+      id: 9,
+      title: "Iconic cities",
+      link: "https://a0.muscache.com/pictures/ed8b9e47-609b-44c2-9768-33e6a22eccb2.jpg",
+    },
   ]
 
   return (
-    <div className="hidden md:flex justify-center items-center gap-2 py-6 w-[600px] mx-auto">
+    <div className="mx-auto hidden w-[600px] items-center justify-center gap-2 py-6 md:flex">
       <Swiper
         slidesPerView="auto"
         spaceBetween={60}

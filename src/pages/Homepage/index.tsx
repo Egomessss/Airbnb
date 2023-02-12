@@ -10,6 +10,7 @@ import SwipeCarouselFilter from "../../components/SwipeCarouselFilter"
 function Homepage() {
   const [openMap, setOpenMap] = useState(false)
 
+  // opens and closes the mapbox map
   const toogleMap = () => {
     setOpenMap((prevMode) => !prevMode)
   }

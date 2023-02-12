@@ -42,3 +42,6 @@ export default App
 // make a database for the properties
 // 
 // autocomplete
+
+
+// ! add disclaimer pop up in the beginning stating that the data here is all random 

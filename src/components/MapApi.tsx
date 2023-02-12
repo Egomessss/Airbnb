@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import Map from "react-map-gl"
+import Map, { GeolocateControl, NavigationControl } from "react-map-gl"
 import "mapbox-gl/dist/mapbox-gl.css"
 
 function MapApi() {
@@ -7,8 +7,6 @@ function MapApi() {
   
 
   const [viewState, setViewState] = useState({
-    width: "100%",
-    height: "100%",
     longitude: -122.4,
     latitude: 37.8,
     zoom: 11,
@@ -20,7 +18,11 @@ function MapApi() {
       // Environmental key for my mapbox api
       mapboxAccessToken="pk.eyJ1IjoiZWRtaWxzb25nIiwiYSI6ImNsNWJwN3QwYzA5dmEza3MwY3Uyd20wdHQifQ.j1osfvQiPNdQyUpd7N4MkA"
       {...viewState}
-    ></Map>
+      onMove={evt => setViewState(evt.viewState)}
+    >
+       <NavigationControl position="bottom-right" />
+       <GeolocateControl position="bottom-right" />
+    </Map>
   )
 }
 
