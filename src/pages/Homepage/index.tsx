@@ -1,22 +1,36 @@
-import { MapIcon } from "@heroicons/react/24/solid"
-import React from "react"
+import React, { useState } from "react"
 import BottomNav from "../../components/BottomNav"
 import Footer from "../../components/Footer"
 import HomepageCard from "../../components/HomepageCard"
+import MapApi from "../../components/MapApi"
 import Navbar from "../../components/Navbar/Navbar/Navbar"
 import StickyButton from "../../components/StickyButton"
 import SwipeCarouselFilter from "../../components/SwipeCarouselFilter"
 
 function Homepage() {
+  const [openMap, setOpenMap] = useState(false)
+
+  const toogleMap = () => {
+    setOpenMap((prevMode) => !prevMode)
+  }
+
   return (
     <div className="relative px-6 md:px-20">
       <div className="sticky top-0 z-10 bg-white">
         <Navbar />
         <SwipeCarouselFilter />
       </div>
-      <HomepageCard />
+      {/* open the map with the sticky button and hides the homecards
+      make a function for the button that opens and closes the map */}
+      {openMap ? (
+        <div className="h-[1000px] w-full">
+          <MapApi />
+        </div>
+      ) : (
+        <HomepageCard />
+      )}
       <div className="sticky bottom-0 z-10 bg-white">
-        <StickyButton />
+        <StickyButton toogleMap={toogleMap} />
         <BottomNav />
       </div>
 

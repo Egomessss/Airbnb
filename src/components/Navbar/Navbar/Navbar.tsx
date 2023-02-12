@@ -7,7 +7,7 @@ import NavRightSide from "./NavRightSide"
 
 function Navbar() {
   return (
-    <nav className="flex items-center justify-between gap-2 border-b-[1.5px] py-2 md:pt-4">
+    <nav className="flex items-center justify-between  border-b-[1.5px] py-2 md:pt-4">
       {/* full scale */}
       <NavLeftSide />
       <NavMiddleFull /> 

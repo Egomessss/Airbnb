@@ -12,7 +12,7 @@ function NavSearchModal({ closeModal }: any) {
   const [isSearching, setIsSearching] = React.useState(false)
 
   return (
-    <div className="px-4 py-6 h-full w-full fixed bg-[#F7F7F7] flex flex-col overflow-x-hidden overflow-y-auto inset-0 z-20 outline-none focus:outline-none min-h-screen">
+    <div className="px-4 pt-6 h-[screen] w-[390px] fixed bg-[#F7F7F7] flex flex-col overflow-x-hidden overflow-y-auto inset-0 z-20 outline-none focus:outline-none">
       <div className="flex items-center gap-12">
         <XCircleIcon
           onClick={() => closeModal()}
@@ -53,13 +53,13 @@ function NavSearchModal({ closeModal }: any) {
           <p>When</p>
           <p className="font-semibold">Add dates</p>
         </div>
-        <div className="flex justify-between h-12 items-center bg-white rounded-lg shadow-xl p-2 text-sm">
+        <div className="flex justify-between w-full h-12 items-center bg-white rounded-lg shadow-xl p-2 text-sm">
           <p>Who</p>
           <p className="font-semibold">Add guests</p>
         </div>
       </div>
-      <div className="flex justify-between items-center sticky top-[100vh] bg-white rounded-lg shadow-xl p-2">
-        <p className="underline font-semibold">Clear all</p>
+      <div className="flex justify-between items-center sticky top-[100vh] bg-white rounded-lg shadow-xl py-2 px-6 -mx-6">
+        <button className="underline font-semibold">Clear all</button>
         <button className=" p-2 rounded-md w-[100px] text-white flex bg-[#E21C61]">
           <MagnifyingGlassIcon className="w-5 h-5" />
           Search
