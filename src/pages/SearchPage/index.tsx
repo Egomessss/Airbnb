@@ -22,7 +22,7 @@ function SearchPage() {
   }
 
   return (
-    <div className="mx-auto">
+    <div className="mx-auto md:">
       {/* top section  Navigation and filter */}
       <div className="sticky top-0 z-10 bg-white px-6">
         <Navbar />
@@ -51,7 +51,7 @@ function SearchPage() {
           </div>
         ) : (
           <div className="h-[700px] w-full md:hidden">
-            <MapApi />
+            {/* <MapApi /> */}
           </div>
         )}
         <div className="md:hidden">

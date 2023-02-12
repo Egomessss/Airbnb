@@ -129,3 +129,4 @@ function SearchCard() {
 }
 
 export default SearchCard
+

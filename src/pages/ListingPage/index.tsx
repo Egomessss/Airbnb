@@ -6,22 +6,27 @@ import Navbar from "../../components/Navbar/Navbar/Navbar"
 import StickyBottomNav from "./StickyBottomNav"
 
 import FooterMobile from "./FooterMobile"
+import ImageGrid from "./ImageGrid"
 
 export default function ListingPage() {
   return (
-    <div className="max-w-[1200px] mx-auto px-6">
+    <div className="mx-auto max-w-[1200px] px-6">
       <div className="hidden md:flex">
         <Navbar />
       </div>
       <div className="md:hidden">
         <ListingNav />
       </div>
-      <ListingCarousel />
+      <div className="flex md:hidden">
+        <ListingCarousel />
+      </div>
+      <div>
+        <ImageGrid />
+      </div>
+
       <ListingInfo />
-      <FooterMobile/>
-      <StickyBottomNav/>
+      <FooterMobile />
+      <StickyBottomNav />
     </div>
   )
 }
-
-

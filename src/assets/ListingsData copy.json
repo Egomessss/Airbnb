@@ -49,13 +49,18 @@
     "allowsChildren": true,
     "allowsInfants": true,
     "allowsPets": false,
+
     "longitude": 4.8738603256015365,
     "latitude": 52.36137101269532,
-    "image1": "https://a0.muscache.com/im/pictures/2465d23e-d53b-4ff0-b7b1-2d18f365dbed.jpg?im_w=1200",
-    "image2": "https://a0.muscache.com/im/pictures/2673fc22-3efb-46b1-a204-f6acbdb2ecac.jpg?im_w=720",
-    "image3": "https://a0.muscache.com/im/pictures/e3f0081e-22ec-4d76-a61e-c9aaec678918.jpg?im_w=720",
-    "image4": "https://a0.muscache.com/im/pictures/405360d8-f38e-4bef-a273-013886f0ca7e.jpg?im_w=1200",
-    "image5": "https://a0.muscache.com/im/pictures/4c35b66a-ac95-4eaa-bffa-a785d441a034.jpg?im_w=1200"
+    "images": [
+      "https://a0.muscache.com/im/pictures/2465d23e-d53b-4ff0-b7b1-2d18f365dbed.jpg?im_w=1200",
+      "https://a0.muscache.com/im/pictures/2673fc22-3efb-46b1-a204-f6acbdb2ecac.jpg?im_w=720",
+      "https://a0.muscache.com/im/pictures/e3f0081e-22ec-4d76-a61e-c9aaec678918.jpg?im_w=720",
+      "https://a0.muscache.com/im/pictures/405360d8-f38e-4bef-a273-013886f0ca7e.jpg?im_w=1200",
+      "https://a0.muscache.com/im/pictures/4c35b66a-ac95-4eaa-bffa-a785d441a034.jpg?im_w=1200",
+      "https://a0.muscache.com/im/pictures/e870584a-3939-4a4a-a044-e4d294fd236b.jpg?im_w=720",
+      ""
+    ]
   },
 
   "beachfront": {
@@ -111,11 +116,15 @@
 
     "longitude": 4.8738603256015365,
     "latitude": 52.36137101269532,
-    "image1": "https://a0.muscache.com/im/pictures/2465d23e-d53b-4ff0-b7b1-2d18f365dbed.jpg?im_w=1200",
-    "image2": "https://a0.muscache.com/im/pictures/2673fc22-3efb-46b1-a204-f6acbdb2ecac.jpg?im_w=720",
-    "image3": "https://a0.muscache.com/im/pictures/e3f0081e-22ec-4d76-a61e-c9aaec678918.jpg?im_w=720",
-    "image4": "https://a0.muscache.com/im/pictures/405360d8-f38e-4bef-a273-013886f0ca7e.jpg?im_w=1200",
-    "image5": "https://a0.muscache.com/im/pictures/4c35b66a-ac95-4eaa-bffa-a785d441a034.jpg?im_w=1200"
+    "images": [
+      "https://a0.muscache.com/im/pictures/2465d23e-d53b-4ff0-b7b1-2d18f365dbed.jpg?im_w=1200",
+      "https://a0.muscache.com/im/pictures/2673fc22-3efb-46b1-a204-f6acbdb2ecac.jpg?im_w=720",
+      "https://a0.muscache.com/im/pictures/e3f0081e-22ec-4d76-a61e-c9aaec678918.jpg?im_w=720",
+      "https://a0.muscache.com/im/pictures/405360d8-f38e-4bef-a273-013886f0ca7e.jpg?im_w=1200",
+      "https://a0.muscache.com/im/pictures/4c35b66a-ac95-4eaa-bffa-a785d441a034.jpg?im_w=1200",
+      "https://a0.muscache.com/im/pictures/e870584a-3939-4a4a-a044-e4d294fd236b.jpg?im_w=720",
+      ""
+    ]
   },
 
   "cabin": {
@@ -171,12 +180,15 @@
 
     "longitude": 4.8738603256015365,
     "latitude": 52.36137101269532,
-
-    "image1": "https://a0.muscache.com/im/pictures/2465d23e-d53b-4ff0-b7b1-2d18f365dbed.jpg?im_w=1200",
-    "image2": "https://a0.muscache.com/im/pictures/2673fc22-3efb-46b1-a204-f6acbdb2ecac.jpg?im_w=720",
-    "image3": "https://a0.muscache.com/im/pictures/e3f0081e-22ec-4d76-a61e-c9aaec678918.jpg?im_w=720",
-    "image4": "https://a0.muscache.com/im/pictures/405360d8-f38e-4bef-a273-013886f0ca7e.jpg?im_w=1200",
-    "image5": "https://a0.muscache.com/im/pictures/4c35b66a-ac95-4eaa-bffa-a785d441a034.jpg?im_w=1200"
+    "images": [
+      "https://a0.muscache.com/im/pictures/2465d23e-d53b-4ff0-b7b1-2d18f365dbed.jpg?im_w=1200",
+      "https://a0.muscache.com/im/pictures/2673fc22-3efb-46b1-a204-f6acbdb2ecac.jpg?im_w=720",
+      "https://a0.muscache.com/im/pictures/e3f0081e-22ec-4d76-a61e-c9aaec678918.jpg?im_w=720",
+      "https://a0.muscache.com/im/pictures/405360d8-f38e-4bef-a273-013886f0ca7e.jpg?im_w=1200",
+      "https://a0.muscache.com/im/pictures/4c35b66a-ac95-4eaa-bffa-a785d441a034.jpg?im_w=1200",
+      "https://a0.muscache.com/im/pictures/e870584a-3939-4a4a-a044-e4d294fd236b.jpg?im_w=720",
+      ""
+    ]
   },
 
   "tropical": {
@@ -232,11 +244,15 @@
 
     "longitude": 4.8738603256015365,
     "latitude": 52.36137101269532,
-    "image1": "https://a0.muscache.com/im/pictures/2465d23e-d53b-4ff0-b7b1-2d18f365dbed.jpg?im_w=1200",
-    "image2": "https://a0.muscache.com/im/pictures/2673fc22-3efb-46b1-a204-f6acbdb2ecac.jpg?im_w=720",
-    "image3": "https://a0.muscache.com/im/pictures/e3f0081e-22ec-4d76-a61e-c9aaec678918.jpg?im_w=720",
-    "image4": "https://a0.muscache.com/im/pictures/405360d8-f38e-4bef-a273-013886f0ca7e.jpg?im_w=1200",
-    "image5": "https://a0.muscache.com/im/pictures/4c35b66a-ac95-4eaa-bffa-a785d441a034.jpg?im_w=1200"
+    "images": [
+      "https://a0.muscache.com/im/pictures/2465d23e-d53b-4ff0-b7b1-2d18f365dbed.jpg?im_w=1200",
+      "https://a0.muscache.com/im/pictures/2673fc22-3efb-46b1-a204-f6acbdb2ecac.jpg?im_w=720",
+      "https://a0.muscache.com/im/pictures/e3f0081e-22ec-4d76-a61e-c9aaec678918.jpg?im_w=720",
+      "https://a0.muscache.com/im/pictures/405360d8-f38e-4bef-a273-013886f0ca7e.jpg?im_w=1200",
+      "https://a0.muscache.com/im/pictures/4c35b66a-ac95-4eaa-bffa-a785d441a034.jpg?im_w=1200",
+      "https://a0.muscache.com/im/pictures/e870584a-3939-4a4a-a044-e4d294fd236b.jpg?im_w=720",
+      ""
+    ]
   },
 
   "countryside": {
@@ -293,11 +309,15 @@
 
     "longitude": 4.8738603256015365,
     "latitude": 52.36137101269532,
-    "image1": "https://a0.muscache.com/im/pictures/2465d23e-d53b-4ff0-b7b1-2d18f365dbed.jpg?im_w=1200",
-    "image2": "https://a0.muscache.com/im/pictures/2673fc22-3efb-46b1-a204-f6acbdb2ecac.jpg?im_w=720",
-    "image3": "https://a0.muscache.com/im/pictures/e3f0081e-22ec-4d76-a61e-c9aaec678918.jpg?im_w=720",
-    "image4": "https://a0.muscache.com/im/pictures/405360d8-f38e-4bef-a273-013886f0ca7e.jpg?im_w=1200",
-    "image5": "https://a0.muscache.com/im/pictures/4c35b66a-ac95-4eaa-bffa-a785d441a034.jpg?im_w=1200"
+    "images": [
+      "https://a0.muscache.com/im/pictures/2465d23e-d53b-4ff0-b7b1-2d18f365dbed.jpg?im_w=1200",
+      "https://a0.muscache.com/im/pictures/2673fc22-3efb-46b1-a204-f6acbdb2ecac.jpg?im_w=720",
+      "https://a0.muscache.com/im/pictures/e3f0081e-22ec-4d76-a61e-c9aaec678918.jpg?im_w=720",
+      "https://a0.muscache.com/im/pictures/405360d8-f38e-4bef-a273-013886f0ca7e.jpg?im_w=1200",
+      "https://a0.muscache.com/im/pictures/4c35b66a-ac95-4eaa-bffa-a785d441a034.jpg?im_w=1200",
+      "https://a0.muscache.com/im/pictures/e870584a-3939-4a4a-a044-e4d294fd236b.jpg?im_w=720",
+      ""
+    ]
   },
   "mansion": {
     "id": "6",
@@ -352,11 +372,15 @@
 
     "longitude": 4.8738603256015365,
     "latitude": 52.36137101269532,
-    "image1": "https://a0.muscache.com/im/pictures/2465d23e-d53b-4ff0-b7b1-2d18f365dbed.jpg?im_w=1200",
-    "image2": "https://a0.muscache.com/im/pictures/2673fc22-3efb-46b1-a204-f6acbdb2ecac.jpg?im_w=720",
-    "image3": "https://a0.muscache.com/im/pictures/e3f0081e-22ec-4d76-a61e-c9aaec678918.jpg?im_w=720",
-    "image4": "https://a0.muscache.com/im/pictures/405360d8-f38e-4bef-a273-013886f0ca7e.jpg?im_w=1200",
-    "image5": "https://a0.muscache.com/im/pictures/4c35b66a-ac95-4eaa-bffa-a785d441a034.jpg?im_w=1200"
+    "images": [
+      "https://a0.muscache.com/im/pictures/2465d23e-d53b-4ff0-b7b1-2d18f365dbed.jpg?im_w=1200",
+      "https://a0.muscache.com/im/pictures/2673fc22-3efb-46b1-a204-f6acbdb2ecac.jpg?im_w=720",
+      "https://a0.muscache.com/im/pictures/e3f0081e-22ec-4d76-a61e-c9aaec678918.jpg?im_w=720",
+      "https://a0.muscache.com/im/pictures/405360d8-f38e-4bef-a273-013886f0ca7e.jpg?im_w=1200",
+      "https://a0.muscache.com/im/pictures/4c35b66a-ac95-4eaa-bffa-a785d441a034.jpg?im_w=1200",
+      "https://a0.muscache.com/im/pictures/e870584a-3939-4a4a-a044-e4d294fd236b.jpg?im_w=720",
+      ""
+    ]
   },
   "lakeside": {
     "id": "7",
@@ -412,11 +436,15 @@
 
     "longitude": 4.8738603256015365,
     "latitude": 52.36137101269532,
-    "image1": "https://a0.muscache.com/im/pictures/2465d23e-d53b-4ff0-b7b1-2d18f365dbed.jpg?im_w=1200",
-    "image2": "https://a0.muscache.com/im/pictures/2673fc22-3efb-46b1-a204-f6acbdb2ecac.jpg?im_w=720",
-    "image3": "https://a0.muscache.com/im/pictures/e3f0081e-22ec-4d76-a61e-c9aaec678918.jpg?im_w=720",
-    "image4": "https://a0.muscache.com/im/pictures/405360d8-f38e-4bef-a273-013886f0ca7e.jpg?im_w=1200",
-    "image5": "https://a0.muscache.com/im/pictures/4c35b66a-ac95-4eaa-bffa-a785d441a034.jpg?im_w=1200"
+    "images": [
+      "https://a0.muscache.com/im/pictures/2465d23e-d53b-4ff0-b7b1-2d18f365dbed.jpg?im_w=1200",
+      "https://a0.muscache.com/im/pictures/2673fc22-3efb-46b1-a204-f6acbdb2ecac.jpg?im_w=720",
+      "https://a0.muscache.com/im/pictures/e3f0081e-22ec-4d76-a61e-c9aaec678918.jpg?im_w=720",
+      "https://a0.muscache.com/im/pictures/405360d8-f38e-4bef-a273-013886f0ca7e.jpg?im_w=1200",
+      "https://a0.muscache.com/im/pictures/4c35b66a-ac95-4eaa-bffa-a785d441a034.jpg?im_w=1200",
+      "https://a0.muscache.com/im/pictures/e870584a-3939-4a4a-a044-e4d294fd236b.jpg?im_w=720",
+      ""
+    ]
   },
   "skiing": {
     "id": "8",
@@ -471,10 +499,14 @@
 
     "longitude": 4.8738603256015365,
     "latitude": 52.36137101269532,
-    "image1": "https://a0.muscache.com/im/pictures/2465d23e-d53b-4ff0-b7b1-2d18f365dbed.jpg?im_w=1200",
-    "image2": "https://a0.muscache.com/im/pictures/2673fc22-3efb-46b1-a204-f6acbdb2ecac.jpg?im_w=720",
-    "image3": "https://a0.muscache.com/im/pictures/e3f0081e-22ec-4d76-a61e-c9aaec678918.jpg?im_w=720",
-    "image4": "https://a0.muscache.com/im/pictures/405360d8-f38e-4bef-a273-013886f0ca7e.jpg?im_w=1200",
-    "image5": "https://a0.muscache.com/im/pictures/4c35b66a-ac95-4eaa-bffa-a785d441a034.jpg?im_w=1200"
+    "images": [
+      "https://a0.muscache.com/im/pictures/2465d23e-d53b-4ff0-b7b1-2d18f365dbed.jpg?im_w=1200",
+      "https://a0.muscache.com/im/pictures/2673fc22-3efb-46b1-a204-f6acbdb2ecac.jpg?im_w=720",
+      "https://a0.muscache.com/im/pictures/e3f0081e-22ec-4d76-a61e-c9aaec678918.jpg?im_w=720",
+      "https://a0.muscache.com/im/pictures/405360d8-f38e-4bef-a273-013886f0ca7e.jpg?im_w=1200",
+      "https://a0.muscache.com/im/pictures/4c35b66a-ac95-4eaa-bffa-a785d441a034.jpg?im_w=1200",
+      "https://a0.muscache.com/im/pictures/e870584a-3939-4a4a-a044-e4d294fd236b.jpg?im_w=720",
+      ""
+    ]
   }
 }
