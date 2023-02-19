@@ -7,7 +7,7 @@ import React from "react"
 
 function ListingNav() {
   return (
-    <div className="flex h-[64px] items-center justify-between">
+    <div className="hidden md:flex h-[64px] items-center justify-between">
       <a
         href=""
         className="flex items-center"
