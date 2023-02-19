@@ -163,7 +163,7 @@ function ListingDetails() {
             <h2 className="mb-4 text-xl font-semibold">
               What this place offers
             </h2>
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col flex-wrap gap-4  md:flex-row">
               <div className="flex gap-2">
                 <TbBeach className="block h-[24px] w-[24px]" />
                 <p>Beach access - Beachfront</p>
@@ -194,27 +194,21 @@ function ListingDetails() {
           </div>
         </Info>
         {/* adicionar mapa */}
-        <Info>
-          <div className="md:hidden">
-            <h2 className="mb-4 text-xl font-semibold">Where you'll be</h2>
-            <p className="mb-4">Luz, Lagos, Faro, Portugal</p>
-            <div className="h-[218px] w-[342px] border-2 border-black"></div>
-          </div>
-        </Info>
 
-        <Info>
-          <div className="md:hidden">
-            {" "}
-            <h2 className="mb-4 text-xl font-semibold">
-              7 nights in Luz, Lagos
-            </h2>
-            <p className="text-sm">30 may 2023-5 Jun 2023</p>
-            <CalendarMobile />
-            <button className="text-sm font-semibold underline">
-              Clear dates
-            </button>
-          </div>
-        </Info>
+        <div className="border-t-[1px] pt-8 pb-6 md:hidden">
+          <h2 className="mb-4 text-xl font-semibold">Where you'll be</h2>
+          <p className="mb-4">Luz, Lagos, Faro, Portugal</p>
+          <div className="h-[218px] w-[342px] border-2 border-black"></div>
+        </div>
+
+        <div className="border-t-[1px] pt-8 pb-6 md:hidden">
+          {" "}
+          <h2 className="mb-4 text-xl font-semibold">7 nights in Luz, Lagos</h2>
+          <p className="text-sm">30 may 2023-5 Jun 2023</p>
+          <button className="text-sm font-semibold underline">
+            Clear dates
+          </button>
+        </div>
       </div>
     </div>
   )

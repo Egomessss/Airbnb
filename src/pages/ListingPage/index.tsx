@@ -9,6 +9,10 @@ import FooterMobile from "./FooterMobile"
 import ImageGrid from "./ImageGrid"
 import ListingDetails from "./ListingDetails"
 import Availability from "./Availability"
+import Calendar from "../../components/Calendar"
+import { DateRangePicker } from "react-date-range"
+import MapApi from "../../components/MapApi"
+import Info from "./Info"
 
 export default function ListingPage() {
   return (
@@ -24,7 +28,13 @@ export default function ListingPage() {
         <ListingDetails />
         <Availability />
       </div>
-
+        <Info>
+          <div className=" w-full h-[500px]">
+            <h2 className="mb-4 text-xl font-semibold">Where you'll be</h2>
+            <p className="mb-4">Luz, Lagos, Faro, Portugal</p>
+            <MapApi />
+          </div>
+        </Info>
       {/* <ListingInfo /> */}
       <FooterMobile />
       <StickyBottomNav />
