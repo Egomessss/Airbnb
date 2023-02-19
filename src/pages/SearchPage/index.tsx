@@ -22,12 +22,11 @@ function SearchPage() {
   }
 
   return (
-    <div className="md: mx-auto">
+    <div className="md:px-10">
       {/* top section  Navigation and filter */}
-      <div className="sticky top-0 z-10 bg-white px-6">
-        <Navbar />
-        <SwipeCarouselFilter />
-      </div>
+      <Navbar />
+      <SwipeCarouselFilter />
+      
       {/* left section in full and middle in mobile*/}
       <div className="flex md:relative">
         {/* full screen listing data */}
@@ -38,11 +37,9 @@ function SearchPage() {
           <SearchCard />
         </div>
 
-        <div className="hidden h-full w-full border-2 md:-mr-8 lg:inline-flex md:h-[1050px] md:w-[40%]">
+        <div className="hidden h-full w-full border-2 md:-mr-8 md:h-[1080px] md:w-[40%] lg:inline-flex">
           {/* <MapApi /> */}
         </div>
-
-
 
         {/* open the map or the listing info */}
         {openMap ? (

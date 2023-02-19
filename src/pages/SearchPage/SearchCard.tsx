@@ -55,7 +55,7 @@ function SearchCard() {
   const changePage = (pageNumber) => setCurrentPage(pageNumber)
 
   return (
-    <div className="h-full">
+    <div className="">
       <div className="grid grid-cols-2 gap-6">
         {currentPosts.map((card) => {
           return (
@@ -75,7 +75,7 @@ function SearchCard() {
                       <SwiperSlide key={card.id}>
                         <a href="">
                           <img
-                            className="min-h-[350px]  rounded-xl object-cover"
+                            className="min-h-[350px] rounded-xl object-cover"
                             alt={card.location}
                             src={slide}
                           />
@@ -116,7 +116,7 @@ function SearchCard() {
           )
         })}
       </div>
-      <div className=" mt-5 flex items-center justify-center h-[100px]">
+      <div className=" mt-5 flex items-center justify-center h-[50px]">
         <SearchPagination
           postsPerPage={postsPerPage}
           totalPosts={posts.length}
