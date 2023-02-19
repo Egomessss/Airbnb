@@ -64,7 +64,11 @@ function MiddleNavSearch() {
   // sets the searchinput based on the user input and fetches the data accordingly
   const handleSearchInputChange = (e: any) => setSearchInput(e.target.value)
 
-  console.log(fetch('https://airbnb19.p.rapidapi.com/api/v1/searchDestination?query=Chicago&country=USA'))
+  console.log(
+    fetch(
+      "https://airbnb19.p.rapidapi.com/api/v1/searchDestination?query=Chicago&country=USA"
+    )
+  )
 
   // !checkin data
   const [openChooseDates, setOpenChooseDates] = useState(false)
@@ -124,7 +128,7 @@ function MiddleNavSearch() {
 
   return (
     <nav className="flex w-full justify-center py-4">
-      <div className="hidden h-[65px] w-[820px] cursor-pointer items-center rounded-full border-[1px] border-gray-300 bg-white shadow hover:shadow-lg md:flex ">
+      <div className="hidden h-[65px] w-[820px] min-w-[700px] cursor-pointer items-center rounded-full border-[1px] border-gray-300 bg-white shadow hover:shadow-lg md:flex ">
         {/* destination popover */}
         {/* this onclick is supposed to invert the colors */}
         <div
@@ -153,7 +157,7 @@ function MiddleNavSearch() {
                   leaveFrom="opacity-100 translate-y-0"
                   leaveTo="opacity-0 translate-y-1"
                 >
-                  <Popover.Panel className="absolute top-14 left-[70%] z-50 mt-5 w-screen max-w-sm -translate-x-1/2 transform ">
+                  <Popover.Panel className="absolute top-14 left-[80%] z-50 mt-5 w-screen max-w-sm -translate-x-1/2 transform ">
                     <div className="h-[470px] w-[494px] rounded-[40px] border-[1px] bg-white px-12 py-10">
                       <p className="mb-8 text-sm font-semibold">
                         Search by region
@@ -199,37 +203,23 @@ function MiddleNavSearch() {
 
         {/* checkin popover */}
 
-        <div className="flex items-center justify-start">
-          <Popover className="relative">
+        <div className="flex w-[35%] items-center justify-start">
+          <Popover className="relative w-full rounded-full border-gray-300 hover:bg-gray-300">
             {({ open }) => (
               <>
                 <Popover.Button onClick={() => setOpenChooseDates(true)}>
-                  <div className="flex items-center justify-center">
-                    <div className="rounded-full  border-gray-300 py-4 px-8  hover:bg-gray-300">
-                      <p className="text-left text-xs font-semibold">
-                        Check in
-                      </p>
-                      <p className="whitespace-nowrap text-sm  text-gray-400">
-                        Add dates
-                      </p>
-                      <XMarkIcon
-                        onClick={resetInput}
-                        className="absolute top-5 left-[108px] h-6 w-6 rounded-full bg-gray-200 p-1 hover:bg-gray-300"
-                      />
-                    </div>
-                    <div className="rounded-full  border-gray-300 py-4 px-8  hover:bg-gray-300">
-                      <p className="text-left text-xs font-semibold">
-                        Check out
-                      </p>
-                      <p className="whitespace-nowrap text-sm  text-gray-400">
-                        Add dates
-                      </p>
-                      <XMarkIcon
-                        onClick={resetInput}
-                        className="absolute top-5 right-1 h-6 w-6 rounded-full bg-gray-200 p-1 hover:bg-gray-300"
-                      />
-                    </div>
+                  <div className=" py-4 px-8 ">
+                    <p className="whitespace-nowrap text-xs font-semibold">
+                      Check in | Check out
+                    </p>
+                    <p className="whitespace-nowrap text-sm  text-gray-400">
+                      Add dates
+                    </p>
                   </div>
+                  <XMarkIcon
+                    onClick={resetInput}
+                    className="absolute top-5 right-2 h-6 w-6 rounded-full bg-gray-200 p-1 hover:bg-gray-300"
+                  />
                 </Popover.Button>
                 <Transition
                   as={Fragment}
@@ -240,7 +230,7 @@ function MiddleNavSearch() {
                   leaveFrom="opacity-100 translate-y-0"
                   leaveTo="opacity-0 translate-y-1"
                 >
-                  <Popover.Panel className="absolute right-[22rem] z-50 mt-2 w-screen max-w-sm translate-x-1/2 ">
+                  <Popover.Panel className="absolute right-[370px] z-50 mt-2 w-screen max-w-sm translate-x-1/2 ">
                     <div className="flex h-[470px] w-[820px] flex-col items-center justify-center rounded-[40px] border-[1px] bg-white px-12 py-10">
                       <div className="flex w-[300px] justify-between rounded-3xl bg-gray-300 p-1 ">
                         <button
@@ -328,7 +318,7 @@ function MiddleNavSearch() {
 
         {/* Guest popover */}
 
-        <div className="flex h-full w-[35%]  items-center justify-center gap-12 rounded-full hover:bg-gray-300">
+        <div className="flex h-full w-[30%]  items-center justify-center gap-12 rounded-full hover:bg-gray-300">
           <Popover className="relative">
             {({ open }) => (
               <>
@@ -433,13 +423,13 @@ function MiddleNavSearch() {
               </>
             )}
           </Popover>
-          <button className="flex h-[50px] w-[110px] items-center justify-center rounded-3xl bg-[#DA0A64] text-white">
+          <button className="flex h-[50px] items-center  justify-center rounded-3xl bg-[#DA0A64] text-white md:w-[50px] lg:w-[110px]">
             <Link
               className="flex gap-2"
               to={"/SearchPage"}
             >
               <MagnifyingGlassIcon className="h-5 w-5" />
-              <p className="font-semibold">Search</p>
+              <p className="font-semibold md:hidden">Search</p>
             </Link>
           </button>
         </div>

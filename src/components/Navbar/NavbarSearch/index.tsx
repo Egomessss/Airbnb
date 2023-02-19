@@ -41,7 +41,7 @@ export default function NavbarSearchDrawer({ open, setOpen }: any) {
               >
                 {/* Content */}
                 <Dialog.Panel className="pointer-events-auto relative w-screen max-w-md">
-                  <div className="flex h-[160px] w-screen flex-col bg-white py-4 px-20 shadow-xl">
+                  <div className="hidden md:flex h-[160px] w-screen flex-col bg-white py-4 px-20 shadow-xl">
                     {/* top section of searchnavbar drawer */}
                     <TopNavSearch />
                     {/* Middle section of searchnavbar drawer */}
