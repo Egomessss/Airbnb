@@ -10,10 +10,10 @@ function NavMiddleFull() {
 
   return (
     <div>
-      <div className="hidden h-[55px] min-w-[362px] cursor-pointer items-center justify-around rounded-full border shadow hover:shadow-lg md:flex">
+      <div className="hidden h-[55px] min-w-[362px] cursor-pointer items-center justify-around rounded-full border shadow hover:shadow-lg md:flex"   onClick={() => setOpen(true)}>
         <ul className="flex flex-row items-center gap-7 text-xs ">
           <li
-            onClick={() => setOpen(true)}
+          
             className="border-r-2 pr-2 font-semibold"
           >
             Anywhere

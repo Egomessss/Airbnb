@@ -423,7 +423,7 @@ function MiddleNavSearch() {
               </>
             )}
           </Popover>
-          <button className="flex h-[50px] items-center  justify-center rounded-3xl bg-[#DA0A64] text-white md:w-[50px] lg:w-[110px]">
+          <button className="flex h-[50px] items-center  justify-center rounded-3xl bg-[#DA0A64] text-white md:w-[50px] lg:w-[90px]">
             <Link
               className="flex gap-2"
               to={"/SearchPage"}
