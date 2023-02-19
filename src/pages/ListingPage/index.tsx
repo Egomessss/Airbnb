@@ -29,14 +29,14 @@ export default function ListingPage() {
         <Availability />
       </div>
         <Info>
-          <div className=" w-full h-[500px]">
+          <div className=" w-full h-[500px] mb-20">
             <h2 className="mb-4 text-xl font-semibold">Where you'll be</h2>
             <p className="mb-4">Luz, Lagos, Faro, Portugal</p>
             <MapApi />
           </div>
         </Info>
       {/* <ListingInfo /> */}
-      <FooterMobile />
+      {/* <FooterMobile /> */}
       <StickyBottomNav />
     </div>
   )
