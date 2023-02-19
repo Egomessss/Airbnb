@@ -3,7 +3,7 @@ import React from "react"
 
 function Availability() {
   return (
-    <div className="top-2 flex h-[302px] w-[372px] flex-col gap-5 rounded-xl  border-[1px] bg-scroll p-4 shadow-lg">
+    <div className="top-2 hidden h-[302px] w-[372px] flex-col gap-5 rounded-xl border-[1px]  bg-scroll p-4 shadow-lg md:flex">
       <div className="h-16">
         <h1 className="text-xl font-medium">Add dates for prices</h1>
         <div>

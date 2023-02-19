@@ -14,7 +14,7 @@ import Info from "./Info"
 
 function ListingDetails() {
   return (
-    <div className="max-w-[60%]">
+    <div className="md:max-w-[60%]">
       <div className="flex flex-col gap-2 py-6">
         <div>
           <h1 className="text-2xl font-semibold">Luz Beach Rooftop</h1>
