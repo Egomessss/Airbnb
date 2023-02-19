@@ -20,7 +20,7 @@ export default function ListingPage() {
       {/* mobile */}
       <ListingCarousel />
 
-      <div className="relative flex">
+      <div className="relative flex justify-between">
         <ListingDetails />
         <Availability />
       </div>

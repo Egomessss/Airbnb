@@ -159,53 +159,62 @@ function ListingDetails() {
           </a>
         </div>
         <Info>
-        <div>
-          <h2 className="text-xl font-semibold mb-4">What this place offers</h2>
-          <div className="flex flex-col gap-4">
-            <div className="flex gap-2">
-              <TbBeach className="block h-[24px] w-[24px]" />
-              <p>Beach access - Beachfront</p>
+          <div>
+            <h2 className="mb-4 text-xl font-semibold">
+              What this place offers
+            </h2>
+            <div className="flex flex-col gap-4">
+              <div className="flex gap-2">
+                <TbBeach className="block h-[24px] w-[24px]" />
+                <p>Beach access - Beachfront</p>
+              </div>
+              <div className="flex gap-2">
+                <TbBeach className="block h-[24px] w-[24px]" />
+                <p>Beach access - Beachfront</p>
+              </div>
+              <div className="flex gap-2">
+                <TbBeach className="block h-[24px] w-[24px]" />
+                <p>Beach access - Beachfront</p>
+              </div>
+              <div className="flex gap-2">
+                <TbBeach className="block h-[24px] w-[24px]" />
+                <p>Beach access - Beachfront</p>
+              </div>
+              <div className="flex gap-2">
+                <TbBeach className="block h-[24px] w-[24px]" />
+                <p>Beach access - Beachfront</p>
+              </div>
             </div>
-            <div className="flex gap-2">
-              <TbBeach className="block h-[24px] w-[24px]" />
-              <p>Beach access - Beachfront</p>
-            </div>
-            <div className="flex gap-2">
-              <TbBeach className="block h-[24px] w-[24px]" />
-              <p>Beach access - Beachfront</p>
-            </div>
-            <div className="flex gap-2">
-              <TbBeach className="block h-[24px] w-[24px]" />
-              <p>Beach access - Beachfront</p>
-            </div>
-            <div className="flex gap-2">
-              <TbBeach className="block h-[24px] w-[24px]" />
-              <p>Beach access - Beachfront</p>
+            <div className="mt-8">
+              <MobileBtn
+                text={"Show all 37 amenities"}
+                link={""}
+              />
             </div>
           </div>
-          <div className="mt-8">
-            <MobileBtn
-              text={"Show all 37 amenities"}
-              link={""}
-            />
+        </Info>
+        {/* adicionar mapa */}
+        <Info>
+          <div className="md:hidden">
+            <h2 className="mb-4 text-xl font-semibold">Where you'll be</h2>
+            <p className="mb-4">Luz, Lagos, Faro, Portugal</p>
+            <div className="h-[218px] w-[342px] border-2 border-black"></div>
           </div>
-        </div>
-      </Info>
-      {/* adicionar mapa */}
-      <Info>
-        <div>
-          <h2 className="text-xl font-semibold mb-4">Where you'll be</h2>
-          <p className="mb-4">Luz, Lagos, Faro, Portugal</p>
-          <div className="w-[342px] h-[218px] border-black border-2"></div>
-        </div>
-      </Info>
+        </Info>
 
-      <Info>
-        <h2 className="text-xl font-semibold mb-4">7 nights in Luz, Lagos</h2>
-        <p className="text-sm">30 may 2023-5 Jun 2023</p>
-        <CalendarMobile />
-        <button className="underline font-semibold text-sm">Clear dates</button>
-      </Info>
+        <Info>
+          <div className="md:hidden">
+            {" "}
+            <h2 className="mb-4 text-xl font-semibold">
+              7 nights in Luz, Lagos
+            </h2>
+            <p className="text-sm">30 may 2023-5 Jun 2023</p>
+            <CalendarMobile />
+            <button className="text-sm font-semibold underline">
+              Clear dates
+            </button>
+          </div>
+        </Info>
       </div>
     </div>
   )
