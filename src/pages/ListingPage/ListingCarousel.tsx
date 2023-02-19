@@ -12,7 +12,7 @@ import { Pagination } from "swiper"
 import data from "../../assets/data.json"
 function ListingCarousel() {
   return (
-    <div className="-mx-6">
+    <div className="flex md:hidden -mx-6">
       <Swiper
         className="mySwiper"
         pagination={{

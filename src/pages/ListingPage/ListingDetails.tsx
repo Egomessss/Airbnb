@@ -7,11 +7,14 @@ import React from "react"
 import { CiLocationOn, CiCalendar } from "react-icons/ci"
 import { FaMedal } from "react-icons/fa"
 import { SlDiamond } from "react-icons/sl"
+import { TbBeach } from "react-icons/tb"
+import CalendarMobile from "../../components/CalendarMobile"
+import MobileBtn from "../../components/MobileBtn"
 import Info from "./Info"
 
 function ListingDetails() {
   return (
-    <div>
+    <div className="max-w-[60%]">
       <div className="flex flex-col gap-2 py-6">
         <div>
           <h1 className="text-2xl font-semibold">Luz Beach Rooftop</h1>
@@ -155,6 +158,54 @@ function ListingDetails() {
             Show more <ChevronRightIcon className="block h-5" />
           </a>
         </div>
+        <Info>
+        <div>
+          <h2 className="text-xl font-semibold mb-4">What this place offers</h2>
+          <div className="flex flex-col gap-4">
+            <div className="flex gap-2">
+              <TbBeach className="block h-[24px] w-[24px]" />
+              <p>Beach access - Beachfront</p>
+            </div>
+            <div className="flex gap-2">
+              <TbBeach className="block h-[24px] w-[24px]" />
+              <p>Beach access - Beachfront</p>
+            </div>
+            <div className="flex gap-2">
+              <TbBeach className="block h-[24px] w-[24px]" />
+              <p>Beach access - Beachfront</p>
+            </div>
+            <div className="flex gap-2">
+              <TbBeach className="block h-[24px] w-[24px]" />
+              <p>Beach access - Beachfront</p>
+            </div>
+            <div className="flex gap-2">
+              <TbBeach className="block h-[24px] w-[24px]" />
+              <p>Beach access - Beachfront</p>
+            </div>
+          </div>
+          <div className="mt-8">
+            <MobileBtn
+              text={"Show all 37 amenities"}
+              link={""}
+            />
+          </div>
+        </div>
+      </Info>
+      {/* adicionar mapa */}
+      <Info>
+        <div>
+          <h2 className="text-xl font-semibold mb-4">Where you'll be</h2>
+          <p className="mb-4">Luz, Lagos, Faro, Portugal</p>
+          <div className="w-[342px] h-[218px] border-black border-2"></div>
+        </div>
+      </Info>
+
+      <Info>
+        <h2 className="text-xl font-semibold mb-4">7 nights in Luz, Lagos</h2>
+        <p className="text-sm">30 may 2023-5 Jun 2023</p>
+        <CalendarMobile />
+        <button className="underline font-semibold text-sm">Clear dates</button>
+      </Info>
       </div>
     </div>
   )

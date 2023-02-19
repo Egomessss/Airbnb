@@ -13,25 +13,16 @@ import Availability from "./Availability"
 export default function ListingPage() {
   return (
     <div className="mx-auto max-w-[1200px] px-6">
-      <div className="hidden md:flex">
-        <Navbar />
-      </div>
-      <div className="md:hidden">
-        <ListingNav />
-      </div>
-      <div className="flex md:hidden">
-        <ListingCarousel />
-      </div>
-      <div>
-        <ImageGrid />
-      </div>
-      <div className="flex relative">
-        <div className="max-w-[60%]">
-          <ListingDetails />
-        </div>
-        <div>
-          <Availability />
-        </div>
+      <Navbar />
+      <ListingNav />
+      <ImageGrid />
+
+      {/* mobile */}
+      <ListingCarousel />
+
+      <div className="relative flex">
+        <ListingDetails />
+        <Availability />
       </div>
 
       {/* <ListingInfo /> */}
