@@ -55,18 +55,18 @@ function SearchCard() {
   const changePage = (pageNumber) => setCurrentPage(pageNumber)
 
   return (
-    <div>
-      <div className="flex flex-wrap gap-6">
+    <div className="h-full">
+      <div className="grid grid-cols-2 gap-6">
         {currentPosts.map((card) => {
           return (
             <div
-              className=" flex h-[450px] w-[380px] flex-auto  flex-col "
+              className="min-h-[400px] "
               key={card.price}
             >
               <div>
                 <Swiper
-                   navigation={true}
-                   pagination={true}
+                  navigation={true}
+                  pagination={true}
                   modules={[Pagination, Navigation]}
                   className="mySwiper"
                 >
@@ -75,7 +75,7 @@ function SearchCard() {
                       <SwiperSlide key={card.id}>
                         <a href="">
                           <img
-                            className="h-[335px] w-full rounded-xl object-cover"
+                            className="min-h-[350px]  rounded-xl object-cover"
                             alt={card.location}
                             src={slide}
                           />
@@ -116,7 +116,7 @@ function SearchCard() {
           )
         })}
       </div>
-      <div className=" mt-5 flex justify-center">
+      <div className=" mt-5 flex items-center justify-center h-[100px]">
         <SearchPagination
           postsPerPage={postsPerPage}
           totalPosts={posts.length}
@@ -129,4 +129,3 @@ function SearchCard() {
 }
 
 export default SearchCard
-

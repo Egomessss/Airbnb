@@ -1,7 +1,8 @@
 import React, { useState } from "react"
 import BottomNav from "../../components/BottomNav"
 import Footer from "../../components/Footer"
-import HomepageCard from "../../components/HomepageCard"
+import Listings from "../../components/Listings"
+import HomepageCard from "../../components/Listings"
 import MapApi from "../../components/MapApi"
 import Navbar from "../../components/Navbar/Navbar/Navbar"
 import StickyButton from "../../components/StickyButton"
@@ -28,7 +29,7 @@ function Homepage() {
           <MapApi />
         </div>
       ) : (
-        <HomepageCard />
+        <Listings />
       )}
       <div className="sticky bottom-0 z-10 bg-white">
         <StickyButton toogleMap={toogleMap} />
