@@ -34,7 +34,6 @@ function Homepage() {
         <StickyButton toogleMap={toogleMap} />
         <BottomNav />
       </div>
-
       <Footer />
     </div>
   )
