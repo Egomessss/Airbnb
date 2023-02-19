@@ -28,7 +28,7 @@ function SearchPage() {
       <SwipeCarouselFilter />
       
       {/* left section in full and middle in mobile*/}
-      <div className="flex md:relative">
+      <div className="flex md:relative ">
         {/* full screen listing data */}
         <div className="hidden px-4 md:inline-block lg:w-[60%]">
           <p className="pb-4 text-sm font-medium">
@@ -37,7 +37,7 @@ function SearchPage() {
           <SearchCard />
         </div>
 
-        <div className="hidden h-full w-full border-2 md:-mr-8 md:h-[1080px] md:w-[40%] lg:inline-flex">
+        <div className="hidden w-full border-2 md:min-h-[980px] md:w-[40%] lg:inline-flex">
           {/* <MapApi /> */}
         </div>
 

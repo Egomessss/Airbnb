@@ -56,11 +56,11 @@ function SearchCard() {
 
   return (
     <div className="">
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
         {currentPosts.map((card) => {
           return (
             <div
-              className="min-h-[400px] "
+              className="min-h-[300px] "
               key={card.price}
             >
               <div>
@@ -75,7 +75,7 @@ function SearchCard() {
                       <SwiperSlide key={card.id}>
                         <a href="">
                           <img
-                            className="min-h-[350px] rounded-xl object-cover"
+                            className="min-h-[260px] rounded-xl object-cover"
                             alt={card.location}
                             src={slide}
                           />
@@ -116,7 +116,7 @@ function SearchCard() {
           )
         })}
       </div>
-      <div className=" mt-5 flex items-center justify-center h-[50px]">
+      <div className=" mt-5 flex h-[50px] items-center justify-center">
         <SearchPagination
           postsPerPage={postsPerPage}
           totalPosts={posts.length}
