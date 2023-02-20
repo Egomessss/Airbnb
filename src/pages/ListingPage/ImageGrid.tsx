@@ -1,41 +1,44 @@
 import React from "react"
 
 function ImageGrid(images) {
+  
+  console.log(images)
+
   return (
     <div className="hidden  md:block">
       <ul className=" grid min-h-[400px] grid-cols-4 grid-rows-2 gap-2">
         <li className="col-span-2 row-span-2">
           <img
             className="min-h-[410px] object-cover"
-            src={images.image1}
+            src={}
             alt=""
           />
         </li>
         <li className="col-span-1 row-span-1">
           <img
             className="min-h-[200px]  object-cover"
-            src={images.image2}
+            src={images[1]}
             alt=""
           />
         </li>
         <li className="col-span-1 row-span-1">
           <img
             className="min-h-[200px]  object-cover"
-            src={images.image3}
+            src={images[2]}
             alt=""
           />
         </li>
         <li className="col-span-1 row-span-1">
           <img
             className="min-h-[200px]  object-cover"
-            src={images.image4}
+            src={images[3]}
             alt=""
           />
         </li>
         <li className="col-span-1 row-span-1">
           <img
             className="min-h-[200px]  object-cover"
-            src={images.image5}
+            src={images[4]}
             alt=""
           />
         </li>

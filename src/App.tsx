@@ -19,7 +19,7 @@ function App() {
           element={<SearchPage />}
         />{" "}
         <Route
-          path="/ListingPage"
+          path="/ListingPage/:listingId"
           element={<ListingPage />}
         />{" "}
         <Route

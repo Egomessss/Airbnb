@@ -13,37 +13,42 @@ import Calendar from "../../components/Calendar"
 import { DateRangePicker } from "react-date-range"
 import MapApi from "../../components/MapApi"
 import Info from "./Info"
+
 import ListingData from "../../assets/ListingsData.json"
 
+import { useParams } from "react-router-dom"
 // pass data from json dynamically
 // pass data to dynamic routees
 
 export default function ListingPage() {
+  const { listingId } = useParams()
 
-const images = ListingData.beachfront
+  // console.log(listingId)
+
+  const thisListing = ListingData.find((listing) => listing.id === listingId)
 
   return (
     <div className="mx-auto max-w-[1200px] px-6">
       <Navbar />
       <ListingNav />
-      <ImageGrid data={images} />
+      {/* <ImageGrid images={thisListing?.images} /> */}
       {/* mobile */}
-      <ListingCarousel />
+      {/* <ListingCarousel /> */}
 
-      <div className="relative flex justify-between">
+      {/* <div className="relative flex justify-between">
         <ListingDetails />
         <Availability />
       </div>
-        <Info>
-          <div className=" w-full h-[500px] mb-20">
-            <h2 className="mb-4 text-xl font-semibold">Where you'll be</h2>
-            <p className="mb-4">Luz, Lagos, Faro, Portugal</p>
-            <MapApi />
-          </div>
-        </Info>
+      <Info>
+        <div className=" mb-20 h-[500px] w-full">
+          <h2 className="mb-4 text-xl font-semibold">Where you'll be</h2>
+          <p className="mb-4">Luz, Lagos, Faro, Portugal</p>
+          <MapApi />
+        </div>
+      </Info> */}
       {/* <ListingInfo /> */}
       {/* <FooterMobile /> */}
-      <StickyBottomNav />
+      {/* <StickyBottomNav /> */}
     </div>
   )
 }
