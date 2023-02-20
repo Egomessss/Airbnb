@@ -1,8 +1,9 @@
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline"
 import React, { useState } from "react"
 import { Link } from "react-router-dom"
+import NavbarSearchDrawer from "../NavbarSearch"
 
-import SearchPopOver from "../NavbarSearch"
+
 
 function NavMiddleFull() {
   // !state for the NavSearchModal
@@ -33,7 +34,7 @@ function NavMiddleFull() {
         </ul>
         {/* renders the modal */}
         {open && (
-          <SearchPopOver
+          <NavbarSearchDrawer
             open={open}
             setOpen={setOpen}
           />

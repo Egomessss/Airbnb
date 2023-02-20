@@ -4,10 +4,7 @@ import NavRightSide from "../Navbar/NavRightSide"
 
 function TopNavSearch() {
   return (
-    <div className="flex w-full justify-between ">
-      <NavLeftSide />
-      <NavRightSide />
-    </div>
+   
   )
 }
 

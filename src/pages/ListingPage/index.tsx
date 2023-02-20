@@ -13,16 +13,20 @@ import Calendar from "../../components/Calendar"
 import { DateRangePicker } from "react-date-range"
 import MapApi from "../../components/MapApi"
 import Info from "./Info"
-import ListingData from "../../assets/ListingsData copy.json"
+import ListingData from "../../assets/ListingsData.json"
 
+// pass data from json dynamically
+// pass data to dynamic routees
 
 export default function ListingPage() {
+
+const images = ListingData.beachfront
+
   return (
     <div className="mx-auto max-w-[1200px] px-6">
       <Navbar />
       <ListingNav />
-      <ImageGrid  />
-
+      <ImageGrid data={images} />
       {/* mobile */}
       <ListingCarousel />
 
