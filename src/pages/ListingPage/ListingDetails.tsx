@@ -15,8 +15,6 @@ import Info from "./Info"
 
 // add conditional rending for the superhost and rare find properties
 
-
-
 function ListingDetails(data) {
   const string = data.data.amenities
   // console.log(string)
@@ -24,7 +22,7 @@ function ListingDetails(data) {
 
   return (
     <div className="md:max-w-[60%]">
-      <div className="flex flex-col gap-2 py-6">
+      <div className="flex flex-col gap-2 py-6 md:hidden">
         <div>
           <h1 className="text-2xl font-semibold">{data.data.summary}</h1>
           <h1 className="text-2xl font-semibold">{data.data.property_type}</h1>
@@ -52,32 +50,19 @@ function ListingDetails(data) {
 
       {/* body */}
       {/* fix this or remove */}
-      <Info>
-        <div className="flex">
-          <p>
-            <span className="font-semibold">This is a rare find.</span> Pedro's
-            place on Airbnb is usually fully booked.
-          </p>
-          <SlDiamond className="block h-[32px] w-[42px] fill-[#E31C5F]" />
-        </div>
-      </Info>
 
-      <Info>
-        <div className="mb-2 flex justify-between">
+      <div className="flex md:hidden">
+        <p>
+          <span className="font-semibold">This is a rare find.</span> Pedro's
+          place on Airbnb is usually fully booked.
+        </p>
+        <SlDiamond className="block h-[32px] w-[42px] fill-[#E31C5F]" />
+      </div>
+
+      <div className="py-6 flex justify-between">
+        <div className="flex flex-col gap-2">
           <h3 className="text-xl font-semibold">{data.data.room_type}</h3>
-
-          <div className="relative">
-            <img
-              src="https://a0.muscache.com/im/pictures/user/1f9954af-c6cb-425d-b975-d2a7e32ea999.jpg?im_w=240"
-              alt=""
-              className="h-[54px] w-[54px] rounded-full"
-            />
-            <FaMedal className="absolute bottom-1 -right-2  z-20 text-2xl text-yellow-500" />
-          </div>
-        </div>
-
-        <div className="text-sm">
-          <ul className="flex gap-2">
+          <ul className="flex gap-2 text-sm">
             <li className="flex items-center">
               {data.data.accommodates} guests
             </li>
@@ -86,7 +71,16 @@ function ListingDetails(data) {
             <li>{data.data.bathrooms} bathrooms</li>
           </ul>
         </div>
-      </Info>
+        <div className="relative">
+            <img
+              src="https://a0.muscache.com/im/pictures/user/1f9954af-c6cb-425d-b975-d2a7e32ea999.jpg?im_w=240"
+              alt=""
+              className="h-[54px] w-[54px] rounded-full"
+            />
+            <FaMedal className="absolute bottom-1 -right-2  z-20 text-2xl text-yellow-500" />
+          </div>
+      </div>
+
       {/* add translation */}
       <div className="border-t-[1px] pt-8 pb-6">
         <div className="flex gap-2">
@@ -124,7 +118,7 @@ function ListingDetails(data) {
             <div className="flex flex-col flex-wrap gap-4  md:flex-row">
               {splitToString.map((amenitie) => {
                 return (
-                  <div className="flex w-[200px] gap-2">
+                  <div className="flex w-[250px] gap-2 whitespace-nowrap">
                     <TbBeach className="block h-[24px] w-[24px]" />
                     <p>{amenitie}</p>
                   </div>
