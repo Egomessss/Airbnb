@@ -2,19 +2,23 @@ import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/outline"
 
 import React from "react"
 
-function SearchPagination({ postsPerPage, totalPosts, changePage, currentPage }) {
+function SearchPagination({
+  changePage,
+  currentPage,
+  decrementPage,
+  incrementPage,
+  pageNumbers
+}) {
 
-  const pageNumbers = []
+ 
 
-  // get us the amount of pages based on the total posts variable and postsperpage
-  for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
-    pageNumbers.push(i)
-  }
-  console.log(currentPage)
   return (
-    <nav className="flex gap-4">
+    <nav className="flex justify-center gap-4">
       <button>
-        <ChevronLeftIcon className="h-5" />
+        <ChevronLeftIcon
+          onClick={decrementPage}
+          className="h-5"
+        />
       </button>
 
       <div className="flex gap-4">
@@ -34,7 +38,10 @@ function SearchPagination({ postsPerPage, totalPosts, changePage, currentPage })
         ))}
       </div>
       <button>
-        <ChevronRightIcon className="h-5" />
+        <ChevronRightIcon
+          onClick={incrementPage}
+          className="h-5"
+        />
       </button>
     </nav>
   )

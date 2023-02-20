@@ -12,6 +12,9 @@ import MapApi from "../../components/MapApi"
 import FooterSearchPage from "./FooterSearchPage"
 
 import StickyButton from "../../components/StickyButton"
+import SearchPagination from "./SearchPagination"
+
+import data from "../../assets/data.json"
 
 function SearchPage() {
   const [openMap, setOpenMap] = useState(false)
@@ -21,12 +24,48 @@ function SearchPage() {
     setOpenMap((prevMode) => !prevMode)
   }
 
+  // ! pagination
+  // fetches the data from the json file
+  const [posts] = useState(data.cardImgs)
+
+  // sets the current page and the post per page in the pagination component
+  const [currentPage, setCurrentPage] = useState(1)
+  const [postsPerPage] = useState(4)
+
+  // get current posts
+  const indexOfLastPost = currentPage * postsPerPage
+  const indexOfFirstPost = indexOfLastPost - postsPerPage
+  const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost)
+  console.log(currentPosts)
+  // change page
+  const changePage = (pageNumber) => setCurrentPage(pageNumber)
+
+  const decrementPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1)
+    }
+  }
+
+  const incrementPage = () => {
+    if (currentPage < pageNumbers.length) {
+      setCurrentPage(currentPage + 1)
+    }
+  }
+
+  const pageNumbers = []
+
+  // get us the amount of pages based on the total posts variable and postsperpage
+
+  for (let i = 1; i <= Math.ceil(posts.length / postsPerPage); i++) {
+    pageNumbers.push(i)
+  }
+
   return (
     <div className="md:px-10">
       {/* top section  Navigation and filter */}
       <Navbar />
       <SwipeCarouselFilter />
-      
+
       {/* left section in full and middle in mobile*/}
       <div className="flex md:relative ">
         {/* full screen listing data */}
@@ -34,7 +73,14 @@ function SearchPage() {
           <p className="pb-4 text-sm font-medium">
             Over 8 homes in your search area
           </p>
-          <SearchCard />
+          <SearchCard currentPosts={currentPosts} />
+          <SearchPagination
+            changePage={changePage}
+            currentPage={currentPage}
+            decrementPage={decrementPage}
+            incrementPage={incrementPage}
+            pageNumbers={pageNumbers}
+          />
         </div>
 
         <div className="hidden w-full border-2 md:min-h-[980px] md:w-[40%] lg:inline-flex">
@@ -48,6 +94,12 @@ function SearchPage() {
               Over 8 homes in your search area
             </p>
             <SearchCard />
+            <SearchPagination
+              postsPerPage={postsPerPage}
+              totalPosts={posts.length}
+              changePage={changePage}
+              currentPage={currentPage}
+            />
           </div>
         ) : (
           <div className="h-[700px] w-full md:hidden">{/* <MapApi /> */}</div>

@@ -13,7 +13,7 @@ import data from "../../assets/data.json"
 
 import { HeartIcon, StarIcon } from "@heroicons/react/24/outline"
 
-function SearchCard() {
+function SearchCard(props) {
   // handles favorite post state
   //   fetches state from localstorage and persists after reload
   //   the "!" tells the compiler the value cannot be null
@@ -39,25 +39,12 @@ function SearchCard() {
 
   // !guardar state para cada card separado, provalmente nao dá porque o key e o mesmo
 
-  // ! pagination
-  // fetches the data from the json file
-  const [posts] = useState(data.cardImgs)
 
-  const [currentPage, setCurrentPage] = useState(1)
-  const [postsPerPage] = useState(4)
-
-  // get current posts
-  const indexOfLastPost = currentPage * postsPerPage
-  const indexOfFirstPost = indexOfLastPost - postsPerPage
-  const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost)
-
-  // change page
-  const changePage = (pageNumber) => setCurrentPage(pageNumber)
 
   return (
     <div className="">
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-        {currentPosts.map((card) => {
+        {props.currentPosts.map((card) => {
           return (
             <div
               className="min-h-[300px] "
@@ -115,14 +102,6 @@ function SearchCard() {
             </div>
           )
         })}
-      </div>
-      <div className=" mt-5 flex h-[50px] items-center justify-center">
-        <SearchPagination
-          postsPerPage={postsPerPage}
-          totalPosts={posts.length}
-          changePage={changePage}
-          currentPage={currentPage}
-        />
       </div>
     </div>
   )
