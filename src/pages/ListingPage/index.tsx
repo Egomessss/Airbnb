@@ -80,14 +80,7 @@ export default function ListingPage() {
 
       <div className="relative flex justify-between">
         <ListingDetails data={thisListing} />
-        <Availability />
-        {/* <div className="flex md:hidden">
-          <p>
-            <span className="font-semibold">This is a rare find.</span> Pedro's
-            place on Airbnb is usually fully booked.
-          </p>
-          <SlDiamond className="block h-[32px] w-[42px] fill-[#E31C5F]" />
-        </div> */}
+        <Availability data={thisListing} />
       </div>
       <Info>
         <div className=" mb-20 h-[500px] w-full">
