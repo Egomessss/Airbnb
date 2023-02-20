@@ -1,5 +1,5 @@
-{
-  "iconiccity": {
+[
+  {
     "id": "1",
     "summary": "Cozy 2 person apartment in Amsterdam on walking distance from Vondelpark, Museum Square and Leidseplein.",
     "host_neighbourhood": "Oud-West",
@@ -51,14 +51,18 @@
     "allowsPets": false,
     "longitude": 4.8738603256015365,
     "latitude": 52.36137101269532,
-    "image1": "https://a0.muscache.com/im/pictures/2465d23e-d53b-4ff0-b7b1-2d18f365dbed.jpg?im_w=1200",
-    "image2": "https://a0.muscache.com/im/pictures/2673fc22-3efb-46b1-a204-f6acbdb2ecac.jpg?im_w=720",
-    "image3": "https://a0.muscache.com/im/pictures/e3f0081e-22ec-4d76-a61e-c9aaec678918.jpg?im_w=720",
-    "image4": "https://a0.muscache.com/im/pictures/405360d8-f38e-4bef-a273-013886f0ca7e.jpg?im_w=1200",
-    "image5": "https://a0.muscache.com/im/pictures/4c35b66a-ac95-4eaa-bffa-a785d441a034.jpg?im_w=1200"
+    "images": [
+      "https://a0.muscache.com/im/pictures/2465d23e-d53b-4ff0-b7b1-2d18f365dbed.jpg?im_w=1200",
+      "https://a0.muscache.com/im/pictures/2673fc22-3efb-46b1-a204-f6acbdb2ecac.jpg?im_w=720",
+      "https://a0.muscache.com/im/pictures/e3f0081e-22ec-4d76-a61e-c9aaec678918.jpg?im_w=720",
+      "https://a0.muscache.com/im/pictures/405360d8-f38e-4bef-a273-013886f0ca7e.jpg?im_w=1200",
+      "https://a0.muscache.com/im/pictures/4c35b66a-ac95-4eaa-bffa-a785d441a034.jpg?im_w=1200",
+      "https://a0.muscache.com/im/pictures/e870584a-3939-4a4a-a044-e4d294fd236b.jpg?im_w=720",
+      ""
+    ]
   },
 
-  "beachfront": {
+  {
     "id": "2",
     "summary": "Charming 1 bedroom apartment near the beach.",
     "host_neighbourhood": "Beachfront",
@@ -111,14 +115,18 @@
 
     "longitude": 4.8738603256015365,
     "latitude": 52.36137101269532,
-    "image1": "https://a0.muscache.com/im/pictures/2465d23e-d53b-4ff0-b7b1-2d18f365dbed.jpg?im_w=1200",
-    "image2": "https://a0.muscache.com/im/pictures/2673fc22-3efb-46b1-a204-f6acbdb2ecac.jpg?im_w=720",
-    "image3": "https://a0.muscache.com/im/pictures/e3f0081e-22ec-4d76-a61e-c9aaec678918.jpg?im_w=720",
-    "image4": "https://a0.muscache.com/im/pictures/405360d8-f38e-4bef-a273-013886f0ca7e.jpg?im_w=1200",
-    "image5": "https://a0.muscache.com/im/pictures/4c35b66a-ac95-4eaa-bffa-a785d441a034.jpg?im_w=1200"
+    "images": [
+      "https://a0.muscache.com/im/pictures/2465d23e-d53b-4ff0-b7b1-2d18f365dbed.jpg?im_w=1200",
+      "https://a0.muscache.com/im/pictures/2673fc22-3efb-46b1-a204-f6acbdb2ecac.jpg?im_w=720",
+      "https://a0.muscache.com/im/pictures/e3f0081e-22ec-4d76-a61e-c9aaec678918.jpg?im_w=720",
+      "https://a0.muscache.com/im/pictures/405360d8-f38e-4bef-a273-013886f0ca7e.jpg?im_w=1200",
+      "https://a0.muscache.com/im/pictures/4c35b66a-ac95-4eaa-bffa-a785d441a034.jpg?im_w=1200",
+      "https://a0.muscache.com/im/pictures/e870584a-3939-4a4a-a044-e4d294fd236b.jpg?im_w=720",
+      ""
+    ]
   },
 
-  "cabin": {
+  {
     "id": "3",
     "summary": "Rustic and cozy cabin house located in the heart of the mountains.",
     "host_neighbourhood": "Mountain View",
@@ -172,14 +180,17 @@
     "longitude": 4.8738603256015365,
     "latitude": 52.36137101269532,
 
-    "image1": "https://a0.muscache.com/im/pictures/2465d23e-d53b-4ff0-b7b1-2d18f365dbed.jpg?im_w=1200",
-    "image2": "https://a0.muscache.com/im/pictures/2673fc22-3efb-46b1-a204-f6acbdb2ecac.jpg?im_w=720",
-    "image3": "https://a0.muscache.com/im/pictures/e3f0081e-22ec-4d76-a61e-c9aaec678918.jpg?im_w=720",
-    "image4": "https://a0.muscache.com/im/pictures/405360d8-f38e-4bef-a273-013886f0ca7e.jpg?im_w=1200",
-    "image5": "https://a0.muscache.com/im/pictures/4c35b66a-ac95-4eaa-bffa-a785d441a034.jpg?im_w=1200"
+   "images": [
+      "https://a0.muscache.com/im/pictures/2465d23e-d53b-4ff0-b7b1-2d18f365dbed.jpg?im_w=1200",
+      "https://a0.muscache.com/im/pictures/2673fc22-3efb-46b1-a204-f6acbdb2ecac.jpg?im_w=720",
+      "https://a0.muscache.com/im/pictures/e3f0081e-22ec-4d76-a61e-c9aaec678918.jpg?im_w=720",
+      "https://a0.muscache.com/im/pictures/405360d8-f38e-4bef-a273-013886f0ca7e.jpg?im_w=1200",
+      "https://a0.muscache.com/im/pictures/4c35b66a-ac95-4eaa-bffa-a785d441a034.jpg?im_w=1200",
+      "https://a0.muscache.com/im/pictures/e870584a-3939-4a4a-a044-e4d294fd236b.jpg?im_w=720",
+      ""
+    ]
   },
-
-  "tropical": {
+  {
     "id": "4",
     "summary": "Charming studio in the heart of Waikiki, just steps away from the beach!",
     "host_neighbourhood": "Waikiki",
@@ -232,14 +243,18 @@
 
     "longitude": 4.8738603256015365,
     "latitude": 52.36137101269532,
-    "image1": "https://a0.muscache.com/im/pictures/2465d23e-d53b-4ff0-b7b1-2d18f365dbed.jpg?im_w=1200",
-    "image2": "https://a0.muscache.com/im/pictures/2673fc22-3efb-46b1-a204-f6acbdb2ecac.jpg?im_w=720",
-    "image3": "https://a0.muscache.com/im/pictures/e3f0081e-22ec-4d76-a61e-c9aaec678918.jpg?im_w=720",
-    "image4": "https://a0.muscache.com/im/pictures/405360d8-f38e-4bef-a273-013886f0ca7e.jpg?im_w=1200",
-    "image5": "https://a0.muscache.com/im/pictures/4c35b66a-ac95-4eaa-bffa-a785d441a034.jpg?im_w=1200"
+   "images": [
+      "https://a0.muscache.com/im/pictures/2465d23e-d53b-4ff0-b7b1-2d18f365dbed.jpg?im_w=1200",
+      "https://a0.muscache.com/im/pictures/2673fc22-3efb-46b1-a204-f6acbdb2ecac.jpg?im_w=720",
+      "https://a0.muscache.com/im/pictures/e3f0081e-22ec-4d76-a61e-c9aaec678918.jpg?im_w=720",
+      "https://a0.muscache.com/im/pictures/405360d8-f38e-4bef-a273-013886f0ca7e.jpg?im_w=1200",
+      "https://a0.muscache.com/im/pictures/4c35b66a-ac95-4eaa-bffa-a785d441a034.jpg?im_w=1200",
+      "https://a0.muscache.com/im/pictures/e870584a-3939-4a4a-a044-e4d294fd236b.jpg?im_w=720",
+      ""
+    ]
   },
 
-  "countryside": {
+  {
     "id": "5",
     "summary": "Charming countryside cottage for 2 in the heart of rolling hills and fields.",
     "host_neighbourhood": "Rural Village",
@@ -293,13 +308,17 @@
 
     "longitude": 4.8738603256015365,
     "latitude": 52.36137101269532,
-    "image1": "https://a0.muscache.com/im/pictures/2465d23e-d53b-4ff0-b7b1-2d18f365dbed.jpg?im_w=1200",
-    "image2": "https://a0.muscache.com/im/pictures/2673fc22-3efb-46b1-a204-f6acbdb2ecac.jpg?im_w=720",
-    "image3": "https://a0.muscache.com/im/pictures/e3f0081e-22ec-4d76-a61e-c9aaec678918.jpg?im_w=720",
-    "image4": "https://a0.muscache.com/im/pictures/405360d8-f38e-4bef-a273-013886f0ca7e.jpg?im_w=1200",
-    "image5": "https://a0.muscache.com/im/pictures/4c35b66a-ac95-4eaa-bffa-a785d441a034.jpg?im_w=1200"
+   "images": [
+      "https://a0.muscache.com/im/pictures/2465d23e-d53b-4ff0-b7b1-2d18f365dbed.jpg?im_w=1200",
+      "https://a0.muscache.com/im/pictures/2673fc22-3efb-46b1-a204-f6acbdb2ecac.jpg?im_w=720",
+      "https://a0.muscache.com/im/pictures/e3f0081e-22ec-4d76-a61e-c9aaec678918.jpg?im_w=720",
+      "https://a0.muscache.com/im/pictures/405360d8-f38e-4bef-a273-013886f0ca7e.jpg?im_w=1200",
+      "https://a0.muscache.com/im/pictures/4c35b66a-ac95-4eaa-bffa-a785d441a034.jpg?im_w=1200",
+      "https://a0.muscache.com/im/pictures/e870584a-3939-4a4a-a044-e4d294fd236b.jpg?im_w=720",
+      ""
+    ]
   },
-  "mansion": {
+  {
     "id": "6",
     "summary": "Elegant 6 bedroom mansion with private pool in Beverly Hills",
     "host_neighbourhood": "Beverly Hills",
@@ -352,13 +371,17 @@
 
     "longitude": 4.8738603256015365,
     "latitude": 52.36137101269532,
-    "image1": "https://a0.muscache.com/im/pictures/2465d23e-d53b-4ff0-b7b1-2d18f365dbed.jpg?im_w=1200",
-    "image2": "https://a0.muscache.com/im/pictures/2673fc22-3efb-46b1-a204-f6acbdb2ecac.jpg?im_w=720",
-    "image3": "https://a0.muscache.com/im/pictures/e3f0081e-22ec-4d76-a61e-c9aaec678918.jpg?im_w=720",
-    "image4": "https://a0.muscache.com/im/pictures/405360d8-f38e-4bef-a273-013886f0ca7e.jpg?im_w=1200",
-    "image5": "https://a0.muscache.com/im/pictures/4c35b66a-ac95-4eaa-bffa-a785d441a034.jpg?im_w=1200"
+   "images": [
+      "https://a0.muscache.com/im/pictures/2465d23e-d53b-4ff0-b7b1-2d18f365dbed.jpg?im_w=1200",
+      "https://a0.muscache.com/im/pictures/2673fc22-3efb-46b1-a204-f6acbdb2ecac.jpg?im_w=720",
+      "https://a0.muscache.com/im/pictures/e3f0081e-22ec-4d76-a61e-c9aaec678918.jpg?im_w=720",
+      "https://a0.muscache.com/im/pictures/405360d8-f38e-4bef-a273-013886f0ca7e.jpg?im_w=1200",
+      "https://a0.muscache.com/im/pictures/4c35b66a-ac95-4eaa-bffa-a785d441a034.jpg?im_w=1200",
+      "https://a0.muscache.com/im/pictures/e870584a-3939-4a4a-a044-e4d294fd236b.jpg?im_w=720",
+      ""
+    ]
   },
-  "lakeside": {
+  {
     "id": "7",
     "summary": "Charming lakeside cabin with breathtaking views, perfect for a romantic getaway.",
     "host_neighbourhood": "Lakefront",
@@ -412,13 +435,17 @@
 
     "longitude": 4.8738603256015365,
     "latitude": 52.36137101269532,
-    "image1": "https://a0.muscache.com/im/pictures/2465d23e-d53b-4ff0-b7b1-2d18f365dbed.jpg?im_w=1200",
-    "image2": "https://a0.muscache.com/im/pictures/2673fc22-3efb-46b1-a204-f6acbdb2ecac.jpg?im_w=720",
-    "image3": "https://a0.muscache.com/im/pictures/e3f0081e-22ec-4d76-a61e-c9aaec678918.jpg?im_w=720",
-    "image4": "https://a0.muscache.com/im/pictures/405360d8-f38e-4bef-a273-013886f0ca7e.jpg?im_w=1200",
-    "image5": "https://a0.muscache.com/im/pictures/4c35b66a-ac95-4eaa-bffa-a785d441a034.jpg?im_w=1200"
+   "images": [
+      "https://a0.muscache.com/im/pictures/2465d23e-d53b-4ff0-b7b1-2d18f365dbed.jpg?im_w=1200",
+      "https://a0.muscache.com/im/pictures/2673fc22-3efb-46b1-a204-f6acbdb2ecac.jpg?im_w=720",
+      "https://a0.muscache.com/im/pictures/e3f0081e-22ec-4d76-a61e-c9aaec678918.jpg?im_w=720",
+      "https://a0.muscache.com/im/pictures/405360d8-f38e-4bef-a273-013886f0ca7e.jpg?im_w=1200",
+      "https://a0.muscache.com/im/pictures/4c35b66a-ac95-4eaa-bffa-a785d441a034.jpg?im_w=1200",
+      "https://a0.muscache.com/im/pictures/e870584a-3939-4a4a-a044-e4d294fd236b.jpg?im_w=720",
+      ""
+    ]
   },
-  "skiing": {
+  {
     "id": "8",
     "summary": "Spacious 3BR chalet in the heart of the Swiss Alps, perfect for skiing and snowboarding enthusiasts.",
     "host_neighbourhood": "Zermatt",
@@ -471,10 +498,14 @@
 
     "longitude": 4.8738603256015365,
     "latitude": 52.36137101269532,
-    "image1": "https://a0.muscache.com/im/pictures/2465d23e-d53b-4ff0-b7b1-2d18f365dbed.jpg?im_w=1200",
-    "image2": "https://a0.muscache.com/im/pictures/2673fc22-3efb-46b1-a204-f6acbdb2ecac.jpg?im_w=720",
-    "image3": "https://a0.muscache.com/im/pictures/e3f0081e-22ec-4d76-a61e-c9aaec678918.jpg?im_w=720",
-    "image4": "https://a0.muscache.com/im/pictures/405360d8-f38e-4bef-a273-013886f0ca7e.jpg?im_w=1200",
-    "image5": "https://a0.muscache.com/im/pictures/4c35b66a-ac95-4eaa-bffa-a785d441a034.jpg?im_w=1200"
+   "images": [
+      "https://a0.muscache.com/im/pictures/2465d23e-d53b-4ff0-b7b1-2d18f365dbed.jpg?im_w=1200",
+      "https://a0.muscache.com/im/pictures/2673fc22-3efb-46b1-a204-f6acbdb2ecac.jpg?im_w=720",
+      "https://a0.muscache.com/im/pictures/e3f0081e-22ec-4d76-a61e-c9aaec678918.jpg?im_w=720",
+      "https://a0.muscache.com/im/pictures/405360d8-f38e-4bef-a273-013886f0ca7e.jpg?im_w=1200",
+      "https://a0.muscache.com/im/pictures/4c35b66a-ac95-4eaa-bffa-a785d441a034.jpg?im_w=1200",
+      "https://a0.muscache.com/im/pictures/e870584a-3939-4a4a-a044-e4d294fd236b.jpg?im_w=720",
+      ""
+    ]
   }
-}
+]

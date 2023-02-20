@@ -10,10 +10,11 @@ import "swiper/css/pagination"
 import { Navigation, Pagination } from "swiper"
 
 import data from "../assets/data.json"
+import ListingData from "../assets/ListingsData.json"
 import { HeartIcon, StarIcon } from "@heroicons/react/24/outline"
 import { Link } from "react-router-dom"
 
-function Litings() {
+function Listings() {
   // handles favorite post state
   //   fetches state from localstorage and persists after reload
   //   the "!" tells the compiler the value cannot be null
@@ -38,18 +39,16 @@ function Litings() {
   }, [favorite])
 
   // !guardar state para cada card separado, provalmente nao dá porque o key e o mesmo
-// listing card individuais
-// display the swiper for the images
-// text area em baixo
-// fazer loop das imagens e
-
-
+  // listing card individuais
+  // display the swiper for the images
+  // text area em baixo
+  // fazer loop das imagens e
 
   return (
-    <div className="flex flex-wrap gap-6 mb-32">
-      {data.cardImgs.map((card) => {
+    <div className="mb-32 flex flex-wrap gap-6">
+      {ListingData.map((listing) => {
         return (
-          <div className=" flex h-[460px] w-[340px] flex-auto  flex-col ">
+          <div key={listing.id} className=" flex h-[460px] w-[340px] flex-auto  flex-col ">
             <div>
               <Swiper
                 pagination={true}
@@ -57,14 +56,15 @@ function Litings() {
                 modules={[Pagination, Navigation]}
                 className="relative"
               >
-                {card.slides.map((slide) => {
+                {listing.images.map((image) => {
                   return (
-                    <SwiperSlide>
-                      <Link to="/ListingPage">
+                    
+                    <SwiperSlide key={listing.id}>
+                      <Link to={`/ListingPage/${listing.id}`}>
                         <img
                           className="h-[345px] w-full rounded-xl object-cover"
-                          alt={card.location}
-                          src={slide}
+                          alt={listing.state}
+                          src={image}
                         />
                       </Link>
 
@@ -86,17 +86,17 @@ function Litings() {
 
             <div className="pt-2 text-sm">
               <div className="flex justify-between">
-                <p className="mt-1 text-sm font-semibold">{card.location}</p>
+                <p className="mt-1 text-sm font-semibold">{`${listing.state} ${listing.country}`}</p>
                 <div className="flex flex-row items-center gap-1">
                   <StarIcon className="h-4 w-4 fill-black" />
-                  <p className="">{card.rating}</p>
+                  <p className="">{listing.rating}</p>
                 </div>
               </div>
 
-              <p className=" mt-1 ">{card.host}</p>
-              <p className=" mt-1">{card.date}</p>
+              {/* <p className=" mt-1 ">{listing.isSuperhost}</p> */}
+              {/* <p className=" mt-1">{listing.}</p> */}
               <p className=" mt-1 underline underline-offset-2">
-                <span className="font-semibold">${card.price}</span> total
+                <span className="font-semibold">${listing.price}</span> total
               </p>
             </div>
           </div>
@@ -106,8 +106,7 @@ function Litings() {
   )
 }
 
-export default Litings
-
+export default Listings
 
 // import React, { useRef, useState } from "react"
 // // Import Swiper React components
