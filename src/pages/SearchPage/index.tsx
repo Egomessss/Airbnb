@@ -16,6 +16,15 @@ import SearchPagination from "./SearchPagination"
 
 import data from "../../assets/data.json"
 
+// if i click a card the data will be filled with its id info
+// assign the specific data to the card clicked dynamically
+
+
+// assign data to search card
+
+
+
+
 function SearchPage() {
   const [openMap, setOpenMap] = useState(false)
 

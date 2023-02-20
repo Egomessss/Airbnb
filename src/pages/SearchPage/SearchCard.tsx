@@ -9,7 +9,7 @@ import SearchPagination from "./SearchPagination"
 // import required modules
 import { Pagination, Navigation } from "swiper"
 
-import data from "../../assets/data.json"
+
 
 import { HeartIcon, StarIcon } from "@heroicons/react/24/outline"
 
@@ -22,16 +22,13 @@ function SearchCard(props) {
   )
 
   //   toogle between favorite or !favorite
-
   //    reactively setting the favorite state in the local storage whenever it changes by using React's useEffect Hook
   const toogleFavorite = () => {
     setFavorite(!favorite)
   }
 
   // saves to local storage
-
   //   stringify the state because local storage only accepts strings
-
   //  it is stored with every user interaction and retrieved for the initial state when rendering the component for the first time and therefore initializing its hooks
   React.useEffect(() => {
     localStorage.setItem("my-fav-posts", JSON.stringify(favorite))

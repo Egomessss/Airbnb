@@ -13,13 +13,15 @@ import Calendar from "../../components/Calendar"
 import { DateRangePicker } from "react-date-range"
 import MapApi from "../../components/MapApi"
 import Info from "./Info"
+import ListingData from "../../assets/ListingsData copy.json"
+
 
 export default function ListingPage() {
   return (
     <div className="mx-auto max-w-[1200px] px-6">
       <Navbar />
       <ListingNav />
-      <ImageGrid />
+      <ImageGrid  />
 
       {/* mobile */}
       <ListingCarousel />
