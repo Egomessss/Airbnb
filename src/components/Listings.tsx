@@ -48,7 +48,10 @@ function Listings() {
     <div className="mb-32 flex flex-wrap gap-6">
       {ListingData.map((listing) => {
         return (
-          <div key={listing.id} className=" flex h-[460px] w-[340px] flex-auto  flex-col ">
+          <div
+            key={listing.id}
+            className=" flex h-[460px] w-[340px] flex-auto  flex-col "
+          >
             <div>
               <Swiper
                 pagination={true}
@@ -56,9 +59,8 @@ function Listings() {
                 modules={[Pagination, Navigation]}
                 className="relative"
               >
-                {listing.images.map((image) => {
+                {listing.thumbImages.map((image) => {
                   return (
-                    
                     <SwiperSlide key={listing.id}>
                       <Link to={`/ListingPage/${listing.id}`}>
                         <img

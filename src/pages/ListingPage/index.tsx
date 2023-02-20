@@ -31,7 +31,7 @@ export default function ListingPage() {
     <div className="mx-auto max-w-[1200px] px-6">
       <Navbar />
       <ListingNav />
-      {/* <ImageGrid images={thisListing?.images} /> */}
+      <ImageGrid thisListing={thisListing} />
       {/* mobile */}
       {/* <ListingCarousel /> */}
 
