@@ -33,7 +33,7 @@ export default function ListingPage() {
       <ListingNav />
       <ImageGrid thisListing={thisListing} />
       {/* mobile */}
-      {/* <ListingCarousel /> */}
+      <ListingCarousel thisListing={thisListing} />
 
       {/* <div className="relative flex justify-between">
         <ListingDetails />
