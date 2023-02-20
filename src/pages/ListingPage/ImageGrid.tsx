@@ -1,7 +1,7 @@
 import React from "react"
 
 function ImageGrid(thisListing) {
-  console.log(thisListing)
+ 
 
 
   return (

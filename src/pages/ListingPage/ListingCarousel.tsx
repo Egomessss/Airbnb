@@ -22,7 +22,7 @@ function ListingCarousel(thisListing) {
       >
         {thisListing.thisListing.thumbImages.map((img) => {
           return (
-            <SwiperSlide>
+            <SwiperSlide key={thisListing.thisListing.description}>
               <img
                 src={img}
                 alt=""

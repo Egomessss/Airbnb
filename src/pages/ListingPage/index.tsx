@@ -29,23 +29,26 @@ export default function ListingPage() {
 
   return (
     <div className="mx-auto max-w-[1200px] px-6">
-      <Navbar />
+      <div className="hidden md:block">
+        <Navbar />
+      </div>
+
       <ListingNav />
       <ImageGrid thisListing={thisListing} />
       {/* mobile */}
       <ListingCarousel thisListing={thisListing} />
 
-      {/* <div className="relative flex justify-between">
-        <ListingDetails />
+      <div className="relative flex justify-between">
+        <ListingDetails data={thisListing} />
         <Availability />
       </div>
       <Info>
         <div className=" mb-20 h-[500px] w-full">
           <h2 className="mb-4 text-xl font-semibold">Where you'll be</h2>
-          <p className="mb-4">Luz, Lagos, Faro, Portugal</p>
-          <MapApi />
+          <p className="mb-4">{thisListing.host_location}</p>
+          {/* <MapApi /> */}
         </div>
-      </Info> */}
+      </Info>
       {/* <ListingInfo /> */}
       {/* <FooterMobile /> */}
       {/* <StickyBottomNav /> */}

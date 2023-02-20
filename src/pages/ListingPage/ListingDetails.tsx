@@ -9,39 +9,49 @@ import { FaMedal } from "react-icons/fa"
 import { SlDiamond } from "react-icons/sl"
 import { TbBeach } from "react-icons/tb"
 import CalendarMobile from "../../components/CalendarMobile"
+import MapApi from "../../components/MapApi"
 import MobileBtn from "../../components/MobileBtn"
 import Info from "./Info"
 
-function ListingDetails() {
+// add conditional rending for the superhost and rare find properties
+
+
+
+function ListingDetails(data) {
+  const string = data.data.amenities
+  // console.log(string)
+  const splitToString = string.split(",")
+
   return (
     <div className="md:max-w-[60%]">
       <div className="flex flex-col gap-2 py-6">
         <div>
-          <h1 className="text-2xl font-semibold">Luz Beach Rooftop</h1>
-          <h1 className="text-2xl font-semibold">Penthouse</h1>
+          <h1 className="text-2xl font-semibold">{data.data.summary}</h1>
+          <h1 className="text-2xl font-semibold">{data.data.property_type}</h1>
         </div>
         <div className="text-sm font-semibold">
           <ul className="flex gap-5 ">
             <li className="flex items-center">
               <StarIcon className="h-4" />
-              4.89
+              {data.data.rating}
             </li>
             <li className="font-semibold underline underline-offset-1">
-              110 reviews
+              {data.data.number_of_reviews} reviews
             </li>
+            {/* {data.data.isSuperHost == true  } */}
             <li className="flex items-center gap-1 font-normal">
               <FaMedal className="h-3 " />
               Superhost
             </li>
           </ul>
           <p className=" mt-1 font-semibold underline underline-offset-1">
-            Luz, Lagos, Faro, Portugal
+            {data.data.host_location}
           </p>
         </div>
       </div>
 
       {/* body */}
-      {/* falta mudar o list style */}
+      {/* fix this or remove */}
       <Info>
         <div className="flex">
           <p>
@@ -54,10 +64,8 @@ function ListingDetails() {
 
       <Info>
         <div className="mb-2 flex justify-between">
-          <div className="flex flex-col">
-            <h3 className="text-xl font-semibold">Entire rental unit</h3>
-            <h3 className="text-xl font-semibold">hosted by Pedro</h3>
-          </div>
+          <h3 className="text-xl font-semibold">{data.data.room_type}</h3>
+
           <div className="relative">
             <img
               src="https://a0.muscache.com/im/pictures/user/1f9954af-c6cb-425d-b975-d2a7e32ea999.jpg?im_w=240"
@@ -70,67 +78,16 @@ function ListingDetails() {
 
         <div className="text-sm">
           <ul className="flex gap-2">
-            <li className="flex items-center">8 guests</li>
-            <li>3 bedrooms</li>
-            <li>4 beds</li>
-            <li>3 bathrooms</li>
+            <li className="flex items-center">
+              {data.data.accommodates} guests
+            </li>
+            <li>{data.data.bedrooms} bedrooms</li>
+            <li>{data.data.beds} beds</li>
+            <li>{data.data.bathrooms} bathrooms</li>
           </ul>
         </div>
       </Info>
-
-      <Info>
-        <ul className="flex flex-col gap-3">
-          <li className="flex gap-3">
-            <div>
-              <FaMedal className="block h-[24px] w-[24px]" />
-            </div>
-            <div>
-              <h4 className="font-semibold">Pedro is a Superhost</h4>
-              <p className="text-sm text-gray-500">
-                Superhosts are experienced, highly rated hosts who are commited
-                to proving great stays for their guests
-              </p>
-            </div>
-          </li>
-          <li className="flex gap-3">
-            <div>
-              <CiLocationOn className="block h-[24px] w-[24px]" />
-            </div>
-            <div>
-              <h4 className="font-semibold">Great location</h4>
-              <p className="text-sm text-gray-500">
-                95% of recent guests gave the location a 5-star rating
-              </p>
-            </div>
-          </li>
-          <li className="flex gap-3">
-            <div>
-              <CiCalendar className="block h-[24px] w-[24px]" />
-            </div>
-
-            <h4 className="font-semibold">Free cancellation for 48 hours</h4>
-          </li>
-        </ul>
-      </Info>
-
-      <Info>
-        <img
-          className="mb-4 h-6"
-          src="https://a0.muscache.com/im/pictures/54e427bb-9cb7-4a81-94cf-78f19156faad.jpg"
-          alt="aircover"
-        />
-        <p className="mb-4 text-sm leading-4">
-          Every booking includes free protection from Host cancellations,
-          listing inaccuracies, and other issues like trouble checking in
-        </p>
-        <a
-          href=""
-          className="text-sm font-semibold underline"
-        >
-          Learn more
-        </a>
-      </Info>
-
+      {/* add translation */}
       <div className="border-t-[1px] pt-8 pb-6">
         <div className="flex gap-2">
           <LanguageIcon className="block h-[24px] w-[18px]" />
@@ -145,46 +102,36 @@ function ListingDetails() {
           </div>
         </div>
         <div className="pt-8">
-          <p className="leading-5">
-            With the best view of Vila da Luz, a wonderful exclusive terrace,
-            Jacuzzi, 3 suites, a large and spacious room facing the sea and
-            private elevator. Close to supermarkets, bars, restaurants, with the
-            beach a 5-minute walk. Our Penthouse is a house you won't forget.
-          </p>
+          <p className="leading-5">{data.data.description}</p>
           <a
             href=""
             className="flex items-center pt-4 font-semibold underline"
           >
+            {/* add the rest */}
             Show more <ChevronRightIcon className="block h-5" />
           </a>
         </div>
         <Info>
-          <div>
+          <div className="h-[500px]">
             <h2 className="mb-4 text-xl font-semibold">
               What this place offers
             </h2>
+
+            {/* make the string into an array
+            map over the string
+            display
+            */}
             <div className="flex flex-col flex-wrap gap-4  md:flex-row">
-              <div className="flex gap-2">
-                <TbBeach className="block h-[24px] w-[24px]" />
-                <p>Beach access - Beachfront</p>
-              </div>
-              <div className="flex gap-2">
-                <TbBeach className="block h-[24px] w-[24px]" />
-                <p>Beach access - Beachfront</p>
-              </div>
-              <div className="flex gap-2">
-                <TbBeach className="block h-[24px] w-[24px]" />
-                <p>Beach access - Beachfront</p>
-              </div>
-              <div className="flex gap-2">
-                <TbBeach className="block h-[24px] w-[24px]" />
-                <p>Beach access - Beachfront</p>
-              </div>
-              <div className="flex gap-2">
-                <TbBeach className="block h-[24px] w-[24px]" />
-                <p>Beach access - Beachfront</p>
-              </div>
+              {splitToString.map((amenitie) => {
+                return (
+                  <div className="flex w-[200px] gap-2">
+                    <TbBeach className="block h-[24px] w-[24px]" />
+                    <p>{amenitie}</p>
+                  </div>
+                )
+              })}
             </div>
+
             <div className="mt-8">
               <MobileBtn
                 text={"Show all 37 amenities"}
@@ -197,8 +144,10 @@ function ListingDetails() {
 
         <div className="border-t-[1px] pt-8 pb-6 md:hidden">
           <h2 className="mb-4 text-xl font-semibold">Where you'll be</h2>
-          <p className="mb-4">Luz, Lagos, Faro, Portugal</p>
-          <div className="h-[218px] w-[342px] border-2 border-black"></div>
+          <p className="mb-4">{data.data.host_location}</p>
+          <div className="h-[218px] w-[342px] border-2 border-black">
+            <MapApi />
+          </div>
         </div>
 
         <div className="border-t-[1px] pt-8 pb-6 md:hidden">
