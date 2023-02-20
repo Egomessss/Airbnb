@@ -1,7 +1,6 @@
 import { Fragment, useState } from "react"
 import { Dialog, Transition, Popover } from "@headlessui/react"
 
-
 import NavLeftSide from "../Navbar/NavLeftSide"
 import NavRightSide from "../Navbar/NavRightSide"
 
@@ -9,13 +8,12 @@ import { MagnifyingGlassIcon, XMarkIcon } from "@heroicons/react/24/outline"
 
 import { MinusIcon, PlusIcon } from "@heroicons/react/24/outline"
 
-
 import SearchInputModal from "./SearchInputModal"
 
 import "react-date-range/dist/styles.css" // main style file
 import "react-date-range/dist/theme/default.css" // theme css file
 import { DateRangePicker } from "react-date-range"
-import { Link } from "react-router-dom"
+import { createSearchParams, Link, useSearchParams } from "react-router-dom"
 
 export default function NavbarSearchDrawer({ open, setOpen }: any) {
   // ! destination autocomplete pop over data
@@ -65,13 +63,9 @@ export default function NavbarSearchDrawer({ open, setOpen }: any) {
   // sets the searchinput based on the user input and fetches the data accordingly
   const handleSearchInputChange = (e: any) => setSearchInput(e.target.value)
 
-  console.log(
-    fetch(
-      "https://airbnb19.p.rapidapi.com/api/v1/searchDestination?query=Chicago&country=USA"
-    )
-  )
+ 
 
-  // !checkin data
+  // !checkin/out and calendar data
   const [openChooseDates, setOpenChooseDates] = useState(false)
   const [openFlexibleDates, setOpenFlexibleDates] = useState(false)
 
@@ -99,13 +93,18 @@ export default function NavbarSearchDrawer({ open, setOpen }: any) {
   }
 
   // sets the start and end date in the calendar
-  const handleSelection = (ranges: any) => {
+  const handleSelection = (ranges) => {
     setStartDate(ranges.selection.startDate)
     setEndDate(ranges.selection.endDate)
   }
 
   //! Guest popover data
-  const [adultGuests, setAdultsGuests] = useState(0)
+
+  // const [noOfGuests , setNoOfGuests] = useState({
+  //   adultGuests
+  // })
+
+  const [adultGuests, setAdultsGuests] = useState(1)
 
   const handleIncrementClickAdults = () => setAdultsGuests(adultGuests + 1)
   const handleDecrementClickAdults = () => setAdultsGuests(adultGuests - 1)
@@ -126,6 +125,12 @@ export default function NavbarSearchDrawer({ open, setOpen }: any) {
 
   const handleIncrementClickPets = () => setPetsGuests(petsGuests + 1)
   const handleDecrementClickPets = () => setPetsGuests(petsGuests - 1)
+
+
+// search query
+
+const router = useSearchParams()
+console.log(router.entries)
 
   return (
     <Transition.Root
@@ -494,7 +499,15 @@ export default function NavbarSearchDrawer({ open, setOpen }: any) {
                           <button className="flex h-[50px] items-center  justify-center rounded-3xl bg-[#DA0A64] text-white md:w-[50px] lg:w-[90px]">
                             <Link
                               className="flex gap-2"
-                              to={"/SearchPage"}
+                              to={{
+                                pathname: "/SearchPage",
+                                search: `?${createSearchParams({
+                                  location: searchInput,
+                                  startDate: startDate.toISOString(),
+                                  endDate: endDate.toISOString(),
+                                  
+                                })}`,
+                              }}
                             >
                               <MagnifyingGlassIcon className="h-5 w-5" />
                               <p className="font-semibold md:hidden">Search</p>

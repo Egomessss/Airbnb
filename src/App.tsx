@@ -5,6 +5,7 @@ import SearchPage from "./pages/SearchPage"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import ListingPage from "./pages/ListingPage/index"
 
+
 function App() {
   return (
     <div>

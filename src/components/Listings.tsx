@@ -42,6 +42,9 @@ function Litings() {
 // display the swiper for the images
 // text area em baixo
 // fazer loop das imagens e
+
+
+
   return (
     <div className="flex flex-wrap gap-6 mb-32">
       {data.cardImgs.map((card) => {

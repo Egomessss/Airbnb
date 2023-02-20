@@ -70,13 +70,13 @@ function SearchPage() {
   }
 
   return (
-    <div className="md:px-10">
+    <nav className="md:px-10">
       {/* top section  Navigation and filter */}
       <Navbar />
       <SwipeCarouselFilter />
 
       {/* left section in full and middle in mobile*/}
-      <div className="flex md:relative ">
+      <main className="flex md:relative ">
         {/* full screen listing data */}
         <div className="hidden px-4 md:inline-block lg:w-[60%]">
           <p className="pb-4 text-sm font-medium">
@@ -116,13 +116,13 @@ function SearchPage() {
         <div className="md:hidden">
           <StickyButton toogleMap={toogleMap} />
         </div>
-      </div>
+      </main>
 
       {/* mobile navigation */}
       <div className="sticky bottom-0 z-10 bg-white md:hidden">
         <BottomNav />
       </div>
-    </div>
+    </nav>
   )
 }
 
