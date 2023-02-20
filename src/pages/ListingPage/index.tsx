@@ -82,13 +82,13 @@ export default function ListingPage() {
         <ListingDetails data={thisListing} />
         <Availability data={thisListing} />
       </div>
-      <Info>
-        <div className=" mb-20 h-[500px] w-full">
+     
+        <div className=" mb-20 h-[500px] w-full border-t-[1px] pt-8 pb-6">
           <h2 className="mb-4 text-xl font-semibold">Where you'll be</h2>
           <p className="mb-4">{thisListing?.host_location}</p>
           {/* <MapApi /> */}
         </div>
-      </Info>
+      
       {/* <ListingInfo /> */}
       {/* <FooterMobile /> */}
       {/* <StickyBottomNav /> */}

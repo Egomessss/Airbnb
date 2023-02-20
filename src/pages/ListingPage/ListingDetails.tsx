@@ -11,7 +11,6 @@ import { TbBeach } from "react-icons/tb"
 import CalendarMobile from "../../components/CalendarMobile"
 import MapApi from "../../components/MapApi"
 import MobileBtn from "../../components/MobileBtn"
-import Info from "./Info"
 
 // add conditional rending for the superhost and rare find properties
 
@@ -59,7 +58,7 @@ function ListingDetails(data) {
         <SlDiamond className="block h-[32px] w-[42px] fill-[#E31C5F]" />
       </div>
 
-      <div className="py-6 flex justify-between">
+      <div className="flex justify-between py-6">
         <div className="flex flex-col gap-2">
           <h3 className="text-xl font-semibold">{data.data.room_type}</h3>
           <ul className="flex gap-2 text-sm">
@@ -72,13 +71,13 @@ function ListingDetails(data) {
           </ul>
         </div>
         <div className="relative">
-            <img
-              src="https://a0.muscache.com/im/pictures/user/1f9954af-c6cb-425d-b975-d2a7e32ea999.jpg?im_w=240"
-              alt=""
-              className="h-[54px] w-[54px] rounded-full"
-            />
-            <FaMedal className="absolute bottom-1 -right-2  z-20 text-2xl text-yellow-500" />
-          </div>
+          <img
+            src="https://a0.muscache.com/im/pictures/user/1f9954af-c6cb-425d-b975-d2a7e32ea999.jpg?im_w=240"
+            alt=""
+            className="h-[54px] w-[54px] rounded-full"
+          />
+          <FaMedal className="absolute bottom-1 -right-2  z-20 text-2xl text-yellow-500" />
+        </div>
       </div>
 
       {/* add translation */}
@@ -105,8 +104,8 @@ function ListingDetails(data) {
             Show more <ChevronRightIcon className="block h-5" />
           </a>
         </div>
-        <Info>
-          <div className="h-[500px]">
+      
+          <div className="h-[500px] border-t-[1px] pt-8 pb-6">
             <h2 className="mb-4 text-xl font-semibold">
               What this place offers
             </h2>
@@ -133,7 +132,7 @@ function ListingDetails(data) {
               />
             </div>
           </div>
-        </Info>
+       
         {/* adicionar mapa */}
 
         <div className="border-t-[1px] pt-8 pb-6 md:hidden">
