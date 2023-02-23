@@ -22,10 +22,7 @@ function App() {
           path="/ListingPage/:listingId"
           element={<ListingPage />}
         />{" "}
-        <Route
-          path="/MapPage"
-          element={<MapPage />}
-        />
+       
       </Routes>
     </div>
   )
@@ -41,8 +38,7 @@ export default App
 //  add the location to mapbox
 // only activate the filter that can be searched
 // make a database for the properties
-// 
+//
 // autocomplete
 
-
-// ! add disclaimer pop up in the beginning stating that the data here is all random 
+// ! add disclaimer pop up in the beginning stating that the data here is all random

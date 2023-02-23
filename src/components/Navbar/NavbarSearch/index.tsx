@@ -14,6 +14,7 @@ import "react-date-range/dist/styles.css" // main style file
 import "react-date-range/dist/theme/default.css" // theme css file
 import { DateRangePicker } from "react-date-range"
 import { createSearchParams, Link, useSearchParams } from "react-router-dom"
+import useDebounce from "../../../hooks/useDebounce"
 
 export default function NavbarSearchDrawer({ open, setOpen }: any) {
   // ! destination autocomplete pop over data
@@ -62,7 +63,6 @@ export default function NavbarSearchDrawer({ open, setOpen }: any) {
 
   // sets the searchinput based on the user input and fetches the data accordingly
   const handleSearchInputChange = (e: any) => setSearchInput(e.target.value)
-
  
 
   // !checkin/out and calendar data
@@ -100,10 +100,6 @@ export default function NavbarSearchDrawer({ open, setOpen }: any) {
 
   //! Guest popover data
 
-  // const [noOfGuests , setNoOfGuests] = useState({
-  //   adultGuests
-  // })
-
   const [adultGuests, setAdultsGuests] = useState(1)
 
   const handleIncrementClickAdults = () => setAdultsGuests(adultGuests + 1)
@@ -126,11 +122,10 @@ export default function NavbarSearchDrawer({ open, setOpen }: any) {
   const handleIncrementClickPets = () => setPetsGuests(petsGuests + 1)
   const handleDecrementClickPets = () => setPetsGuests(petsGuests - 1)
 
+  // search query
 
-// search query
-
-const router = useSearchParams()
-console.log(router.entries)
+  const router = useSearchParams()
+  console.log(router.entries)
 
   return (
     <Transition.Root
@@ -169,6 +164,7 @@ console.log(router.entries)
                 {/* Content */}
                 <Dialog.Panel className="pointer-events-auto relative w-screen max-w-md">
                   <div className="hidden h-[160px] w-screen flex-col bg-white py-4 px-20 shadow-xl md:flex">
+
                     {/* top section of searchnavbar drawer */}
                     <div className="flex w-full justify-between ">
                       <NavLeftSide />
@@ -247,7 +243,9 @@ console.log(router.entries)
                             className="absolute top-5 right-4 h-6 w-6 rounded-full bg-gray-200 p-1 hover:bg-gray-300"
                           />
                           {/* shows the modal if the user has input anything in the input box */}
-                          {searchInput && <SearchInputModal searchValue={searchInput} />}
+                          {searchInput && (
+                            <SearchInputModal searchValue={searchInput} />
+                          )}
                         </div>
 
                         {/* checkin popover */}
@@ -264,7 +262,7 @@ console.log(router.entries)
                                       Check in | Check out
                                     </p>
                                     <p className="whitespace-nowrap text-sm  text-gray-400">
-                                      Add dates
+                                    { `${startDate} ${endDate}`}
                                     </p>
                                   </div>
                                   <XMarkIcon
@@ -505,7 +503,7 @@ console.log(router.entries)
                                   location: searchInput,
                                   startDate: startDate.toISOString(),
                                   endDate: endDate.toISOString(),
-                                  adultGuests                      
+                                  adultGuests,
                                 })}`,
                               }}
                             >

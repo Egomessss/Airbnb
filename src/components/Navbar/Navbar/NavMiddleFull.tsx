@@ -15,7 +15,7 @@ function NavMiddleFull() {
       >
         <ul className="flex flex-row items-center gap-7 text-xs ">
           <li className="border-r-2 pr-2 font-semibold">Anywhere</li>
-          <li className=" border-r-2 pr-2 font-semibold marker:text-gray-500	">
+          <li placeholder="Any week" className=" border-r-2 pr-2 font-semibold marker:text-gray-500	">
             Any week
           </li>
           <li className=" flex items-center justify-center gap-2 marker:text-gray-500	">

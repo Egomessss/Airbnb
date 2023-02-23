@@ -13,7 +13,7 @@ import { Navigation, Pagination } from "swiper"
 import { HeartIcon, StarIcon } from "@heroicons/react/24/outline"
 import { Link } from "react-router-dom"
 
-function Listings(props) {
+function Listings({data}) {
   // handles favorite post state
   //   fetches state from localstorage and persists after reload
   //   the "!" tells the compiler the value cannot be null
@@ -44,10 +44,10 @@ function Listings(props) {
 
   return (
     <div className="flex flex-wrap gap-6">
-      {props.data.map((listing) => {
+      {data.map((listing, index) => {
         return (
           <div
-            key={listing.id}
+            key={index}
             className=" flex h-[460px] w-[340px] flex-auto  flex-col "
           >
             <div>
@@ -57,9 +57,9 @@ function Listings(props) {
                 modules={[Pagination, Navigation]}
                 className="relative"
               >
-                {listing.thumbImages.map((image) => {
+                {listing.thumbImages.map((image, index) => {
                   return (
-                    <SwiperSlide key={listing.id}>
+                    <SwiperSlide key={index}>
                       <Link to={`/ListingPage/${listing.id}`}>
                         <img
                           className="h-[345px] w-full rounded-xl object-cover"
