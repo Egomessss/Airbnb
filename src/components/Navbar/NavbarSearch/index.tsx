@@ -15,6 +15,7 @@ import "react-date-range/dist/theme/default.css" // theme css file
 import { DateRangePicker } from "react-date-range"
 import { createSearchParams, Link, useSearchParams } from "react-router-dom"
 import useDebounce from "../../../hooks/useDebounce"
+import { format } from "date-fns"
 
 export default function NavbarSearchDrawer({ open, setOpen }: any) {
   // ! destination autocomplete pop over data
@@ -63,7 +64,6 @@ export default function NavbarSearchDrawer({ open, setOpen }: any) {
 
   // sets the searchinput based on the user input and fetches the data accordingly
   const handleSearchInputChange = (e: any) => setSearchInput(e.target.value)
- 
 
   // !checkin/out and calendar data
   const [openChooseDates, setOpenChooseDates] = useState(false)
@@ -97,7 +97,9 @@ export default function NavbarSearchDrawer({ open, setOpen }: any) {
     setStartDate(ranges.selection.startDate)
     setEndDate(ranges.selection.endDate)
   }
-
+  // formats the data so it can be shown in the navbar when a user select from the range picker
+  const formattedStartDate = format(new Date(startDate), "dd MMM")
+  const formattedendDate = format(new Date(endDate), "dd MMM")
   //! Guest popover data
 
   const [adultGuests, setAdultsGuests] = useState(1)
@@ -164,7 +166,6 @@ export default function NavbarSearchDrawer({ open, setOpen }: any) {
                 {/* Content */}
                 <Dialog.Panel className="pointer-events-auto relative w-screen max-w-md">
                   <div className="hidden h-[160px] w-screen flex-col bg-white py-4 px-20 shadow-xl md:flex">
-
                     {/* top section of searchnavbar drawer */}
                     <div className="flex w-full justify-between ">
                       <NavLeftSide />
@@ -262,11 +263,14 @@ export default function NavbarSearchDrawer({ open, setOpen }: any) {
                                       Check in | Check out
                                     </p>
                                     <p className="whitespace-nowrap text-sm  text-gray-400">
-                                    { `${startDate} ${endDate}`}
+                                      {formattedStartDate} - {formattedendDate}
                                     </p>
                                   </div>
                                   <XMarkIcon
-                                    onClick={resetInput}
+                                    onClick={() => {
+                                      setStartDate(new Date())
+                                      setEndDate(new Date())
+                                    }}
                                     className="absolute top-5 right-2 h-6 w-6 rounded-full bg-gray-200 p-1 hover:bg-gray-300"
                                   />
                                 </Popover.Button>
@@ -372,15 +376,19 @@ export default function NavbarSearchDrawer({ open, setOpen }: any) {
                             {({ open }) => (
                               <>
                                 <Popover.Button>
-                                  <div className="relative">
+                                  <div className="relative min-w-[80px]">
                                     <p className="text-left text-xs font-semibold">
                                       Who
                                     </p>
-                                    <p className="whitespace-nowrap text-sm text-gray-400">
-                                      Add guests
+                                    <p className="w-18 whitespace-nowrap text-sm text-gray-400">
+                                      {adultGuests > 0
+                                        ? `${adultGuests} ${
+                                            adultGuests > 1 ? `guests` : `guest`
+                                          }`
+                                        : `Add guests`}
                                     </p>
                                     <XMarkIcon
-                                      onClick={resetInput}
+                                      onClick={() => setAdultsGuests(0)}
                                       className="absolute top-1 left-[85px] h-6 w-6 rounded-full bg-gray-200 p-1 hover:bg-gray-300"
                                     />
                                   </div>

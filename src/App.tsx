@@ -1,6 +1,5 @@
 import Homepage from "./pages/Homepage/index"
 
-import MapPage from "./pages/MapPage"
 import SearchPage from "./pages/SearchPage"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import ListingPage from "./pages/ListingPage/index"
