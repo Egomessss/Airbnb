@@ -9,12 +9,11 @@ import "swiper/css/pagination"
 // import required modules
 import { Navigation, Pagination } from "swiper"
 
-import data from "../assets/data.json"
-import ListingData from "../assets/ListingsData.json"
+
 import { HeartIcon, StarIcon } from "@heroicons/react/24/outline"
 import { Link } from "react-router-dom"
 
-function Listings() {
+function Listings(props) {
   // handles favorite post state
   //   fetches state from localstorage and persists after reload
   //   the "!" tells the compiler the value cannot be null
@@ -46,7 +45,7 @@ function Listings() {
 
   return (
     <div className="mb-32 flex flex-wrap gap-6">
-      {ListingData.map((listing) => {
+      {props.data.map((listing) => {
         return (
           <div
             key={listing.id}

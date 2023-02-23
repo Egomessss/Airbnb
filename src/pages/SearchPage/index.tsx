@@ -14,13 +14,10 @@ import FooterSearchPage from "./FooterSearchPage"
 import StickyButton from "../../components/StickyButton"
 import SearchPagination from "./SearchPagination"
 
-import data from "../../assets/data.json"
 
-// if i click a card the data will be filled with its id info
-// assign the specific data to the card clicked dynamically
+import Listings from "../../components/Listings"
+import ListingData from "../../assets/ListingsData.json"
 
-
-// assign data to search card
 
 
 
@@ -35,7 +32,7 @@ function SearchPage() {
 
   // ! pagination
   // fetches the data from the json file
-  const [posts] = useState(data.cardImgs)
+  const [posts] = useState(ListingData)
 
   // sets the current page and the post per page in the pagination component
   const [currentPage, setCurrentPage] = useState(1)
@@ -82,7 +79,8 @@ function SearchPage() {
           <p className="pb-4 text-sm font-medium">
             Over 8 homes in your search area
           </p>
-          <SearchCard currentPosts={currentPosts} />
+          <Listings data={currentPosts}/>
+          {/* <SearchCard currentPosts={currentPosts} /> */}
           <SearchPagination
             changePage={changePage}
             currentPage={currentPage}

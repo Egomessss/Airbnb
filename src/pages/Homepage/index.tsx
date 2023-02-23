@@ -7,6 +7,7 @@ import MapApi from "../../components/MapApi"
 import Navbar from "../../components/Navbar/Navbar/Navbar"
 import StickyButton from "../../components/StickyButton"
 import SwipeCarouselFilter from "../../components/SwipeCarouselFilter"
+import ListingData from "../../assets/ListingsData.json"
 
 function Homepage() {
   const [openMap, setOpenMap] = useState(false)
@@ -29,7 +30,7 @@ function Homepage() {
           <MapApi />
         </div>
       ) : (
-        <Listings />
+        <Listings posts={ListingData}  />
       )}
       <div className="sticky bottom-0 z-10 bg-white">
         <StickyButton toogleMap={toogleMap} />
