@@ -14,16 +14,11 @@ import { Navigation } from "swiper"
 import { AdjustmentsHorizontalIcon } from "@heroicons/react/24/outline"
 
 import ListingData from "../assets/ListingsData.json"
-import { useSearchParams } from "react-router-dom"
+import { Link, useSearchParams } from "react-router-dom"
 // each search parameter needs to match their title to the search query
 
 function SwipeCarouselFilter(props) {
   const filters = [
-    {
-      id: 1,
-      title: "Surprise me",
-      link: "https://a0.muscache.com/pictures/3726d94b-534a-42b8-bca0-a0304d912260.jpg",
-    },
     {
       id: 2,
       title: "Beachfront",
@@ -74,6 +69,41 @@ function SwipeCarouselFilter(props) {
         navigation={true}
         modules={[Navigation]}
       >
+        <SwiperSlide className="my-2 flex h-[51px] w-[77px]  flex-col flex-wrap items-center justify-center decoration-2 underline-offset-8 hover:underline hover:decoration-gray-300  focus:underline focus:decoration-black">
+          <button
+            onClick={() => props.setFilter("")}
+            className="flex flex-col items-center justify-center"
+          >
+            <img
+              className="h-[28px] w-[28px]"
+              alt=""
+              src="https://a0.muscache.com/pictures/3726d94b-534a-42b8-bca0-a0304d912260.jpg"
+            />
+            <p className="mt-1 whitespace-nowrap text-xs">All types</p>
+          </button>
+        </SwiperSlide>
+        <SwiperSlide className="my-2 flex h-[51px] w-[77px]  flex-col flex-wrap items-center justify-center decoration-2 underline-offset-8 hover:underline hover:decoration-gray-300  focus:underline focus:decoration-black">
+          {/*  <Link to={`/ListingPage/${listing.id}`}>
+                        <img
+                          className="h-[345px] w-full rounded-xl object-cover"
+                          alt={listing.state}
+                          src={image}
+                        />
+                      </Link> */}
+          <Link
+            to={`/ListingPage/${
+              ListingData[Math.floor(Math.random() * ListingData.length)].id
+            }`}
+            className="flex flex-col items-center justify-center"
+          >
+            <img
+              className="h-[28px] w-[28px]"
+              alt=""
+              src="https://a0.muscache.com/pictures/3726d94b-534a-42b8-bca0-a0304d912260.jpg"
+            />
+            <p className="mt-1 whitespace-nowrap text-xs">Surprise me</p>
+          </Link>
+        </SwiperSlide>
         {filters.map((data) => {
           return (
             <SwiperSlide
