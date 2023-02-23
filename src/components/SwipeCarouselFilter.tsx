@@ -72,7 +72,7 @@ function SwipeCarouselFilter(props) {
         <SwiperSlide className="my-2 flex h-[51px] w-[77px]  flex-col flex-wrap items-center justify-center decoration-2 underline-offset-8 hover:underline hover:decoration-gray-300  focus:underline focus:decoration-black">
           <button
             onClick={() => props.setFilter("")}
-            className="flex flex-col items-center justify-center"
+            className="flex w-full flex-col items-center justify-center"
           >
             <img
               className="h-[28px] w-[28px]"
@@ -112,7 +112,7 @@ function SwipeCarouselFilter(props) {
             >
               <button
                 onClick={() => props.setFilter(`${data.title}`)}
-                className="flex flex-col items-center justify-center"
+                className="flex w-full flex-col items-center justify-center"
               >
                 <img
                   className="h-[28px] w-[28px]"

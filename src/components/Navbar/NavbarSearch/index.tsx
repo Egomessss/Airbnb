@@ -505,7 +505,7 @@ console.log(router.entries)
                                   location: searchInput,
                                   startDate: startDate.toISOString(),
                                   endDate: endDate.toISOString(),
-                                  
+                                  adultGuests                      
                                 })}`,
                               }}
                             >

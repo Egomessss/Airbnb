@@ -14,13 +14,10 @@ import FooterSearchPage from "./FooterSearchPage"
 import StickyButton from "../../components/StickyButton"
 import SearchPagination from "./SearchPagination"
 
-
 import Listings from "../../components/Listings"
 import ListingData from "../../assets/ListingsData.json"
-
-
-
-
+import { useSearchParams } from "react-router-dom"
+import { format } from "date-fns"
 
 function SearchPage() {
   const [openMap, setOpenMap] = useState(false)
@@ -42,7 +39,7 @@ function SearchPage() {
   const indexOfLastPost = currentPage * postsPerPage
   const indexOfFirstPost = indexOfLastPost - postsPerPage
   const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost)
-  console.log(currentPosts)
+  // console.log(currentPosts)
   // change page
   const changePage = (pageNumber) => setCurrentPage(pageNumber)
 
@@ -66,20 +63,51 @@ function SearchPage() {
     pageNumbers.push(i)
   }
 
+  // filter settings
+  const [searchParams, setSearchParams] = useSearchParams()
+
+  const filter = searchParams.get("filter")
+
+  function setFilter(filter) {
+    setSearchParams({ filter: filter })
+  }
+
+  //  search params
+
+  const location = searchParams.get("location")
+  const startDate = searchParams.get("startDate")
+  const endDate = searchParams.get("endDate")
+  const adultGuests = searchParams.get("adultGuests")
+
+  const formattedStartDate = format(new Date(startDate), "dd MMMM yy")
+  const formattedendDate = format(new Date(endDate), "dd MMMM yy")
+
+  const range = `${formattedStartDate} - ${formattedendDate}`
+
+  //  now i need to match this search params to the listing data and filter it
+
+  const filteredData = currentPosts.filter(
+    (listing) =>
+      !filter || listing.type_of_location === filter || listing.city === location
+  )
+
   return (
     <nav className="md:px-10">
       {/* top section  Navigation and filter */}
       <Navbar />
-      <SwipeCarouselFilter />
+      <SwipeCarouselFilter
+        ListingData={ListingData}
+        setFilter={setFilter}
+      />
 
       {/* left section in full and middle in mobile*/}
       <main className="flex md:relative ">
         {/* full screen listing data */}
         <div className="hidden px-4 md:inline-block lg:w-[60%]">
           <p className="pb-4 text-sm font-medium">
-            Over 8 homes in your search area
+            Over 8 homes in {location} - {range} - for {adultGuests} guests
           </p>
-          <Listings data={currentPosts}/>
+          <Listings data={filteredData} />
           {/* <SearchCard currentPosts={currentPosts} /> */}
           <SearchPagination
             changePage={changePage}
