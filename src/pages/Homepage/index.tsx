@@ -30,7 +30,7 @@ function Homepage() {
           <MapApi />
         </div>
       ) : (
-        <Listings posts={ListingData}  />
+        <Listings data={ListingData}  />
       )}
       <div className="sticky bottom-0 z-10 bg-white">
         <StickyButton toogleMap={toogleMap} />

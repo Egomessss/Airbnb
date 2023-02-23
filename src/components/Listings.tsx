@@ -44,7 +44,7 @@ function Listings(props) {
   // fazer loop das imagens e
 
   return (
-    <div className="mb-32 flex flex-wrap gap-6">
+    <div className="flex flex-wrap gap-6">
       {props.data.map((listing) => {
         return (
           <div
