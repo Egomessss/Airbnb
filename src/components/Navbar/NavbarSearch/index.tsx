@@ -247,7 +247,7 @@ console.log(router.entries)
                             className="absolute top-5 right-4 h-6 w-6 rounded-full bg-gray-200 p-1 hover:bg-gray-300"
                           />
                           {/* shows the modal if the user has input anything in the input box */}
-                          {searchInput && <SearchInputModal />}
+                          {searchInput && <SearchInputModal searchValue={searchInput} />}
                         </div>
 
                         {/* checkin popover */}
