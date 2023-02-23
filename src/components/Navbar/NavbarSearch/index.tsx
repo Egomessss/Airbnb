@@ -67,17 +67,6 @@ export default function NavbarSearchDrawer({ open, setOpen }: any) {
 
   // !checkin/out and calendar data
   const [openChooseDates, setOpenChooseDates] = useState(false)
-  const [openFlexibleDates, setOpenFlexibleDates] = useState(false)
-
-  const handleChooseDates = () => {
-    setOpenChooseDates(true)
-    setOpenFlexibleDates(false)
-  }
-
-  const handleFlexibleDates = () => {
-    setOpenChooseDates(false)
-    setOpenFlexibleDates(true)
-  }
 
   const [dateIncrement, SetDateIncrement] = useState(0)
 
@@ -258,7 +247,7 @@ export default function NavbarSearchDrawer({ open, setOpen }: any) {
                                 <Popover.Button
                                   onClick={() => setOpenChooseDates(true)}
                                 >
-                                  <div className=" py-4 px-8 ">
+                                  <div className=" py-3 px-8 ">
                                     <p className="whitespace-nowrap text-xs font-semibold">
                                       Check in | Check out
                                     </p>
@@ -285,27 +274,19 @@ export default function NavbarSearchDrawer({ open, setOpen }: any) {
                                 >
                                   <Popover.Panel className="absolute right-[370px] z-50 mt-2 w-screen max-w-sm translate-x-1/2 ">
                                     <div className="flex h-[470px] w-[820px] flex-col items-center justify-center rounded-[40px] border-[1px] bg-white px-12 py-10">
-                                      <div className="flex w-[300px] justify-between rounded-3xl bg-gray-300 p-1 ">
-                                        <button
-                                          onClick={handleChooseDates}
-                                          className="rounded-3xl bg-white py-2 px-5 text-sm font-semibold "
-                                        >
-                                          Choose dates
-                                        </button>
-                                        <button
-                                          onClick={handleFlexibleDates}
-                                          className="rounded-3xl bg-white py-2 px-5 text-sm font-semibold "
-                                        >
-                                          Flexible dates
-                                        </button>
-                                      </div>
-                                      {/* conditional render if i click the popover button set the choose dates to true
-                      if i click the flexible dates it check the choose dates to false and the flexible dates to true */}
+                                      <button
+                                        onClick={() => setOpenChooseDates(true)}
+                                        className=" flex  rounded-3xl bg-gray-300 px-4 py-2 text-sm font-semibold  "
+                                      >
+                                        Choose dates
+                                      </button>
 
                                       {/* Choose dates */}
                                       {openChooseDates && (
                                         <div>
                                           <DateRangePicker
+                                            minDate={new Date()}
+                                           
                                             staticRanges={[]}
                                             inputRanges={[]}
                                             showDateDisplay={false}
@@ -314,53 +295,8 @@ export default function NavbarSearchDrawer({ open, setOpen }: any) {
                                             ranges={[selectionRange]}
                                             onChange={handleSelection}
                                           />
-                                          <div className="mt-4 flex gap-4 text-xs">
-                                            <button className="hover:border-1 w-24 rounded-3xl border-[1px] px-2 py-[8px] hover:border-black">
-                                              Exact dates
-                                            </button>
-                                            <button className="hover:border-1 w-24 rounded-3xl border-[1px] px-2 py-[8px] hover:border-black">
-                                              ± 1 day
-                                            </button>
-                                            <button className="hover:border-1 w-24 rounded-3xl border-[1px] px-2 py-[8px] hover:border-black">
-                                              ± 2 days
-                                            </button>
-                                            <button className="hover:border-1 w-24 rounded-3xl border-[1px] px-2 py-[8px] hover:border-black">
-                                              ± 3 days
-                                            </button>
-                                            <button className="hover:border-1 w-24 rounded-3xl border-[1px] px-2 py-[8px] hover:border-black">
-                                              ± 7 days
-                                            </button>
-                                          </div>
                                         </div>
                                       )}
-
-                                      {/* Flexible dates */}
-                                      {openFlexibleDates && (
-                                        <div className="flex flex-col gap-6">
-                                          <div className="height-[300px] p-[30px]">
-                                            <h1 className="text-lg font-semibold ">
-                                              How long would you like to stay?
-                                            </h1>
-                                            <div className=" flex items-center justify-center gap-2">
-                                              <button className="rounded-3xl border-[1px] p-2 hover:border-black">
-                                                Weekend
-                                              </button>
-                                              <button className="rounded-3xl border-[1px] p-2 hover:border-black">
-                                                Week
-                                              </button>
-                                              <button className="rounded-3xl border-[1px] p-2 hover:border-black">
-                                                Month
-                                              </button>
-                                            </div>
-                                          </div>
-                                          <div className="flex flex-col items-center justify-center">
-                                            <h1 className="text-lg font-semibold">
-                                              When do You want to go?
-                                            </h1>
-                                          </div>
-                                        </div>
-                                      )}
-                                      <div></div>
                                     </div>
                                   </Popover.Panel>
                                 </Transition>
