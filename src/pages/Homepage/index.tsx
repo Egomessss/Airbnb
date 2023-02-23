@@ -40,7 +40,10 @@ function Homepage() {
           <MapApi />
         </div>
       ) : (
-        <Listings data={ListingData} />
+        // if filter data is passed we render the listings with the filter queries
+        // if no filter data is passed we render it normally
+
+        <Listings data={ListingData.filter(listing => !filter || listing.type_of_location === filter)} />
       )}
       <div className="sticky bottom-0 z-10 bg-white">
         <StickyButton toogleMap={toogleMap} />
@@ -56,3 +59,9 @@ export default Homepage
 // you can see the scrolling of the homecards trought the nav
 // prevent sticky button and bottom nav from showing the search modal
 // populate the cards and swipe carousel with the api data so no key error
+
+// {searchParams?
+//   (<Listings data={ListingData}) />
+//   : (<Listings data={ListingData} />) }
+
+// )}

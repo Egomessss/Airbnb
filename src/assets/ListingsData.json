@@ -3,7 +3,7 @@
     "id": "1",
     "name": "Cozy apartment center Amsterdam",
     "summary": "Cozy 2 person apartment in Amsterdam on walking distance from Vondelpark, Museum Square and Leidseplein.",
-    "type_of_location":"Iconic Cities",
+    "type_of_location":"Iconic cities",
     "geolocation": [52.36137101269532, 4.8738603256015365],
     "city": "Amsterdam",
     "street": "Oud-West, Amsterdam, Noord-Holland 1054 HP, Netherlands",
@@ -57,7 +57,7 @@
   {
     "id": "2",
     "summary": "Charming 1 bedroom apartment near the beach.",
-    "type_of_location":"BeachFront",
+    "type_of_location":"Beachfront",
     "geolocation": [34.0522, -118.2437],
     "city": "Los Angeles",
     "number_of_reviews": 25,
@@ -223,7 +223,7 @@
   {
     "id": "5",
     "summary": "Charming countryside cottage for 2 in the heart of rolling hills and fields.",
-    "type_of_location":"CountrySide",
+    "type_of_location":"Countryside",
     "geolocation": [51.842374, -1.299851],
     "city": "Oxford",
     "number_of_reviews": 27,
