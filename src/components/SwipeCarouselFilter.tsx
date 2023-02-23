@@ -66,22 +66,6 @@ function SwipeCarouselFilter(props) {
     },
   ]
 
-  // how to pass this search query to the listings
-  // const filterData = () => {
-    // set filter based on the title
-    // ListingData.filter(p => !filter || p.property_type === filter)
-    // if the title matches the data we filter
-    // if the title matches surprise me we have to do a random value frm the data
-
-// const [searchParams, setSearchParams] = useSearchParams()
-
-// const filter = searchParams.get("filter")
-
-// function setFilter(filter){
-//   setSearchParams({filter:filter})
-// }
-  
-
   return (
     <div className="mx-auto hidden w-[600px] items-center justify-center gap-2 py-6 md:flex">
       <Swiper
@@ -94,9 +78,12 @@ function SwipeCarouselFilter(props) {
           return (
             <SwiperSlide
               key={data.id}
-              className="my-2 flex h-[51px] w-[77px] flex-auto flex-col flex-wrap items-center justify-center decoration-2 underline-offset-8 hover:underline hover:decoration-gray-300  focus:underline focus:decoration-black"
+              className="my-2 flex h-[51px] w-[77px]  flex-col flex-wrap items-center justify-center decoration-2 underline-offset-8 hover:underline hover:decoration-gray-300  focus:underline focus:decoration-black"
             >
-              <button onClick={()=>props.setFilter(`${data.title}`)} className="flex flex-col items-center justify-center">
+              <button
+                onClick={() => props.setFilter(`${data.title}`)}
+                className="flex flex-col items-center justify-center"
+              >
                 <img
                   className="h-[28px] w-[28px]"
                   alt={data.title}

@@ -31,7 +31,7 @@ function Homepage() {
     <div className="relative px-6 md:px-20">
       <div className="sticky top-0 z-10 bg-white">
         <Navbar />
-        <SwipeCarouselFilter setFilter={setFilter} />
+        <SwipeCarouselFilter ListingData={ListingData} setFilter={setFilter} />
       </div>
       {/* open the map with the sticky button and hides the homecards
       make a function for the button that opens and closes the map */}

@@ -86,7 +86,7 @@ function Listings(props) {
 
             <div className="pt-2 text-sm">
               <div className="flex justify-between">
-                <p className="mt-1 text-sm font-semibold">{`${listing.state} ${listing.country}`}</p>
+                <p className="mt-1 text-sm font-semibold">{`${listing.state}, ${listing.country}`}</p>
                 <div className="flex flex-row items-center gap-1">
                   <StarIcon className="h-4 w-4 fill-black" />
                   <p className="">{listing.rating}</p>
@@ -96,7 +96,7 @@ function Listings(props) {
               {/* <p className=" mt-1 ">{listing.isSuperhost}</p> */}
               {/* <p className=" mt-1">{listing.}</p> */}
               <p className=" mt-1 underline underline-offset-2">
-                <span className="font-semibold">${listing.price}</span> total
+                <span className="font-semibold">€{listing.price}</span> total
               </p>
             </div>
           </div>
