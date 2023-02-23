@@ -8,20 +8,30 @@ import Navbar from "../../components/Navbar/Navbar/Navbar"
 import StickyButton from "../../components/StickyButton"
 import SwipeCarouselFilter from "../../components/SwipeCarouselFilter"
 import ListingData from "../../assets/ListingsData.json"
+import { useSearchParams } from "react-router-dom"
 
 function Homepage() {
+  // opens and closes the mapbox map
   const [openMap, setOpenMap] = useState(false)
 
-  // opens and closes the mapbox map
   const toogleMap = () => {
     setOpenMap((prevMode) => !prevMode)
+  }
+
+  // filter settings
+  const [searchParams, setSearchParams] = useSearchParams()
+
+  const filter = searchParams.get("filter")
+
+  function setFilter(filter) {
+    setSearchParams({ filter: filter })
   }
 
   return (
     <div className="relative px-6 md:px-20">
       <div className="sticky top-0 z-10 bg-white">
         <Navbar />
-        <SwipeCarouselFilter />
+        <SwipeCarouselFilter setFilter={setFilter} />
       </div>
       {/* open the map with the sticky button and hides the homecards
       make a function for the button that opens and closes the map */}
@@ -30,7 +40,7 @@ function Homepage() {
           <MapApi />
         </div>
       ) : (
-        <Listings data={ListingData}  />
+        <Listings data={ListingData} />
       )}
       <div className="sticky bottom-0 z-10 bg-white">
         <StickyButton toogleMap={toogleMap} />

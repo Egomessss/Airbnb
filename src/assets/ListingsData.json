@@ -3,7 +3,7 @@
     "id": "1",
     "name": "Cozy apartment center Amsterdam",
     "summary": "Cozy 2 person apartment in Amsterdam on walking distance from Vondelpark, Museum Square and Leidseplein.",
-    "type_of_location":"IconicCity",
+    "type_of_location":"Iconic Cities",
     "geolocation": [52.36137101269532, 4.8738603256015365],
     "city": "Amsterdam",
     "street": "Oud-West, Amsterdam, Noord-Holland 1054 HP, Netherlands",
@@ -279,7 +279,7 @@
   {
     "id": "6",
     "summary": "Elegant 6 bedroom mansion with private pool in Beverly Hills",
-    "type_of_location":"Mansion",
+    "type_of_location":"Mansions",
     "geolocation": [34.0646829, -118.4012054],
     "city": "Los Angeles",
     "number_of_reviews": 120,

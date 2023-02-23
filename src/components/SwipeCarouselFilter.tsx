@@ -13,10 +13,12 @@ import { Navigation } from "swiper"
 
 import { AdjustmentsHorizontalIcon } from "@heroicons/react/24/outline"
 
+import ListingData from "../assets/ListingsData.json"
+import { useSearchParams } from "react-router-dom"
 // each search parameter needs to match their title to the search query
 
-function SwipeCarouselFilter() {
-  const filter = [
+function SwipeCarouselFilter(props) {
+  const filters = [
     {
       id: 1,
       title: "Surprise me",
@@ -34,7 +36,7 @@ function SwipeCarouselFilter() {
     },
     {
       id: 4,
-      title: "Lake",
+      title: "LakeSide",
       link: "https://a0.muscache.com/pictures/a4634ca6-1407-4864-ab97-6e141967d782.jpg",
     },
     {
@@ -64,11 +66,21 @@ function SwipeCarouselFilter() {
     },
   ]
 
-  const filterData = () => {
+  // how to pass this search query to the listings
+  // const filterData = () => {
     // set filter based on the title
+    // ListingData.filter(p => !filter || p.property_type === filter)
     // if the title matches the data we filter
     // if the title matches surprise me we have to do a random value frm the data
-  }
+
+// const [searchParams, setSearchParams] = useSearchParams()
+
+// const filter = searchParams.get("filter")
+
+// function setFilter(filter){
+//   setSearchParams({filter:filter})
+// }
+  
 
   return (
     <div className="mx-auto hidden w-[600px] items-center justify-center gap-2 py-6 md:flex">
@@ -78,13 +90,13 @@ function SwipeCarouselFilter() {
         navigation={true}
         modules={[Navigation]}
       >
-        {filter.map((data) => {
+        {filters.map((data) => {
           return (
             <SwiperSlide
               key={data.id}
               className="my-2 flex h-[51px] w-[77px] flex-auto flex-col flex-wrap items-center justify-center decoration-2 underline-offset-8 hover:underline hover:decoration-gray-300  focus:underline focus:decoration-black"
             >
-              <button className="flex flex-col items-center justify-center">
+              <button onClick={()=>props.setFilter(`${data.title}`)} className="flex flex-col items-center justify-center">
                 <img
                   className="h-[28px] w-[28px]"
                   alt={data.title}
