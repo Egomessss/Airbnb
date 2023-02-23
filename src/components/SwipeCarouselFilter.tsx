@@ -13,6 +13,8 @@ import { Navigation } from "swiper"
 
 import { AdjustmentsHorizontalIcon } from "@heroicons/react/24/outline"
 
+// each search parameter needs to match their title to the search query
+
 function SwipeCarouselFilter() {
   const filter = [
     {
@@ -62,6 +64,12 @@ function SwipeCarouselFilter() {
     },
   ]
 
+  const filterData = () => {
+    // set filter based on the title
+    // if the title matches the data we filter
+    // if the title matches surprise me we have to do a random value frm the data
+  }
+
   return (
     <div className="mx-auto hidden w-[600px] items-center justify-center gap-2 py-6 md:flex">
       <Swiper
@@ -74,14 +82,16 @@ function SwipeCarouselFilter() {
           return (
             <SwiperSlide
               key={data.id}
-              className="my-2 flex h-[51px] w-[77px] flex-auto cursor-pointer flex-col flex-wrap items-center justify-center decoration-2 underline-offset-8 hover:underline hover:decoration-gray-300  focus:underline focus:decoration-black"
+              className="my-2 flex h-[51px] w-[77px] flex-auto flex-col flex-wrap items-center justify-center decoration-2 underline-offset-8 hover:underline hover:decoration-gray-300  focus:underline focus:decoration-black"
             >
-              <img
-                className="h-[28px] w-[28px]"
-                alt={data.title}
-                src={data.link}
-              />
-              <p className="mt-1 whitespace-nowrap text-xs">{data.title}</p>
+              <button className="flex flex-col items-center justify-center">
+                <img
+                  className="h-[28px] w-[28px]"
+                  alt={data.title}
+                  src={data.link}
+                />
+                <p className="mt-1 whitespace-nowrap text-xs">{data.title}</p>
+              </button>
             </SwiperSlide>
           )
         })}

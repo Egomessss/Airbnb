@@ -3,7 +3,7 @@
     "id": "1",
     "name": "Cozy apartment center Amsterdam",
     "summary": "Cozy 2 person apartment in Amsterdam on walking distance from Vondelpark, Museum Square and Leidseplein.",
-    "isIconicCity": true,
+    "type_of_location":"IconicCity",
     "geolocation": [52.36137101269532, 4.8738603256015365],
     "city": "Amsterdam",
     "street": "Oud-West, Amsterdam, Noord-Holland 1054 HP, Netherlands",
@@ -57,7 +57,7 @@
   {
     "id": "2",
     "summary": "Charming 1 bedroom apartment near the beach.",
-    "isBeachFront": true,
+    "type_of_location":"BeachFront",
     "geolocation": [34.0522, -118.2437],
     "city": "Los Angeles",
     "number_of_reviews": 25,
@@ -112,7 +112,7 @@
   {
     "id": "3",
     "summary": "Rustic and cozy cabin house located in the heart of the mountains.",
-    "isCabin": true,
+    "type_of_location":"Cabin",
     "geolocation": [44.5287998, -109.244444],
     "city": "Yellowstone",
     "number_of_reviews": 20,
@@ -168,7 +168,7 @@
   {
     "id": "4",
     "summary": "Charming studio in the heart of Waikiki, just steps away from the beach!",
-    "isTropical": true,
+    "type_of_location":"Tropical",
     "geolocation": [21.278834, -157.82634],
     "city": "Honolulu",
     "number_of_reviews": 35,
@@ -223,7 +223,7 @@
   {
     "id": "5",
     "summary": "Charming countryside cottage for 2 in the heart of rolling hills and fields.",
-    "isCountrySide": true,
+    "type_of_location":"CountrySide",
     "geolocation": [51.842374, -1.299851],
     "city": "Oxford",
     "number_of_reviews": 27,
@@ -279,7 +279,7 @@
   {
     "id": "6",
     "summary": "Elegant 6 bedroom mansion with private pool in Beverly Hills",
-    "isMansion": true,
+    "type_of_location":"Mansion",
     "geolocation": [34.0646829, -118.4012054],
     "city": "Los Angeles",
     "number_of_reviews": 120,
@@ -334,7 +334,7 @@
   {
     "id": "7",
     "summary": "Charming lakeside cabin with breathtaking views, perfect for a romantic getaway.",
-    "isLakeSide": true,
+    "type_of_location":"LakeSide",
     "geolocation": [47.234879, -121.938456],
     "city": "Seattle",
     "number_of_reviews": 33,
@@ -390,7 +390,7 @@
   {
     "id": "8",
     "summary": "Spacious 3BR chalet in the heart of the Swiss Alps, perfect for skiing and snowboarding enthusiasts.",
-    "isSkiing": true,
+    "type_of_location":"Skiing",
     "geolocation": [46.020957, 7.749201],
     "city": "Zermatt",
     "number_of_reviews": 31,
