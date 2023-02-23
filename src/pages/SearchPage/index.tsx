@@ -85,7 +85,7 @@ function SearchPage() {
   const range = `${formattedStartDate} - ${formattedendDate}`
 
   //  now i need to match this search params to the listing data and filter it
-
+// add the setFilter function the navbar
   const filteredData = currentPosts.filter(
     (listing) =>
       !filter || listing.type_of_location === filter || listing.city === location
