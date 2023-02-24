@@ -84,7 +84,7 @@ function SearchPage() {
   }, [locationParam, guestsParam])
   // , guestsParam, startDateParam, endDateParam
 
-  const range = `${formattedStartDate} - ${formattedEndDate}`
+  const range = `${formattedStartDate} and ${formattedEndDate}`
 
   // logic for the dates
   // depending on the location, make europe a 7 day minimum and 14 days maximum, and us a 3 day min and 21 day max
@@ -134,9 +134,8 @@ function SearchPage() {
       <main className="flex md:relative ">
         {/* full screen listing data */}
         <div className="hidden px-4 md:inline-block lg:w-[60%]">
-          <p className="pb-4 text-sm font-medium">
-            Over {filteredData.length} homes in {locationParam} - {range} - for
-            {guestsParam} guests
+          <p className="py-4 text-sm font-medium">
+            Over {filteredData.length} homes available between {locationParam}  {range} - for {guestsParam} guests
           </p>
           <Listings data={currentPosts} />
 
@@ -157,7 +156,7 @@ function SearchPage() {
         {openMap ? (
           <div className="flex flex-col px-4 md:hidden">
             <p className="pb-4 text-sm font-medium">
-              Over 8 homes in your search area
+            Over {filteredData.length} homes available between {locationParam}  {range} - for {guestsParam} guests
             </p>
             <SearchCard />
             <SearchPagination
