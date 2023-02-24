@@ -77,7 +77,7 @@ function SearchPage() {
   const location = searchParams.get("location")
   const startDate = searchParams.get("startDate")
   const endDate = searchParams.get("endDate")
-  const adultGuests = searchParams.get("adultGuests")
+  const guests = searchParams.get("guests")
 
   const formattedStartDate = format(new Date(startDate), "dd MMMM yy")
   const formattedendDate = format(new Date(endDate), "dd MMMM yy")
@@ -105,7 +105,7 @@ function SearchPage() {
         {/* full screen listing data */}
         <div className="hidden px-4 md:inline-block lg:w-[60%]">
           <p className="pb-4 text-sm font-medium">
-            Over 8 homes in {location} - {range} - for {adultGuests} guests
+            Over 8 homes in {location} - {range} - for {guests} guests
           </p>
           <Listings data={filteredData} />
           {/* <SearchCard currentPosts={currentPosts} /> */}

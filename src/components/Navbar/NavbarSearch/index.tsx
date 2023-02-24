@@ -73,25 +73,24 @@ export default function NavbarSearchDrawer({ open, setOpen }: any) {
 
   //! Guest popover data
 
-  const [adultGuests, setAdultsGuests] = useState(1)
+  const [guests, setGuests] = useState(1)
 
   // if guest over 10 prevent further clicks
-  const handleIncrementClickAdults = () => {
-    if (adultGuests < 10) {
-      setAdultsGuests(adultGuests + 1)
+  const handleIncrementClickGuests = () => {
+    if (guests < 10) {
+      setGuests(guests + 1)
     }
   }
 
   // minimum always 1 never below
-  const handleDecrementClickAdults = () => {
-    if (adultGuests > 1) {
-      setAdultsGuests(adultGuests - 1)
+  const handleDecrementClickGuests = () => {
+    if (guests > 1) {
+      setGuests(guests - 1)
     }
   }
   //! search query
-
+// 
   const router = useSearchParams()
-  console.log(router.entries)
 
   return (
     <Transition.Root
@@ -244,7 +243,7 @@ export default function NavbarSearchDrawer({ open, setOpen }: any) {
                                   leaveFrom="opacity-100 translate-y-0"
                                   leaveTo="opacity-0 translate-y-1"
                                 >
-                                  <Popover.Panel className="absolute right-[370px] z-50 mt-2 w-screen max-w-sm translate-x-1/2 ">
+                                  <Popover.Panel className="absolute right-[380px] z-50 mt-2 w-screen max-w-sm translate-x-1/2 ">
                                     <div className="flex h-[470px] w-[820px] flex-col items-center justify-center rounded-[40px] border-[1px] bg-white px-12 py-10">
                                       <button
                                         onClick={() => setOpenChooseDates(true)}
@@ -288,14 +287,14 @@ export default function NavbarSearchDrawer({ open, setOpen }: any) {
                                       Who
                                     </p>
                                     <p className="w-18 whitespace-nowrap text-left text-sm text-gray-400">
-                                      {adultGuests > 0
-                                        ? `${adultGuests} ${
-                                            adultGuests > 1 ? `guests` : `guest`
+                                      {guests > 0
+                                        ? `${guests} ${
+                                            guests > 1 ? `guests` : `guest`
                                           }`
                                         : `Add guests`}
                                     </p>
                                     <XMarkIcon
-                                      onClick={() => setAdultsGuests(0)}
+                                      onClick={() => setGuests(0)}
                                       className="absolute top-1 left-[85px] h-6 w-6 rounded-full bg-gray-200 p-1 hover:bg-gray-300"
                                     />
                                   </div>
@@ -314,12 +313,12 @@ export default function NavbarSearchDrawer({ open, setOpen }: any) {
                                       <h2 className="font-semibold">Guests</h2>
                                       <div className="flex items-center gap-4">
                                         <MinusIcon
-                                          onClick={handleDecrementClickAdults}
+                                          onClick={handleDecrementClickGuests}
                                           className="h-10 rounded-full border-2 p-2"
                                         />
-                                        <p>{adultGuests}</p>
+                                        <p>{guests}</p>
                                         <PlusIcon
-                                          onClick={handleIncrementClickAdults}
+                                          onClick={handleIncrementClickGuests}
                                           className="h-10 rounded-full border-2 p-2"
                                         />
                                       </div>
@@ -338,7 +337,7 @@ export default function NavbarSearchDrawer({ open, setOpen }: any) {
                                   location: selectDestination,
                                   startDate: startDate.toISOString(),
                                   endDate: endDate.toISOString(),
-                                  guests: adultGuests.toString(),
+                                  guests: guests.toString(),
                                 })}`,
                               }}
                             >
