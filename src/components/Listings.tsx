@@ -44,6 +44,11 @@ function Listings({ data, guests, days }) {
   return (
     <div className="flex flex-wrap gap-6">
       {data.map((listing, index) => {
+
+        const total = listing.price_per_night * days + guests * listing.price_per_guest
+        const formattedTotal = total.toLocaleString("de-DE")
+        console.log(total)
+        
         return (
           <div
             key={index}
@@ -96,9 +101,10 @@ function Listings({ data, guests, days }) {
               {/* <p className=" mt-1">{listing.}</p> */}
               <p className=" mt-1 underline underline-offset-2">
                 <span className="font-semibold">
-                  €{listing.price_per_night * days +
-                    guests * listing.price_per_guest}
-                </span> total
+                  €
+                  {formattedTotal}
+                </span>{" "}
+                total
               </p>
             </div>
           </div>
