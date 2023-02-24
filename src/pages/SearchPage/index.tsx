@@ -5,8 +5,6 @@ import BottomNav from "../../components/BottomNav"
 
 import Navbar from "../../components/Navbar/Navbar/Navbar"
 
-import SwipeCarouselFilter from "../../components/SwipeCarouselFilter"
-
 import SearchCard from "./SearchCard"
 import MapApi from "../../components/MapApi"
 import FooterSearchPage from "./FooterSearchPage"
@@ -27,65 +25,38 @@ function SearchPage() {
     setOpenMap((prevMode) => !prevMode)
   }
 
- 
+  //  url searchparams filter
 
-  //! filter by location type settings
-  // const [searchParams, setSearchParams] = useSearchParams()
-
-  // const filter = searchParams.get("filter")
-
-  // function setFilter(filter) {
-  //   setSearchParams({ filter: filter })
-  // }
-
-  // const filteredData = currentPosts.filter((listing) => {
-  //   !filter || listing.type_of_location === filter
-  // })
-
-  //  search params
-
-  // const [searchParams, setSearchParams] = useSearchParams()
-  // const startDate = searchParams.get("startDate")
-  // const endDate = searchParams.get("endDate")
-
-  // const location = searchParams.get("location")
-  // const guests = searchParams.get("guests")
-  // const formattedStartDate = format(new Date(startDate), "dd MMMM yy")
-  // const formattedendDate = format(new Date(endDate), "dd MMMM yy")
-
-  // const range = `${formattedStartDate} - ${formattedendDate}`
-
-  //  now i need to match this search params to the listing data and filter it
-  // add the setFilter function the navbar
-
-  // add an object query?
-
-  // im flexible needs to return all
-  //date needs to return two matchable string range?
-  // guests needs to be
-
+  //  gets the current location object, which we store in the location variable.
   const location = useLocation()
   const searchParams = new URLSearchParams(location.search)
 
+  // creates a new instance of the URLSearchParams object, passing in the search property of the location object.
+
+  // gives us access to the query parameters, which we store in separate variables (locationParam, guestsParam, startDateParam, and endDateParam).
+
   const locationParam = searchParams.get("location")
-  
   const guestsParam = searchParams.get("guests")
 
   const startDateParam = searchParams.get("startDate")
   const endDateParam = searchParams.get("endDate")
+
+  // formats the dataparams into a human-readable format
   const formattedStartDate = format(new Date(startDateParam), "dd MMMM yy")
   const formattedEndDate = format(new Date(endDateParam), "dd MMMM yy")
 
+  // stores the filtered data
   const [filteredData, setFilteredData] = useState([])
   console.log(filteredData)
 
+  // use the useEffect hook to run the filtering logic whenever the query parameters change
 
   useEffect(() => {
-    // Filter the data based on the query parameters
+    // filter the data based on the query parameters. We compare each item's properties (location, guests, start date, and end date) with the corresponding query parameters, and return only the items that match.
     const filteredDataParams = ListingData.filter((item) => {
       return (
-        item.location === locationParam 
-        // && 
+        item.location === locationParam
+        // &&
         // item.accommodates <= guestsParam
         // item.startDate >= startDateParam &&
         // item.endDate <= endDateParam
@@ -95,19 +66,9 @@ function SearchPage() {
     setFilteredData(filteredDataParams)
   }, [locationParam, guestsParam, startDateParam, endDateParam])
 
-
-
   const range = `${formattedStartDate} - ${formattedEndDate}`
 
-  // const filteredParamsData = currentPosts.filter((listing) => {
-  //   !filter || listing.type_of_location === filter ||
-  //     listing.location === location
-  // })
-
-
-   // ! pagination
-  // fetches the data from the json file
-  // const [posts] = useState(filteredData)
+  // ! pagination
 
   // sets the current page and the post per page in the pagination component
   const [currentPage, setCurrentPage] = useState(1)
@@ -116,9 +77,9 @@ function SearchPage() {
   // get current posts
   const indexOfLastPost = currentPage * postsPerPage
   const indexOfFirstPost = indexOfLastPost - postsPerPage
-  const currentPosts = filteredData.slice(indexOfFirstPost, indexOfLastPost)
 
-  // console.log(currentPosts)
+  // fetches the data from the filtered json file
+  const currentPosts = filteredData.slice(indexOfFirstPost, indexOfLastPost)
 
   // change page
   const changePage = (pageNumber) => setCurrentPage(pageNumber)
@@ -138,15 +99,12 @@ function SearchPage() {
   const pageNumbers = []
 
   // get us the amount of pages based on the total posts variable and postsperpage
-
   for (let i = 1; i <= Math.ceil(filteredData.length / postsPerPage); i++) {
     pageNumbers.push(i)
   }
 
-
   return (
     <div className="md:px-10 ">
-     
       <Navbar />
 
       {/* left section in full and middle in mobile*/}
@@ -157,7 +115,7 @@ function SearchPage() {
             Over 8 homes in {locationParam} - {range} - for {guestsParam} guests
           </p>
           <Listings data={currentPosts} />
-        
+
           <SearchPagination
             changePage={changePage}
             currentPage={currentPage}
