@@ -24,51 +24,33 @@ export default function NavbarSearchDrawer({ open, setOpen }: any) {
       id: 1,
       title: "I'm Flexible",
       link: "https://a0.muscache.com/pictures/f9ec8a23-ed44-420b-83e5-10ff1f071a13.jpg",
-    },
-    {
-      id: 2,
-      title: "South America",
-      link: "https://a0.muscache.com/im/pictures/06a30699-aead-492e-ad08-33ec0b383399.jpg?im_w=320",
-    },
-    {
-      id: 3,
-      title: "Spain",
-      link: "https://a0.muscache.com/im/pictures/a0fd6dfc-6bec-4abb-850e-9ab78ed7bf37.jpg?im_w=320",
-    },
-    {
-      id: 4,
-      title: "Africa",
-      link: "https://a0.muscache.com/im/pictures/7e9673a5-4164-4708-a047-8d281b5980e7.jpg?im_w=320",
+      action: "",
     },
     {
       id: 5,
-      title: "France",
+      title: "Europe",
       link: "https://a0.muscache.com/im/pictures/f0ece7c0-d9b2-49d5-bb83-64173d29cbe3.jpg?im_w=320",
+      action: "Europe",
     },
     {
       id: 6,
       title: "United States",
       link: "https://a0.muscache.com/im/pictures/4e762891-75a3-4fe1-b73a-cd7e673ba915.jpg?im_w=320",
+      action: "United States",
     },
   ]
-  // destionation popover
-  const [destinationSelected, SetDestinationSelected] = useState(false)
+  // destination popover
+ 
 
-  // !searchinput data
-  // state for the inputbox
-  const [searchInput, setSearchInput] = useState("")
+  const [selectDestination, SetSelectDestination] = useState("")
 
-  const resetInput = () => {
-    setSearchInput("")
-  }
-
-  // sets the searchinput based on the user input and fetches the data accordingly
-  const handleSearchInputChange = (e: any) => setSearchInput(e.target.value)
+  // reset the destination state
+  const resetDestination = () => SetSelectDestination("")
 
   // !checkin/out and calendar data
   const [openChooseDates, setOpenChooseDates] = useState(false)
 
-  const [dateIncrement, SetDateIncrement] = useState(0)
+  
 
   // creates a start and end date starting from the current day so you can't go back
   const [startDate, setStartDate] = useState(new Date())
@@ -89,6 +71,7 @@ export default function NavbarSearchDrawer({ open, setOpen }: any) {
   // formats the data so it can be shown in the navbar when a user select from the range picker
   const formattedStartDate = format(new Date(startDate), "dd MMM")
   const formattedendDate = format(new Date(endDate), "dd MMM")
+
   //! Guest popover data
 
   const [adultGuests, setAdultsGuests] = useState(1)
@@ -113,7 +96,7 @@ export default function NavbarSearchDrawer({ open, setOpen }: any) {
   const handleIncrementClickPets = () => setPetsGuests(petsGuests + 1)
   const handleDecrementClickPets = () => setPetsGuests(petsGuests - 1)
 
-  // search query
+  //! search query
 
   const router = useSearchParams()
   console.log(router.entries)
@@ -165,14 +148,9 @@ export default function NavbarSearchDrawer({ open, setOpen }: any) {
                     <nav className="flex w-full justify-center py-4">
                       <div className="hidden h-[65px] w-[820px] min-w-[700px] cursor-pointer items-center rounded-full border-[1px] border-gray-300 bg-white shadow hover:shadow-lg md:flex ">
                         {/* destination popover */}
-                        {/* this onclick is supposed to invert the colors */}
+                        
                         <div
-                          onClick={() => SetDestinationSelected(true)}
-                          className={
-                            destinationSelected
-                              ? "relative flex h-full w-[35%] flex-col items-center rounded-full bg-white"
-                              : "relative flex h-full w-[35%] flex-col items-center rounded-full"
-                          }
+                          className="relative flex h-full w-[35%] flex-col items-center rounded-full bg-white hover:bg-gray-300"
                         >
                           <Popover className="relative">
                             {({ open }) => (
@@ -192,22 +170,31 @@ export default function NavbarSearchDrawer({ open, setOpen }: any) {
                                   leaveFrom="opacity-100 translate-y-0"
                                   leaveTo="opacity-0 translate-y-1"
                                 >
-                                  <Popover.Panel className="absolute top-14 left-[80%] z-50 mt-5 w-screen max-w-sm -translate-x-1/2 transform ">
-                                    <div className="h-[470px] w-[494px] rounded-[40px] border-[1px] bg-white px-12 py-10">
+                                  <Popover.Panel className="absolute top-14 left-[70%] z-50 mt-5 w-screen max-w-sm -translate-x-1/2 transform ">
+                                    <div className="h-[270px] w-[494px] rounded-[40px] border-[1px] bg-white px-12 py-10">
                                       <p className="mb-8 text-sm font-semibold">
                                         Search by region
                                       </p>
-                                      <div className="relative grid grid-cols-3 gap-y-7">
+                                      <div className="relative grid grid-cols-3">
                                         {data.map((img) => {
                                           return (
                                             <div>
-                                              <img
-                                                className="h-[122px] w-[122px] cursor-pointer rounded-xl border-[1px] hover:border-black"
-                                                alt={img.title}
-                                                src={img.link}
-                                              />
+                                              <button
+                                                onClick={() =>
+                                                  SetSelectDestination(
+                                                    img.action
+                                                  )
+                                                }
+                                              >
+                                                <img
+                                                  className="h-[122px] w-[122px] cursor-pointer rounded-xl border-[1px] hover:border-black"
+                                                  alt={img.title}
+                                                  src={img.link}
+                                                />
+                                              </button>
+
                                               <p className="mt-2 text-xs font-medium">
-                                                Countryside
+                                                {img.title}
                                               </p>
                                             </div>
                                           )
@@ -219,23 +206,15 @@ export default function NavbarSearchDrawer({ open, setOpen }: any) {
                               </>
                             )}
                           </Popover>
-                          <input
-                            className="w-[200px]  bg-inherit text-sm text-gray-500"
-                            id="searchInput"
-                            name="searchInput"
-                            type="text"
-                            onChange={handleSearchInputChange}
-                            placeholder="Search Destinations"
-                            value={searchInput}
-                          />
+                          <p className="w-[200px] bg-inherit text-sm font-medium text-gray-400">
+                            {selectDestination === ""
+                              ? `Destination`
+                              : `${selectDestination}`}
+                          </p>
                           <XMarkIcon
-                            onClick={resetInput}
+                            onClick={resetDestination}
                             className="absolute top-5 right-4 h-6 w-6 rounded-full bg-gray-200 p-1 hover:bg-gray-300"
                           />
-                          {/* shows the modal if the user has input anything in the input box */}
-                          {searchInput && (
-                            <SearchInputModal searchValue={searchInput} />
-                          )}
                         </div>
 
                         {/* checkin popover */}
@@ -286,7 +265,6 @@ export default function NavbarSearchDrawer({ open, setOpen }: any) {
                                         <div>
                                           <DateRangePicker
                                             minDate={new Date()}
-                                           
                                             staticRanges={[]}
                                             inputRanges={[]}
                                             showDateDisplay={false}
@@ -444,10 +422,10 @@ export default function NavbarSearchDrawer({ open, setOpen }: any) {
                               to={{
                                 pathname: "/SearchPage",
                                 search: `?${createSearchParams({
-                                  location: searchInput,
+                                  location: selectDestination,
                                   startDate: startDate.toISOString(),
                                   endDate: endDate.toISOString(),
-                                  adultGuests,
+                                  guests: adultGuests.toString(),
                                 })}`,
                               }}
                             >
