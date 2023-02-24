@@ -46,15 +46,12 @@ function Listings({ data, guests, days }) {
       {data.map((listing, index) => {
         const total =
           days && guests
-            ? listing.price_per_night * days + guests * listing.price_per_guest 
+            ? listing.price_per_night * days + guests * listing.price_per_guest
             : listing.price_per_night
 
+        // formats the number to introduce commas for the larger values
         const formattedTotal = total.toLocaleString("de-DE")
-        console.log(total)
 
-        const totalOrNight = ()=>{
-          
-        }
         return (
           <div
             key={index}
@@ -102,11 +99,9 @@ function Listings({ data, guests, days }) {
                   <p className="">{listing.rating}</p>
                 </div>
               </div>
-
-              {/* <p className=" mt-1 ">{listing.isSuperhost}</p> */}
-              {/* <p className=" mt-1">{listing.}</p> */}
               <p className=" mt-1 underline underline-offset-2">
-                <span className="font-semibold">€{formattedTotal}</span> {days && guests ? `total` : `per night`}
+                <span className="font-semibold">€{formattedTotal}</span>{" "}
+                {days && guests ? `total` : `per night`}
               </p>
             </div>
           </div>
