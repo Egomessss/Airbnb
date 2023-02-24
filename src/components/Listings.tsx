@@ -85,6 +85,16 @@ function Listings({ data, guests, days }) {
                           }
                         />
                       </div>
+                      {listing.isSuperhost ? (
+                        <button
+                          className="absolute top-4 left-4 h-7
+                       rounded-md bg-white p-1 text-sm font-medium"
+                        >
+                          Superhost
+                        </button>
+                      ) : (
+                        ""
+                      )}
                     </SwiperSlide>
                   )
                 })}
