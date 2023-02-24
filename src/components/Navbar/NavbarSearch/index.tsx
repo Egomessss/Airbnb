@@ -14,7 +14,6 @@ import "react-date-range/dist/theme/default.css" // theme css file
 import { DateRangePicker } from "react-date-range"
 import { createSearchParams, Link, useSearchParams } from "react-router-dom"
 
-
 import { format } from "date-fns"
 import Dropdown from "../../Dropdown"
 import NavLeftSide from "../Navbar/NavLeftSide"
@@ -76,26 +75,19 @@ export default function NavbarSearchDrawer({ open, setOpen }: any) {
 
   const [adultGuests, setAdultsGuests] = useState(1)
 
-  const handleIncrementClickAdults = () => setAdultsGuests(adultGuests + 1)
-  const handleDecrementClickAdults = () => setAdultsGuests(adultGuests - 1)
+  // if guest over 10 prevent further clicks
+  const handleIncrementClickAdults = () => {
+    if (adultGuests < 10) {
+      setAdultsGuests(adultGuests + 1)
+    }
+  }
 
-  const [childrenGuests, setChildrenGuests] = useState(0)
-
-  const handleIncrementClickChildren = () =>
-    setChildrenGuests(childrenGuests + 1)
-  const handleDecrementClickChildren = () =>
-    setChildrenGuests(childrenGuests - 1)
-
-  const [infantsGuests, setInfantsGuests] = useState(0)
-
-  const handleIncrementClickInfants = () => setInfantsGuests(infantsGuests + 1)
-  const handleDecrementClickInfants = () => setInfantsGuests(infantsGuests - 1)
-
-  const [petsGuests, setPetsGuests] = useState(0)
-
-  const handleIncrementClickPets = () => setPetsGuests(petsGuests + 1)
-  const handleDecrementClickPets = () => setPetsGuests(petsGuests - 1)
-
+  // minimum always 1 never below
+  const handleDecrementClickAdults = () => {
+    if (adultGuests > 1) {
+      setAdultsGuests(adultGuests - 1)
+    }
+  }
   //! search query
 
   const router = useSearchParams()
@@ -141,10 +133,10 @@ export default function NavbarSearchDrawer({ open, setOpen }: any) {
                     {/* top section of searchnavbar drawer */}
                     <div className="flex w-full justify-between ">
                       {/* NavLeftSide  */}
-                      <NavLeftSide/>
+                      <NavLeftSide />
 
                       {/* NavrightSide  */}
-                     <NavRightSide/>
+                      <NavRightSide />
                     </div>
 
                     {/* Middle section of searchnavbar drawer */}
@@ -317,99 +309,19 @@ export default function NavbarSearchDrawer({ open, setOpen }: any) {
                                   leaveFrom="opacity-100 translate-y-0"
                                   leaveTo="opacity-0 translate-y-1"
                                 >
-                                  <Popover.Panel className="absolute right-8 z-50 mt-6 w-screen max-w-sm translate-x-1/2 ">
-                                    <div className="flex h-[400px] w-[405px] flex-col items-center justify-center rounded-[40px] border-[1px] bg-white px-12 py-10">
-                                      <div className="flex w-[350px] justify-between border-b-2 py-6">
-                                        <div className="flex flex-col">
-                                          <h2 className="font-semibold">
-                                            Adults
-                                          </h2>
-                                          <p className="text-sm text-gray-400">
-                                            Ages 13 or above
-                                          </p>
-                                        </div>
-                                        <div className="flex items-center gap-4">
-                                          <MinusIcon
-                                            onClick={handleDecrementClickAdults}
-                                            className="h-10 rounded-full border-2 p-2"
-                                          />
-                                          <p>{adultGuests}</p>
-                                          <PlusIcon
-                                            onClick={handleIncrementClickAdults}
-                                            className="h-10 rounded-full border-2 p-2"
-                                          />
-                                        </div>
-                                      </div>
-                                      <div className="flex w-[350px] justify-between border-b-2 py-6">
-                                        <div className="flex flex-col">
-                                          <h2 className="font-semibold">
-                                            Children
-                                          </h2>
-                                          <p className="text-sm text-gray-400">
-                                            Ages 2-12
-                                          </p>
-                                        </div>
-                                        <div className="flex items-center gap-4">
-                                          <MinusIcon
-                                            onClick={
-                                              handleDecrementClickChildren
-                                            }
-                                            className="h-10 rounded-full border-2 p-2"
-                                          />
-                                          <p>{childrenGuests}</p>
-                                          <PlusIcon
-                                            onClick={
-                                              handleIncrementClickChildren
-                                            }
-                                            className="h-10 rounded-full border-2 p-2"
-                                          />
-                                        </div>
-                                      </div>
-                                      <div className="flex w-[350px] justify-between border-b-2 py-6">
-                                        <div className="flex flex-col">
-                                          <h2 className="font-semibold">
-                                            Infants
-                                          </h2>
-                                          <p className="text-sm text-gray-400">
-                                            Under 2
-                                          </p>
-                                        </div>
-                                        <div className="flex items-center gap-4">
-                                          <MinusIcon
-                                            onClick={
-                                              handleDecrementClickInfants
-                                            }
-                                            className="h-10 rounded-full border-2 p-2"
-                                          />
-                                          <p>{infantsGuests}</p>
-                                          <PlusIcon
-                                            onClick={
-                                              handleIncrementClickInfants
-                                            }
-                                            className="h-10 rounded-full border-2 p-2"
-                                          />
-                                        </div>
-                                      </div>
-                                      <div className="flex w-[350px] justify-between py-6">
-                                        <div className="flex flex-col">
-                                          <h2 className="font-semibold">
-                                            Pets
-                                          </h2>
-                                          <a className="text-sm font-semibold text-gray-400 underline">
-                                            Bringing a service animal?
-                                          </a>
-                                        </div>
-                                        <div className="flex items-center gap-4">
-                                          <MinusIcon
-                                            onClick={handleDecrementClickPets}
-                                            className="h-10 rounded-full border-2 p-2"
-                                          />
-                                          <p>{petsGuests}</p>
-                                          <PlusIcon
-                                            onClick={handleIncrementClickPets}
-                                            className="h-10 rounded-full border-2 p-2"
-                                          />
-                                        </div>
+                                  <Popover.Panel className="absolute right-10 z-50 mt-6 flex h-[200px] w-[405px] max-w-sm translate-x-1/2  flex-col items-center justify-center rounded-[40px] border-[1px] bg-white px-12 py-10 ">
+                                    <div className="flex w-[350px] items-center justify-between py-6">
+                                      <h2 className="font-semibold">Guests</h2>
+                                      <div className="flex items-center gap-4">
+                                        <MinusIcon
+                                          onClick={handleDecrementClickAdults}
+                                          className="h-10 rounded-full border-2 p-2"
+                                        />
+                                        <p>{adultGuests}</p>
+                                        <PlusIcon
+                                          onClick={handleIncrementClickAdults}
+                                          className="h-10 rounded-full border-2 p-2"
+                                        />
                                       </div>
                                     </div>
                                   </Popover.Panel>
