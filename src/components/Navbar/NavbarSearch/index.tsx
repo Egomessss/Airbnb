@@ -294,7 +294,7 @@ export default function NavbarSearchDrawer({ open, setOpen }: any) {
                                     <p className="text-left text-xs font-semibold">
                                       Who
                                     </p>
-                                    <p className="w-18 whitespace-nowrap text-sm text-gray-400">
+                                    <p className="w-18 whitespace-nowrap text-sm text-gray-400 text-left">
                                       {adultGuests > 0
                                         ? `${adultGuests} ${
                                             adultGuests > 1 ? `guests` : `guest`
