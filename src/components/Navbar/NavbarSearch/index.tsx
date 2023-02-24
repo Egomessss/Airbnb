@@ -1,9 +1,6 @@
 import { Fragment, useState } from "react"
 import { Dialog, Transition, Popover } from "@headlessui/react"
 
-import NavLeftSide from "../Navbar/NavLeftSide"
-import NavRightSide from "../Navbar/NavRightSide"
-
 import {
   GlobeAltIcon,
   MagnifyingGlassIcon,
@@ -12,18 +9,16 @@ import {
 
 import { MinusIcon, PlusIcon } from "@heroicons/react/24/outline"
 
-import SearchInputModal from "./SearchInputModal"
-
 import "react-date-range/dist/styles.css" // main style file
 import "react-date-range/dist/theme/default.css" // theme css file
 import { DateRangePicker } from "react-date-range"
 import { createSearchParams, Link, useSearchParams } from "react-router-dom"
-import useDebounce from "../../../hooks/useDebounce"
 
-import logo from "../../../assets/images/logo.png"
-import logoMobile from "../../../assets/images/logoMobile.png"
+
 import { format } from "date-fns"
 import Dropdown from "../../Dropdown"
+import NavLeftSide from "../Navbar/NavLeftSide"
+import NavRightSide from "../Navbar/NavRightSide"
 
 export default function NavbarSearchDrawer({ open, setOpen }: any) {
   // ! destination autocomplete pop over data
@@ -146,39 +141,15 @@ export default function NavbarSearchDrawer({ open, setOpen }: any) {
                     {/* top section of searchnavbar drawer */}
                     <div className="flex w-full justify-between ">
                       {/* NavLeftSide  */}
-                      <div className=" hidden h-[50px] w-[280px] min-w-[40px] cursor-pointer items-center justify-start md:flex">
-                        <link
-                          rel="stylesheet"
-                          href=""
-                        />
-                        <Link to="/">
-                          <img
-                            className="w-18 hidden h-8 lg:flex"
-                            src={logo}
-                            alt="logo"
-                          />
-                          <img
-                            className="w-18 hidden  h-8 md:flex lg:hidden"
-                            src={logoMobile}
-                            alt="logo"
-                          />
-                        </Link>
-                      </div>
+                      <NavLeftSide/>
 
                       {/* NavrightSide  */}
-                      <div className=" hidden h-[50px] w-[260px] min-w-[280px] items-center justify-between md:flex">
-                        <button className="h-[30px] whitespace-nowrap p-1 text-sm font-semibold hover:rounded-full hover:bg-gray-100">
-                          Airbnb your home
-                        </button>
-                        <GlobeAltIcon className="h-11 rounded-full p-3 hover:bg-gray-100" />
-                        <Dropdown />
-                      </div>
+                     <NavRightSide/>
                     </div>
 
                     {/* Middle section of searchnavbar drawer */}
                     <nav className="flex w-full justify-center py-4">
                       <div className="hidden h-[65px] w-[820px] min-w-[700px] cursor-pointer items-center rounded-full border-[1px] border-gray-300 bg-white shadow hover:shadow-lg md:flex ">
-                        
                         {/* destination popover */}
 
                         <div className="relative flex h-full w-[35%] flex-col items-center rounded-full bg-white hover:bg-gray-300">
