@@ -36,31 +36,29 @@ function SearchPage() {
   // gives us access to the query parameters, which we store in separate variables (locationParam, guestsParam, startDateParam, and endDateParam).
 
   const locationParam = searchParams.get("location")
-  
+
   const guestsParam = searchParams.get("guests")
   console.log(guestsParam)
 
   const startDateParam = searchParams.get("startDate")
   const endDateParam = searchParams.get("endDate")
- 
 
   // formats the dataparams into a human-readable format
   const formattedStartDate = format(new Date(startDateParam), "dd MMMM yy")
   const formattedEndDate = format(new Date(endDateParam), "dd MMMM yy")
 
-  const startDate = new Date(startDateParam);
-  const endDate = new Date(endDateParam);
+  const startDate = new Date(startDateParam)
+  const endDate = new Date(endDateParam)
 
-  const daysInBetween = Math.round((endDate.getTime() - startDate.getTime())/ 86400000)
+  const daysInBetween = Math.round(
+    (endDate.getTime() - startDate.getTime()) / 86400000
+  )
 
-  const guests =Number(guestsParam) 
+  const guests = Number(guestsParam)
   //  differenceInDays(new Date(startDateParam), new Date(startDateParam))
   console.log(guests)
-  
+
   // !get the number of guest and the number of days and calculate the total
-
-
-
 
   // stores the filtered data
   const [filteredData, setFilteredData] = useState([])
@@ -71,7 +69,7 @@ function SearchPage() {
   useEffect(() => {
     // filter the data based on the query parameters. We compare each item's properties (location, guests, start date, and end date) with the corresponding query parameters, and return only the items that match.
     const filteredDataParams = ListingData.filter((listing) => {
-       // if locationparam is empty return everything if not return just the selected location
+      // if locationparam is empty return everything if not return just the selected location
       const locationMatch = !locationParam || locationParam === listing.location
 
       // check if the number of guests parsed by the user is lesser or equal to the listing limit
@@ -135,7 +133,14 @@ function SearchPage() {
         {/* full screen listing data */}
         <div className="hidden px-4 md:inline-block lg:w-[60%]">
           <p className="py-4 text-sm font-medium">
-            Over {filteredData.length} homes available between {locationParam}  {range} - for {guestsParam} guests
+            Over <span className="font-semibold">{filteredData.length}</span>{" "}
+            homes available between{" "}
+            <span className="font-semibold">{range}</span>{" "}
+            <span className="font-semibold">
+              {locationParam ? `in ${locationParam}` : ""}
+            </span>{" "}
+            - for <span className="font-semibold">{guestsParam}</span>{" "}
+            {Number(guestsParam) > 1 ? `guests` : `guest`}
           </p>
           <Listings data={currentPosts} />
 
@@ -156,7 +161,8 @@ function SearchPage() {
         {openMap ? (
           <div className="flex flex-col px-4 md:hidden">
             <p className="pb-4 text-sm font-medium">
-            Over {filteredData.length} homes available between {locationParam}  {range} - for {guestsParam} guests
+              Over {filteredData.length} homes available between {locationParam}{" "}
+              {range} - for {guestsParam} guests
             </p>
             <SearchCard />
             <SearchPagination
