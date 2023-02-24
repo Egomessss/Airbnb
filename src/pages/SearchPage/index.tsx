@@ -15,7 +15,7 @@ import SearchPagination from "./SearchPagination"
 import Listings from "../../components/Listings"
 import ListingData from "../../assets/ListingsData.json"
 import { useLocation, useSearchParams } from "react-router-dom"
-import { format } from "date-fns"
+import { differenceInDays, format } from "date-fns"
 
 function SearchPage() {
   const [openMap, setOpenMap] = useState(false)
@@ -38,14 +38,24 @@ function SearchPage() {
   const locationParam = searchParams.get("location")
   
   const guestsParam = searchParams.get("guests")
+  console.log(guestsParam)
 
   const startDateParam = searchParams.get("startDate")
   const endDateParam = searchParams.get("endDate")
+ 
 
   // formats the dataparams into a human-readable format
   const formattedStartDate = format(new Date(startDateParam), "dd MMMM yy")
   const formattedEndDate = format(new Date(endDateParam), "dd MMMM yy")
 
+  const startDate = new Date(startDateParam);
+  const endDate = new Date(endDateParam);
+
+  const daysInBetween = Math.round((endDate.getTime() - startDate.getTime())/ 86400000)
+
+  const guests =Number(guestsParam) 
+  //  differenceInDays(new Date(startDateParam), new Date(startDateParam))
+  console.log(guests)
   
   // !get the number of guest and the number of days and calculate the total
 
@@ -60,19 +70,18 @@ function SearchPage() {
 
   useEffect(() => {
     // filter the data based on the query parameters. We compare each item's properties (location, guests, start date, and end date) with the corresponding query parameters, and return only the items that match.
-    const filteredDataParams = ListingData.filter((item) => {
-      return (
-        // if locationparam is empty return everything if not return just the selected location
-        locationParam === "" || locationParam === item.location
-        // turn the guestParams into a number
-        // Number(guestsParam) <= item.accommodates
-        // item.startDate >= startDateParam &&
-        // item.endDate <= endDateParam
-      )
+    const filteredDataParams = ListingData.filter((listing) => {
+       // if locationparam is empty return everything if not return just the selected location
+      const locationMatch = !locationParam || locationParam === listing.location
+
+      // check if the number of guests parsed by the user is lesser or equal to the listing limit
+      const guestMatch = guests <= listing.accommodates
+
+      return locationMatch && guestMatch
     })
     // Set the filtered data in the state
     setFilteredData(filteredDataParams)
-  }, [locationParam])
+  }, [locationParam, guestsParam])
   // , guestsParam, startDateParam, endDateParam
 
   const range = `${formattedStartDate} - ${formattedEndDate}`
