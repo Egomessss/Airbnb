@@ -36,6 +36,7 @@ function SearchPage() {
   // gives us access to the query parameters, which we store in separate variables (locationParam, guestsParam, startDateParam, and endDateParam).
 
   const locationParam = searchParams.get("location")
+  
   const guestsParam = searchParams.get("guests")
 
   const startDateParam = searchParams.get("startDate")
@@ -44,6 +45,12 @@ function SearchPage() {
   // formats the dataparams into a human-readable format
   const formattedStartDate = format(new Date(startDateParam), "dd MMMM yy")
   const formattedEndDate = format(new Date(endDateParam), "dd MMMM yy")
+
+  
+  // !get the number of guest and the number of days and calculate the total
+
+
+
 
   // stores the filtered data
   const [filteredData, setFilteredData] = useState([])
@@ -55,27 +62,25 @@ function SearchPage() {
     // filter the data based on the query parameters. We compare each item's properties (location, guests, start date, and end date) with the corresponding query parameters, and return only the items that match.
     const filteredDataParams = ListingData.filter((item) => {
       return (
-        item.location === locationParam &&
+        // if locationparam is empty return everything if not return just the selected location
+        locationParam === "" || locationParam === item.location
         // turn the guestParams into a number
-        Number(guestsParam) <= item.accommodates
+        // Number(guestsParam) <= item.accommodates
         // item.startDate >= startDateParam &&
         // item.endDate <= endDateParam
       )
     })
     // Set the filtered data in the state
     setFilteredData(filteredDataParams)
-  }, [locationParam, guestsParam, startDateParam, endDateParam])
+  }, [locationParam])
+  // , guestsParam, startDateParam, endDateParam
 
   const range = `${formattedStartDate} - ${formattedEndDate}`
 
   // logic for the dates
   // depending on the location, make europe a 7 day minimum and 14 days maximum, and us a 3 day min and 21 day max
   // multiply the days by €
-// conver the times to milliseconds
-
-
-
-
+  // conver the times to milliseconds
 
   // ! pagination
 
@@ -121,7 +126,7 @@ function SearchPage() {
         {/* full screen listing data */}
         <div className="hidden px-4 md:inline-block lg:w-[60%]">
           <p className="pb-4 text-sm font-medium">
-            Over {filteredData.length} homes in {locationParam} - {range} - for{" "}
+            Over {filteredData.length} homes in {locationParam} - {range} - for
             {guestsParam} guests
           </p>
           <Listings data={currentPosts} />

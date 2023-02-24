@@ -14,10 +14,11 @@ import "react-date-range/dist/theme/default.css" // theme css file
 import { DateRangePicker } from "react-date-range"
 import { createSearchParams, Link, useSearchParams } from "react-router-dom"
 
-import { format } from "date-fns"
+import { addDays, format } from "date-fns"
 import Dropdown from "../../Dropdown"
 import NavLeftSide from "../Navbar/NavLeftSide"
 import NavRightSide from "../Navbar/NavRightSide"
+import ListingData from "../../../assets/ListingsData.json"
 
 export default function NavbarSearchDrawer({ open, setOpen }: any) {
   // ! destination autocomplete pop over data
@@ -67,6 +68,9 @@ export default function NavbarSearchDrawer({ open, setOpen }: any) {
     setStartDate(ranges.selection.startDate)
     setEndDate(ranges.selection.endDate)
   }
+  // max date of 30 days from the current date selected
+  const maxDate = addDays(startDate, 30)
+
   // formats the data so it can be shown in the navbar when a user select from the range picker
   const formattedStartDate = format(new Date(startDate), "dd MMM")
   const formattedendDate = format(new Date(endDate), "dd MMM")
@@ -89,7 +93,7 @@ export default function NavbarSearchDrawer({ open, setOpen }: any) {
     }
   }
   //! search query
-// 
+  //
   const router = useSearchParams()
 
   return (
@@ -257,6 +261,7 @@ export default function NavbarSearchDrawer({ open, setOpen }: any) {
                                         <div>
                                           <DateRangePicker
                                             minDate={new Date()}
+                                            maxDate={maxDate}
                                             staticRanges={[]}
                                             inputRanges={[]}
                                             showDateDisplay={false}
