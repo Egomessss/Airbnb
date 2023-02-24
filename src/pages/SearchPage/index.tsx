@@ -55,9 +55,9 @@ function SearchPage() {
     // filter the data based on the query parameters. We compare each item's properties (location, guests, start date, and end date) with the corresponding query parameters, and return only the items that match.
     const filteredDataParams = ListingData.filter((item) => {
       return (
-        item.location === locationParam
-        // &&
-        // item.accommodates <= guestsParam
+        item.location === locationParam &&
+        // turn the guestParams into a number
+        Number(guestsParam) <= item.accommodates
         // item.startDate >= startDateParam &&
         // item.endDate <= endDateParam
       )
@@ -67,6 +67,15 @@ function SearchPage() {
   }, [locationParam, guestsParam, startDateParam, endDateParam])
 
   const range = `${formattedStartDate} - ${formattedEndDate}`
+
+  // logic for the dates
+  // depending on the location, make europe a 7 day minimum and 14 days maximum, and us a 3 day min and 21 day max
+  // multiply the days by €
+// conver the times to milliseconds
+
+
+
+
 
   // ! pagination
 
@@ -112,7 +121,8 @@ function SearchPage() {
         {/* full screen listing data */}
         <div className="hidden px-4 md:inline-block lg:w-[60%]">
           <p className="pb-4 text-sm font-medium">
-            Over 8 homes in {locationParam} - {range} - for {guestsParam} guests
+            Over {filteredData.length} homes in {locationParam} - {range} - for{" "}
+            {guestsParam} guests
           </p>
           <Listings data={currentPosts} />
 
@@ -137,10 +147,11 @@ function SearchPage() {
             </p>
             <SearchCard />
             <SearchPagination
-              postsPerPage={postsPerPage}
-              totalPosts={filteredData.length}
               changePage={changePage}
               currentPage={currentPage}
+              decrementPage={decrementPage}
+              incrementPage={incrementPage}
+              pageNumbers={pageNumbers}
             />
           </div>
         ) : (
