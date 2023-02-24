@@ -56,13 +56,12 @@ function SearchPage() {
 
   const guests = Number(guestsParam)
   //  differenceInDays(new Date(startDateParam), new Date(startDateParam))
-  console.log(guests)
-
+  
   // !get the number of guest and the number of days and calculate the total
 
   // stores the filtered data
   const [filteredData, setFilteredData] = useState([])
-  console.log(filteredData)
+
 
   // use the useEffect hook to run the filtering logic whenever the query parameters change
 
@@ -140,9 +139,9 @@ function SearchPage() {
               {locationParam ? `in ${locationParam}` : ""}
             </span>{" "}
             - for <span className="font-semibold">{guestsParam}</span>{" "}
-            {Number(guestsParam) > 1 ? `guests` : `guest`}
+            {guests > 1 ? `guests` : `guest`}
           </p>
-          <Listings data={currentPosts} />
+          <Listings days={daysInBetween} guests={guests} data={currentPosts} />
 
           <SearchPagination
             changePage={changePage}

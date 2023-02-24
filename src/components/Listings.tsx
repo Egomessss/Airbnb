@@ -9,11 +9,10 @@ import "swiper/css/pagination"
 // import required modules
 import { Navigation, Pagination } from "swiper"
 
-
 import { HeartIcon, StarIcon } from "@heroicons/react/24/outline"
 import { Link } from "react-router-dom"
 
-function Listings({data}) {
+function Listings({ data, guests, days }) {
   // handles favorite post state
   //   fetches state from localstorage and persists after reload
   //   the "!" tells the compiler the value cannot be null
@@ -96,7 +95,10 @@ function Listings({data}) {
               {/* <p className=" mt-1 ">{listing.isSuperhost}</p> */}
               {/* <p className=" mt-1">{listing.}</p> */}
               <p className=" mt-1 underline underline-offset-2">
-                <span className="font-semibold">€{listing.price}</span> total
+                <span className="font-semibold">
+                  €{listing.price_per_night * days +
+                    guests * listing.price_per_guest}
+                </span> total
               </p>
             </div>
           </div>
