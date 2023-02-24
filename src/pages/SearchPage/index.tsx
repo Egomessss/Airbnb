@@ -68,7 +68,7 @@ function SearchPage() {
   const searchParams = new URLSearchParams(location.search)
 
   const locationParam = searchParams.get("location")
-  console.log(locationParam)
+  
   const guestsParam = searchParams.get("guests")
 
   const startDateParam = searchParams.get("startDate")
@@ -107,7 +107,7 @@ function SearchPage() {
 
    // ! pagination
   // fetches the data from the json file
-  const [posts] = useState(filteredData)
+  // const [posts] = useState(filteredData)
 
   // sets the current page and the post per page in the pagination component
   const [currentPage, setCurrentPage] = useState(1)
@@ -116,8 +116,10 @@ function SearchPage() {
   // get current posts
   const indexOfLastPost = currentPage * postsPerPage
   const indexOfFirstPost = indexOfLastPost - postsPerPage
-  const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost)
+  const currentPosts = filteredData.slice(indexOfFirstPost, indexOfLastPost)
+
   // console.log(currentPosts)
+
   // change page
   const changePage = (pageNumber) => setCurrentPage(pageNumber)
 
@@ -137,17 +139,15 @@ function SearchPage() {
 
   // get us the amount of pages based on the total posts variable and postsperpage
 
-  for (let i = 1; i <= Math.ceil(posts.length / postsPerPage); i++) {
+  for (let i = 1; i <= Math.ceil(filteredData.length / postsPerPage); i++) {
     pageNumbers.push(i)
   }
+
+
   return (
-    <nav className="md:px-10">
-      {/* top section  Navigation and filter */}
+    <div className="md:px-10 ">
+     
       <Navbar />
-      {/* <SwipeCarouselFilter
-        ListingData={ListingData}
-        setFilter={setFilter}
-      /> */}
 
       {/* left section in full and middle in mobile*/}
       <main className="flex md:relative ">
@@ -156,8 +156,8 @@ function SearchPage() {
           <p className="pb-4 text-sm font-medium">
             Over 8 homes in {locationParam} - {range} - for {guestsParam} guests
           </p>
-          <Listings data={filteredData} />
-          {/* <SearchCard currentPosts={currentPosts} /> */}
+          <Listings data={currentPosts} />
+        
           <SearchPagination
             changePage={changePage}
             currentPage={currentPage}
@@ -180,7 +180,7 @@ function SearchPage() {
             <SearchCard />
             <SearchPagination
               postsPerPage={postsPerPage}
-              totalPosts={posts.length}
+              totalPosts={filteredData.length}
               changePage={changePage}
               currentPage={currentPage}
             />
@@ -197,7 +197,7 @@ function SearchPage() {
       <div className="sticky bottom-0 z-10 bg-white md:hidden">
         <BottomNav />
       </div>
-    </nav>
+    </div>
   )
 }
 
