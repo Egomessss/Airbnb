@@ -1,9 +1,7 @@
 import { addDays, format } from "date-fns"
-import React, { useState } from "react"
+import { useState } from "react"
 import { DateRangePicker } from "react-date-range"
 import { CiKeyboard } from "react-icons/ci"
-import { start } from "repl"
-import RangePicker from "../../components/Navbar/NavbarSearch/RangePicker"
 
 function ListingDatePicker({ closeModal }) {
   // !checkin/out and calendar data
@@ -42,7 +40,7 @@ function ListingDatePicker({ closeModal }) {
   const daysInBetween = Math.round(
     (endDate.getTime() - startDate.getTime()) / 86400000
   )
-// closes the modal
+  // closes the modal
   const closeBtn = () => closeModal()
 
   console.log(daysInBetween)
@@ -52,7 +50,7 @@ function ListingDatePicker({ closeModal }) {
       <div className="flex justify-between">
         <div>
           <p>{daysInBetween} nights</p>
-          <p>dates</p>
+          <p>Minimum stay: </p>
         </div>
         <div className="flex w-[300px] gap-4 rounded-lg border-[1px] p-2">
           <button className=" w-1/2 border-r-[1px] border-gray-500 px-2 text-left">
