@@ -8,10 +8,8 @@ import { SlDiamond } from "react-icons/sl"
 import ListingDatePicker from "./ListingDatePicker"
 
 function Availability({ data }) {
-
   //! modal state
   const [datePopOver, setDatePopOver] = useState(false)
-
 
   // !checkin/out and calendar data
 
@@ -54,7 +52,7 @@ function Availability({ data }) {
 
   console.log(daysInBetween)
 
-// !Price
+  // !Price
 
   const [price, setPrice] = useState(data.price_per_night)
 
@@ -102,16 +100,17 @@ function Availability({ data }) {
           </button>
         </div>
       </div>
-      {}
-      <div className=" mt-6 flex h-[92px] w-[372px] items-center justify-center  gap-2 rounded-xl border-[1px]  bg-scroll p-2 shadow-lg ">
-        <div className="w-3/4">
-          <p>
-            <span className="font-semibold">This is a rare find.</span> Pedro's
-            place on Airbnb is usually fully booked.
-          </p>
+      {data.isRareFind ? (
+        <div className=" mt-6 flex h-[92px] w-[372px] items-center justify-center  gap-2 rounded-xl border-[1px]  bg-scroll p-2 shadow-lg ">
+          <div className="w-3/4">
+            <p>
+              <span className="font-semibold">This is a rare find.</span>{" "}
+              Pedro's place on Airbnb is usually fully booked.
+            </p>
+          </div>
+          <SlDiamond className="block h-[32px] w-[32px] fill-[#E31C5F]" />
         </div>
-        <SlDiamond className="block h-[32px] w-[32px] fill-[#E31C5F]" />
-      </div>
+      ) : null}
 
       {datePopOver && (
         <div className="absolute top-24 right-0 z-50 rounded-xl border-[1px] bg-white p-6 shadow-lg">
