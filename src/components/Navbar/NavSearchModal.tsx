@@ -1,6 +1,6 @@
 import { XCircleIcon } from "@heroicons/react/24/outline"
 import { MagnifyingGlassIcon } from "@heroicons/react/24/solid"
-import React from "react"
+import React, { useState } from "react"
 import SearchModal from "./SearchModal"
 import SwipeCarousel from "../SwipeCarousel"
 import data from "../../assets/data.json"
@@ -9,7 +9,7 @@ import data from "../../assets/data.json"
 
 function NavSearchModal({ closeModal }: any) {
   // sets the state for the search modal
-  const [isSearching, setIsSearching] = React.useState(false)
+  const [isSearching, setIsSearching] = useState(false)
 
   return (
     <div className="px-4 pt-6 h-[screen] w-[390px] fixed bg-[#F7F7F7] flex flex-col overflow-x-hidden overflow-y-auto inset-0 z-20 outline-none focus:outline-none">

@@ -1,11 +1,9 @@
 import { StarIcon } from "@heroicons/react/24/solid"
 import React, { useState } from "react"
 import { SlDiamond } from "react-icons/sl"
-import CheckInPopOver from "../../components/Navbar/NavbarSearch/CheckInPopOver"
-import RangePicker from "../../components/Navbar/NavbarSearch/RangePicker"
+
 import ListingDatePicker from "./ListingDatePicker"
-import DatePicker from "./ListingDatePicker"
-import DataPicker from "./ListingDatePicker"
+
 
 function Availability(data) {
   const [datePopOver, setDatePopOver] = useState(false)
@@ -69,7 +67,7 @@ function Availability(data) {
         </div>
         <SlDiamond className="block h-[32px] w-[32px] fill-[#E31C5F]" />
       </div>
-      {datePopOver && <ListingDatePicker />}
+      {datePopOver && <ListingDatePicker closeModal={()=>setDatePopOver(false)} />}
     </div>
   )
 }

@@ -5,12 +5,12 @@ import { CiKeyboard } from "react-icons/ci"
 import { start } from "repl"
 import RangePicker from "../../components/Navbar/NavbarSearch/RangePicker"
 
-function ListingDatePicker() {
+function ListingDatePicker({ closeModal }) {
   // !checkin/out and calendar data
 
   // creates a start and end date starting from the current day so you can't go back
   const [startDate, setStartDate] = useState(new Date())
-  const [endDate, setEndDate] = useState(addDays(new Date(), 5))
+  const [endDate, setEndDate] = useState(new Date())
 
   // stores the start and end date
   const selectionRange = {
@@ -20,20 +20,15 @@ function ListingDatePicker() {
   }
 
   // sets the start and end date in the calendar
-  const handleSelection = (ranges) => {
-    const rangeStartDate = ranges.selection.startDate
+  const handleSelection = (ranges: any) => {
+    setStartDate(ranges.selection.startDate)
+    setEndDate(ranges.selection.endDate)
+  }
 
-    // Always set the end date to be 5 days after the start date because the minimum stay is 5 days
-    const rangeEndDate = addDays(rangeStartDate, 5)
-
-    if (rangeEndDate > maxDate) {
-      alert("The minimum stay is 5 days!")
-    } else if (rangeEndDate < rangeStartDate) {
-      alert("You must select a range that is atleast 5 days long")
-    } else {
-      setStartDate(rangeStartDate)
-      setEndDate(rangeEndDate)
-    }
+  // clears the selection
+  const clearSelection = () => {
+    setStartDate(new Date())
+    setEndDate(new Date())
   }
 
   // max date of 30 days from the current date selected
@@ -47,6 +42,9 @@ function ListingDatePicker() {
   const daysInBetween = Math.round(
     (endDate.getTime() - startDate.getTime()) / 86400000
   )
+// closes the modal
+  const closeBtn = () => closeModal()
+
   console.log(daysInBetween)
 
   return (
@@ -82,8 +80,16 @@ function ListingDatePicker() {
       <div className=" flex justify-between">
         <CiKeyboard className="text-3xl" />
         <div className="flex gap-3">
-          <button className="font-medium underline">Clear dates</button>
-          <button className="rounded-lg bg-black py-1 px-3 font-semibold text-white">
+          <button
+            onClick={clearSelection}
+            className="font-medium underline"
+          >
+            Clear dates
+          </button>
+          <button
+            onClick={closeBtn}
+            className="rounded-lg bg-black py-1 px-3 font-semibold text-white"
+          >
             Close
           </button>
         </div>
