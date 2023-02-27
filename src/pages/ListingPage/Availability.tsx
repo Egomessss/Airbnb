@@ -3,8 +3,9 @@ import React, { useState } from "react"
 import { SlDiamond } from "react-icons/sl"
 import CheckInPopOver from "../../components/Navbar/NavbarSearch/CheckInPopOver"
 import RangePicker from "../../components/Navbar/NavbarSearch/RangePicker"
-import DatePicker from "./DatePicker"
-import DataPicker from "./DatePicker"
+import ListingDatePicker from "./ListingDatePicker"
+import DatePicker from "./ListingDatePicker"
+import DataPicker from "./ListingDatePicker"
 
 function Availability(data) {
   const [datePopOver, setDatePopOver] = useState(false)
@@ -34,26 +35,28 @@ function Availability(data) {
         </div>
         <div className="grid h-24 grid-cols-2 grid-rows-2 rounded-xl border-[1px] border-gray-500 text-xs">
           <button
-            className=" border-r-[1px] border-gray-500"
+            className="col-span-2 border-r-[1px] border-gray-500 active:border-black active:border-2 active:rounded-lg"
             onClick={() => setDatePopOver(true)}
           >
-            <p className="font-medium uppercase ">Check-in</p>
-            <p>add date</p>
+            <div className="flex justify-around">
+              <p className="font-medium uppercase ">Check-in</p>
+              <p className="font-medium uppercase">Checkout</p>
+            </div>
+            <div className="flex justify-around">
+              <p>add dates</p>
+              <p>add dates</p>
+            </div>
           </button>
-          <button className=" border-gray-500 ">
-            {" "}
-            <p className="font-medium uppercase">Checkout</p>
-            <p>add date</p>
-          </button>
-          <button className="col-span-2   border-t-[1px] border-gray-500">
+
+          <button className="col-span-2  text-left px-14 border-t-[1px] border-gray-500">
             {" "}
             <p className="font-medium uppercase">Guests</p>
             <p>1 guest</p>
           </button>
         </div>
-        <div>
+        <div className="mt-4">
           <button className="w-full  rounded-xl bg-[#DA0A65] p-3 font-semibold text-white">
-            Check availabily
+            Reserve
           </button>
         </div>
       </div>
@@ -66,7 +69,7 @@ function Availability(data) {
         </div>
         <SlDiamond className="block h-[32px] w-[32px] fill-[#E31C5F]" />
       </div>
-      {datePopOver && <DatePicker />}
+      {datePopOver && <ListingDatePicker />}
     </div>
   )
 }

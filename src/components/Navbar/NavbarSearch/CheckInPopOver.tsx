@@ -8,7 +8,6 @@ import { DateRangePicker } from "react-date-range"
 
 
 export default function CheckInPopOver({ children }: any) {
-  const [dateIncrement, SetDateIncrement] = useState(0)
 
   // creates a start and end date starting from the current day so you can't go back
   const [startDate, setStartDate] = useState(new Date())
