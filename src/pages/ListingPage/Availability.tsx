@@ -56,6 +56,16 @@ function Availability({ data }) {
 
   const [price, setPrice] = useState(data.price_per_night)
 
+  const priceTotal = ()=>{
+    price * daysInBetween
+  }
+
+  // ? add minimum date for the calendar
+  // ? add a price total after we set the range
+  // ? add guests pop up
+  // ? add the conditional rendering for the add dates and 1 guests
+  // ?add the reserving pop over
+
   return (
     <div className="sticky top-2 hidden flex-col  bg-scroll md:flex ">
       <div className=" mt-6 h-[302px] w-[372px] gap-5 rounded-xl border-[1px]  p-4 shadow-lg">
