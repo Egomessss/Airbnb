@@ -93,7 +93,7 @@ function Listings({ data, guests, days }) {
                           Superhost
                         </button>
                       ) : (
-                        ""
+                        null
                       )}
                     </SwiperSlide>
                   )
