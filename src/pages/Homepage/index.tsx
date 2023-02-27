@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import BottomNav from "../../components/BottomNav"
 import Footer from "../../components/Footer"
 import Listings from "../../components/Listings"
-import HomepageCard from "../../components/Listings"
+
 import MapApi from "../../components/MapApi"
 import Navbar from "../../components/Navbar/Navbar/Navbar"
 import StickyButton from "../../components/StickyButton"

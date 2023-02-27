@@ -7,11 +7,8 @@ function SearchPagination({
   currentPage,
   decrementPage,
   incrementPage,
-  pageNumbers
+  pageNumbers,
 }) {
-
- 
-
   return (
     <nav className="flex justify-center gap-4">
       <button>

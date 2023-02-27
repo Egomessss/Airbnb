@@ -10,7 +10,7 @@ import "swiper/css/pagination"
 import { Pagination } from "swiper"
 
 import data from "../../assets/data.json"
-function ListingCarousel(thisListing) {
+function ListingCarousel({thisListing}) {
   return (
     <div className="block md:hidden -mx-6">
       <Swiper
@@ -20,9 +20,9 @@ function ListingCarousel(thisListing) {
         }}
         modules={[Pagination]}
       >
-        {thisListing.thisListing.thumbImages.map((img) => {
+        {thisListing.thumbImages.map((img) => {
           return (
-            <SwiperSlide key={thisListing.thisListing.description}>
+            <SwiperSlide key={thisListing.description}>
               <img
                 src={img}
                 alt=""

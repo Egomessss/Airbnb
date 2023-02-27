@@ -1,6 +1,6 @@
 import React from "react"
 
-function ImageGrid(thisListing) {
+function ImageGrid({thisListing}) {
  
 
 
@@ -10,35 +10,35 @@ function ImageGrid(thisListing) {
         <li className="col-span-2 row-span-2">
           <img
             className="min-h-[410px] object-cover"
-            src={thisListing.thisListing.image1}
+            src={thisListing.image1}
             alt=""
           />
         </li>
         <li className="col-span-1 row-span-1">
           <img
             className="min-h-[200px]  object-cover"
-            src={thisListing.thisListing.image2}
+            src={thisListing.image2}
             alt=""
           />
         </li>
         <li className="col-span-1 row-span-1">
           <img
             className="min-h-[200px]  object-cover"
-            src={thisListing.thisListing.image3}
+            src={thisListing.image3}
             alt=""
           />
         </li>
         <li className="col-span-1 row-span-1">
           <img
             className="min-h-[200px]  object-cover"
-            src={thisListing.thisListing.image4}
+            src={thisListing.image4}
             alt=""
           />
         </li>
         <li className="col-span-1 row-span-1">
           <img
             className="min-h-[200px]  object-cover"
-            src={thisListing.thisListing.image5}
+            src={thisListing.image5}
             alt=""
           />
         </li>

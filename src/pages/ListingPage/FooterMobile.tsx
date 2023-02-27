@@ -1,11 +1,10 @@
 import { GlobeAltIcon } from "@heroicons/react/24/outline"
-import React from "react"
-import Info from "./Info"
+
 
 function FooterMobile() {
   return (
     <div className="-mx-6 mt-20 hidden justify-between bg-[#F7F7F7] px-6 md:-mx-20 md:flex md:px-20 ">
-      <Info>
+      <div className="border-t-[1px] pt-8 pb-6">
         <h2 className="mb-2 font-semibold">Support</h2>
         <ul className="flex flex-col gap-2 text-sm">
           <li>
@@ -27,8 +26,8 @@ function FooterMobile() {
             <a href="">Report a neightbourhood concern</a>
           </li>
         </ul>
-      </Info>
-      <Info>
+      </div>
+      <div className="border-t-[1px] pt-8 pb-6">
         <h2 className="mb-2 font-semibold">Community</h2>
         <ul className="flex flex-col gap-2 text-sm">
           <li>
@@ -38,8 +37,8 @@ function FooterMobile() {
             <a href="">Combating discrimination</a>
           </li>
         </ul>
-      </Info>
-      <Info>
+      </div>
+      <div className="border-t-[1px] pt-8 pb-6">
         <h2 className="mb-2 font-semibold">Hosting</h2>
         <ul className="flex flex-col gap-2 text-sm">
           <li>
@@ -58,8 +57,8 @@ function FooterMobile() {
             <a href="">How to host responsibly</a>
           </li>
         </ul>
-      </Info>
-      <Info>
+      </div>
+      <div className="border-t-[1px] pt-8 pb-6">
         <h2 className="mb-2 font-semibold">Airbnb</h2>
         <ul className="flex flex-col gap-2 text-sm">
           <li>
@@ -81,8 +80,8 @@ function FooterMobile() {
             <a href="">Gift cards</a>
           </li>
         </ul>
-      </Info>
-      <Info>
+      </div>
+      <div className="border-t-[1px] pt-8 pb-6">
         <h2 className="mb-2 flex items-center gap-4 text-sm font-semibold">
           <span className="flex gap-1">
             <GlobeAltIcon className="h-5" /> English(GB)
@@ -110,7 +109,7 @@ function FooterMobile() {
             <a href="">Company details</a>
           </li>
         </ul>
-      </Info>
+      </div>
     </div>
   )
 }

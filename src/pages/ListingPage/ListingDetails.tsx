@@ -14,8 +14,8 @@ import MobileBtn from "../../components/MobileBtn"
 
 // add conditional rending for the superhost and rare find properties
 
-function ListingDetails(data) {
-  const string = data.data.amenities
+function ListingDetails({data}) {
+  const string = data.amenities
   // console.log(string)
   const splitToString = string.split(",")
 
@@ -23,26 +23,26 @@ function ListingDetails(data) {
     <div className="md:max-w-[60%]">
       <div className="flex flex-col gap-2 py-6 md:hidden">
         <div>
-          <h1 className="text-2xl font-semibold">{data.data.summary}</h1>
-          <h1 className="text-2xl font-semibold">{data.data.property_type}</h1>
+          <h1 className="text-2xl font-semibold">{data.summary}</h1>
+          <h1 className="text-2xl font-semibold">{data.property_type}</h1>
         </div>
         <div className="text-sm font-semibold">
           <ul className="flex gap-5 ">
             <li className="flex items-center">
               <StarIcon className="h-4" />
-              {data.data.rating}
+              {data.rating}
             </li>
             <li className="font-semibold underline underline-offset-1">
-              {data.data.number_of_reviews} reviews
+              {data.number_of_reviews} reviews
             </li>
-            {/* {data.data.isSuperHost == true  } */}
+            {/* {data.isSuperHost == true  } */}
             <li className="flex items-center gap-1 font-normal">
               <FaMedal className="h-3 " />
               Superhost
             </li>
           </ul>
           <p className=" mt-1 font-semibold underline underline-offset-1">
-            {data.data.host_location}
+            {data.host_location}
           </p>
         </div>
       </div>
@@ -60,14 +60,14 @@ function ListingDetails(data) {
 
       <div className="flex justify-between py-6">
         <div className="flex flex-col gap-2">
-          <h3 className="text-xl font-semibold">{data.data.room_type}</h3>
+          <h3 className="text-xl font-semibold">{data.room_type}</h3>
           <ul className="flex gap-2 text-sm">
             <li className="flex items-center">
-              {data.data.accommodates} guests
+              {data.accommodates} guests
             </li>
-            <li>{data.data.bedrooms} bedrooms</li>
-            <li>{data.data.beds} beds</li>
-            <li>{data.data.bathrooms} bathrooms</li>
+            <li>{data.bedrooms} bedrooms</li>
+            <li>{data.beds} beds</li>
+            <li>{data.bathrooms} bathrooms</li>
           </ul>
         </div>
         <div className="relative">
@@ -95,7 +95,7 @@ function ListingDetails(data) {
           </div>
         </div>
         <div className="pt-8">
-          <p className="leading-5">{data.data.description}</p>
+          <p className="leading-5">{data.description}</p>
           <a
             href=""
             className="flex items-center pt-4 font-semibold underline"
@@ -137,7 +137,7 @@ function ListingDetails(data) {
 
         <div className="border-t-[1px] pt-8 pb-6 md:hidden">
           <h2 className="mb-4 text-xl font-semibold">Where you'll be</h2>
-          <p className="mb-4">{data.data.host_location}</p>
+          <p className="mb-4">{data.host_location}</p>
           <div className="h-[218px] w-[342px] border-2 border-black">
             <MapApi />
           </div>

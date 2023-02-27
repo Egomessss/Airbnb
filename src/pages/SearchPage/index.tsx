@@ -163,6 +163,7 @@ function SearchPage() {
               Over {filteredData.length} homes available between {locationParam}{" "}
               {range} - for {guestsParam} guests
             </p>
+            {/* changes thisssssssssssssssssssssssss */}
             <SearchCard />
             <SearchPagination
               changePage={changePage}
