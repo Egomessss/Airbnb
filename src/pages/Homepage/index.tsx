@@ -27,6 +27,7 @@ function Homepage() {
     setSearchParams({ filter: filter })
   }
 
+
   return (
     <div className="relative px-6 md:px-20">
       <div className="sticky top-0 z-10 bg-white">
@@ -66,12 +67,3 @@ function Homepage() {
 
 export default Homepage
 
-// you can see the scrolling of the homecards trought the nav
-// prevent sticky button and bottom nav from showing the search modal
-// populate the cards and swipe carousel with the api data so no key error
-
-// {searchParams?
-//   (<Listings data={ListingData}) />
-//   : (<Listings data={ListingData} />) }
-
-// )}
