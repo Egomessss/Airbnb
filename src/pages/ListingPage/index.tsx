@@ -78,7 +78,7 @@ export default function ListingPage() {
       {/* mobile */}
       <ListingCarousel thisListing={thisListing} />
 
-      <div className="relative flex lg:justify-between  gap-10">
+      <div className="relative flex lg:justify-between  md:gap-10">
         <ListingDetails data={thisListing} />
         <div> <Availability data={thisListing} /></div>
        

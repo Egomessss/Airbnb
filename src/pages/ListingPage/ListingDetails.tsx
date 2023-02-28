@@ -3,24 +3,55 @@ import {
   LanguageIcon,
   ChevronRightIcon,
 } from "@heroicons/react/24/outline"
-import React from "react"
+import { addDays, format } from "date-fns"
+import React, { useState } from "react"
+import { DateRangePicker } from "react-date-range"
 import { CiLocationOn, CiCalendar } from "react-icons/ci"
 import { FaMedal } from "react-icons/fa"
 import { SlDiamond } from "react-icons/sl"
 import { TbBeach } from "react-icons/tb"
-import CalendarMobile from "../../components/CalendarMobile"
+
 import MapApi from "../../components/MapApi"
 import MobileBtn from "../../components/MobileBtn"
+import Availability from "./Availability"
 
 // add conditional rending for the superhost and rare find properties
 
 function ListingDetails({ data }) {
+
+  // fetches the amenities data from the json file and splits the string into multiple strings
   const string = data.amenities
   // console.log(string)
   const splitToString = string.split(",")
 
+  // !checkin/out and calendar data
+  const [openChooseDates, setOpenChooseDates] = useState(false)
+
+  // creates a start and end date starting from the current day so you can't go back
+  const [startDate, setStartDate] = useState(new Date())
+  const [endDate, setEndDate] = useState(new Date())
+
+  // stores the start and end date
+  const selectionRange = {
+    startDate: startDate,
+    endDate: endDate,
+    key: "selection",
+  }
+
+  // sets the start and end date in the calendar
+  const handleSelection = (ranges) => {
+    setStartDate(ranges.selection.startDate)
+    setEndDate(ranges.selection.endDate)
+  }
+  // max date of 30 days from the current date selected
+  const maxDate = addDays(startDate, 30)
+
+  // formats the data so it can be shown in the navbar when a user select from the range picker
+  const formattedStartDate = format(new Date(startDate), "dd MMM")
+  const formattedendDate = format(new Date(endDate), "dd MMM")
+
   return (
-    <div className="md:w-[60%]">
+    <div className=" w-full md:w-[60%]">
       <div className="flex flex-col gap-2 py-6 md:hidden">
         <div>
           <h1 className="text-2xl font-semibold">{data.summary}</h1>
@@ -51,14 +82,15 @@ function ListingDetails({ data }) {
       {/* body */}
       {/* fix this or remove */}
 
-      <div className="flex md:hidden">
+      <div className="flex border-t-[1px] py-6 md:hidden">
         <p>
-          <span className="font-semibold">This is a rare find.</span> this listing is usually fully booked.
+          <span className="font-semibold">This is a rare find.</span> this
+          listing is usually fully booked.
         </p>
         <SlDiamond className="block h-[32px] w-[42px] fill-[#E31C5F]" />
       </div>
 
-      <div className="flex justify-between py-6">
+      <div className="flex justify-between border-t-[1px] py-6">
         <div className="flex flex-col gap-2">
           <h3 className="text-xl font-semibold">{data.room_type}</h3>
           <ul className="flex gap-2 text-sm">
@@ -94,13 +126,6 @@ function ListingDetails({ data }) {
         </div>
         <div className="pt-8">
           <p className="leading-5">{data.description}</p>
-          <a
-            href=""
-            className="flex items-center pt-4 font-semibold underline"
-          >
-            {/* add the rest */}
-            Show more <ChevronRightIcon className="block h-5" />
-          </a>
         </div>
 
         <div className="h-[500px] border-t-[1px] pt-8 pb-6">
@@ -110,7 +135,7 @@ function ListingDetails({ data }) {
             map over the string
             display
             */}
-          <div className="flex flex-col flex-wrap gap-4  md:flex-row">
+          <div className="flex flex-row flex-wrap gap-4">
             {splitToString.map((amenitie) => {
               return (
                 <div className="flex w-[250px] gap-2 whitespace-nowrap">
@@ -120,13 +145,6 @@ function ListingDetails({ data }) {
               )
             })}
           </div>
-
-          <div className="mt-8">
-            <MobileBtn
-              text={"Show all 37 amenities"}
-              link={""}
-            />
-          </div>
         </div>
 
         {/* adicionar mapa */}
@@ -134,7 +152,7 @@ function ListingDetails({ data }) {
         <div className="border-t-[1px] pt-8 pb-6 md:hidden">
           <h2 className="mb-4 text-xl font-semibold">Where you'll be</h2>
           <p className="mb-4">{data.host_location}</p>
-          <div className="h-[218px] w-[342px] border-2 border-black">
+          <div className="h-[318px] w-full  border-black">
             <MapApi />
           </div>
         </div>
@@ -142,10 +160,20 @@ function ListingDetails({ data }) {
         <div className="border-t-[1px] pt-8 pb-6 md:hidden">
           {" "}
           <h2 className="mb-4 text-xl font-semibold">7 nights in Luz, Lagos</h2>
-          <p className="text-sm">30 may 2023-5 Jun 2023</p>
-          <button className="text-sm font-semibold underline">
-            Clear dates
-          </button>
+          <div>
+            {" "}
+            <DateRangePicker
+              minDate={new Date()}
+              maxDate={maxDate}
+              staticRanges={[]}
+              inputRanges={[]}
+              showDateDisplay={false}
+              months={1}
+              direction="horizontal"
+              ranges={[selectionRange]}
+              onChange={handleSelection}
+            />
+          </div>
         </div>
       </div>
     </div>
