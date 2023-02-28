@@ -77,7 +77,7 @@ function SwipeCarouselFilter(props) {
             <img
               className="h-[28px] w-[28px]"
               alt=""
-              src="https://a0.muscache.com/pictures/3726d94b-534a-42b8-bca0-a0304d912260.jpg"
+              src="https://a0.muscache.com/pictures/c0fa9598-4e37-40f3-b734-4bd0e2377add.jpg"
             />
             <p className="mt-1 whitespace-nowrap text-xs">All types</p>
           </button>
