@@ -42,7 +42,8 @@ function Listings({ data, guests, days }) {
   // fazer loop das imagens e
 
   return (
-    <div className="flex flex-wrap gap-6">
+    //! container
+    <div className="grid grid-cols-1 sm:grid-cols-2  lg:grid-cols-3 xl:grid-cols-4 gap-4">
       {data.map((listing, index) => {
         const total =
           days && guests
@@ -51,57 +52,53 @@ function Listings({ data, guests, days }) {
 
         // formats the number to introduce commas for the larger values
         const formattedTotal = total.toLocaleString("de-DE")
-
+        // h-[460px] w-[340px]
         return (
+          // listing
           <div
             key={index}
-            className=" flex h-[460px] w-[340px] flex-auto  flex-col "
+            className="flex flex-col relative h-[450px]"
           >
-            <div>
-              <Swiper
-                pagination={true}
-                navigation={true}
-                modules={[Pagination, Navigation]}
-                className="relative"
-              >
-                {listing.thumbImages.map((image, index) => {
-                  return (
-                    <SwiperSlide key={index}>
-                      <Link to={`/ListingPage/${listing.id}`}>
-                        <img
-                          className="h-[345px] w-full rounded-xl object-cover"
-                          alt={listing.state}
-                          src={image}
-                        />
-                      </Link>
+            <Swiper
+              pagination={true}
+              navigation={true}
+              modules={[Pagination, Navigation]}
+              className="h-[80%] w-full"
+            >
+              {listing.thumbImages.map((image, index) => {
+                return (
+                  <SwiperSlide key={index} className="w-full h-full">
+                    <Link to={`/ListingPage/${listing.id}`}>
+                      <img
+                        className="rounded-xl object-cover h-full w-full"
+                        alt={listing.state}
+                        src={image}
+                      />
+                    </Link>
 
-                      <div className="absolute top-4 right-4">
-                        <HeartIcon
-                          onClick={toogleFavorite}
-                          className={
-                            !favorite
-                              ? "h-6 w-6 cursor-pointer fill-black/40 text-white"
-                              : "h-6 w-6 cursor-pointer fill-red-600"
-                          }
-                        />
-                      </div>
-                      {listing.isSuperhost ? (
-                        <button
-                          className="absolute top-4 left-4 h-7
+                    <div className="absolute top-4 right-4">
+                      <HeartIcon
+                        onClick={toogleFavorite}
+                        className={
+                          !favorite
+                            ? "h-6 w-6 cursor-pointer fill-black/40 text-white"
+                            : "h-6 w-6 cursor-pointer fill-red-600"
+                        }
+                      />
+                    </div>
+                    {listing.isSuperhost ? (
+                      <button
+                        className="absolute top-4 left-4 h-7
                        rounded-md bg-white p-1 text-sm font-medium"
-                        >
-                          Superhost
-                        </button>
-                      ) : (
-                        null
-                      )}
-                    </SwiperSlide>
-                  )
-                })}
-              </Swiper>
-            </div>
-
-            <div className="pt-2 text-sm">
+                      >
+                        Superhost
+                      </button>
+                    ) : null}
+                  </SwiperSlide>
+                )
+              })}
+            </Swiper>
+            <div className="h-[10%] mt-4  text-sm">
               <div className="flex justify-between">
                 <p className="mt-1 text-sm font-semibold">{`${listing.state}, ${listing.country}`}</p>
                 <div className="flex flex-row items-center gap-1">

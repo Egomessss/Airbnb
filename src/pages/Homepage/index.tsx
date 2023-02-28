@@ -31,20 +31,30 @@ function Homepage() {
     <div className="relative px-6 md:px-20">
       <div className="sticky top-0 z-10 bg-white">
         <Navbar />
-        <SwipeCarouselFilter ListingData={ListingData} setFilter={setFilter} />
+        <SwipeCarouselFilter
+          ListingData={ListingData}
+          setFilter={setFilter}
+        />
       </div>
-      {/* open the map with the sticky button and hides the homecards
+      <div>
+        {/* open the map with the sticky button and hides the homecards
       make a function for the button that opens and closes the map */}
-      {openMap ? (
-        <div className="h-[1000px] w-full">
-          <MapApi />
-        </div>
-      ) : (
-        // if filter data is passed we render the listings with the filter queries
-        // if no filter data is passed we render it normally
+        {openMap ? (
+          <div className="h-[1000px] w-full">
+            <MapApi />
+          </div>
+        ) : (
+          // if filter data is passed we render the listings with the filter queries
+          // if no filter data is passed we render it normally
 
-        <Listings data={ListingData.filter(listing => !filter || listing.type_of_location === filter)} />
-      )}
+          <Listings
+            data={ListingData.filter(
+              (listing) => !filter || listing.type_of_location === filter
+            )}
+          />
+        )}
+      </div>
+
       <div className="sticky bottom-0 z-10 bg-white">
         <StickyButton toogleMap={toogleMap} />
         <BottomNav />
