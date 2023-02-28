@@ -133,7 +133,13 @@ export default function ListingPage() {
           <Availability data={thisListing} />
         </div>
       </div>
-
+      <div className="hidden md:block border-t-[1px] pt-8 pb-6 ">
+          <h2 className="mb-4 text-xl font-semibold">Where you'll be</h2>
+          <p className="mb-4">{thisListing.host_location}</p>
+          <div className="h-[718px] w-full  border-2">
+            {/* <MapApi /> */}
+          </div>
+        </div>
       {/* <FooterMobile /> */}
       <StickyBottomNav
         formattedStartDate={formattedStartDate}
