@@ -186,7 +186,7 @@ function Availability({ data }) {
           </div>
         ) : null}
         {datePopOver && (
-          <div className="absolute top-24 right-0 z-50 rounded-xl border-[1px] bg-white p-6 shadow-lg">
+          <div className="absolute top-20 right-0 z-50 rounded-xl border-[1px] bg-white p-6 shadow-lg">
             <div className="flex justify-between">
               <div>
                 <p>{daysInBetween} nights</p>
@@ -235,7 +235,7 @@ function Availability({ data }) {
           </div>
         )}
         {guestPopOver && (
-          <div className="absolute top-[201px] z-50 flex w-[340px] items-center justify-between rounded-xl border-[1px] bg-white px-4 py-6 drop-shadow-lg">
+          <div className="absolute top-[180px] z-50 flex w-[340px] items-center justify-between rounded-xl border-[1px] bg-white px-4 py-6 drop-shadow-lg">
             <h2 className="font-semibold">Guests</h2>
             <div className="flex items-center gap-4">
               <MinusIcon
