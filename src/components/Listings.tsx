@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react"
 
@@ -10,7 +10,7 @@ import "swiper/css/pagination"
 import { Navigation, Pagination } from "swiper"
 
 import { HeartIcon, StarIcon } from "@heroicons/react/24/outline"
-import { Link } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
 
 function Listings({ data, guests, days }) {
   // handles favorite post state
@@ -41,9 +41,44 @@ function Listings({ data, guests, days }) {
   // text area em baixo
   // fazer loop das imagens e
 
+  //  gets the current location object, which we store in the location variable.
+  const location = useLocation()
+  const searchParams = new URLSearchParams(location.search)
+  console.log(searchParams)
+
+  const [style, setStyle] = useState("")
+
+  // prevents the infinite loop of rendering
+  // if searchparams is empty we set a style for the listings, if the search params includes a filter, we set another style, same for the search page, this is to avoid making three components
+
+  // useEffect(() => {
+  //   if (searchParams.toString() === "") {
+  //     // homepage
+  //     setStyle(
+  //       "grid grid-cols-1 gap-4  sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+  //     )
+  //   } else if (searchParams.toString().includes("filter")) {
+  //     // for the saerchpage
+  //     setStyle(
+  //       "grid grid-cols-1 gap-4  sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+  //     )
+  //     // for the filter
+  //   } else {
+  //     setStyle("grid grid-cols-2 gap-4")
+  //   }
+  // }, [searchParams])
+
+  useEffect(() => {
+    searchParams.toString() === "" || searchParams.toString().includes("filter")
+      ? setStyle(
+          "grid grid-cols-1 gap-4  sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+        )
+      : setStyle("grid grid-cols-2 gap-4")
+  }, [searchParams])
+
   return (
     //! container
-    <div className="grid grid-cols-1 sm:grid-cols-2  lg:grid-cols-3 xl:grid-cols-4 gap-4">
+    <div className={style}>
       {data.map((listing, index) => {
         const total =
           days && guests
@@ -57,7 +92,7 @@ function Listings({ data, guests, days }) {
           // listing
           <div
             key={index}
-            className="flex flex-col relative h-[450px]"
+            className="relative flex h-[450px] flex-col"
           >
             <Swiper
               pagination={true}
@@ -67,10 +102,13 @@ function Listings({ data, guests, days }) {
             >
               {listing.thumbImages.map((image, index) => {
                 return (
-                  <SwiperSlide key={index} className="w-full h-full">
+                  <SwiperSlide
+                    key={index}
+                    className="h-full w-full"
+                  >
                     <Link to={`/ListingPage/${listing.id}`}>
                       <img
-                        className="rounded-xl object-cover h-full w-full"
+                        className="h-full w-full rounded-xl object-cover"
                         alt={listing.state}
                         src={image}
                       />
@@ -98,7 +136,7 @@ function Listings({ data, guests, days }) {
                 )
               })}
             </Swiper>
-            <div className="h-[10%] mt-4  text-sm">
+            <div className="mt-4 h-[10%]  text-sm">
               <div className="flex justify-between">
                 <p className="mt-1 text-sm font-semibold">{`${listing.state}, ${listing.country}`}</p>
                 <div className="flex flex-row items-center gap-1">

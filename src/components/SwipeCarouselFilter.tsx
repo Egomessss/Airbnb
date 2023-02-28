@@ -74,27 +74,8 @@ function SwipeCarouselFilter(props) {
         navigation={true}
         modules={[Navigation]}
       >
+       
         <SwiperSlide className="my-2 flex h-[51px] w-[77px]  flex-col flex-wrap items-center justify-center decoration-2 underline-offset-8 hover:underline hover:decoration-gray-300  focus:underline focus:decoration-black">
-          <button
-            onClick={() => props.setFilter("")}
-            className="flex w-full flex-col items-center justify-center"
-          >
-            <img
-              className="h-[28px] w-[28px]"
-              alt=""
-              src="https://a0.muscache.com/pictures/c0fa9598-4e37-40f3-b734-4bd0e2377add.jpg"
-            />
-            <p className="mt-1 whitespace-nowrap text-xs">All types</p>
-          </button>
-        </SwiperSlide>
-        <SwiperSlide className="my-2 flex h-[51px] w-[77px]  flex-col flex-wrap items-center justify-center decoration-2 underline-offset-8 hover:underline hover:decoration-gray-300  focus:underline focus:decoration-black">
-          {/*  <Link to={`/ListingPage/${listing.id}`}>
-                        <img
-                          className="h-[345px] w-full rounded-xl object-cover"
-                          alt={listing.state}
-                          src={image}
-                        />
-                      </Link> */}
           <Link
             to={`/ListingPage/${
               ListingData[Math.floor(Math.random() * ListingData.length)].id
