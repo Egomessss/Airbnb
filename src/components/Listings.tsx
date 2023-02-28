@@ -48,8 +48,8 @@ function Listings({ data, guests, days }) {
 
   const [style, setStyle] = useState("")
 
-  // prevents the infinite loop of rendering
-  // if searchparams is empty we set a style for the listings, if the search params includes a filter, we set another style, same for the search page, this is to avoid making three components
+  //! prevents the infinite loop of rendering
+  //!if searchparams is empty we set a style for the listings, if the search params includes a filter, we set another style, same for the search page, this is to avoid making three components
 
   // useEffect(() => {
   //   if (searchParams.toString() === "") {
@@ -75,6 +75,7 @@ function Listings({ data, guests, days }) {
         )
       : setStyle("grid grid-cols-2 gap-4")
   }, [searchParams])
+
 
   return (
     //! container
