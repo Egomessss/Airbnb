@@ -94,9 +94,16 @@ function Availability({ data }) {
   // ? add the conditional rendering for the add dates and 1 guests
   // ?add the reserving pop over
 
+
   return (
     <div className="top-2 hidden bg-scroll md:sticky md:inline-block">
-      <div className=" mt-6 h-[452px] w-[372px] gap-5 rounded-xl border-[1px]  p-4 shadow-lg">
+      <div
+        className={
+          accomodationPrice > price
+            ? "z-50 mt-6 h-[452px] w-[372px] gap-5 rounded-xl border-[1px] bg-white p-4  shadow-lg drop-shadow-md"
+            : "z-50 mt-6 h-[262px] w-[372px] gap-5 rounded-xl border-[1px] bg-white p-4  shadow-lg drop-shadow-md"
+        }
+      >
         <div className="flex h-16 items-center justify-between">
           <h1 className="text-xl font-medium">{price}€ per night</h1>
           <div>
@@ -142,30 +149,42 @@ function Availability({ data }) {
           </button>
         </div>
         <div className="mt-4">
-          <button className="w-full  rounded-xl bg-[#DA0A65] p-3 font-semibold text-white">
-            Reserve
-          </button>
+          {/* reserve button is only avaibable if not input has been passed by the user */}
+          {accomodationPrice > price ? (
+            <button className="w-full  rounded-xl bg-[#DA0A65] p-3 font-semibold text-white">
+              {accomodationPrice > price ? "Reserve" : "Check Availability"}
+            </button>
+          ) : (
+            <button
+              onClick={() => setDatePopOver(true)}
+              className="w-full  rounded-xl bg-[#DA0A65] p-3 font-semibold text-white"
+            >
+              {accomodationPrice > price ? "Reserve" : "Check Availability"}
+            </button>
+          )}
         </div>
-        <div>
-          <ul className="mt-4 flex flex-col gap-4">
-            <li className="flex justify-between">
-              <p className="underline">Accomodation</p>
-              <p>{accomodationPrice}€</p>
-            </li>
-            <li className="flex justify-between">
-              <p className="underline">Cleaning fee</p>
-              <p>{cleaningfee}€</p>
-            </li>
-            <li className="flex justify-between border-b-2 pb-5">
-              <p className="underline">Service fee</p>
-              <p>{serviceFee}€</p>
-            </li>
-            <li className="flex justify-between">
-              <p className="font-bold">Total</p>
-              <p>{priceTotal}€</p>
-            </li>
-          </ul>
-        </div>
+        {accomodationPrice > price ? (
+          <div>
+            <ul className="mt-4 flex flex-col gap-4">
+              <li className="flex justify-between">
+                <p className="underline">Accomodation</p>
+                <p>{accomodationPrice}€</p>
+              </li>
+              <li className="flex justify-between">
+                <p className="underline">Cleaning fee</p>
+                <p>{cleaningfee}€</p>
+              </li>
+              <li className="flex justify-between border-b-2 pb-5">
+                <p className="underline">Service fee</p>
+                <p>{serviceFee}€</p>
+              </li>
+              <li className="flex justify-between">
+                <p className="font-bold">Total</p>
+                <p>{priceTotal}€</p>
+              </li>
+            </ul>
+          </div>
+        ) : null}
         {datePopOver && (
           <div className="absolute top-24 right-0 z-50 rounded-xl border-[1px] bg-white p-6 shadow-lg">
             <div className="flex justify-between">
