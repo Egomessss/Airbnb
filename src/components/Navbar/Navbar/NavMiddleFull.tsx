@@ -21,7 +21,6 @@ function NavMiddleFull() {
   const locationParam = searchParams.get("location")
 
   const guestsParam = searchParams.get("guests")
-  console.log(guestsParam)
 
   const startDateParam = searchParams.get("startDate")
   const endDateParam = searchParams.get("endDate")
@@ -31,6 +30,7 @@ function NavMiddleFull() {
   const formattedEndDate = format(new Date(endDateParam), "dd MMM")
 
   const dateRange = `${formattedStartDate} - ${formattedEndDate}`
+  
   const guests = Number(guestsParam)
 
   return (
