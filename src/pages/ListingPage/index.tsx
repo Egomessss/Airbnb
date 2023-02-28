@@ -127,6 +127,7 @@ export default function ListingPage() {
           ranges={[selectionRange]}
           onChange={handleSelection}
           data={thisListing}
+          daysInBetween={daysInBetween}
         />
         <div>
           <Availability data={thisListing} />

@@ -28,6 +28,7 @@ function ListingDetails({
   direction,
   ranges,
   onChange,
+  daysInBetween
 }) {
   // fetches the amenities data from the json file and splits the string into multiple strings
   const string = data.amenities
@@ -123,7 +124,7 @@ function ListingDetails({
         </div>
 
         <div className="border-t-[1px] pt-8 pb-6 md:hidden">
-          <h2 className="mb-4 text-xl font-semibold">7 nights in Luz, Lagos</h2>
+          <h2 className="mb-4 text-xl font-semibold">{daysInBetween} nights in {data.host_location}</h2>
           <div>
             <DateRangePicker
               minDate={minDate}
