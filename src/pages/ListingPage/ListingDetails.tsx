@@ -14,13 +14,13 @@ import MobileBtn from "../../components/MobileBtn"
 
 // add conditional rending for the superhost and rare find properties
 
-function ListingDetails({data}) {
+function ListingDetails({ data }) {
   const string = data.amenities
   // console.log(string)
   const splitToString = string.split(",")
 
   return (
-    <div className="md:max-w-[60%]">
+    <div className="md:w-[60%]">
       <div className="flex flex-col gap-2 py-6 md:hidden">
         <div>
           <h1 className="text-2xl font-semibold">{data.summary}</h1>
@@ -35,11 +35,12 @@ function ListingDetails({data}) {
             <li className="font-semibold underline underline-offset-1">
               {data.number_of_reviews} reviews
             </li>
-            {/* {data.isSuperHost == true  } */}
-            <li className="flex items-center gap-1 font-normal">
-              <FaMedal className="h-3 " />
-              Superhost
-            </li>
+            {data.isSuperHost ? (
+              <li className="flex items-center gap-1 font-normal">
+                <FaMedal className="h-3 " />
+                Superhost
+              </li>
+            ) : null}
           </ul>
           <p className=" mt-1 font-semibold underline underline-offset-1">
             {data.host_location}
@@ -52,8 +53,7 @@ function ListingDetails({data}) {
 
       <div className="flex md:hidden">
         <p>
-          <span className="font-semibold">This is a rare find.</span> Pedro's
-          place on Airbnb is usually fully booked.
+          <span className="font-semibold">This is a rare find.</span> this listing is usually fully booked.
         </p>
         <SlDiamond className="block h-[32px] w-[42px] fill-[#E31C5F]" />
       </div>
@@ -62,9 +62,7 @@ function ListingDetails({data}) {
         <div className="flex flex-col gap-2">
           <h3 className="text-xl font-semibold">{data.room_type}</h3>
           <ul className="flex gap-2 text-sm">
-            <li className="flex items-center">
-              {data.accommodates} guests
-            </li>
+            <li className="flex items-center">{data.accommodates} guests</li>
             <li>{data.bedrooms} bedrooms</li>
             <li>{data.beds} beds</li>
             <li>{data.bathrooms} bathrooms</li>
@@ -104,35 +102,33 @@ function ListingDetails({data}) {
             Show more <ChevronRightIcon className="block h-5" />
           </a>
         </div>
-      
-          <div className="h-[500px] border-t-[1px] pt-8 pb-6">
-            <h2 className="mb-4 text-xl font-semibold">
-              What this place offers
-            </h2>
 
-            {/* make the string into an array
+        <div className="h-[500px] border-t-[1px] pt-8 pb-6">
+          <h2 className="mb-4 text-xl font-semibold">What this place offers</h2>
+
+          {/* make the string into an array
             map over the string
             display
             */}
-            <div className="flex flex-col flex-wrap gap-4  md:flex-row">
-              {splitToString.map((amenitie) => {
-                return (
-                  <div className="flex w-[250px] gap-2 whitespace-nowrap">
-                    <TbBeach className="block h-[24px] w-[24px]" />
-                    <p>{amenitie}</p>
-                  </div>
-                )
-              })}
-            </div>
-
-            <div className="mt-8">
-              <MobileBtn
-                text={"Show all 37 amenities"}
-                link={""}
-              />
-            </div>
+          <div className="flex flex-col flex-wrap gap-4  md:flex-row">
+            {splitToString.map((amenitie) => {
+              return (
+                <div className="flex w-[250px] gap-2 whitespace-nowrap">
+                  <TbBeach className="block h-[24px] w-[24px]" />
+                  <p>{amenitie}</p>
+                </div>
+              )
+            })}
           </div>
-       
+
+          <div className="mt-8">
+            <MobileBtn
+              text={"Show all 37 amenities"}
+              link={""}
+            />
+          </div>
+        </div>
+
         {/* adicionar mapa */}
 
         <div className="border-t-[1px] pt-8 pb-6 md:hidden">

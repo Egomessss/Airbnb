@@ -96,7 +96,7 @@ function Availability({ data }) {
 
 
   return (
-    <div className="top-2 hidden bg-scroll md:sticky md:inline-block">
+    <div className="top-2 hidden bg-scroll md:sticky md:inline-block w-[40%]">
       <div
         className={
           accomodationPrice > price

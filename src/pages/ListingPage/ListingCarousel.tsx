@@ -26,7 +26,7 @@ function ListingCarousel({thisListing}) {
               <img
                 src={img}
                 alt=""
-                className="object-cover min-w-[390px] min-h-[260px]"
+                className="object-cover w-full h-[360px]"
               />
             </SwiperSlide>
           )
