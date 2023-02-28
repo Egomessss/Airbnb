@@ -55,9 +55,7 @@ function SearchPage() {
   )
 
   const guests = Number(guestsParam)
-  //  differenceInDays(new Date(startDateParam), new Date(startDateParam))
   
-  // !get the number of guest and the number of days and calculate the total
 
   // stores the filtered data
   const [filteredData, setFilteredData] = useState([])
