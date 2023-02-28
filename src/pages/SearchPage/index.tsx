@@ -56,11 +56,9 @@ function SearchPage() {
   )
 
   const guests = Number(guestsParam)
-  
 
   // stores the filtered data
   const [filteredData, setFilteredData] = useState([])
-
 
   // use the useEffect hook to run the filtering logic whenever the query parameters change
 
@@ -81,8 +79,6 @@ function SearchPage() {
   // , guestsParam, startDateParam, endDateParam
 
   const range = `${formattedStartDate} and ${formattedEndDate}`
-
-
 
   // ! pagination
 
@@ -137,7 +133,11 @@ function SearchPage() {
             - for <span className="font-semibold">{guestsParam}</span>
             {guests > 1 ? `guests` : `guest`}
           </p>
-          <Listings days={daysInBetween} guests={guests} data={currentPosts} />
+          <Listings
+            days={daysInBetween}
+            guests={guests}
+            data={currentPosts}
+          />
 
           <SearchPagination
             changePage={changePage}
@@ -155,12 +155,21 @@ function SearchPage() {
         {/* open the map or the listing info */}
         {openMap ? (
           <div className="flex flex-col px-4 md:hidden">
-            <p className="pb-4 text-sm font-medium">
-              Over {filteredData.length} homes available between {locationParam}
-              {range} - for {guestsParam} guests
+            <p className="py-4 text-sm font-medium">
+              Over <span className="font-semibold mr-2">{filteredData.length}</span>
+              homes available between
+              <span className="font-semibold mx-2">{range}</span>
+              <span className="font-semibold mr-2">
+                {locationParam ? `in ${locationParam}` : ""}
+              </span>- for <span className="font-semibold mr-2">{guestsParam}</span>
+              {guests > 1 ? `guests` : `guest`}
             </p>
             {/* changes thisssssssssssssssssssssssss */}
-            <Listings days={daysInBetween} guests={guests} data={currentPosts} />
+            <Listings
+              days={daysInBetween}
+              guests={guests}
+              data={currentPosts}
+            />
             <SearchPagination
               changePage={changePage}
               currentPage={currentPage}
@@ -181,7 +190,7 @@ function SearchPage() {
       <div className="sticky bottom-0 z-10 bg-white md:hidden">
         <BottomNav />
       </div>
-      <Footer/>
+      <Footer />
     </div>
   )
 }
