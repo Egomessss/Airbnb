@@ -124,13 +124,14 @@ function SearchPage() {
         {/* full screen listing data */}
         <div className="hidden px-4 md:inline-block lg:w-[60%]">
           <p className="py-4 text-sm font-medium">
-            Over <span className="font-semibold">{filteredData.length}</span>
+            Over{" "}
+            <span className="mr-2 font-semibold">{filteredData.length}</span>
             homes available between
-            <span className="font-semibold">{range}</span>
-            <span className="font-semibold">
+            <span className="mx-2 font-semibold">{range}</span>
+            <span className="mr-2 font-semibold">
               {locationParam ? `in ${locationParam}` : ""}
             </span>
-            - for <span className="font-semibold">{guestsParam}</span>
+            - for <span className="mr-2 font-semibold">{guestsParam}</span>
             {guests > 1 ? `guests` : `guest`}
           </p>
           <Listings
@@ -154,29 +155,36 @@ function SearchPage() {
 
         {/* open the map or the listing info */}
         {openMap ? (
-          <div className="flex flex-col px-4 md:hidden">
+          <div className="flex flex-col  px-4 md:hidden">
             <p className="py-4 text-sm font-medium">
-              Over <span className="font-semibold mr-2">{filteredData.length}</span>
+              Over{" "}
+              <span className="mr-2 font-semibold">{filteredData.length}</span>
               homes available between
-              <span className="font-semibold mx-2">{range}</span>
-              <span className="font-semibold mr-2">
+              <span className="mx-2 font-semibold">{range}</span>
+              <span className="mr-2 font-semibold">
                 {locationParam ? `in ${locationParam}` : ""}
-              </span>- for <span className="font-semibold mr-2">{guestsParam}</span>
+              </span>
+              - for <span className="mr-2 font-semibold">{guestsParam}</span>
               {guests > 1 ? `guests` : `guest`}
             </p>
             {/* changes thisssssssssssssssssssssssss */}
-            <Listings
-              days={daysInBetween}
-              guests={guests}
-              data={currentPosts}
-            />
-            <SearchPagination
+            <div className=" mb-32">
+              {" "}
+              <Listings
+                days={daysInBetween}
+                guests={guests}
+                data={currentPosts}
+              /> 
+              <SearchPagination
               changePage={changePage}
               currentPage={currentPage}
               decrementPage={decrementPage}
               incrementPage={incrementPage}
               pageNumbers={pageNumbers}
             />
+            </div>
+
+           
           </div>
         ) : (
           <div className="h-[700px] w-full md:hidden">{/* <MapApi /> */}</div>
