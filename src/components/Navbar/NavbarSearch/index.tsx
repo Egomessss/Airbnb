@@ -15,10 +15,10 @@ import { DateRangePicker } from "react-date-range"
 import { createSearchParams, Link, useSearchParams } from "react-router-dom"
 
 import { addDays, format } from "date-fns"
-import Dropdown from "../../Dropdown"
+
 import NavLeftSide from "../Navbar/NavLeftSide"
 import NavRightSide from "../Navbar/NavRightSide"
-import ListingData from "../../../assets/ListingsData.json"
+
 
 export default function NavbarSearchDrawer({ open, setOpen }: any) {
   // ! destination autocomplete pop over data
@@ -30,13 +30,13 @@ export default function NavbarSearchDrawer({ open, setOpen }: any) {
       action: "",
     },
     {
-      id: 5,
+      id: 2,
       title: "Europe",
       link: "https://a0.muscache.com/im/pictures/f0ece7c0-d9b2-49d5-bb83-64173d29cbe3.jpg?im_w=320",
       action: "Europe",
     },
     {
-      id: 6,
+      id: 3,
       title: "United States",
       link: "https://a0.muscache.com/im/pictures/4e762891-75a3-4fe1-b73a-cd7e673ba915.jpg?im_w=320",
       action: "United States",
@@ -174,7 +174,7 @@ export default function NavbarSearchDrawer({ open, setOpen }: any) {
                                       <div className="relative grid grid-cols-3">
                                         {data.map((img) => {
                                           return (
-                                            <div>
+                                            <div key={img.id}>
                                               <button
                                                 onClick={() =>
                                                   SetSelectDestination(
