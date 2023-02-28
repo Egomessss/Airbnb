@@ -1,22 +1,31 @@
 import React from "react"
 
-function StickyBottomNav() {
+function StickyBottomNav({
+  formattedStartDate,
+  formattedendDate,
+  priceTotal,
+  pricePerNight,
+}) {
+  const displayTotal = priceTotal.toLocaleString("de-DE")
   return (
-    <div className="flex justify-between items-center w-full h-[80px] md:hidden z-50 fixed inset-x-0 bottom-0 bg-white shadow px-6 py-2">
+    <div className="fixed inset-x-0 bottom-0 z-50 flex h-[80px] w-full items-center justify-between bg-white px-6 py-2 shadow md:hidden">
       <div>
         <p>
-          <span className="font-semibold"> £207</span>night
+          <span className="mr-2 font-semibold">
+            €
+            {priceTotal > pricePerNight
+              ? `${displayTotal}`
+              : `${pricePerNight}`}
+          </span>
+          night
         </p>
-        <a
-          className="font-semibold underline underline-offset-2 text-sm"
-          href="#"
-        >
-          30 may-5 Jun
-        </a>
+        <p className="text-sm font-semibold underline underline-offset-2">
+          {`${formattedStartDate} - ${formattedendDate}`}
+        </p>
       </div>
 
-      <button className="bg-[#DF1362] w-[110px] h-[48px] text-white font-semibold rounded-lg">
-        <a href="">Reserve</a>{" "}
+      <button className="h-[48px] w-[110px] rounded-lg bg-[#DF1362] font-semibold text-white">
+        <button>Reserve</button>
       </button>
     </div>
   )

@@ -81,10 +81,7 @@ function SearchPage() {
 
   const range = `${formattedStartDate} and ${formattedEndDate}`
 
-  // logic for the dates
-  // depending on the location, make europe a 7 day minimum and 14 days maximum, and us a 3 day min and 21 day max
-  // multiply the days by €
-  // conver the times to milliseconds
+
 
   // ! pagination
 

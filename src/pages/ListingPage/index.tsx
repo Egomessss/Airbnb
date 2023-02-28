@@ -18,6 +18,8 @@ import {
 } from "@heroicons/react/24/outline"
 import { FaMedal } from "react-icons/fa"
 import { SlDiamond } from "react-icons/sl"
+import { addDays, format } from "date-fns"
+import { useState } from "react"
 
 export default function ListingPage() {
   const { listingId } = useParams()
@@ -25,6 +27,48 @@ export default function ListingPage() {
   // fetches the proper listing based on the url listing id
   const thisListing = ListingData.find((listing) => listing.id === listingId)
 
+  // !checkin/out and calendar data
+
+  // creates a start and end date starting from the current day so you can't go back
+  const [startDate, setStartDate] = useState(new Date())
+  const [endDate, setEndDate] = useState(new Date())
+
+  // stores the start and end date
+  const selectionRange = {
+    startDate: startDate,
+    endDate: endDate,
+    key: "selection",
+  }
+
+  // sets the start and end date in the calendar
+  const handleSelection = (ranges) => {
+    setStartDate(ranges.selection.startDate)
+    setEndDate(ranges.selection.endDate)
+  }
+  // max date of 30 days from the current date selected
+  const maxDate = addDays(startDate, 30)
+
+  // formats the data so it can be shown in the navbar when a user select from the range picker
+  const formattedStartDate = format(new Date(startDate), "dd MMM")
+  const formattedendDate = format(new Date(endDate), "dd MMM")
+  console.log(formattedStartDate)
+  console.log(formattedendDate)
+  // calculate the number of days between the start and end date
+  const daysInBetween = Math.round(
+    (endDate.getTime() - startDate.getTime()) / 86400000
+  )
+
+  // !Price breakdown
+
+  const price = thisListing?.price_per_night
+
+  const priceTotal = (
+    price * daysInBetween
+  )
+
+
+  // console.log(priceTotal)
+  // console.log(price)
   return (
     <div className="mx-auto max-w-[1200px] px-6">
       <div className="hidden md:block">
@@ -72,14 +116,30 @@ export default function ListingPage() {
       <ListingCarousel thisListing={thisListing} />
 
       <div className="relative flex md:gap-10  lg:justify-between">
-        <ListingDetails data={thisListing} />
+        <ListingDetails
+          minDate={new Date()}
+          maxDate={maxDate}
+          staticRanges={[]}
+          inputRanges={[]}
+          showDateDisplay={false}
+          months={1}
+          direction={"horizontal"}
+          ranges={[selectionRange]}
+          onChange={handleSelection}
+          data={thisListing}
+        />
         <div>
           <Availability data={thisListing} />
         </div>
       </div>
 
       {/* <FooterMobile /> */}
-      <StickyBottomNav />
+      <StickyBottomNav
+        formattedStartDate={formattedStartDate}
+        formattedendDate={formattedendDate}
+        priceTotal={priceTotal}
+        pricePerNight={price}
+      />
     </div>
   )
 }

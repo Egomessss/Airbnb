@@ -17,46 +17,25 @@ import Availability from "./Availability"
 
 // add conditional rending for the superhost and rare find properties
 
-function ListingDetails({ data }) {
-
+function ListingDetails({
+  data,
+  minDate,
+  maxDate,
+  staticRanges,
+  inputRanges,
+  showDateDisplay,
+  months,
+  direction,
+  ranges,
+  onChange,
+}) {
   // fetches the amenities data from the json file and splits the string into multiple strings
   const string = data.amenities
   // console.log(string)
   const splitToString = string.split(",")
 
-  // !checkin/out and calendar data
-  const [openChooseDates, setOpenChooseDates] = useState(false)
-
-  // creates a start and end date starting from the current day so you can't go back
-  const [startDate, setStartDate] = useState(new Date())
-  const [endDate, setEndDate] = useState(new Date())
-
-  // stores the start and end date
-  const selectionRange = {
-    startDate: startDate,
-    endDate: endDate,
-    key: "selection",
-  }
-
-  // sets the start and end date in the calendar
-  const handleSelection = (ranges) => {
-    setStartDate(ranges.selection.startDate)
-    setEndDate(ranges.selection.endDate)
-  }
-  // max date of 30 days from the current date selected
-  const maxDate = addDays(startDate, 30)
-
-  // formats the data so it can be shown in the navbar when a user select from the range picker
-  const formattedStartDate = format(new Date(startDate), "dd MMM")
-  const formattedendDate = format(new Date(endDate), "dd MMM")
-
-  // calculate the number of days between the start and end date
-  const daysInBetween = Math.round(
-    (endDate.getTime() - startDate.getTime()) / 86400000
-  )
-
   return (
-    <div className=" w-full md:w-[70%] mb-14">
+    <div className=" mb-14 w-full md:w-[70%]">
       <div className="flex flex-col gap-2 py-6 md:hidden">
         <div>
           <h1 className="text-2xl font-semibold">{data.summary}</h1>
@@ -121,9 +100,9 @@ function ListingDetails({ data }) {
           <p className="leading-5">{data.description}</p>
         </div>
 
-        <div className="md:h-[500px] border-t-[1px] pt-8 pb-6">
+        <div className="border-t-[1px] pt-8 pb-6 md:h-[500px]">
           <h2 className="mb-4 text-xl font-semibold">What this place offers</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
             {splitToString.map((amenitie) => {
               return (
                 <div className="flex w-[250px] gap-2 whitespace-nowrap">
@@ -135,31 +114,27 @@ function ListingDetails({ data }) {
           </div>
         </div>
 
-        {/* adicionar mapa */}
-
         <div className="border-t-[1px] pt-8 pb-6 md:hidden">
           <h2 className="mb-4 text-xl font-semibold">Where you'll be</h2>
           <p className="mb-4">{data.host_location}</p>
           <div className="h-[318px] w-full  border-black">
-            <MapApi />
+            {/* <MapApi /> */}
           </div>
         </div>
 
         <div className="border-t-[1px] pt-8 pb-6 md:hidden">
-          {" "}
           <h2 className="mb-4 text-xl font-semibold">7 nights in Luz, Lagos</h2>
           <div>
-            {" "}
             <DateRangePicker
-              minDate={new Date()}
+              minDate={minDate}
               maxDate={maxDate}
-              staticRanges={[]}
-              inputRanges={[]}
-              showDateDisplay={false}
-              months={1}
-              direction="horizontal"
-              ranges={[selectionRange]}
-              onChange={handleSelection}
+              staticRanges={staticRanges}
+              inputRanges={inputRanges}
+              showDateDisplay={showDateDisplay}
+              months={months}
+              direction={direction}
+              ranges={ranges}
+              onChange={onChange}
             />
           </div>
         </div>
