@@ -1,15 +1,36 @@
-import { StarIcon } from "@heroicons/react/24/solid"
+import { MinusIcon, PlusIcon, StarIcon } from "@heroicons/react/24/solid"
 import { addDays, format } from "date-fns"
 import React, { useState } from "react"
 import { DateRangePicker } from "react-date-range"
 import { CiKeyboard } from "react-icons/ci"
 import { SlDiamond } from "react-icons/sl"
 
-import ListingDatePicker from "./ListingDatePicker"
+// import ListingDatePicker from "./ListingDatePicker"
 
 function Availability({ data }) {
   //! modal state
   const [datePopOver, setDatePopOver] = useState(false)
+  const [guestPopOver, setGuestPopOver] = useState(false)
+
+  //! Guest popover data
+
+  const [guests, setGuests] = useState(1)
+
+  // if guest over 10 prevent further clicks
+  const handleIncrementClickGuests = () => {
+    if (guests < 10) {
+      setGuests(guests + 1)
+    }
+  }
+
+  // minimum always 1 never below
+  const handleDecrementClickGuests = () => {
+    if (guests > 1) {
+      setGuests(guests - 1)
+    }
+  }
+
+  const handleGuestPopOver = () => setGuestPopOver(prevGuestPopOver => !prevGuestPopOver)
 
   // !checkin/out and calendar data
 
@@ -50,13 +71,13 @@ function Availability({ data }) {
   // closes the modal
   const closeBtn = () => setDatePopOver(false)
 
-  console.log(daysInBetween)
+  // console.log(daysInBetween)
 
   // !Price
 
   const [price, setPrice] = useState(data.price_per_night)
 
-  const priceTotal = ()=>{
+  const priceTotal = () => {
     price * daysInBetween
   }
 
@@ -83,7 +104,7 @@ function Availability({ data }) {
             </ul>
           </div>
         </div>
-        <div className="grid h-24 grid-cols-2 grid-rows-2 rounded-xl border-[1px] border-gray-500 text-xs">
+        <div className="relative grid h-24 grid-cols-2 grid-rows-2 rounded-xl border-[1px] border-gray-500 text-xs">
           <button
             className="col-span-2 border-r-[1px] border-gray-500 active:rounded-lg active:border-2 active:border-black"
             onClick={() => setDatePopOver(true)}
@@ -98,8 +119,10 @@ function Availability({ data }) {
             </div>
           </button>
 
-          <button className="col-span-2  border-t-[1px] border-gray-500 px-14 text-left">
-            {" "}
+          <button
+            onClick={handleGuestPopOver}
+            className="col-span-2  border-t-[1px] border-gray-500 px-14 text-left"
+          >
             <p className="font-medium uppercase">Guests</p>
             <p>1 guest</p>
           </button>
@@ -109,20 +132,7 @@ function Availability({ data }) {
             Reserve
           </button>
         </div>
-      </div>
-      {data.isRareFind ? (
-        <div className=" mt-6 flex h-[92px] w-[372px] items-center justify-center  gap-2 rounded-xl border-[1px]  bg-scroll p-2 shadow-lg ">
-          <div className="w-3/4">
-            <p>
-              <span className="font-semibold">This is a rare find.</span>{" "}
-              Pedro's place on Airbnb is usually fully booked.
-            </p>
-          </div>
-          <SlDiamond className="block h-[32px] w-[32px] fill-[#E31C5F]" />
-        </div>
-      ) : null}
-
-      {datePopOver && (
+        {datePopOver && (
         <div className="absolute top-24 right-0 z-50 rounded-xl border-[1px] bg-white p-6 shadow-lg">
           <div className="flex justify-between">
             <div>
@@ -171,6 +181,37 @@ function Availability({ data }) {
           </div>
         </div>
       )}
+        {guestPopOver && (
+        <div className="absolute top-[201px] border-[1px] px-4 drop-shadow-lg bg-white z-50 flex w-[340px] rounded-xl items-center justify-between py-6">
+          <h2 className="font-semibold">Guests</h2>
+          <div className="flex items-center gap-4">
+            <MinusIcon
+              onClick={handleDecrementClickGuests}
+              className="h-10 rounded-full border-2 p-2"
+            />
+            <p>{guests}</p>
+            <PlusIcon
+              onClick={handleIncrementClickGuests}
+              className="h-10 rounded-full border-2 p-2"
+            />
+          </div>
+        </div>
+      )}
+      </div>
+      {data.isRareFind ? (
+        <div className=" mt-6 flex h-[92px] w-[372px] items-center justify-center  gap-2 rounded-xl border-[1px]  bg-scroll p-2 shadow-lg ">
+          <div className="w-3/4">
+            <p>
+              <span className="font-semibold">This is a rare find.</span>{" "}
+              Pedro's place on Airbnb is usually fully booked.
+            </p>
+          </div>
+          <SlDiamond className="block h-[32px] w-[32px] fill-[#E31C5F]" />
+        </div>
+      ) : null}
+
+      
+      
     </div>
   )
 }
