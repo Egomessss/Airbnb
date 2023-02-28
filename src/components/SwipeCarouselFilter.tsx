@@ -18,6 +18,9 @@ import { Link, useSearchParams } from "react-router-dom"
 // each search parameter needs to match their title to the search query
 
 function SwipeCarouselFilter(props) {
+const [openFilter, setOpenFilter] = useState(false)
+
+
   const filters = [
     {
       id: 2,
@@ -125,10 +128,11 @@ function SwipeCarouselFilter(props) {
           )
         })}
       </Swiper>
-      <div className="hidden items-center gap-1 rounded-xl border-2 p-3 font-semibold md:flex">
+      <button onClick={()=>setOpenFilter(true)} className="relative hidden items-center gap-1 rounded-xl border-2 p-3 font-semibold md:flex">
         <AdjustmentsHorizontalIcon className="h-5" />
         <p className="text-xs">Filters</p>
-      </div>
+      </button>
+      {openFilter && <div className="bg-white rounded-lg border-[1px] w-[600px] h-[600px] absolute top-40 z-index ">hello</div>}
     </div>
   )
 }
