@@ -5,10 +5,6 @@ import BottomNav from "../../components/BottomNav"
 
 import Navbar from "../../components/Navbar/Navbar/Navbar"
 
-import SearchCard from "./SearchCard"
-import MapApi from "../../components/MapApi"
-import FooterSearchPage from "./FooterSearchPage"
-
 import StickyButton from "../../components/StickyButton"
 import SearchPagination from "./SearchPagination"
 
@@ -190,7 +186,7 @@ function SearchPage() {
           <div className="h-[700px] w-full md:hidden">{/* <MapApi /> */}</div>
         )}
         <div className="md:hidden">
-          <StickyButton toogleMap={toogleMap} />
+          <StickyButton openMap={openMap} toogleMap={toogleMap} />
         </div>
       </main>
 

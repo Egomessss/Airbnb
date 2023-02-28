@@ -28,7 +28,7 @@ function ListingDetails({
   direction,
   ranges,
   onChange,
-  daysInBetween
+  daysInBetween,
 }) {
   // fetches the amenities data from the json file and splits the string into multiple strings
   const string = data.amenities
@@ -43,24 +43,26 @@ function ListingDetails({
           <h1 className="text-2xl font-semibold">{data.property_type}</h1>
         </div>
         <div className="text-sm font-semibold">
-          <ul className="flex gap-5 ">
+          <ul className="flex items-center gap-5">
             <li className="flex items-center">
               <StarIcon className="h-4" />
-              {data.rating}
+              <p>{data.rating}</p>
             </li>
-            <li className="font-semibold underline underline-offset-1">
-              {data.number_of_reviews} reviews
+            <li className="items-center font-semibold underline underline-offset-1">
+              <p>{data.number_of_reviews} reviews</p>
             </li>
             {data.isSuperHost ? (
-              <li className="flex items-center gap-1 font-normal">
+              <li className="flex items-center gap-1 ">
                 <FaMedal className="h-3 " />
-                Superhost
+                <p> Superhost</p>
               </li>
             ) : null}
+            <li>
+              <p className="font-semibold underline underline-offset-1">
+                {data.host_location}
+              </p>
+            </li>
           </ul>
-          <p className=" mt-1 font-semibold underline underline-offset-1">
-            {data.host_location}
-          </p>
         </div>
       </div>
 
@@ -124,7 +126,9 @@ function ListingDetails({
         </div>
 
         <div className="border-t-[1px] pt-8 pb-6 md:hidden">
-          <h2 className="mb-4 text-xl font-semibold">{daysInBetween} nights in {data.host_location}</h2>
+          <h2 className="mb-4 text-xl font-semibold">
+            {daysInBetween} nights in {data.host_location}
+          </h2>
           <div>
             <DateRangePicker
               minDate={minDate}
