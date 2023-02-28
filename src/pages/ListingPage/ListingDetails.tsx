@@ -50,8 +50,13 @@ function ListingDetails({ data }) {
   const formattedStartDate = format(new Date(startDate), "dd MMM")
   const formattedendDate = format(new Date(endDate), "dd MMM")
 
+  // calculate the number of days between the start and end date
+  const daysInBetween = Math.round(
+    (endDate.getTime() - startDate.getTime()) / 86400000
+  )
+
   return (
-    <div className=" w-full md:w-[60%]">
+    <div className=" w-full md:w-[70%] mb-14">
       <div className="flex flex-col gap-2 py-6 md:hidden">
         <div>
           <h1 className="text-2xl font-semibold">{data.summary}</h1>
@@ -112,30 +117,13 @@ function ListingDetails({ data }) {
 
       {/* add translation */}
       <div className="border-t-[1px] pt-8 pb-6">
-        <div className="flex gap-2">
-          <LanguageIcon className="block h-[24px] w-[18px]" />
-          <div className="text-sm">
-            <p>Some info has been automatically translated.</p>
-            <a
-              href=""
-              className="font-semibold underline"
-            >
-              Show original language
-            </a>
-          </div>
-        </div>
         <div className="pt-8">
           <p className="leading-5">{data.description}</p>
         </div>
 
-        <div className="h-[500px] border-t-[1px] pt-8 pb-6">
+        <div className="md:h-[500px] border-t-[1px] pt-8 pb-6">
           <h2 className="mb-4 text-xl font-semibold">What this place offers</h2>
-
-          {/* make the string into an array
-            map over the string
-            display
-            */}
-          <div className="flex flex-row flex-wrap gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {splitToString.map((amenitie) => {
               return (
                 <div className="flex w-[250px] gap-2 whitespace-nowrap">

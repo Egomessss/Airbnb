@@ -94,14 +94,13 @@ function Availability({ data }) {
   // ? add the conditional rendering for the add dates and 1 guests
   // ?add the reserving pop over
 
-
   return (
-    <div className="top-2 hidden bg-scroll md:sticky md:inline-block w-[40%]">
+    <div className="top-2 hidden w-full bg-scroll md:sticky md:inline-block">
       <div
         className={
           accomodationPrice > price
-            ? "z-50 mt-6 h-[452px] w-[372px] gap-5 rounded-xl border-[1px] bg-white p-4  shadow-lg drop-shadow-md"
-            : "z-50 mt-6 h-[262px] w-[372px] gap-5 rounded-xl border-[1px] bg-white p-4  shadow-lg drop-shadow-md"
+            ? "z-50 mt-6 h-[452px] gap-5 rounded-xl border-[1px] bg-white p-4  shadow-lg drop-shadow-md"
+            : "z-50 mt-6 h-[262px] gap-5 rounded-xl border-[1px] bg-white p-4  shadow-lg drop-shadow-md"
         }
       >
         <div className="flex h-16 items-center justify-between">
