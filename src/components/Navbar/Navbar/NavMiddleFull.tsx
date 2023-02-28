@@ -30,7 +30,7 @@ function NavMiddleFull() {
   const formattedEndDate = format(new Date(endDateParam), "dd MMM")
 
   const dateRange = `${formattedStartDate} - ${formattedEndDate}`
-  
+
   const guests = Number(guestsParam)
 
   return (
@@ -41,25 +41,33 @@ function NavMiddleFull() {
       >
         <ul className="flex items-center gap-7 text-xs ">
           <li className="border-r-2 px-2 font-semibold">
-            {/* if the searchparams is empty we pass the string if not empty we pass the params */}
-            {searchParams.toString() !== "" ? `${locationParam}` : "Anywhere"}
+            {/* if the searchparams is not empty and doesnt include the word filter we pass the variable otherwise we pass the placeholder  */}
+            {searchParams.toString() !== "" &&
+            searchParams.toString().includes("filter") !== true
+              ? `${locationParam}`
+              : "Anywhere"}
           </li>
           <li
             placeholder="Any week"
             className=" border-r-2 pr-2 font-semibold	"
           >
-            {/* if the searchparams is empty we pass the string if not empty we pass the params */}
-            {searchParams.toString() !== "" ? `${dateRange}` : "Any week"}
+            {/* if the searchparams is not empty and doesnt include the word filter we pass the variable otherwise we pass the placeholder  */}
+            {searchParams.toString() !== "" &&
+            searchParams.toString().includes("filter") !== true
+              ? `${dateRange}`
+              : "Any week"}
           </li>
-          {/* if the searchparams is empty we pass the string if not empty we pass the apropriate style */}
+          {/* if the searchparams is not empty and doesnt include the word filter we pass the variable otherwise we pass the placeholder */}
           <li
             className={
-              searchParams.toString() !== ""
+              searchParams.toString() !== "" &&
+              searchParams.toString().includes("filter") !== true
                 ? " flex items-center justify-center gap-2 font-semibold marker:text-gray-500	"
                 : " flex items-center justify-center gap-2 font-semibold text-gray-500"
             }
           >
-            {searchParams.toString() !== ""
+            {searchParams.toString() !== "" &&
+            searchParams.toString().includes("filter") !== true
               ? `${guests} ${guests > 1 ? "guests" : "guest"}`
               : "Add guests"}
           </li>
