@@ -26,6 +26,8 @@
     "country": "Netherlands",
     "market": "Amsterdam",
     "state": "Noord-Holland",
+
+    "service_fee": 50,
     "cleaning_fee": 15,
     "minimum_nights": 2,
     "room_type": "Entire home/apt",
@@ -83,6 +85,8 @@
     "country": "United States",
     "market": "Los Angeles",
     "state": "California",
+
+    "service_fee": 50,
     "cleaning_fee": 25,
     "minimum_nights": 3,
     "name": "Beachfront Paradise",
@@ -140,6 +144,8 @@
     "country": "USA",
     "market": "Yellowstone",
     "state": "WY",
+
+    "service_fee": 50,
     "cleaning_fee": 30,
     "minimum_nights": 3,
     "name": "Rustic Mountain View Cabin",
@@ -197,6 +203,8 @@
     "country": "United States",
     "market": "Honolulu",
     "state": "Hawaii",
+
+    "service_fee": 50,
     "cleaning_fee": 25,
     "minimum_nights": 3,
     "name": "Waikiki Studio near the Beach",
@@ -254,6 +262,8 @@
     "country": "United Kingdom",
     "market": "Oxford",
     "state": "Oxfordshire",
+
+    "service_fee": 50,
     "cleaning_fee": 20,
     "minimum_nights": 3,
     "name": "Charming Countryside Cottage",
@@ -310,6 +320,8 @@
     "country": "United States",
     "market": "Los Angeles",
     "state": "California",
+
+    "service_fee": 50,
     "cleaning_fee": 200,
     "minimum_nights": 7,
     "name": "Beverly Hills Mansion with Pool",
@@ -368,6 +380,8 @@
     "country": "United States",
     "market": "Seattle",
     "state": "Washington",
+
+    "service_fee": 50,
     "cleaning_fee": 50,
     "minimum_nights": 3,
     "name": "Cozy apartment center Amsterdam",
@@ -424,6 +438,8 @@
     "country": "Switzerland",
     "market": "Zermatt",
     "state": "Valais",
+
+    "service_fee": 50,
     "cleaning_fee": 50,
     "minimum_nights": 7,
     "name": "Cozy apartment center Amsterdam",
