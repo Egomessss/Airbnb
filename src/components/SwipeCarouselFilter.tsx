@@ -11,15 +11,17 @@ import "swiper/css/navigation"
 // import required modules
 import { Navigation } from "swiper"
 
-import { AdjustmentsHorizontalIcon } from "@heroicons/react/24/outline"
+import {
+  AdjustmentsHorizontalIcon,
+  XMarkIcon,
+} from "@heroicons/react/24/outline"
 
 import ListingData from "../assets/ListingsData.json"
 import { Link, useSearchParams } from "react-router-dom"
 // each search parameter needs to match their title to the search query
 
 function SwipeCarouselFilter(props) {
-const [openFilter, setOpenFilter] = useState(false)
-
+  const [openFilter, setOpenFilter] = useState(false)
 
   const filters = [
     {
@@ -128,11 +130,65 @@ const [openFilter, setOpenFilter] = useState(false)
           )
         })}
       </Swiper>
-      <button onClick={()=>setOpenFilter(true)} className="relative hidden items-center gap-1 rounded-xl border-2 p-3 font-semibold md:flex">
+      <button
+        onClick={() => setOpenFilter(true)}
+        className="relative hidden items-center gap-1 rounded-xl border-2 p-3 font-semibold md:flex"
+      >
         <AdjustmentsHorizontalIcon className="h-5" />
         <p className="text-xs">Filters</p>
       </button>
-      {openFilter && <div className="bg-white rounded-lg border-[1px] w-[600px] h-[600px] absolute top-40 z-index ">hello</div>}
+      {openFilter && (
+        <div className="z-index absolute top-40 h-[600px] w-[600px] rounded-lg border-[1px] bg-white ">
+          <div className="flex h-14 items-center justify-between border-b-2 px-4">
+            <XMarkIcon className="h-5" />
+            <p>Filters</p>
+            {/* empty html tag so we can justify between technique utilized by the airbnb folks */}
+            <p></p>
+          </div>
+          <div className="h-[300px] border-b-2">
+            <h3>Price range</h3>
+            <p>The average nightly price is €158</p>
+            <div className="flex flex-col items-center">
+              <div>
+                <input type="range" />
+              </div>
+              <div className="flex gap-2 items-center">
+                <div className="relative">
+                  <p className="absolute p-2 text-xs text-gray-400">
+                    min price
+                  </p>
+                  <input
+                    className="h-14  w-[270px] rounded-lg border-[1px] pt-2 pl-2"
+                    type="number"
+                    placeholder="300€"
+                  />
+                </div>
+                <p>-</p>
+                <div className="relative">
+                  <p className="absolute p-2 text-xs text-gray-400">
+                    max price
+                  </p>
+                  <input
+                    className="h-14  w-[270px] rounded-lg border-[1px] pt-2 pl-2"
+                    type="number"
+                    placeholder="300€"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h3>Rooms and beds</h3>
+            
+          </div>
+          <div>
+            <h3>Amenities</h3>
+          </div>
+          <div>
+            <h3>Top-tier stays</h3>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
