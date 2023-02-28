@@ -56,7 +56,7 @@ function Homepage() {
         )}
       </div>
 
-      <div className="sticky bottom-0 z-10 bg-white">
+      <div className="sticky bottom-0 z-10 bg-white mb-10">
         <StickyButton toogleMap={toogleMap} />
         <BottomNav />
       </div>

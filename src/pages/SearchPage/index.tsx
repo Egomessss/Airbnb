@@ -16,6 +16,7 @@ import Listings from "../../components/Listings"
 import ListingData from "../../assets/ListingsData.json"
 import { useLocation, useSearchParams } from "react-router-dom"
 import { differenceInDays, format } from "date-fns"
+import Footer from "../../components/Footer"
 
 function SearchPage() {
   const [openMap, setOpenMap] = useState(false)
@@ -127,13 +128,13 @@ function SearchPage() {
         {/* full screen listing data */}
         <div className="hidden px-4 md:inline-block lg:w-[60%]">
           <p className="py-4 text-sm font-medium">
-            Over <span className="font-semibold">{filteredData.length}</span>{" "}
-            homes available between{" "}
-            <span className="font-semibold">{range}</span>{" "}
+            Over <span className="font-semibold">{filteredData.length}</span>
+            homes available between
+            <span className="font-semibold">{range}</span>
             <span className="font-semibold">
               {locationParam ? `in ${locationParam}` : ""}
-            </span>{" "}
-            - for <span className="font-semibold">{guestsParam}</span>{" "}
+            </span>
+            - for <span className="font-semibold">{guestsParam}</span>
             {guests > 1 ? `guests` : `guest`}
           </p>
           <Listings days={daysInBetween} guests={guests} data={currentPosts} />
@@ -147,7 +148,7 @@ function SearchPage() {
           />
         </div>
 
-        <div className="hidden w-full border-2 md:min-h-[980px] md:w-[40%] lg:inline-flex">
+        <div className="hidden w-full border-2 md:min-h-[995px] md:w-[40%] lg:inline-flex">
           {/* <MapApi /> */}
         </div>
 
@@ -155,11 +156,11 @@ function SearchPage() {
         {openMap ? (
           <div className="flex flex-col px-4 md:hidden">
             <p className="pb-4 text-sm font-medium">
-              Over {filteredData.length} homes available between {locationParam}{" "}
+              Over {filteredData.length} homes available between {locationParam}
               {range} - for {guestsParam} guests
             </p>
             {/* changes thisssssssssssssssssssssssss */}
-            <SearchCard />
+            <Listings days={daysInBetween} guests={guests} data={currentPosts} />
             <SearchPagination
               changePage={changePage}
               currentPage={currentPage}
@@ -180,6 +181,7 @@ function SearchPage() {
       <div className="sticky bottom-0 z-10 bg-white md:hidden">
         <BottomNav />
       </div>
+      <Footer/>
     </div>
   )
 }
