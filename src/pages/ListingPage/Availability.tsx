@@ -95,7 +95,7 @@ function Availability({ data }) {
   // ?add the reserving pop over
 
   return (
-    <div className="sticky top-2 hidden flex-col  bg-scroll md:flex ">
+    <div className="top-2 hidden bg-scroll md:sticky md:inline-block">
       <div className=" mt-6 h-[452px] w-[372px] gap-5 rounded-xl border-[1px]  p-4 shadow-lg">
         <div className="flex h-16 items-center justify-between">
           <h1 className="text-xl font-medium">{price}€ per night</h1>
@@ -104,9 +104,9 @@ function Availability({ data }) {
               <li>
                 <StarIcon className="h-4" />
               </li>
-              <li>4.89</li>
+              <li>{data.rating}</li>
               <li className="text-gray-500 underline">
-                <a href="">111 Reviews</a>
+                <a href="">{data.number_of_reviews} Reviews</a>
               </li>
             </ul>
           </div>

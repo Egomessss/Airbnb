@@ -80,7 +80,8 @@ export default function ListingPage() {
 
       <div className="relative flex justify-between">
         <ListingDetails data={thisListing} />
-        <Availability data={thisListing} />
+        <div> <Availability data={thisListing} /></div>
+       
       </div>
      
         <div className=" mb-20 h-[500px] w-full border-t-[1px] pt-8 pb-6">
