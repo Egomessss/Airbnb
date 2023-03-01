@@ -104,12 +104,12 @@ function NavSearchModal({ closeModal }: any) {
           {selectDestination !== "" ? selectDestination : "Add location"}
         </p>
       </button>
-
+      {/* destination section */}
       {openLocation && (
         <div className="grid h-[190px] grid-cols-3 items-center justify-between gap-2 rounded-lg  bg-white  px-4 text-sm shadow-xl">
           {data.map((img) => {
             return (
-              <button onClick={() => SetSelectDestination(img.action)}>
+              <button className="max-w-[150px]" onClick={() => SetSelectDestination(img.action)}>
                 <img
                   className="rounded-xl shadow-md"
                   alt={img.title}
@@ -121,6 +121,7 @@ function NavSearchModal({ closeModal }: any) {
           })}
         </div>
       )}
+      {/* dates section */}
       <button
         onClick={handleDate}
         className="flex h-12 items-center justify-between rounded-lg  bg-white p-2 px-4 text-sm shadow-xl"
@@ -144,7 +145,7 @@ function NavSearchModal({ closeModal }: any) {
           />
         </div>
       )}
-
+      {/* guest section */}
       <button
         onClick={handleGuests}
         className="flex h-12 w-full items-center justify-between rounded-lg bg-white px-4 text-sm shadow-xl"
