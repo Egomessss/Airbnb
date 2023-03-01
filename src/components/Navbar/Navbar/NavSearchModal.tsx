@@ -72,6 +72,18 @@ function NavSearchModal({ closeModal }: any) {
 
   const range = `${formattedStartDate} - ${formattedendDate}`
 
+  // ! clears the selections and closes the dropdowns
+
+  const clearSelections = () => {
+    setOpenDate(false)
+    setOpenGuests(false)
+    setOpenLocation(false)
+    SetSelectDestination("")
+    setGuests(1)
+    setStartDate(new Date())
+    setEndDate(new Date())
+  }
+
   return (
     <div className="fixed inset-0 z-[100] flex h-full w-full flex-col gap-4 overflow-y-auto overflow-x-hidden bg-[#F7F7F7] px-4 pt-6 outline-none focus:outline-none">
       <div className="flex items-center gap-12">
@@ -137,7 +149,9 @@ function NavSearchModal({ closeModal }: any) {
         className="flex h-12 w-full items-center justify-between rounded-lg bg-white px-4 text-sm shadow-xl"
       >
         <p>Who</p>
-        <p className="font-semibold">{guests> 1? `${guests} guests` : "Add guests"}</p>
+        <p className="font-semibold">
+          {guests > 1 ? `${guests} guests` : "Add guests"}
+        </p>
       </button>
 
       {openGuests && (
@@ -158,7 +172,7 @@ function NavSearchModal({ closeModal }: any) {
       )}
 
       <div className="sticky top-[100vh] z-50 -mx-6 flex items-center justify-between rounded-lg bg-white py-2 px-6 shadow-xl">
-        <button className="font-semibold underline">Clear all</button>
+        <button onClick={clearSelections} className="font-semibold underline">Clear all</button>
         <button className=" flex w-[100px] rounded-md bg-[#E21C61] p-2 text-white">
           <MagnifyingGlassIcon className="h-5 w-5" />
           Search
