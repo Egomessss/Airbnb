@@ -12,7 +12,7 @@ import { format } from "date-fns"
 import { useState } from "react"
 import { useLocation } from "react-router-dom"
 import NavbarSearchDrawer from "../NavbarSearch"
-import {AiFillFire} from "react-icons/ai"
+import {AiOutlineFire} from "react-icons/ai"
 
 function Navbar() {
   // !state for the NavSearchModal
@@ -49,7 +49,7 @@ function Navbar() {
       {/* nav left side */}
       <div className=" hidden h-[50px] w-[280px] min-w-[40px] cursor-pointer items-center justify-start md:flex">
         <Link className="flex items-center font-bold" to="/">
-          <AiFillFire className="text-5xl h-full text-red-500"/>
+          <AiOutlineFire className="text-5xl h-full text-red-500"/>
           <p className="text-red-500 text-xl">firebnb</p>
         </Link>
       </div>
