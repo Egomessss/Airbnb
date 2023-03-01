@@ -3,7 +3,7 @@ import {
   MagnifyingGlassIcon,
 } from "@heroicons/react/24/outline"
 import React from "react"
-import NavSearchModal from "../NavSearchModal"
+import NavSearchModal from "./NavSearchModal"
 
 function NavMobile() {
   const [showModal, setShowModal] = React.useState(false)

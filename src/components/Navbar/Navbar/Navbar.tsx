@@ -11,7 +11,7 @@ import {
 import { format } from "date-fns"
 import { useState } from "react"
 import { useLocation } from "react-router-dom"
-import NavbarSearchDrawer from "../NavbarSearch"
+import NavbarSearchDrawer from "./NavbarSearchDrawer"
 import {AiOutlineFire} from "react-icons/ai"
 
 function Navbar() {

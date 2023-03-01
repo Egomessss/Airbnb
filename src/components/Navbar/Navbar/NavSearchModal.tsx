@@ -2,7 +2,7 @@ import { MinusIcon, PlusIcon, XCircleIcon } from "@heroicons/react/24/outline"
 import { MagnifyingGlassIcon } from "@heroicons/react/24/solid"
 import React, { useState } from "react"
 
-import data from "../../assets/data.json"
+import data from "../../../assets/data.json"
 import { DateRangePicker } from "react-date-range"
 import { addDays, format } from "date-fns"
 
