@@ -18,30 +18,11 @@ import { addDays, format } from "date-fns"
 
 import NavLeftSide from "../Navbar/NavLeftSide"
 import NavRightSide from "../Navbar/NavRightSide"
+import data from "../../../assets/data.json"
 
 
 export default function NavbarSearchDrawer({ open, setOpen }: any) {
-  // ! destination autocomplete pop over data
-  const data = [
-    {
-      id: 1,
-      title: "I'm Flexible",
-      link: "https://a0.muscache.com/pictures/f9ec8a23-ed44-420b-83e5-10ff1f071a13.jpg",
-      action: "",
-    },
-    {
-      id: 2,
-      title: "Europe",
-      link: "https://a0.muscache.com/im/pictures/f0ece7c0-d9b2-49d5-bb83-64173d29cbe3.jpg?im_w=320",
-      action: "Europe",
-    },
-    {
-      id: 3,
-      title: "United States",
-      link: "https://a0.muscache.com/im/pictures/4e762891-75a3-4fe1-b73a-cd7e673ba915.jpg?im_w=320",
-      action: "United States",
-    },
-  ]
+  
   // destination popover
 
   const [selectDestination, SetSelectDestination] = useState("")
@@ -92,9 +73,7 @@ export default function NavbarSearchDrawer({ open, setOpen }: any) {
       setGuests(guests - 1)
     }
   }
-  //! search query
-  //
-  const router = useSearchParams()
+  
 
   return (
     <Transition.Root

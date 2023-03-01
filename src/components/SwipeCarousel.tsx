@@ -18,7 +18,7 @@ export default function SwipeCarousel() {
       modules={[FreeMode]}
       className="mySwiper"
     >
-      {data.imgs.map((img) => {
+      {data.map((img) => {
         return (
           <SwiperSlide key={img.id}>
             <img
