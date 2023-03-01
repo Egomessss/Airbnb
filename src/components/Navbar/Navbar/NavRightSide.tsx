@@ -9,7 +9,7 @@ function NavRightSide() {
         Airbnb your home
       </button>
       <GlobeAltIcon className="h-11 rounded-full p-3 hover:bg-gray-100" />
-      <Dropdown />
+    
     </div>
   )
 }

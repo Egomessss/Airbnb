@@ -15,7 +15,7 @@ function NavMidleMobile() {
       document.body.style.overflow = "hidden"
     }
   }
-// allows scrolling when the modal is closed
+  // allows scrolling when the modal is closed
   const closeSearchModal = () => {
     setShowModal(false)
     document.body.style.overflow = "unset"
@@ -23,13 +23,14 @@ function NavMidleMobile() {
 
   return (
     <div className="mt-3 flex h-[55px] w-full items-center justify-around rounded-full border shadow md:hidden">
-      <div className="">
+      <button >
+        {" "}
         <MagnifyingGlassIcon
           // opens the modal
           onClick={showSearchModal}
           className="h-5 w-5 text-gray-600 "
         />
-      </div>
+      </button>
       <div
         // opens the modal
         onClick={showSearchModal}
@@ -45,7 +46,9 @@ function NavMidleMobile() {
         </div>
       </div>
       {/* renders the modal */}
-      {showModal && <NavSearchModal closeModal={closeSearchModal} />}
+      {showModal && 
+       <NavSearchModal closeModal={closeSearchModal} />
+     }
       <div>
         <AdjustmentsHorizontalIcon className="h-5 w-5" />
       </div>

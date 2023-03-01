@@ -1,8 +1,7 @@
 import { MinusIcon, PlusIcon, XCircleIcon } from "@heroicons/react/24/outline"
 import { MagnifyingGlassIcon } from "@heroicons/react/24/solid"
 import React, { useState } from "react"
-import SearchModal from "./SearchModal"
-import SwipeCarousel from "../SwipeCarousel"
+
 import data from "../../assets/data.json"
 import { DateRangePicker } from "react-date-range"
 import { addDays, format } from "date-fns"
@@ -71,8 +70,9 @@ function NavSearchModal({ closeModal }: any) {
 
   const range = `${formattedStartDate} - ${formattedendDate}`
 
+
   return (
-    <div className="fixed inset-0 z-50 flex h-screen w-full flex-col gap-4 overflow-y-auto overflow-x-hidden bg-[#F7F7F7] px-4 pt-6 outline-none focus:outline-none">
+    <div className="fixed inset-0 z-[100] flex h-full w-full flex-col gap-4 overflow-y-auto overflow-x-hidden bg-[#F7F7F7] px-4 pt-6 outline-none focus:outline-none">
       <div className="flex items-center gap-12">
         <XCircleIcon
           onClick={() => closeModal()}

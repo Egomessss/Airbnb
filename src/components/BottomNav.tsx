@@ -12,7 +12,7 @@ export default function BottomNav() {
   const spanStyle = "tab tab-explore block text-xs focus:text-black"
 
   return (
-    <div className="fixed inset-x-0 bottom-0 flex w-full items-center justify-center bg-white py-2 shadow md:hidden">
+    <div className="fixed inset-x-0 z-30 bottom-0 flex w-full items-center justify-center bg-white py-2 shadow md:hidden">
       <Link to="/">
         <button>
           {" "}

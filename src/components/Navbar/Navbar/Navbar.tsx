@@ -14,7 +14,7 @@ function Navbar() {
       <NavLeftSide />
       <NavMiddleFull /> 
       {/* mobile nav */}
-      <NavMidleMobile />
+      <NavMidleMobile   />
       <NavRightSide />
     </nav>
   )

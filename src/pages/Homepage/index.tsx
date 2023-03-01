@@ -27,6 +27,11 @@ function Homepage() {
     setSearchParams({ filter: filter })
   }
 
+  // const [removeFixed, setRemoveFixed] = useState(false)
+
+  // const removeFixedElements = () => setRemoveFixed((prevstate) => !prevstate)
+
+  // put the middlesearch here so we can pass the state
 
   return (
     <div className="relative px-6 md:px-20">
@@ -45,8 +50,8 @@ function Homepage() {
             <MapApi />
           </div>
         ) : (
-          // if filter data is passed we render the listings with the filter queries
           // if no filter data is passed we render it normally
+          // if filter data is passed we render the listings with the filter queries
 
           <Listings
             data={ListingData.filter(
@@ -55,15 +60,14 @@ function Homepage() {
           />
         )}
       </div>
-
-      <div className="sticky bottom-0 z-10 bg-white mb-10">
-        <StickyButton toogleMap={toogleMap} />
+      <div className="fixed bottom-0 z-30 mb-10 bg-white ">
+        <StickyButton openMap={openMap} flipText={toogleMap} />
         <BottomNav />
       </div>
+
       <Footer />
     </div>
   )
 }
 
 export default Homepage
-
