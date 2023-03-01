@@ -14,6 +14,7 @@ import { useLocation, useSearchParams } from "react-router-dom"
 import { differenceInDays, format } from "date-fns"
 import Footer from "../../components/Footer"
 import NavMobile from "../../components/Navbar/Navbar/NavMobile"
+import MapApi from "../../components/MapApi"
 
 function SearchPage() {
   const [openMap, setOpenMap] = useState(false)
@@ -34,9 +35,9 @@ function SearchPage() {
   // gives us access to the query parameters, which we store in separate variables (locationParam, guestsParam, startDateParam, and endDateParam).
 
   const locationParam = searchParams.get("location")
-
+  // console.log(locationParam)
   const guestsParam = searchParams.get("guests")
-  console.log(guestsParam)
+  // console.log(guestsParam)
 
   const startDateParam = searchParams.get("startDate")
   const endDateParam = searchParams.get("endDate")
@@ -112,11 +113,15 @@ function SearchPage() {
     pageNumbers.push(i)
   }
 
+  //
+
   return (
     <div className="md:px-10 ">
-     <Navbar />
-        <NavMobile   />
-
+      <Navbar />
+      <NavMobile
+        removeFixed={undefined}
+        showFixed={undefined}
+      />
       {/* left section in full and middle in mobile*/}
       <main className="flex md:relative ">
         {/* full screen listing data */}
@@ -153,6 +158,10 @@ function SearchPage() {
 
         {/* open the map or the listing info */}
         {openMap ? (
+          <div className="h-[700px] w-full md:hidden">
+            {/* <MapApi /> */}
+          </div>
+        ) : (
           <div className="flex flex-col  px-4 md:hidden">
             <p className="py-4 text-sm font-medium">
               Over{" "}
@@ -167,28 +176,26 @@ function SearchPage() {
             </p>
             {/* changes thisssssssssssssssssssssssss */}
             <div className=" mb-32">
-              {" "}
               <Listings
                 days={daysInBetween}
                 guests={guests}
                 data={currentPosts}
-              /> 
+              />
               <SearchPagination
-              changePage={changePage}
-              currentPage={currentPage}
-              decrementPage={decrementPage}
-              incrementPage={incrementPage}
-              pageNumbers={pageNumbers}
-            />
+                changePage={changePage}
+                currentPage={currentPage}
+                decrementPage={decrementPage}
+                incrementPage={incrementPage}
+                pageNumbers={pageNumbers}
+              />
             </div>
-
-           
           </div>
-        ) : (
-          <div className="h-[700px] w-full md:hidden">{/* <MapApi /> */}</div>
         )}
         <div className="md:hidden">
-          <StickyButton openMap={openMap} toogleMap={toogleMap} />
+          <StickyButton
+             openMap={openMap}
+             flipText={toogleMap}
+          />
         </div>
       </main>
 

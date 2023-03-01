@@ -17,8 +17,12 @@ function NavMobile({ removeFixed, showFixed }) {
   }
 
   const ShowModalRemoveFixed = () => {
-    removeFixed()
-    showSearchModal()
+    if (removeFixed === undefined) {
+      showSearchModal()
+    } else {
+      removeFixed()
+      showSearchModal()
+    }
   }
 
   // allows scrolling when the modal is closed
@@ -28,8 +32,12 @@ function NavMobile({ removeFixed, showFixed }) {
   }
 
   const closeModalShowFixed = () => {
-    showFixed()
-    closeSearchModal()
+    if (showFixed === undefined) {
+      closeSearchModal()
+    } else {
+      closeSearchModal()
+      showFixed()
+    }
   }
 
   return (

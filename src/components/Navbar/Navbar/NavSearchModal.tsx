@@ -5,6 +5,7 @@ import React, { useState } from "react"
 import data from "../../../assets/data.json"
 import { DateRangePicker } from "react-date-range"
 import { addDays, format } from "date-fns"
+import { createSearchParams, Link } from "react-router-dom"
 
 // remove active effect on search
 
@@ -172,11 +173,29 @@ function NavSearchModal({ closeModal }: any) {
       )}
 
       <div className="sticky top-[100vh] z-50 -mx-6 flex items-center justify-between rounded-lg bg-white py-2 px-6 shadow-xl">
-        <button onClick={clearSelections} className="font-semibold underline">Clear all</button>
-        <button className=" flex w-[100px] rounded-md bg-[#E21C61] p-2 text-white">
-          <MagnifyingGlassIcon className="h-5 w-5" />
-          Search
+        <button
+          onClick={clearSelections}
+          className="font-semibold underline"
+        >
+          Clear all
         </button>
+        <Link
+          to={{
+            pathname: "/SearchPage",
+            search: `?${createSearchParams({
+              location: selectDestination,
+              startDate: startDate.toISOString(),
+              endDate: endDate.toISOString(),
+              guests: guests.toString(),
+            })}`,
+          }}
+        >
+          {" "}
+          <button className=" flex w-[100px] rounded-md bg-[#E21C61] p-2 text-white">
+            <MagnifyingGlassIcon className="h-5 w-5" />
+            Search
+          </button>
+        </Link>
       </div>
     </div>
   )
