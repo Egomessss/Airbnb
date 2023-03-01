@@ -21,11 +21,14 @@ function Homepage() {
     setOpenMap((prevMode) => !prevMode)
   }
 
-  // filter settings
+  //! filter settings
+  // acess the search params in the url
   const [searchParams, setSearchParams] = useSearchParams()
 
+  // retrieves the value of the filter parameter from the searchParams object. The get method is used to retrieve the value of a parameter by its name.
   const filter = searchParams.get("filter")
 
+  // sets the filter params for the swipecarousel
   function setFilter(filter) {
     setSearchParams({ filter: filter })
   }
