@@ -1,4 +1,4 @@
-import  { useState } from "react"
+import { useState } from "react"
 import BottomNav from "../../components/BottomNav"
 import Footer from "../../components/Footer"
 import Listings from "../../components/Listings"
@@ -30,12 +30,22 @@ function Homepage() {
     setSearchParams({ filter: filter })
   }
 
+  const [removeFixedElements, setRemoveFixedElements] = useState(true)
+
+  // removes the sticky map button and bottom nav when the modal is open
+  const removeFixed = () => setRemoveFixedElements(false)
+
+    // shows the sticky map button and bottom nav when the modal is closed
+  const showFixed = () => setRemoveFixedElements(true)
 
   return (
     <div className="relative px-6 md:px-20">
       <div className="sticky top-0 z-10 bg-white">
         <Navbar />
-        <NavMobile   />
+        <NavMobile
+          showFixed={showFixed}
+          removeFixed={removeFixed}
+        />
         <SwipeCarouselFilter
           ListingData={ListingData}
           setFilter={setFilter}
@@ -59,10 +69,15 @@ function Homepage() {
           />
         )}
       </div>
-      <div className="fixed bottom-0 z-30 mb-10 bg-white ">
-        <StickyButton openMap={openMap} flipText={toogleMap} />
-        <BottomNav />
-      </div>
+      {removeFixedElements && (
+        <div className="fixed bottom-0 z-30 mb-10 bg-white ">
+          <StickyButton
+            openMap={openMap}
+            flipText={toogleMap}
+          />
+          <BottomNav />
+        </div>
+      )}
 
       <Footer />
     </div>

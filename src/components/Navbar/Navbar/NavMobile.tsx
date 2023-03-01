@@ -5,7 +5,7 @@ import {
 import React from "react"
 import NavSearchModal from "./NavSearchModal"
 
-function NavMobile() {
+function NavMobile({ removeFixed, showFixed }) {
   const [showModal, setShowModal] = React.useState(false)
 
   // prevents scrolling when modal is open
@@ -15,10 +15,21 @@ function NavMobile() {
       document.body.style.overflow = "hidden"
     }
   }
+
+  const ShowModalRemoveFixed = () => {
+    removeFixed()
+    showSearchModal()
+  }
+
   // allows scrolling when the modal is closed
   const closeSearchModal = () => {
     setShowModal(false)
     document.body.style.overflow = "unset"
+  }
+
+  const closeModalShowFixed = () => {
+    showFixed()
+    closeSearchModal()
   }
 
   return (
@@ -26,13 +37,13 @@ function NavMobile() {
       <button>
         <MagnifyingGlassIcon
           // opens the modal
-          onClick={showSearchModal}
+          onClick={ShowModalRemoveFixed}
           className="h-5 w-5 text-gray-600 "
         />
       </button>
       <div
         // opens the modal
-        onClick={showSearchModal}
+        onClick={ShowModalRemoveFixed}
         className="flex w-[240px] flex-col"
       >
         <p className="font-medium">Where to?</p>
@@ -45,7 +56,7 @@ function NavMobile() {
         </div>
       </div>
       {/* renders the modal */}
-      {showModal && <NavSearchModal closeModal={closeSearchModal} />}
+      {showModal && <NavSearchModal closeModal={closeModalShowFixed} />}
       <div>
         <AdjustmentsHorizontalIcon className="h-5 w-5" />
       </div>
