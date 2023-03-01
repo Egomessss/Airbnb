@@ -14,6 +14,7 @@ function Homepage() {
   // opens and closes the mapbox map
   const [openMap, setOpenMap] = useState(false)
 
+  // flips the state between true and false to open the map or the list
   const toogleMap = () => {
     setOpenMap((prevMode) => !prevMode)
   }
@@ -27,11 +28,6 @@ function Homepage() {
     setSearchParams({ filter: filter })
   }
 
-  // const [removeFixed, setRemoveFixed] = useState(false)
-
-  // const removeFixedElements = () => setRemoveFixed((prevstate) => !prevstate)
-
-  // put the middlesearch here so we can pass the state
 
   return (
     <div className="relative px-6 md:px-20">
