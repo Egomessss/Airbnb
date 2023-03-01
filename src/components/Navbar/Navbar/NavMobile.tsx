@@ -5,7 +5,7 @@ import {
 import React from "react"
 import NavSearchModal from "../NavSearchModal"
 
-function NavMidleMobile() {
+function NavMobile() {
   const [showModal, setShowModal] = React.useState(false)
 
   // prevents scrolling when modal is open
@@ -22,9 +22,8 @@ function NavMidleMobile() {
   }
 
   return (
-    <div className="mt-3 flex h-[55px] w-full items-center justify-around rounded-full border shadow md:hidden">
-      <button >
-        {" "}
+    <nav className=" my-3 flex h-[55px] w-full items-center justify-around rounded-full border shadow md:hidden">
+      <button>
         <MagnifyingGlassIcon
           // opens the modal
           onClick={showSearchModal}
@@ -46,14 +45,12 @@ function NavMidleMobile() {
         </div>
       </div>
       {/* renders the modal */}
-      {showModal && 
-       <NavSearchModal closeModal={closeSearchModal} />
-     }
+      {showModal && <NavSearchModal closeModal={closeSearchModal} />}
       <div>
         <AdjustmentsHorizontalIcon className="h-5 w-5" />
       </div>
-    </div>
+    </nav>
   )
 }
 
-export default NavMidleMobile
+export default NavMobile

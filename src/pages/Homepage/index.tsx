@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import  { useState } from "react"
 import BottomNav from "../../components/BottomNav"
 import Footer from "../../components/Footer"
 import Listings from "../../components/Listings"
@@ -9,6 +9,8 @@ import StickyButton from "../../components/StickyButton"
 import SwipeCarouselFilter from "../../components/SwipeCarouselFilter"
 import ListingData from "../../assets/ListingsData.json"
 import { useSearchParams } from "react-router-dom"
+import NavMidleMobile from "../../components/Navbar/Navbar/NavMobile"
+import NavMobile from "../../components/Navbar/Navbar/NavMobile"
 
 function Homepage() {
   // opens and closes the mapbox map
@@ -33,6 +35,7 @@ function Homepage() {
     <div className="relative px-6 md:px-20">
       <div className="sticky top-0 z-10 bg-white">
         <Navbar />
+        <NavMobile   />
         <SwipeCarouselFilter
           ListingData={ListingData}
           setFilter={setFilter}
