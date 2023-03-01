@@ -647,7 +647,7 @@
     "house_rules": "-No smoking allowed in the studio. -Please respect quiet hours from 10pm to 8am. -Please keep the studio clean and tidy. -Guests are responsible for any damages caused during their stay.",
     "accommodates": 2,
     "property_type": "Studio",
-    "bedrooms": 0,
+    "bedrooms": 1,
     "street": "Waikiki, Honolulu, HI 96815, USA",
     "price_per_night": 150,
     "price_per_guest": 50,

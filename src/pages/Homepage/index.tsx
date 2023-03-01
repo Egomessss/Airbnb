@@ -41,6 +41,12 @@ function Homepage() {
     // shows the sticky map button and bottom nav when the modal is closed
   const showFixed = () => setRemoveFixedElements(true)
 
+
+  // add blur to background
+const blur = ()=>{
+
+}
+
   return (
     <div className="relative px-6 md:px-20">
       <div className="sticky top-0 z-10 bg-white">
