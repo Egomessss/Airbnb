@@ -12,6 +12,9 @@ function NavSearchModal({ closeModal }: any) {
   // open location dropdown
   const [openLocation, setOpenLocation] = useState(false)
 
+  // select detination
+  const [selectDestination, SetSelectDestination] = useState("")
+
   const handleLocation = () => setOpenLocation((prevState) => !prevState)
 
   // open date dropdown
@@ -35,7 +38,7 @@ function NavSearchModal({ closeModal }: any) {
     }
   }
 
-  // minimum always 1 never below
+  // minimum always 1 guest never below
   const handleDecrementClickGuests = () => {
     if (guests > 1) {
       setGuests(guests - 1)
@@ -43,7 +46,6 @@ function NavSearchModal({ closeModal }: any) {
   }
 
   // !checkin/out and calendar data
-
 
   // creates a start and end date starting from the current day so you can't go back
   const [startDate, setStartDate] = useState(new Date())
@@ -70,7 +72,6 @@ function NavSearchModal({ closeModal }: any) {
 
   const range = `${formattedStartDate} - ${formattedendDate}`
 
-
   return (
     <div className="fixed inset-0 z-[100] flex h-full w-full flex-col gap-4 overflow-y-auto overflow-x-hidden bg-[#F7F7F7] px-4 pt-6 outline-none focus:outline-none">
       <div className="flex items-center gap-12">
@@ -86,14 +87,16 @@ function NavSearchModal({ closeModal }: any) {
         className="flex h-12 items-center justify-between rounded-lg  bg-white p-2 px-4 text-sm shadow-xl"
       >
         <p>Where to</p>
-        <p className="font-semibold">Add location</p>
+        <p className="font-semibold">
+          {selectDestination !== "" ? selectDestination : "Add location"}
+        </p>
       </button>
 
       {openLocation && (
-        <div className="grid h-[170px] grid-cols-3 items-center justify-between gap-2 rounded-lg  bg-white  px-4 text-sm shadow-xl">
+        <div className="grid h-[190px] grid-cols-3 items-center justify-between gap-2 rounded-lg  bg-white  px-4 text-sm shadow-xl">
           {data.map((img) => {
             return (
-              <button>
+              <button onClick={() => SetSelectDestination(img.action)}>
                 <img
                   className="rounded-xl shadow-md"
                   alt={img.title}
@@ -110,7 +113,7 @@ function NavSearchModal({ closeModal }: any) {
         className="flex h-12 items-center justify-between rounded-lg  bg-white p-2 px-4 text-sm shadow-xl"
       >
         <p>When</p>
-        <p className="font-semibold">Add dates</p>
+        <p className="font-semibold">{range}</p>
       </button>
 
       {openDate && (
@@ -134,7 +137,7 @@ function NavSearchModal({ closeModal }: any) {
         className="flex h-12 w-full items-center justify-between rounded-lg bg-white px-4 text-sm shadow-xl"
       >
         <p>Who</p>
-        <p className="font-semibold">Add guests</p>
+        <p className="font-semibold">{guests> 1? `${guests} guests` : "Add guests"}</p>
       </button>
 
       {openGuests && (
