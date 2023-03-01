@@ -43,7 +43,7 @@ function NavSearchModal({ closeModal }: any) {
   }
 
   // !checkin/out and calendar data
-  const [openChooseDates, setOpenChooseDates] = useState(false)
+
 
   // creates a start and end date starting from the current day so you can't go back
   const [startDate, setStartDate] = useState(new Date())
