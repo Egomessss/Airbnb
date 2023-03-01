@@ -9,7 +9,7 @@ import StickyButton from "../../components/StickyButton"
 import SwipeCarouselFilter from "../../components/SwipeCarouselFilter"
 import ListingData from "../../assets/ListingsData.json"
 import { useSearchParams } from "react-router-dom"
-import NavMidleMobile from "../../components/Navbar/Navbar/NavMobile"
+
 import NavMobile from "../../components/Navbar/Navbar/NavMobile"
 
 function Homepage() {

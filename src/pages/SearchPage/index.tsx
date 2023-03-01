@@ -13,6 +13,7 @@ import ListingData from "../../assets/ListingsData.json"
 import { useLocation, useSearchParams } from "react-router-dom"
 import { differenceInDays, format } from "date-fns"
 import Footer from "../../components/Footer"
+import NavMobile from "../../components/Navbar/Navbar/NavMobile"
 
 function SearchPage() {
   const [openMap, setOpenMap] = useState(false)
@@ -113,7 +114,8 @@ function SearchPage() {
 
   return (
     <div className="md:px-10 ">
-      <Navbar />
+     <Navbar />
+        <NavMobile   />
 
       {/* left section in full and middle in mobile*/}
       <main className="flex md:relative ">

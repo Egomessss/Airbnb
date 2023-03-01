@@ -20,6 +20,7 @@ import { FaMedal } from "react-icons/fa"
 import { SlDiamond } from "react-icons/sl"
 import { addDays, format } from "date-fns"
 import { useState } from "react"
+import NavMobile from "../../components/Navbar/Navbar/NavMobile"
 
 export default function ListingPage() {
   const { listingId } = useParams()
@@ -72,7 +73,8 @@ export default function ListingPage() {
   return (
     <div className="mx-auto max-w-[1200px] px-6">
       <div className="hidden md:block">
-        <Navbar />
+      <Navbar />
+        <NavMobile   />
       </div>
 
       <ListingNav />

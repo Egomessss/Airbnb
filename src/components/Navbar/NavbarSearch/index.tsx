@@ -16,8 +16,7 @@ import { createSearchParams, Link, useSearchParams } from "react-router-dom"
 
 import { addDays, format } from "date-fns"
 
-import NavLeftSide from "../Navbar/NavLeftSide"
-import NavRightSide from "../Navbar/NavRightSide"
+
 import data from "../../../assets/data.json"
 
 
@@ -111,15 +110,8 @@ export default function NavbarSearchDrawer({ open, setOpen }: any) {
               >
                 {/* Content */}
                 <Dialog.Panel className="pointer-events-auto relative w-screen max-w-md">
-                  <div className="hidden h-[160px] w-screen flex-col bg-white py-4 px-20 shadow-xl md:flex">
-                    {/* top section of searchnavbar drawer */}
-                    <div className="flex w-full justify-between ">
-                      {/* NavLeftSide  */}
-                      <NavLeftSide />
-
-                      {/* NavrightSide  */}
-                      <NavRightSide />
-                    </div>
+                  <div className="hidden h-[120px] w-screen flex-col bg-white py-4 px-20 shadow-xl md:flex">
+                   
 
                     {/* Middle section of searchnavbar drawer */}
                     <nav className="flex w-full justify-center py-4">

@@ -1,9 +1,6 @@
 import React from "react"
 import { Link } from "react-router-dom"
 
-import NavMiddleFull from "./NavMiddleFull"
-
-import NavRightSide from "./NavRightSide"
 
 import logo from "../../../assets/images/logo.png"
 import logoMobile from "../../../assets/images/logoMobile.png"
