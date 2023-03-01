@@ -43,8 +43,8 @@ function SearchPage() {
   const endDateParam = searchParams.get("endDate")
 
   // formats the dataparams into a human-readable format
-  const formattedStartDate = format(new Date(startDateParam), "dd MMMM yy")
-  const formattedEndDate = format(new Date(endDateParam), "dd MMMM yy")
+  const formattedStartDate = format(new Date(startDateParam), "PP")
+  const formattedEndDate = format(new Date(endDateParam), "PP")
 
   const startDate = new Date(startDateParam)
   const endDate = new Date(endDateParam)
@@ -164,7 +164,6 @@ function SearchPage() {
         ) : (
           <div className="flex flex-col  px-4 md:hidden">
             <p className="py-4 text-sm font-medium">
-              Over{" "}
               <span className="mr-2 font-semibold">{filteredData.length}</span>
               homes available between
               <span className="mx-2 font-semibold">{range}</span>
