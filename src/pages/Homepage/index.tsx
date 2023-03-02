@@ -146,9 +146,9 @@ function Homepage() {
             data={
               filterByLocation
                 ? filteredLocationData
-                : filteredData.length >1
+                : filteredData.length
                 ? filteredData
-                : ListingData
+                : filteredData
             }
           />
         )}
