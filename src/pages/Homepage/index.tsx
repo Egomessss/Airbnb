@@ -63,7 +63,7 @@ function Homepage() {
   )
   // console.log(selectedAmenities)
 
-  const [superhost, setSuperhost] = useState(
+  const [superhost, setSuperhost] = useState<boolean>(
     searchParams.get("superhost") === "true"
   )
 
