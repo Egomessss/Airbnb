@@ -40,52 +40,69 @@ function Homepage() {
     maxPrice: Number(searchParams.get("maxPrice")),
   })
 
+  // console.log(priceFilter)
+
   const [selectedAmenities, setSelectedAmenities] = useState<string[]>(
     searchParams.get("selectedAmenities")?.split(",") || []
   )
+  // console.log(selectedAmenities)
 
   const [superhost, setSuperhost] = useState(
     searchParams.get("superhost") === "true"
   )
+
+  //! prices data
+
+  // extract the prices from the data
+  const prices = ListingData.map((item) => item.price_per_night)
+
+  // sorts the prices from smallest to biggest
+  prices.sort((a, b) => a - b)
+
+  const lowestPrice = prices[0]
+
+  const highestPrice = prices[prices.length - 1]
 
   //! filtered data
 
   const [filteredData, setFilteredData] = useState([])
 
   useEffect(() => {
-    // filter the data based on the query parameters. We compare each item's properties (location, guests, start date, and end date) with the corresponding query parameters, and return only the items that match.
-    const filteredDataParams = ListingData.filter((listing) => {
-      const typeOfLocationMatch = !filter || listing.type_of_location === filter
+    const filteredDataParams = ListingData.filter((listing: any) => {
+      const typeOfLocationMatch: boolean =
+        !filter || listing.type_of_location === filter
 
-      const priceMatch =
-      priceFilter.minPrice < listing.price_per_night   
-      &&
-      priceFilter.maxPrice > listing.price_per_night  
-      console.log(priceMatch)
+      const priceMatch: boolean =
+        listing.price_per_night >= priceFilter.minPrice &&
+        listing.price_per_night <= priceFilter.maxPrice
 
-      // const amenitiesMatch = (): boolean => {
-      //   if (selectedAmenities.length > 0) {
-      //     const listingAmenities = listing.amenities.split(",")
-      //     return selectedAmenities.every((amenity) =>
-      //       listingAmenities.includes(amenity)
-      //     )
-      //   }
-      //   return true
-      // }
+      // function that takes an array of selected amenities (selectedAmenities) and a listing object (listing) as parameters and returns a boolean value indicating whether all the amenities in selectedAmenities are included in the listing.amenities array.
+      const checkAmenitiesMatch = (
+        selectedAmenities: string[],
+        listing: any
+      ): boolean => {
+        const listingAmenities: any = listing.amenities
 
-      // const superHostMatch = superhost && !listing.isSuperhost
+        const isAmenities: boolean = selectedAmenities.every((amenity) =>
+          listingAmenities.includes(amenity)
+        )
+        return isAmenities
+      }
+
+      const amenitiesMatch: boolean = checkAmenitiesMatch(
+        selectedAmenities,
+        listing
+      )
+      // calls the checkamenities match with two arguments
+      const superHostMatch: boolean = superhost && listing.isSuperhost
 
       return (
-        typeOfLocationMatch && priceMatch
-        //  && amenitiesMatch && superHostMatch
+        typeOfLocationMatch && priceMatch && amenitiesMatch && superHostMatch
       )
     })
     // Set the filtered data in the state
-    setFilteredData(filteredDataParams || ListingData)
+    setFilteredData(filteredDataParams)
   }, [filter, priceFilter, selectedAmenities, superhost])
-
-  // const data = filteredData
-  //     : ListingData
 
   // ! fixed elements toogle
 
@@ -124,7 +141,11 @@ function Homepage() {
           // if no filter data is passed we render it normally
           // if filter data is passed we render the listings with the filter queries
 
-          <Listings data={filteredData} />
+          <Listings
+            days={null}
+            guests={null}
+            data={filteredData}
+          />
         )}
       </div>
       {removeFixedElements && (
@@ -136,8 +157,10 @@ function Homepage() {
           <BottomNav />
         </div>
       )}
-<div className="mt-10"> <Footer /></div>
-     
+      <div className="mt-10">
+        {" "}
+        <Footer />
+      </div>
     </div>
   )
 }

@@ -31,9 +31,9 @@ function ListingDetails({
   daysInBetween,
 }) {
   // fetches the amenities data from the json file and splits the string into multiple strings
-  const string = data.amenities
-  // console.log(string)
-  const splitToString = string.split(",")
+  const amenities = data.amenities
+  // // console.log(string)
+  // const splitToString = string.split(",")
 
   return (
     <div className=" mb-14 w-full md:w-[70%]">
@@ -106,7 +106,7 @@ function ListingDetails({
         <div className="border-t-[1px] pt-8 pb-6 md:h-[500px]">
           <h2 className="mb-4 text-xl font-semibold">What this place offers</h2>
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-            {splitToString.map((amenitie) => {
+            {amenities.map((amenitie) => {
               return (
                 <div className="flex w-[250px] gap-2 whitespace-nowrap">
                   <TbBeach className="block h-[24px] w-[24px]" />

@@ -92,24 +92,27 @@ function SwipeCarouselFilter(props) {
 
   // handle the search params submission to filter the homepage listings
   const handleSubmit = () => {
-    const searchParams = new URLSearchParams();
+    const searchParams = new URLSearchParams()
     // Only append parameters if at least one filter is being used
-  if (priceFilter.minPrice || priceFilter.maxPrice) {
-    searchParams.append('minPrice', priceFilter.minPrice.toString());
-    searchParams.append('maxPrice', priceFilter.maxPrice.toString());
-  }
-  
-  if (selectedAmenities.length > 0) {
-    searchParams.append('selectedAmenities', selectedAmenities.join(','));
+    if (priceFilter.minPrice && priceFilter.maxPrice) {
+      searchParams.append("minPrice", priceFilter.minPrice.toString())
+      searchParams.append("maxPrice", priceFilter.maxPrice.toString())
+    }
+
+    if (selectedAmenities.length > 0) {
+      searchParams.append("selectedAmenities", selectedAmenities.join(","))
+    }
+
+    if (superhost) {
+      searchParams.append("superhost", superhost.toString())
+    }
+
+    // Redirect to search results page with query parameters as state
+    window.location.href = `/?${searchParams.toString()}`
   }
 
-  if (superhost) {
-    searchParams.append('superhost', superhost.toString());
-  }
 
-  // Redirect to search results page with query parameters as state
-  window.location.href = `/?${searchParams.toString()}`;
-  };
+
 
   return (
     <div className="mx-auto hidden w-[600px] items-center justify-center gap-2 py-6 md:flex">
@@ -214,7 +217,10 @@ function SwipeCarouselFilter(props) {
             <ul className="flex w-full flex-wrap gap-4">
               {amenities.map((amenity, index) => {
                 return (
-                  <li className="w-[250px] ">
+                  <li
+                    key={index}
+                    className="w-[250px] "
+                  >
                     <label
                       key={index}
                       className="flex items-center gap-3"
@@ -268,7 +274,8 @@ function SwipeCarouselFilter(props) {
               Clear all
             </button>
             <Link
-              to="/" onClick={handleSubmit}
+              to="/"
+              onClick={handleSubmit}
             >
               {" "}
               <button className=" flex w-[100px] rounded-md bg-[#E21C61] p-2 font-semibold text-white">
@@ -283,3 +290,51 @@ function SwipeCarouselFilter(props) {
 }
 
 export default SwipeCarouselFilter
+
+
+//! how i got the amenities data
+
+// const amenities = [
+//   "Kitchen",
+//   "Wifi",
+//   "TV",
+//   "Essentials",
+//   "Heating",
+//   "Air conditioning",
+//   "Washer",
+//   "Dryer",
+//   "Free parking on premises",
+//   "Hot tub",
+//   "Gym",
+//   "Pool",
+//   "Pets allowed",
+//   "Suitable for events",
+//   "Smoking allowed",
+//   "Wheelchair accessible",
+//   "Elevator",
+//   "Fire extinguisher",
+//   "Carbon monoxide detector",
+//   "Smoke detector",
+//   "First aid kit",
+//   "Safety card",
+//   "Lock on bedroom door",
+//   "Private bathroom",
+//   "Bed linens",
+//   "Extra pillows and blankets",
+//   "Shampoo",
+//   "Hangers",
+//   "Hair dryer",
+//   "Iron",
+//   "Laptop-friendly workspace",
+// ]
+
+// function getRandomAmenities(num) {
+//   const randomAmenities = new Set(); //  prevents duplicates
+
+//   while (randomAmenities.size < num) { // loops until we have enough unique amenities
+//     const randomIndex = Math.floor(Math.random() * amenities.length);
+//     randomAmenities.add(amenities[randomIndex]);
+//   }
+  
+//   return Array.from(randomAmenities); // convert the Set to an array before returning it
+// }
