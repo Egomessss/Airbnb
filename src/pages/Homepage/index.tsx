@@ -70,7 +70,7 @@ function Homepage() {
   useEffect(() => {
     const filteredDataParams = ListingData.filter((listing: any) => {
       const typeOfLocationMatch: boolean =
-        !filter || listing.type_of_location === filter
+        listing.type_of_location === filter
 
       const priceMatch: boolean =
         listing.price_per_night >= priceFilter.minPrice &&
@@ -144,7 +144,7 @@ function Homepage() {
           <Listings
             days={null}
             guests={null}
-            data={filteredData}
+            data={filter ? filteredData : ListingData}
           />
         )}
       </div>

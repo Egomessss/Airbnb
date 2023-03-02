@@ -173,7 +173,7 @@ function SearchPage() {
               - for <span className="mr-2 font-semibold">{guestsParam}</span>
               {guests > 1 ? `guests` : `guest`}
             </p>
-            {/* changes thisssssssssssssssssssssssss */}
+          
             <div className=" mb-32">
               <Listings
                 days={daysInBetween}

@@ -2,7 +2,6 @@ import { MapIcon } from "@heroicons/react/24/solid"
 import React, { useState } from "react"
 
 function StickyButton({ flipText, openMap }) {
-  console.log(openMap)
   
   return (
     <div className="fixed bottom-[4rem] left-1/2 z-30 -translate-x-1/2 md:bottom-[7rem]">
