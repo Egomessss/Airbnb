@@ -13,20 +13,38 @@ import { Navigation } from "swiper"
 
 import {
   AdjustmentsHorizontalIcon,
+  MagnifyingGlassIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline"
 
 import ListingData from "../assets/ListingsData.json"
 import filters from "../assets/filters.json"
 import amenities from "../assets/amenities.json"
-import { Link, useSearchParams } from "react-router-dom"
+import { createSearchParams, Link, useSearchParams } from "react-router-dom"
 // each search parameter needs to match their title to the search query
 
 function SwipeCarouselFilter(props) {
   const [openFilterDropdown, setOpenFilterDropdown] = useState(false)
 
+  const listingMinPrice = ListingData
+
+  const [priceFilter, setPriceFilter] = useState({
+    minPrice: 1,
+    maxPrice: 2000,
+  })
+  console.log(priceFilter)
+
+  // updates the state of priceFilter when either of the input fields is changed.
+  const handlePriceFilterChange = (e) => {
+    const { name, value } = e.target
+    // the parseInt prevent the leading 0 on the inputs
+    setPriceFilter({ ...priceFilter, [name]: parseInt(value, 10) })
+  }
+
   const [selectedAmenities, setSelectedAmenities] = useState<string[]>([])
-  console.log(selectedAmenities)
+
+  const [superhost, setSuperhost] = useState(false)
+
   return (
     <div className="mx-auto hidden w-[600px] items-center justify-center gap-2 py-6 md:flex">
       <Swiper
@@ -86,47 +104,54 @@ function SwipeCarouselFilter(props) {
             {/* empty html tag so we can justify between technique utilized by the airbnb folks */}
             <p></p>
           </div>
-          <div className="h-[300px] border-b-2">
-            <h2 className=" font-semibold">Price range</h2>
+          {/* price filter */}
+          <div className="h-[170px] border-b-2">
+            <h2 className=" font-semibold pt-4">Price range</h2>
             <p>The average nightly price is €158</p>
             <div className="flex flex-col items-center">
-              <div>
-                <input type="range" />
-              </div>
               <div className="flex items-center gap-2">
-                <div className="relative">
+                <div className="relative py-4">
                   <p className="absolute p-2 text-xs text-gray-400">
-                    min price
+                    min price €
                   </p>
                   <input
                     className="h-14  w-[270px] rounded-lg border-[1px] pt-2 pl-2"
                     type="number"
-                    placeholder="300€"
+                    name="minPrice"
+                    value={priceFilter.minPrice}
+                    onChange={handlePriceFilterChange}
                   />
                 </div>
                 <p>-</p>
                 <div className="relative">
                   <p className="absolute p-2 text-xs text-gray-400">
-                    max price
+                    max price €
                   </p>
                   <input
-                    className="h-14  w-[270px] rounded-lg border-[1px] pt-2 pl-2"
+                    className="h-14 w-[270px] rounded-lg border-[1px] pt-2 pl-2"
                     type="number"
-                    placeholder="300€"
+                    name="maxPrice"
+                    value={priceFilter.maxPrice}
+                    onChange={handlePriceFilterChange}
                   />
                 </div>
               </div>
             </div>
           </div>
+          {/* amenities section */}
           <div>
             <h2 className=" font-semibold">Amenities</h2>
             <ul className="flex w-full flex-wrap gap-4">
               {amenities.map((amenity, index) => {
                 return (
                   <li className="w-[250px] ">
-                    <label key={index} className="flex items-center gap-3">
+                    <label
+                      key={index}
+                      className="flex items-center gap-3"
+                    >
                       {/* creates a list of checkboxes for the amneties */}
-                      <input className="w-5 h-5"
+                      <input
+                        className="h-5 w-5"
                         type="checkbox"
                         value={amenity}
                         checked={selectedAmenities.includes(amenity)}
@@ -151,8 +176,43 @@ function SwipeCarouselFilter(props) {
               })}
             </ul>
           </div>
+          {/* top tier section */}
           <div>
-            <h2 className=" font-semibold">Top-tier stays</h2>
+            <h2 className="font-semibold">Top-tier stays</h2>
+            <label className="flex items-center gap-3">
+              <input
+                className="h-5 w-5"
+                type="checkbox"
+                value="Superhost"
+                checked={superhost}
+                onChange={(e) => setSuperhost(e.target.checked)}
+              />
+              Superhost
+            </label>
+          </div>
+          <div className="inset-x-0 bottom-0 z-50 -mx-6 flex items-center justify-between rounded-lg bg-white py-2 px-6 shadow-xl">
+            <button
+              // onClick={clearSelections}
+              className="font-semibold underline"
+            >
+              Clear all
+            </button>
+            <Link
+              to={{
+                pathname: "/SearchPage",
+                search: `?${createSearchParams({
+                  // location: selectDestination,
+                  // startDate: startDate.toISOString(),
+                  // endDate: endDate.toISOString(),
+                  // guests: guests.toString(),
+                })}`,
+              }}
+            >
+              {" "}
+              <button className=" flex w-[100px] rounded-md bg-[#E21C61] p-2 font-semibold text-white">
+                show{}
+              </button>
+            </Link>
           </div>
         </div>
       )}
