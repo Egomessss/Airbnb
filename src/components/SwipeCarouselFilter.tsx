@@ -90,6 +90,18 @@ function SwipeCarouselFilter(props) {
     setSuperhost(false)
   }
 
+  // handle the search params submission to filter the homepage listings
+  const handleSubmit = () => {
+    const searchParams = new URLSearchParams();
+    searchParams.append('minPrice', priceFilter.minPrice.toString());
+    searchParams.append('maxPrice', priceFilter.maxPrice.toString());
+    searchParams.append('selectedAmenities', selectedAmenities.join(','));
+    searchParams.append('superhost', superhost.toString());
+    
+    // Redirect to search results page with query parameters as state
+    window.location.href = `/?${searchParams.toString()}`;
+  };
+
   return (
     <div className="mx-auto hidden w-[600px] items-center justify-center gap-2 py-6 md:flex">
       <Swiper
@@ -247,10 +259,7 @@ function SwipeCarouselFilter(props) {
               Clear all
             </button>
             <Link
-              to={{
-                pathname: "/SearchPage",
-                search: `?${createSearchParams({})}`,
-              }}
+              to="/" onClick={handleSubmit}
             >
               {" "}
               <button className=" flex w-[100px] rounded-md bg-[#E21C61] p-2 font-semibold text-white">
