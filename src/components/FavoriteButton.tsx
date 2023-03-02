@@ -15,6 +15,15 @@ function favoriteButton() {
   const toogleFavorite = () => {
     setFavorite(!favorite)
   }
+
+  // saves to local storage
+  //   stringify the state because local storage only accepts strings
+  //  it is stored with every user interaction and retrieved for the initial state when rendering the component for the first time and therefore initializing its hooks
+
+  React.useEffect(() => {
+    localStorage.setItem("my-fav-posts", JSON.stringify(favorite))
+  }, [favorite])
+  
   return (
     <>
       <button onClick={toogleFavorite}>
