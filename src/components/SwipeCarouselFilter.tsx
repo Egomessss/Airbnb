@@ -24,9 +24,6 @@ import { createSearchParams, Link, useSearchParams } from "react-router-dom"
 // each search parameter needs to match their title to the search query
 
 function SwipeCarouselFilter(props) {
-
-
-
   const [openFilterDropdown, setOpenFilterDropdown] = useState(false)
 
   // prevents scrolling when modal is open
@@ -37,17 +34,46 @@ function SwipeCarouselFilter(props) {
     }
   }
 
-  const listingMinPrice = ListingData
+  // price breakdown
 
+  // extract the prices from the data
+  const prices = ListingData.map((item) => item.price_per_night)
+
+  // sorts the prices from smallest to biggest
+  prices.sort((a, b) => a - b)
+
+  const lowestPrice = prices[0]
+
+  const highestPrice = prices[prices.length - 1]
+ 
+
+  let medianPrice
+
+  // Calculate the median price as the middle element of the sorted array. If the length of the array is even, use average of the two middle elements.
+  const middle = Math.floor(prices.length / 2)
+  if (prices.length % 2 === 0) {
+    medianPrice = prices[middle - 1] + prices[middle] / 2
+  } else {
+    medianPrice = prices[middle]
+  }
+  
+  console.log(medianPrice)
+  
   const [priceFilter, setPriceFilter] = useState({
-    minPrice: 1,
-    maxPrice: 2000,
+    minPrice: lowestPrice,
+    maxPrice: highestPrice,
   })
-  console.log(priceFilter)
 
   // updates the state of priceFilter when either of the input fields is changed.
   const handlePriceFilterChange = (e) => {
-    const { name, value } = e.target
+    let { name, value } = e.target
+
+    // Validate max price input
+    if (name === "maxPrice" && value > highestPrice) {
+      // Set max price to the highest allowed value
+      value = highestPrice
+    }
+
     // the parseInt prevent the leading 0 on the inputs
     setPriceFilter({ ...priceFilter, [name]: parseInt(value, 10) })
   }
@@ -59,8 +85,8 @@ function SwipeCarouselFilter(props) {
   // clear the filters
   const clearFilters = () => {
     setPriceFilter({
-      minPrice: 1,
-      maxPrice: 2000,
+      minPrice: lowestPrice,
+      maxPrice: highestPrice,
     })
     setSelectedAmenities([])
     setSuperhost(false)
@@ -139,6 +165,7 @@ function SwipeCarouselFilter(props) {
                     className="h-14  w-[270px] rounded-lg border-[1px] pt-2 pl-2"
                     type="number"
                     name="minPrice"
+                    min={lowestPrice}
                     value={priceFilter.minPrice}
                     onChange={handlePriceFilterChange}
                   />
@@ -152,6 +179,7 @@ function SwipeCarouselFilter(props) {
                     className="h-14 w-[270px] rounded-lg border-[1px] pt-2 pl-2"
                     type="number"
                     name="maxPrice"
+                    max={highestPrice}
                     value={priceFilter.maxPrice}
                     onChange={handlePriceFilterChange}
                   />
