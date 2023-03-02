@@ -45,6 +45,16 @@ function SwipeCarouselFilter(props) {
 
   const [superhost, setSuperhost] = useState(false)
 
+  // clear the filters
+  const clearFilters = () => {
+    setPriceFilter({
+      minPrice: 1,
+      maxPrice: 2000,
+    })
+    setSelectedAmenities([])
+    setSuperhost(false)
+  }
+
   return (
     <div className="mx-auto hidden w-[600px] items-center justify-center gap-2 py-6 md:flex">
       <Swiper
@@ -106,7 +116,7 @@ function SwipeCarouselFilter(props) {
           </div>
           {/* price filter */}
           <div className="h-[170px] border-b-2">
-            <h2 className=" font-semibold pt-4">Price range</h2>
+            <h2 className=" pt-4 font-semibold">Price range</h2>
             <p>The average nightly price is €158</p>
             <div className="flex flex-col items-center">
               <div className="flex items-center gap-2">
@@ -139,8 +149,8 @@ function SwipeCarouselFilter(props) {
             </div>
           </div>
           {/* amenities section */}
-          <div>
-            <h2 className=" font-semibold">Amenities</h2>
+          <div className="py-4">
+            <h2 className=" pb-4 font-semibold">Amenities</h2>
             <ul className="flex w-full flex-wrap gap-4">
               {amenities.map((amenity, index) => {
                 return (
@@ -177,9 +187,9 @@ function SwipeCarouselFilter(props) {
             </ul>
           </div>
           {/* top tier section */}
-          <div>
+          <div className="py-4">
             <h2 className="font-semibold">Top-tier stays</h2>
-            <label className="flex items-center gap-3">
+            <label className="flex items-center gap-3 pt-4">
               <input
                 className="h-5 w-5"
                 type="checkbox"
@@ -190,9 +200,9 @@ function SwipeCarouselFilter(props) {
               Superhost
             </label>
           </div>
-          <div className="inset-x-0 bottom-0 z-50 -mx-6 flex items-center justify-between rounded-lg bg-white py-2 px-6 shadow-xl">
+          <div className="inset-x-0 bottom-0 z-50 -mx-4 flex items-center justify-between rounded-lg border-t-[1px] bg-white py-4  px-4 shadow-xl">
             <button
-              // onClick={clearSelections}
+              onClick={clearFilters}
               className="font-semibold underline"
             >
               Clear all
