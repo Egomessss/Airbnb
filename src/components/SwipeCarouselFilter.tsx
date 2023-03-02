@@ -13,7 +13,6 @@ import { Navigation } from "swiper"
 
 import {
   AdjustmentsHorizontalIcon,
-  MagnifyingGlassIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline"
 
@@ -27,7 +26,7 @@ function SwipeCarouselFilter(props) {
   const [openFilterDropdown, setOpenFilterDropdown] = useState(false)
 
   // prevents scrolling when modal is open
-  const showSearchModal = () => {
+  const showFilterModal = () => {
     setOpenFilterDropdown(true)
     if (typeof window != "undefined" && window.document) {
       document.body.style.overflow = "hidden"
@@ -45,7 +44,6 @@ function SwipeCarouselFilter(props) {
   const lowestPrice = prices[0]
 
   const highestPrice = prices[prices.length - 1]
- 
 
   let medianPrice
 
@@ -56,9 +54,9 @@ function SwipeCarouselFilter(props) {
   } else {
     medianPrice = prices[middle]
   }
-  
+
   console.log(medianPrice)
-  
+
   const [priceFilter, setPriceFilter] = useState({
     minPrice: lowestPrice,
     maxPrice: highestPrice,
@@ -137,7 +135,7 @@ function SwipeCarouselFilter(props) {
         })}
       </Swiper>
       <button
-        onClick={() => showSearchModal(true)}
+        onClick={showFilterModal}
         className="relative hidden items-center gap-1 rounded-xl border-2 p-3 font-semibold md:flex"
       >
         <AdjustmentsHorizontalIcon className="h-5" />
@@ -146,7 +144,9 @@ function SwipeCarouselFilter(props) {
       {openFilterDropdown && (
         <div className="z-index absolute top-44 h-[600px] w-[600px] overflow-y-scroll rounded-lg border-[1px] bg-white px-4 ">
           <div className="flex h-14 items-center justify-between border-b-2 ">
-            <XMarkIcon className="h-5" />
+            <button onClick={() => setOpenFilterDropdown(false)}>
+              <XMarkIcon className="h-5" />
+            </button>
             <p>Filters</p>
             {/* empty html tag so we can justify between technique utilized by the airbnb folks */}
             <p></p>
@@ -154,7 +154,7 @@ function SwipeCarouselFilter(props) {
           {/* price filter */}
           <div className="h-[170px] border-b-2">
             <h2 className=" pt-4 font-semibold">Price range</h2>
-            <p>The average nightly price is €158</p>
+            <p>The average nightly price is €{medianPrice}</p>
             <div className="flex flex-col items-center">
               <div className="flex items-center gap-2">
                 <div className="relative py-4">
@@ -249,12 +249,7 @@ function SwipeCarouselFilter(props) {
             <Link
               to={{
                 pathname: "/SearchPage",
-                search: `?${createSearchParams({
-                  // location: selectDestination,
-                  // startDate: startDate.toISOString(),
-                  // endDate: endDate.toISOString(),
-                  // guests: guests.toString(),
-                })}`,
+                search: `?${createSearchParams({})}`,
               }}
             >
               {" "}
