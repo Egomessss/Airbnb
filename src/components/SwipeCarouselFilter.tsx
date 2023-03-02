@@ -24,7 +24,18 @@ import { createSearchParams, Link, useSearchParams } from "react-router-dom"
 // each search parameter needs to match their title to the search query
 
 function SwipeCarouselFilter(props) {
+
+
+
   const [openFilterDropdown, setOpenFilterDropdown] = useState(false)
+
+  // prevents scrolling when modal is open
+  const showSearchModal = () => {
+    setOpenFilterDropdown(true)
+    if (typeof window != "undefined" && window.document) {
+      document.body.style.overflow = "hidden"
+    }
+  }
 
   const listingMinPrice = ListingData
 
@@ -100,7 +111,7 @@ function SwipeCarouselFilter(props) {
         })}
       </Swiper>
       <button
-        onClick={() => setOpenFilterDropdown(true)}
+        onClick={() => showSearchModal(true)}
         className="relative hidden items-center gap-1 rounded-xl border-2 p-3 font-semibold md:flex"
       >
         <AdjustmentsHorizontalIcon className="h-5" />
