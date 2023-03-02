@@ -2,11 +2,37 @@ import {
   AdjustmentsHorizontalIcon,
   MagnifyingGlassIcon,
 } from "@heroicons/react/24/outline"
-import React from "react"
+import React, { useState } from "react"
+import FilterModal from "../../FilterModal"
 import NavSearchModal from "./NavSearchModal"
 
 function NavMobile({ removeFixed, showFixed }) {
-  const [showModal, setShowModal] = React.useState(false)
+  const [openFilterDropdown, setOpenFilterDropdown] = useState(false)
+
+  // prevents scrolling when modal is open
+  const showFilterModal = () => {
+    setOpenFilterDropdown(true)
+    if (typeof window != "undefined" && window.document) {
+      document.body.style.overflow = "hidden"
+    }
+  }
+
+  const ShowFilterRemoveFixed = () => {
+    if (removeFixed === undefined) {
+      showFilterModal()
+    } else {
+      removeFixed()
+      showFilterModal()
+    }
+  }
+
+  // allows scrolling when the modal is closed
+  const closeFilterModal = () => {
+    setOpenFilterDropdown(false)
+    document.body.style.overflow = "unset"
+  }
+
+  const [showModal, setShowModal] = useState(false)
 
   // prevents scrolling when modal is open
   const showSearchModal = () => {
@@ -65,9 +91,14 @@ function NavMobile({ removeFixed, showFixed }) {
       </div>
       {/* renders the modal */}
       {showModal && <NavSearchModal closeModal={closeModalShowFixed} />}
-      <div>
+
+      <button onClick={ShowFilterRemoveFixed}>
         <AdjustmentsHorizontalIcon className="h-5 w-5" />
-      </div>
+      </button>
+
+      {openFilterDropdown && (
+        <FilterModal closeFilterDropdown={closeFilterModal} />
+      )}
     </nav>
   )
 }

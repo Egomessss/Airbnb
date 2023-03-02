@@ -8,7 +8,7 @@ import Navbar from "../../components/Navbar/Navbar/Navbar"
 import StickyButton from "../../components/StickyButton"
 import SwipeCarouselFilter from "../../components/SwipeCarouselFilter"
 import ListingData from "../../assets/ListingsData.json"
-import { useLocation, useSearchParams } from "react-router-dom"
+import { useSearchParams } from "react-router-dom"
 
 import NavMobile from "../../components/Navbar/Navbar/NavMobile"
 
