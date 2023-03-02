@@ -21,19 +21,35 @@ function Homepage() {
     setOpenMap((prevMode) => !prevMode)
   }
 
-  //! filter params settings
   // acess the search params in the url
+
   const [searchParams, setSearchParams] = useSearchParams()
 
+  //! filter by location params settings
   // retrieves the value of the filter parameter from the searchParams object. The get method is used to retrieve the value of a parameter by its name.
-  const filter = searchParams.get("filter")
+  const filterByLocation = searchParams.get("filter")
 
   // sets the filter params for the swipecarousel
   function setFilter(filter) {
     setSearchParams({ filter: filter })
   }
 
-  const location = useLocation()
+  // filter for the filter carousel
+
+  const [filteredLocationData, setFilteredLocationData] = useState([])
+
+  useEffect(() => {
+    const filteredLocationParam = ListingData.filter((listing: any) => {
+      const typeOfLocationMatch: boolean =
+        listing.type_of_location === filterByLocation
+
+      return typeOfLocationMatch
+    })
+    // Set the filtered data in the state
+    setFilteredLocationData(filteredLocationParam)
+  }, [filterByLocation])
+
+  // filters for the filter modal
 
   const [priceFilter, setPriceFilter] = useState({
     minPrice: Number(searchParams.get("minPrice")),
@@ -51,58 +67,41 @@ function Homepage() {
     searchParams.get("superhost") === "true"
   )
 
-  //! prices data
-
-  // extract the prices from the data
-  const prices = ListingData.map((item) => item.price_per_night)
-
-  // sorts the prices from smallest to biggest
-  prices.sort((a, b) => a - b)
-
-  const lowestPrice = prices[0]
-
-  const highestPrice = prices[prices.length - 1]
-
-  //! filtered data
-
   const [filteredData, setFilteredData] = useState([])
+  console.log(filteredData)
 
+  // executes a function when the component mounts and whenever the specified dependencies[priceFilter, selectedAmenities, superhost] change
   useEffect(() => {
-    const filteredDataParams = ListingData.filter((listing: any) => {
-      const typeOfLocationMatch: boolean =
-        listing.type_of_location === filter
+    let filteredDataParams = ListingData
 
-      const priceMatch: boolean =
-        listing.price_per_night >= priceFilter.minPrice &&
-        listing.price_per_night <= priceFilter.maxPrice
+    // only filters if the price filter conditions are met
+    if (priceFilter.minPrice && priceFilter.maxPrice) {
+      filteredDataParams = filteredDataParams.filter((listing: any) => {
+        return (
+          listing.price_per_night >= priceFilter.minPrice &&
+          listing.price_per_night <= priceFilter.maxPrice
+        )
+      })
+    }
 
-      // function that takes an array of selected amenities (selectedAmenities) and a listing object (listing) as parameters and returns a boolean value indicating whether all the amenities in selectedAmenities are included in the listing.amenities array.
-      const checkAmenitiesMatch = (
-        selectedAmenities: string[],
-        listing: any
-      ): boolean => {
+    // only filters if the selected amenities filter conditions are met
+    if (selectedAmenities.length) {
+      filteredDataParams = filteredDataParams.filter((listing: any) => {
         const listingAmenities: any = listing.amenities
-
-        const isAmenities: boolean = selectedAmenities.every((amenity) =>
+        return selectedAmenities.every((amenity) =>
           listingAmenities.includes(amenity)
         )
-        return isAmenities
-      }
-
-      const amenitiesMatch: boolean = checkAmenitiesMatch(
-        selectedAmenities,
-        listing
-      )
-      // calls the checkamenities match with two arguments
-      const superHostMatch: boolean = superhost && listing.isSuperhost
-
-      return (
-        typeOfLocationMatch && priceMatch && amenitiesMatch && superHostMatch
-      )
-    })
-    // Set the filtered data in the state
+      })
+    }
+    // only filters if the superhost filter conditions are met
+    if (superhost) {
+      filteredDataParams = filteredDataParams.filter((listing: any) => {
+        return listing.isSuperhost
+      })
+    }
+    // set the filtered data to the params if any is selected
     setFilteredData(filteredDataParams)
-  }, [filter, priceFilter, selectedAmenities, superhost])
+  }, [priceFilter, selectedAmenities, superhost])
 
   // ! fixed elements toogle
 
@@ -144,7 +143,13 @@ function Homepage() {
           <Listings
             days={null}
             guests={null}
-            data={filter ? filteredData : ListingData}
+            data={
+              filterByLocation
+                ? filteredLocationData
+                : filteredData.length >1
+                ? filteredData
+                : ListingData
+            }
           />
         )}
       </div>
@@ -164,5 +169,7 @@ function Homepage() {
     </div>
   )
 }
+
+// disclaimer the data and the images are merely placeholders to build this airbnb clone, the data here is just to serve the purpose of showing the functionality, the data that is relevant is properly arranged and managed
 
 export default Homepage
