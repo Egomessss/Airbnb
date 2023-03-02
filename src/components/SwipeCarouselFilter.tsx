@@ -55,7 +55,7 @@ function SwipeCarouselFilter(props) {
     medianPrice = prices[middle]
   }
 
-  console.log(medianPrice)
+  // console.log(medianPrice)
 
   const [priceFilter, setPriceFilter] = useState({
     minPrice: lowestPrice,
@@ -93,13 +93,22 @@ function SwipeCarouselFilter(props) {
   // handle the search params submission to filter the homepage listings
   const handleSubmit = () => {
     const searchParams = new URLSearchParams();
+    // Only append parameters if at least one filter is being used
+  if (priceFilter.minPrice || priceFilter.maxPrice) {
     searchParams.append('minPrice', priceFilter.minPrice.toString());
     searchParams.append('maxPrice', priceFilter.maxPrice.toString());
+  }
+  
+  if (selectedAmenities.length > 0) {
     searchParams.append('selectedAmenities', selectedAmenities.join(','));
+  }
+
+  if (superhost) {
     searchParams.append('superhost', superhost.toString());
-    
-    // Redirect to search results page with query parameters as state
-    window.location.href = `/?${searchParams.toString()}`;
+  }
+
+  // Redirect to search results page with query parameters as state
+  window.location.href = `/?${searchParams.toString()}`;
   };
 
   return (

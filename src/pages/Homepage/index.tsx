@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import BottomNav from "../../components/BottomNav"
 import Footer from "../../components/Footer"
 import Listings from "../../components/Listings"
@@ -8,7 +8,7 @@ import Navbar from "../../components/Navbar/Navbar/Navbar"
 import StickyButton from "../../components/StickyButton"
 import SwipeCarouselFilter from "../../components/SwipeCarouselFilter"
 import ListingData from "../../assets/ListingsData.json"
-import { useSearchParams } from "react-router-dom"
+import { useLocation, useSearchParams } from "react-router-dom"
 
 import NavMobile from "../../components/Navbar/Navbar/NavMobile"
 
@@ -21,7 +21,7 @@ function Homepage() {
     setOpenMap((prevMode) => !prevMode)
   }
 
-  //! filter settings
+  //! filter params settings
   // acess the search params in the url
   const [searchParams, setSearchParams] = useSearchParams()
 
@@ -33,19 +33,72 @@ function Homepage() {
     setSearchParams({ filter: filter })
   }
 
+  const location = useLocation()
+
+  const [priceFilter, setPriceFilter] = useState({
+    minPrice: Number(searchParams.get("minPrice")),
+    maxPrice: Number(searchParams.get("maxPrice")),
+  })
+
+  const [selectedAmenities, setSelectedAmenities] = useState<string[]>(
+    searchParams.get("selectedAmenities")?.split(",") || []
+  )
+
+  const [superhost, setSuperhost] = useState(
+    searchParams.get("superhost") === "true"
+  )
+
+  //! filtered data
+
+  const [filteredData, setFilteredData] = useState([])
+
+  useEffect(() => {
+    // filter the data based on the query parameters. We compare each item's properties (location, guests, start date, and end date) with the corresponding query parameters, and return only the items that match.
+    const filteredDataParams = ListingData.filter((listing) => {
+      const typeOfLocationMatch = !filter || listing.type_of_location === filter
+
+      const priceMatch =
+      priceFilter.minPrice < listing.price_per_night   
+      &&
+      priceFilter.maxPrice > listing.price_per_night  
+      console.log(priceMatch)
+
+      // const amenitiesMatch = (): boolean => {
+      //   if (selectedAmenities.length > 0) {
+      //     const listingAmenities = listing.amenities.split(",")
+      //     return selectedAmenities.every((amenity) =>
+      //       listingAmenities.includes(amenity)
+      //     )
+      //   }
+      //   return true
+      // }
+
+      // const superHostMatch = superhost && !listing.isSuperhost
+
+      return (
+        typeOfLocationMatch && priceMatch
+        //  && amenitiesMatch && superHostMatch
+      )
+    })
+    // Set the filtered data in the state
+    setFilteredData(filteredDataParams || ListingData)
+  }, [filter, priceFilter, selectedAmenities, superhost])
+
+  // const data = filteredData
+  //     : ListingData
+
+  // ! fixed elements toogle
+
   const [removeFixedElements, setRemoveFixedElements] = useState(true)
 
   // removes the sticky map button and bottom nav when the modal is open
   const removeFixed = () => setRemoveFixedElements(false)
 
-    // shows the sticky map button and bottom nav when the modal is closed
+  // shows the sticky map button and bottom nav when the modal is closed
   const showFixed = () => setRemoveFixedElements(true)
 
-
   // add blur to background
-const blur = ()=>{
-
-}
+  const blur = () => {}
 
   return (
     <div className="relative px-6 md:px-20">
@@ -71,11 +124,7 @@ const blur = ()=>{
           // if no filter data is passed we render it normally
           // if filter data is passed we render the listings with the filter queries
 
-          <Listings
-            data={ListingData.filter(
-              (listing) => !filter || listing.type_of_location === filter
-            )}
-          />
+          <Listings data={filteredData} />
         )}
       </div>
       {removeFixedElements && (
@@ -87,8 +136,8 @@ const blur = ()=>{
           <BottomNav />
         </div>
       )}
-
-      <Footer />
+<div className="mt-10"> <Footer /></div>
+     
     </div>
   )
 }
