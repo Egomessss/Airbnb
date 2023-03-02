@@ -51,7 +51,6 @@
       "Hangers"
     ],
     "maximum_nights": 7,
-    "guests_included": 2,
     "allowsChildren": true,
     "allowsInfants": true,
     "allowsPets": false,
@@ -128,7 +127,6 @@
       "Elevator"
     ],
     "maximum_nights": 7,
-    "guests_included": 2,
     "allowsChildren": true,
     "allowsInfants": true,
     "allowsPets": false,
@@ -208,7 +206,6 @@
       "Wifi"
     ],
     "maximum_nights": 7,
-    "guests_included": 2,
     "allowsChildren": true,
     "allowsInfants": true,
     "allowsPets": false,
@@ -285,7 +282,6 @@
       "Hot tub"
     ],
     "maximum_nights": 7,
-    "guests_included": 2,
     "allowsChildren": true,
     "allowsInfants": true,
     "allowsPets": false,
@@ -357,7 +353,6 @@
       "Suitable for events"
     ],
     "maximum_nights": 7,
-    "guests_included": 2,
     "allowsChildren": true,
     "allowsInfants": true,
     "allowsPets": false,
@@ -438,7 +433,6 @@
       "Pets allowed"
     ],
     "maximum_nights": 7,
-    "guests_included": 2,
     "allowsChildren": true,
     "allowsInfants": true,
     "allowsPets": false,
@@ -513,7 +507,6 @@
       "Air conditioning"
     ],
     "maximum_nights": 7,
-    "guests_included": 2,
     "allowsChildren": true,
     "allowsInfants": true,
     "allowsPets": false,
@@ -588,7 +581,6 @@
       "Dryer"
     ],
     "maximum_nights": 7,
-    "guests_included": 2,
     "allowsChildren": true,
     "allowsInfants": true,
     "allowsPets": false,
@@ -669,7 +661,6 @@
       "Lock on bedroom door"
     ],
     "maximum_nights": 14,
-    "guests_included": 2,
     "allowsChildren": false,
     "allowsInfants": false,
     "allowsPets": false,
@@ -752,7 +743,6 @@
       "Lock on bedroom door"
     ],
     "maximum_nights": 14,
-    "guests_included": 4,
     "allowsChildren": true,
     "allowsInfants": true,
     "allowsPets": false,
@@ -836,7 +826,6 @@
       "First aid kit"
     ],
     "maximum_nights": 7,
-    "guests_included": 2,
     "allowsChildren": true,
     "allowsInfants": true,
     "allowsPets": true,
@@ -917,7 +906,6 @@
       "Gym"
     ],
     "maximum_nights": 14,
-    "guests_included": 6,
     "allowsChildren": true,
     "allowsInfants": true,
     "allowsPets": false,
@@ -990,7 +978,6 @@
       "Smoke detector"
     ],
     "maximum_nights": 14,
-    "guests_included": 2,
     "allowsChildren": true,
     "allowsInfants": true,
     "allowsPets": false,
@@ -1077,7 +1064,6 @@
       "Shampoo"
     ],
     "maximum_nights": 30,
-    "guests_included": 4,
     "allowsChildren": true,
     "allowsInfants": true,
     "allowsPets": false,
@@ -1152,7 +1138,6 @@
       "Air conditioning"
     ],
     "maximum_nights": 7,
-    "guests_included": 2,
     "allowsChildren": true,
     "allowsInfants": true,
     "allowsPets": false,
@@ -1234,7 +1219,6 @@
       "Wifi"
     ],
     "maximum_nights": 7,
-    "guests_included": 2,
     "allowsChildren": true,
     "allowsInfants": true,
     "allowsPets": false,
