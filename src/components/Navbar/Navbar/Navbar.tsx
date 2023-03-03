@@ -50,7 +50,7 @@ function Navbar({resetFilter}) {
       <div className=" hidden h-[50px] w-[280px] min-w-[40px] cursor-pointer items-center justify-start md:flex">
         <Link onClick={resetFilter} className="flex items-center font-bold" to="/">
           <AiOutlineFire className="text-5xl h-full text-red-500"/>
-          <p className="text-red-500 text-xl">firebnb</p>
+          <p className="text-red-500 text-xl hidden lg:block ">firebnb</p>
         </Link>
       </div>
       {/* nav middle side */}
