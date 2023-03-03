@@ -32,8 +32,8 @@ function ListingDetails({
 }) {
   // fetches the amenities data from the json file and splits the string into multiple strings
   const amenities = data.amenities
-  // // console.log(string)
-  // const splitToString = string.split(",")
+  
+
 
   return (
     <div className=" mb-14 w-full md:w-[70%]">
@@ -96,8 +96,6 @@ function ListingDetails({
           <FaMedal className="absolute bottom-1 -right-2  z-20 text-2xl text-yellow-500" />
         </div>
       </div>
-
-      {/* add translation */}
       <div className="border-t-[1px] pt-8 pb-6">
         <div className="pt-8">
           <p className="leading-5">{data.description}</p>
@@ -121,7 +119,7 @@ function ListingDetails({
           <h2 className="mb-4 text-xl font-semibold">Where you'll be</h2>
           <p className="mb-4">{data.host_location}</p>
           <div className="h-[318px] w-full  border-black">
-            {/* <MapApi /> */}
+            <MapApi  data={data} />
           </div>
         </div>
 

@@ -11,41 +11,36 @@ import getCenter from "geolib/es/getCenter"
 import { FaMapMarkerAlt } from "react-icons/fa"
 
 function MapApi({ data }) {
+  console.log(data)
   const [showPopup, setShowPopup] = useState(true)
-  console.log(showPopup)
 
   const [selectedListingId, setSelectedListingId] = useState(null)
-  // console.log(selectedListingId)
-
-  // const [selectedLocation, setSelectedLocation] = useState({})
-  // console.log(selectedLocation)
 
   const showPopUpAndLocation = (listingId) => {
     setSelectedListingId(listingId)
     setShowPopup(true)
   }
 
-  // const API_KEY = process.env.REACT_APP_MapboxAccessToken
+  let coordinates = []
 
-  // fetches the coordinates from the listing results
-  const coordinates = data.map((listing: any) => ({
-    longitude: listing.longitude,
-    latitude: listing.latitude,
-  }))
+  if (Array.isArray(data)) {
+    coordinates = data.map((listing) => ({
+      longitude: listing.longitude,
+      latitude: listing.latitude,
+    }))
+  } else {
+    coordinates = [{ longitude: data.longitude, latitude: data.latitude }]
+  }
 
-  // center of all the locations
-
-  const center = getCenter(coordinates)
-
-  console.log(center)
+  const center = coordinates.length
+    ? getCenter(coordinates)
+    : { longitude: 0, latitude: 0 }
 
   const [viewState, setViewState] = useState({
     longitude: typeof center === "object" ? center.longitude : 0,
     latitude: typeof center === "object" ? center.latitude : 0,
     zoom: 4,
   })
-
-  // console.log(viewState)
 
   return (
     <Map
@@ -57,20 +52,18 @@ function MapApi({ data }) {
     >
       <NavigationControl position="bottom-right" />
       <GeolocateControl position="bottom-right" />
-      {data.map((listing) => (
-        <div key={listing.id}>
+      {coordinates.map((listing, index) => (
+        <div key={index}>
           <Marker
-            onClick={() => showPopUpAndLocation(listing.id)}
+            onClick={() => showPopUpAndLocation(index)}
             longitude={listing.longitude}
             latitude={listing.latitude}
-            
           >
-            {/* <p>Marker</p> */}
             <FaMapMarkerAlt className="h-6 w-6 text-xl text-red-600" />
           </Marker>
 
           {/* popup if we click marker */}
-          {selectedListingId === listing.id && (
+          {selectedListingId === index && (
             <Popup
               latitude={listing.latitude}
               longitude={listing.longitude}
@@ -83,7 +76,7 @@ function MapApi({ data }) {
                 setSelectedListingId(null)
               }}
             >
-              {listing.name}
+              {Array.isArray(data) ? data[index].name : data.name}
             </Popup>
           )}
         </div>

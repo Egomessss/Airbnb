@@ -21,6 +21,7 @@ import { SlDiamond } from "react-icons/sl"
 import { addDays, format } from "date-fns"
 import { useState } from "react"
 import NavMobile from "../../components/Navbar/Navbar/NavMobile"
+import MapApi from "../../components/MapApi"
 
 export default function ListingPage() {
   const { listingId } = useParams()
@@ -73,8 +74,8 @@ export default function ListingPage() {
   return (
     <div className="mx-auto max-w-[1200px] px-6">
       <div className="hidden md:block">
-      <Navbar />
-        <NavMobile   />
+      <Navbar resetFilter={null} />
+        <NavMobile removeFixed={null} showFixed={null}   />
       </div>
 
       <ListingNav />
@@ -139,7 +140,7 @@ export default function ListingPage() {
           <h2 className="mb-4 text-xl font-semibold">Where you'll be</h2>
           <p className="mb-4">{thisListing.host_location}</p>
           <div className="h-[718px] w-full  border-2">
-            {/* <MapApi /> */}
+            <MapApi data={thisListing}/>
           </div>
         </div>
       {/* <FooterMobile /> */}
