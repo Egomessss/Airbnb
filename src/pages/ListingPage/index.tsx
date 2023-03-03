@@ -97,7 +97,7 @@ export default function ListingPage() {
               </li>
             ) : null}
 
-            <li className=" mt-1 font-semibold underline underline-offset-1">
+            <li className="  font-semibold underline underline-offset-1">
               {thisListing?.host_location}
             </li>
           </ul>

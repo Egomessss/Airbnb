@@ -32,11 +32,9 @@ function ListingDetails({
 }) {
   // fetches the amenities data from the json file and splits the string into multiple strings
   const amenities = data.amenities
-  
-
 
   return (
-    <div className=" mb-14 md:mb-6 w-full md:w-[70%]">
+    <div className=" mb-14 w-full md:mb-6 md:w-[70%]">
       <div className="flex flex-col gap-2 py-6 md:hidden">
         <div>
           <h1 className="text-2xl font-semibold">{data.summary}</h1>
@@ -66,9 +64,6 @@ function ListingDetails({
         </div>
       </div>
 
-      {/* body */}
-      {/* fix this or remove */}
-
       <div className="flex border-t-[1px] py-6 md:hidden">
         <p>
           <span className="font-semibold">This is a rare find.</span> this
@@ -97,7 +92,8 @@ function ListingDetails({
         </div>
       </div>
       <div className="border-t-[1px] pt-8 pb-6">
-        <div className="pt-8">
+        <div className="pb-6">
+          {" "}
           <p className="leading-5">{data.description}</p>
         </div>
 
@@ -119,7 +115,7 @@ function ListingDetails({
           <h2 className="mb-4 text-xl font-semibold">Where you'll be</h2>
           <p className="mb-4">{data.host_location}</p>
           <div className="h-[318px] w-full  border-black">
-            <MapApi  data={data} />
+            <MapApi data={data} />
           </div>
         </div>
 
