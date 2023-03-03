@@ -16,10 +16,12 @@ function Availability({ data }) {
 
   const [guests, setGuests] = useState(1)
 
-  // if guest over 10 prevent further clicks
+  // if guest over the listing max prevent further clicks and alert
   const handleIncrementClickGuests = () => {
-    if (guests < 10) {
+    if (guests < data.accommodates) {
       setGuests(guests + 1)
+    }else {
+      alert(`Sorry, the maximum number of guests(${data.accommodates}) has been reached.`)
     }
   }
 
@@ -88,11 +90,6 @@ function Availability({ data }) {
 
   const priceTotal = serviceFee + cleaningfee + accomodationPrice
 
-  // ? add minimum date for the calendar
-  // ? add a price total after we set the range
-  // ? add guests pop up
-  // ? add the conditional rendering for the add dates and 1 guests
-  // ?add the reserving pop over
 
   return (
     <div className="top-2 hidden w-full bg-scroll md:sticky md:inline-block">
@@ -234,7 +231,7 @@ function Availability({ data }) {
           </div>
         )}
         {guestPopOver && (
-          <div className="absolute top-[180px] z-50 flex w-[340px] items-center justify-between rounded-xl border-[1px] bg-white px-4 py-6 drop-shadow-lg">
+          <div className="absolute top-[180px] right-0 z-50 flex w-full items-center justify-between rounded-xl border-[1px] bg-white px-4 py-6 drop-shadow-lg">
             <h2 className="font-semibold">Guests</h2>
             <div className="flex items-center gap-4">
               <MinusIcon

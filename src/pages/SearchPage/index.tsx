@@ -117,10 +117,10 @@ function SearchPage() {
 
   return (
     <div className="md:px-10 ">
-      <Navbar />
+      <Navbar resetFilter={null} />
       <NavMobile
-        removeFixed={undefined}
-        showFixed={undefined}
+        removeFixed={null}
+        showFixed={null}
       />
       {/* left section in full and middle in mobile*/}
       <main className="flex md:relative ">
