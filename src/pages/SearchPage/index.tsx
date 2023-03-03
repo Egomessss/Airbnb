@@ -200,7 +200,7 @@ function SearchPage() {
 
       {/* mobile navigation */}
       <div className="sticky bottom-0 z-10 bg-white md:hidden">
-        <BottomNav />
+        <BottomNav resetFilter={null} />
       </div>
       <Footer />
     </div>
