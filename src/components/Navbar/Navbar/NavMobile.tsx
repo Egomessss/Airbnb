@@ -67,7 +67,7 @@ function NavMobile({ removeFixed, showFixed }) {
   }
 
   return (
-    <nav className=" my-3 flex h-[55px] w-full items-center justify-around rounded-full border shadow md:hidden">
+    <nav className=" my-3 flex h-[55px] mx-4 items-center justify-around rounded-full border shadow md:hidden">
       <button>
         <MagnifyingGlassIcon
           // opens the modal

@@ -65,20 +65,19 @@ export default function ListingPage() {
 
   const price = thisListing?.price_per_night
 
-  const priceTotal = (
-    price * daysInBetween
-  )
-
+  const priceTotal = price * daysInBetween
 
   // console.log(priceTotal)
   // console.log(price)
   return (
     <div className="mx-auto max-w-[1200px] px-6">
       <div className="hidden md:block">
-      <Navbar resetFilter={null} />
-        <NavMobile removeFixed={null} showFixed={null}   />
+        <Navbar resetFilter={null} />
       </div>
-
+      <NavMobile
+        removeFixed={null}
+        showFixed={null}
+      />
       <ListingNav />
       <div className="hidden flex-col py-6 md:flex">
         <h1 className="text-2xl font-semibold">{thisListing?.summary}</h1>
@@ -137,13 +136,13 @@ export default function ListingPage() {
           <Availability data={thisListing} />
         </div>
       </div>
-      <div className="hidden md:block border-t-[1px] pt-8 pb-6 ">
-          <h2 className="mb-4 text-xl font-semibold">Where you'll be</h2>
-          <p className="mb-4">{thisListing.host_location}</p>
-          <div className="h-[718px] w-full  border-2 mb-10 ">
-            <MapApi data={thisListing}/>
-          </div>
+      <div className="hidden border-t-[1px] pt-8 pb-6 md:block ">
+        <h2 className="mb-4 text-xl font-semibold">Where you'll be</h2>
+        <p className="mb-4">{thisListing.host_location}</p>
+        <div className="mb-10 h-[718px]  w-full border-2 ">
+          <MapApi data={thisListing} />
         </div>
+      </div>
       {/* <FooterMobile /> */}
       <StickyBottomNav
         formattedStartDate={formattedStartDate}
@@ -151,7 +150,7 @@ export default function ListingPage() {
         priceTotal={priceTotal}
         pricePerNight={price}
       />
-      <Footer/>
+      <Footer />
     </div>
   )
 }
