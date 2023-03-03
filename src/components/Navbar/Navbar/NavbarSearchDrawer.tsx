@@ -175,7 +175,7 @@ export default function NavbarSearchDrawer({ open, setOpen }: any) {
                           </Popover>
                           <p className="w-[200px] bg-inherit text-sm font-medium text-gray-400">
                             {selectDestination === ""
-                              ? `Destination`
+                              ? "I'm Flexible"
                               : `${selectDestination}`}
                           </p>
                           <XMarkIcon
