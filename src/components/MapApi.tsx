@@ -9,6 +9,8 @@ import "mapbox-gl/dist/mapbox-gl.css"
 
 import getCenter from "geolib/es/getCenter"
 import { FaMapMarkerAlt } from "react-icons/fa"
+import { Link } from "react-router-dom"
+import { AiOutlineArrowsAlt } from "react-icons/ai"
 
 function MapApi({ data }) {
   console.log(data)
@@ -23,15 +25,18 @@ function MapApi({ data }) {
 
   let coordinates = []
 
+  // if the data provided is an array map over it and return the array of coordinates that will displayed
   if (Array.isArray(data)) {
     coordinates = data.map((listing) => ({
       longitude: listing.longitude,
       latitude: listing.latitude,
     }))
+    // if its not an array just pass an array with a single object
   } else {
     coordinates = [{ longitude: data.longitude, latitude: data.latitude }]
   }
 
+  // get the center coordinates of the listings selected
   const center = coordinates.length
     ? getCenter(coordinates)
     : { longitude: 0, latitude: 0 }
@@ -64,7 +69,7 @@ function MapApi({ data }) {
 
           {/* popup if we click marker */}
           {selectedListingId === index && (
-            <Popup
+            <Popup className=""
               latitude={listing.latitude}
               longitude={listing.longitude}
               anchor="bottom"
@@ -76,7 +81,11 @@ function MapApi({ data }) {
                 setSelectedListingId(null)
               }}
             >
-              {Array.isArray(data) ? data[index].name : data.name}
+              <img src={data.image1} alt="" />
+              <p className="font-semibold">{data.city}</p>
+              <Link to={`/ListingPage/${selectedListingId}`}>
+                <AiOutlineArrowsAlt className="text-xl text-white w-full rounded-lg bg-blue-500"/>
+               </Link>
             </Popup>
           )}
         </div>
