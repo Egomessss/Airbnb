@@ -9,7 +9,7 @@ import { DateRangePicker } from "react-date-range"
 import { CiLocationOn, CiCalendar } from "react-icons/ci"
 import { FaMedal } from "react-icons/fa"
 import { SlDiamond } from "react-icons/sl"
-import { TbBeach } from "react-icons/tb"
+import { BiRightArrow } from "react-icons/bi"
 
 import MapApi from "../../components/MapApi"
 import MobileBtn from "../../components/MobileBtn"
@@ -103,16 +103,16 @@ function ListingDetails({
 
         <div className="border-t-[1px] pt-8 pb-6 md:h-[500px]">
           <h2 className="mb-4 text-xl font-semibold">What this place offers</h2>
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+          <ul className="grid grid-cols-1 gap-4 md:grid-cols-2">
             {amenities.map((amenitie) => {
               return (
-                <div className="flex w-[250px] gap-2 whitespace-nowrap">
-                  <TbBeach className="block h-[24px] w-[24px]" />
+                <li className="flex w-[250px] gap-2 whitespace-nowrap">
+                  <BiRightArrow className="block h-[24px] w-[24px]" />
                   <p>{amenitie}</p>
-                </div>
+                </li>
               )
             })}
-          </div>
+          </ul>
         </div>
 
         <div className="border-t-[1px] pt-8 pb-6 md:hidden">
