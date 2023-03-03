@@ -5,8 +5,6 @@ import { DateRangePicker } from "react-date-range"
 import { CiKeyboard } from "react-icons/ci"
 import { SlDiamond } from "react-icons/sl"
 
-// import ListingDatePicker from "./ListingDatePicker"
-
 function Availability({ data }) {
   //! modal state
   const [datePopOver, setDatePopOver] = useState(false)
@@ -20,8 +18,10 @@ function Availability({ data }) {
   const handleIncrementClickGuests = () => {
     if (guests < data.accommodates) {
       setGuests(guests + 1)
-    }else {
-      alert(`Sorry, the maximum number of guests(${data.accommodates}) has been reached.`)
+    } else {
+      alert(
+        `Sorry, the maximum number of guests(${data.accommodates}) has been reached.`
+      )
     }
   }
 
@@ -52,7 +52,10 @@ function Availability({ data }) {
   const handleSelection = (ranges: any) => {
     setStartDate(ranges.selection.startDate)
     setEndDate(ranges.selection.endDate)
+    
   }
+
+  console.log(handleSelection)
 
   // clears the selection
   const clearSelection = () => {
@@ -71,10 +74,12 @@ function Availability({ data }) {
   const daysInBetween = Math.round(
     (endDate.getTime() - startDate.getTime()) / 86400000
   )
+
+  
+  
+
   // closes the modal
   const closeBtn = () => setDatePopOver(false)
-
-  // console.log(daysInBetween)
 
   // !Price breakdown
 
@@ -90,7 +95,6 @@ function Availability({ data }) {
 
   const priceTotal = serviceFee + cleaningfee + accomodationPrice
 
-
   return (
     <div className="top-2 hidden w-full bg-scroll md:sticky md:inline-block">
       <div
@@ -100,8 +104,8 @@ function Availability({ data }) {
             : "z-50 mt-6 h-[262px] gap-5 rounded-xl border-[1px] bg-white p-4  shadow-lg drop-shadow-md"
         }
       >
-        <div className="flex h-16 items-center justify-between">
-          <h1 className="text-xl font-medium">{price}€ per night</h1>
+        <div className="flex h-16 items-center justify-between gap-1">
+          <h1 className="text-lg font-medium">{price}€ per night</h1>
           <div>
             <ul className="flex items-center gap-2 text-sm font-medium">
               <li>
@@ -213,7 +217,13 @@ function Availability({ data }) {
             />
             <div className=" flex justify-between">
               <CiKeyboard className="text-3xl" />
-              <div className="flex gap-3">
+              <div className="flex items-center gap-3">
+                {/* trows an error if the the dates selected is lower than the minimum allowed */}
+                {daysInBetween < data.minimum_nights && (
+                  <div className="bg-red-600 rounded-md py-1 px-3 text-white">
+                    <p>The minimum stay is {data.minimum_nights} nights!</p>
+                  </div>
+                )}
                 <button
                   onClick={clearSelection}
                   className="font-medium underline"
