@@ -147,12 +147,13 @@ function Homepage() {
         ) : (
           // if no filter data is passed we render it normally
           // if filter data is passed we render the listings with the filter queries
-
-          <Listings
-            days={null}
-            guests={null}
-            data={filterByLocation ? filteredLocationData : filteredData}
-          />
+          <div className="pb-10">
+            <Listings
+              days={null}
+              guests={null}
+              data={filterByLocation ? filteredLocationData : filteredData}
+            />
+          </div>
         )}
       </div>
       {removeFixedElements && (
@@ -161,7 +162,7 @@ function Homepage() {
             openMap={openMap}
             flipText={toogleMap}
           />
-          <BottomNav resetFilter={()=>setFilteredData(ListingData)} />
+          <BottomNav resetFilter={() => setFilteredData(ListingData)} />
         </div>
       )}
       <div className="mt-10">
