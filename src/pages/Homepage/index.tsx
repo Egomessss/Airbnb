@@ -107,7 +107,7 @@ function Homepage() {
 
   const [resetFilter, setResetFilter] = useState(false)
 
-  // const toogleFilter = ()=> 
+  // const toogleFilter = ()=>
 
   // ! fixed elements toogle
 
@@ -125,7 +125,7 @@ function Homepage() {
   return (
     <div className="relative px-6 md:px-20">
       <div className="sticky top-0 z-10 bg-white">
-        <Navbar resetFilter={()=>setFilteredData(ListingData)}/>
+        <Navbar resetFilter={() => setFilteredData(ListingData)} />
         <NavMobile
           showFixed={showFixed}
           removeFixed={removeFixed}
@@ -140,7 +140,9 @@ function Homepage() {
       make a function for the button that opens and closes the map */}
         {openMap ? (
           <div className="h-[1020px] w-full">
-            <MapApi data={filterByLocation ? filteredLocationData : filteredData} />
+            <MapApi
+              data={filterByLocation ? filteredLocationData : filteredData}
+            />
           </div>
         ) : (
           // if no filter data is passed we render it normally
@@ -159,7 +161,7 @@ function Homepage() {
             openMap={openMap}
             flipText={toogleMap}
           />
-          <BottomNav />
+          <BottomNav resetFilter={()=>setFilteredData(ListingData)} />
         </div>
       )}
       <div className="mt-10">
