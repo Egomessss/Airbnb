@@ -1,16 +1,39 @@
 import React, { useState } from "react"
-import Map, { GeolocateControl, NavigationControl } from "react-map-gl"
+import Map, {
+  GeolocateControl,
+  NavigationControl,
+  Marker,
+  Popup,
+} from "react-map-gl"
 import "mapbox-gl/dist/mapbox-gl.css"
+import geolib from "geolib"
+import getCenter from "geolib/es/getCenter"
+import { FaMapMarkerAlt } from "react-icons/fa"
 
-function MapApi() {
+function MapApi({ data }) {
+  const [selectedLocation, setSelectedLocation] = useState({})
   // const API_KEY = process.env.REACT_APP_MapboxAccessToken
-  
+  console.log(selectedLocation)
+
+  // fetches the coordinates from the listing results
+  const coordinates = data.map((listing: any) => ({
+    longitude: listing.longitude,
+    latitude: listing.latitude,
+  }))
+
+  // center of all the locations
+
+  const center = getCenter(coordinates)
+
+  console.log(center)
 
   const [viewState, setViewState] = useState({
-    longitude: -122.4,
-    latitude: 37.8,
-    zoom: 11,
+    longitude: typeof center === "object" ? center.longitude : 0,
+    latitude: typeof center === "object" ? center.latitude : 0,
+    zoom: 4,
   })
+
+  console.log(viewState)
 
   return (
     <Map
@@ -18,10 +41,35 @@ function MapApi() {
       // Environmental key for my mapbox api
       mapboxAccessToken="pk.eyJ1IjoiZWRtaWxzb25nIiwiYSI6ImNsNWJwN3QwYzA5dmEza3MwY3Uyd20wdHQifQ.j1osfvQiPNdQyUpd7N4MkA"
       {...viewState}
-      onMove={evt => setViewState(evt.viewState)}
+      onMove={(evt) => setViewState(evt.viewState)}
     >
-       <NavigationControl position="bottom-right" />
-       <GeolocateControl position="bottom-right" />
+      <NavigationControl position="bottom-right" />
+      <GeolocateControl position="bottom-right" />
+      {data.map((listing) => (
+        <div key={listing.id}>
+          <Marker
+            longitude={listing.longitude}
+            latitude={listing.latitude}
+            // offsetLeft={-20}
+            // offsetTop={-10}
+          >
+            <button onClick={() => setSelectedLocation(listing)}>
+              <FaMapMarkerAlt className="text-xl text-green-600" />
+            </button>
+          </Marker>
+          {/* popup if we click marker */}
+          {selectedLocation.id === listing.id && (
+            <Popup
+              onClose={setSelectedLocation({})}
+              closeOnClick={true}
+              latitude={listing.latitude}
+              longitude={listing.longitude}
+            >
+              {listing.name}
+            </Popup>
+          )}
+        </div>
+      ))}
     </Map>
   )
 }

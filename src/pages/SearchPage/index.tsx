@@ -153,13 +153,13 @@ function SearchPage() {
         </div>
 
         <div className="hidden w-full border-2 md:min-h-[995px] md:w-[40%] lg:inline-flex">
-          {/* <MapApi /> */}
+        <MapApi data={currentPosts} />
         </div>
 
         {/* open the map or the listing info */}
         {openMap ? (
           <div className="h-[700px] w-full md:hidden">
-            {/* <MapApi /> */}
+            <MapApi data={currentPosts} />
           </div>
         ) : (
           <div className="flex flex-col  px-4 md:hidden">

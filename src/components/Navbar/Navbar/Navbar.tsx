@@ -14,7 +14,7 @@ import { useLocation } from "react-router-dom"
 import NavbarSearchDrawer from "./NavbarSearchDrawer"
 import {AiOutlineFire} from "react-icons/ai"
 
-function Navbar() {
+function Navbar({resetFilter}) {
   // !state for the NavSearchModal
   const [open, setOpen] = useState(false)
 
@@ -48,7 +48,7 @@ function Navbar() {
     <nav className="hidden items-center justify-between border-b-[1.5px]  px-4 py-2 md:flex md:pt-4">
       {/* nav left side */}
       <div className=" hidden h-[50px] w-[280px] min-w-[40px] cursor-pointer items-center justify-start md:flex">
-        <Link className="flex items-center font-bold" to="/">
+        <Link onClick={resetFilter} className="flex items-center font-bold" to="/">
           <AiOutlineFire className="text-5xl h-full text-red-500"/>
           <p className="text-red-500 text-xl">firebnb</p>
         </Link>

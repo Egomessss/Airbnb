@@ -103,6 +103,12 @@ function Homepage() {
     setFilteredData(filteredDataParams)
   }, [priceFilter, selectedAmenities, superhost])
 
+  // !reset filters
+
+  const [resetFilter, setResetFilter] = useState(false)
+
+  // const toogleFilter = ()=> 
+
   // ! fixed elements toogle
 
   const [removeFixedElements, setRemoveFixedElements] = useState(true)
@@ -119,7 +125,7 @@ function Homepage() {
   return (
     <div className="relative px-6 md:px-20">
       <div className="sticky top-0 z-10 bg-white">
-        <Navbar />
+        <Navbar resetFilter={()=>setFilteredData(ListingData)}/>
         <NavMobile
           showFixed={showFixed}
           removeFixed={removeFixed}
@@ -133,8 +139,8 @@ function Homepage() {
         {/* open the map with the sticky button and hides the homecards
       make a function for the button that opens and closes the map */}
         {openMap ? (
-          <div className="h-[1000px] w-full">
-            <MapApi />
+          <div className="h-[1020px] w-full">
+            <MapApi data={filterByLocation ? filteredLocationData : filteredData} />
           </div>
         ) : (
           // if no filter data is passed we render it normally
@@ -143,13 +149,7 @@ function Homepage() {
           <Listings
             days={null}
             guests={null}
-            data={
-              filterByLocation
-                ? filteredLocationData
-                : filteredData.length
-                ? filteredData
-                : filteredData
-            }
+            data={filterByLocation ? filteredLocationData : filteredData}
           />
         )}
       </div>
