@@ -36,7 +36,7 @@ function ListingDetails({
 
 
   return (
-    <div className=" mb-14 w-full md:w-[70%]">
+    <div className=" mb-14 md:mb-6 w-full md:w-[70%]">
       <div className="flex flex-col gap-2 py-6 md:hidden">
         <div>
           <h1 className="text-2xl font-semibold">{data.summary}</h1>

@@ -18,10 +18,6 @@ function Availability({ data }) {
   const handleIncrementClickGuests = () => {
     if (guests < data.accommodates) {
       setGuests(guests + 1)
-    } else {
-      alert(
-        `Sorry, the maximum number of guests(${data.accommodates}) has been reached.`
-      )
     }
   }
 
@@ -52,10 +48,7 @@ function Availability({ data }) {
   const handleSelection = (ranges: any) => {
     setStartDate(ranges.selection.startDate)
     setEndDate(ranges.selection.endDate)
-    
   }
-
-  console.log(handleSelection)
 
   // clears the selection
   const clearSelection = () => {
@@ -74,9 +67,6 @@ function Availability({ data }) {
   const daysInBetween = Math.round(
     (endDate.getTime() - startDate.getTime()) / 86400000
   )
-
-  
-  
 
   // closes the modal
   const closeBtn = () => setDatePopOver(false)
@@ -99,7 +89,7 @@ function Availability({ data }) {
     <div className="top-2 hidden w-full bg-scroll md:sticky md:inline-block">
       <div
         className={
-          accomodationPrice > price
+          accomodationPrice > price && datePopOver === false
             ? "z-50 mt-6 h-[452px] gap-5 rounded-xl border-[1px] bg-white p-4  shadow-lg drop-shadow-md"
             : "z-50 mt-6 h-[262px] gap-5 rounded-xl border-[1px] bg-white p-4  shadow-lg drop-shadow-md"
         }
@@ -127,7 +117,7 @@ function Availability({ data }) {
               <p className="font-medium uppercase ">Check-in</p>
               <p className="font-medium uppercase">Checkout</p>
             </div>
-            <div className="flex justify-around">
+            <div className="flex justify-around ">
               <p>
                 {/* if the accomodation price is higher than the price per night it means the user has selected the dates so display it otherside show the placeholder */}
                 {accomodationPrice > price ? formattedStartDate : "Add dates"}
@@ -140,7 +130,7 @@ function Availability({ data }) {
 
           <button
             onClick={handleGuestPopOver}
-            className="col-span-2  border-t-[1px] border-gray-500 px-14 text-left"
+            className="col-span-2   border-t-[1px] border-gray-500 px-14 text-left"
           >
             <p className="font-medium uppercase">Guests</p>
             <p>
@@ -148,10 +138,12 @@ function Availability({ data }) {
             </p>
           </button>
         </div>
-        <div className="mt-4">
+        <div className="mt-4 ">
           {/* reserve button is only avaibable if not input has been passed by the user */}
-          {accomodationPrice > price ? (
-            <button className="w-full  rounded-xl bg-[#DA0A65] p-3 font-semibold text-white">
+          {accomodationPrice > price &&
+          guestPopOver === false &&
+          datePopOver === false ? (
+            <button className="h-50 w-full rounded-xl bg-[#DA0A65] p-3 font-semibold text-white">
               {accomodationPrice > price ? "Reserve" : "Check Availability"}
             </button>
           ) : (
@@ -163,30 +155,30 @@ function Availability({ data }) {
             </button>
           )}
         </div>
-        {accomodationPrice > price ? (
-          <div>
-            <ul className="mt-4 flex flex-col gap-4">
-              <li className="flex justify-between">
-                <p className="underline">Accomodation</p>
-                <p>{accomodationPrice}€</p>
-              </li>
-              <li className="flex justify-between">
-                <p className="underline">Cleaning fee</p>
-                <p>{cleaningfee}€</p>
-              </li>
-              <li className="flex justify-between border-b-2 pb-5">
-                <p className="underline">Service fee</p>
-                <p>{serviceFee}€</p>
-              </li>
-              <li className="flex justify-between">
-                <p className="font-bold">Total</p>
-                <p>{priceTotal}€</p>
-              </li>
-            </ul>
-          </div>
-        ) : null}
+        {/* price popover */}
+
+        {accomodationPrice > price && datePopOver === false && (
+          <ul className=" mt-4 flex flex-col gap-4 ">
+            <li className="flex justify-between">
+              <p className="underline">Accomodation</p>
+              <p>{accomodationPrice.toLocaleString("de-DE")}€</p>
+            </li>
+            <li className="flex justify-between">
+              <p className="underline">Cleaning fee</p>
+              <p>{cleaningfee}€</p>
+            </li>
+            <li className="flex justify-between border-b-2 pb-5">
+              <p className="underline">Service fee</p>
+              <p>{serviceFee}€</p>
+            </li>
+            <li className="flex justify-between">
+              <p className="font-bold">Total</p>
+              <p>{priceTotal.toLocaleString("de-DE")}€</p>
+            </li>
+          </ul>
+        )}
         {datePopOver && (
-          <div className="absolute top-20 right-0 z-50 rounded-xl border-[1px] bg-white p-6 shadow-lg">
+          <div className="absolute  top-20 right-0 z-50 rounded-xl border-[1px] bg-white p-6 shadow-lg">
             <div className="flex justify-between">
               <div>
                 <p>{daysInBetween} nights</p>
@@ -220,10 +212,11 @@ function Availability({ data }) {
               <div className="flex items-center gap-3">
                 {/* trows an error if the the dates selected is lower than the minimum allowed */}
                 {daysInBetween < data.minimum_nights && (
-                  <div className="bg-red-600 rounded-md py-1 px-3 text-white">
-                    <p>The minimum stay is {data.minimum_nights} nights!</p>
+                  <div className="rounded-md bg-red-600 py-1 px-3 text-white">
+                    <p>The minimum stay is {data.minimum_nights} days!</p>
                   </div>
                 )}
+
                 <button
                   onClick={clearSelection}
                   className="font-medium underline"
@@ -241,9 +234,9 @@ function Availability({ data }) {
           </div>
         )}
         {guestPopOver && (
-          <div className="absolute top-[180px] right-0 z-50 flex w-full items-center justify-between rounded-xl border-[1px] bg-white px-4 py-6 drop-shadow-lg">
-            <h2 className="font-semibold">Guests</h2>
+          <div className="absolute top-[180px] right-0 z-50 flex w-full flex-col items-center justify-between gap-4 rounded-xl border-[1px] bg-white px-4  py-6  drop-shadow-lg">
             <div className="flex items-center gap-4">
+              <h2 className="font-semibold">Guests</h2>
               <MinusIcon
                 onClick={handleDecrementClickGuests}
                 className="h-10 rounded-full border-2 p-2"
@@ -254,10 +247,18 @@ function Availability({ data }) {
                 className="h-10 rounded-full border-2 p-2"
               />
             </div>
+
+            {/* trows an error if the the dates selected is lower than the minimum allowed */}
+            {guests >= data.accommodates && (
+              <p className="rounded-md bg-red-600 p-2  text-sm text-white">
+                {" "}
+                Maximum number of guests is {data.accommodates}
+              </p>
+            )}
           </div>
         )}
       </div>
-      {data.isRareFind ? (
+      {data.isRareFind && (
         <div className=" mt-6 flex h-[92px] w-[372px] items-center justify-center  gap-2 rounded-xl border-[1px]  bg-scroll p-2 shadow-lg ">
           <div className="w-3/4">
             <p>
@@ -267,7 +268,7 @@ function Availability({ data }) {
           </div>
           <SlDiamond className="block h-[32px] w-[32px] fill-[#E31C5F]" />
         </div>
-      ) : null}
+      )}
     </div>
   )
 }
