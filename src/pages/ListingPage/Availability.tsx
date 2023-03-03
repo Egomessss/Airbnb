@@ -189,7 +189,7 @@ function Availability({ data }) {
             <div className="flex justify-between">
               <div>
                 <p>{daysInBetween} nights</p>
-                <p>Minimum stay: </p>
+                <p>Minimum stay: {data.minimum_nights} </p>
               </div>
               <div className="flex w-[300px] gap-4 rounded-lg border-[1px] p-2">
                 <button className=" w-1/2 border-r-[1px] border-gray-500 px-2 text-left">
