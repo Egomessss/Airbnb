@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import { useState } from "react"
 import Map, {
   GeolocateControl,
   NavigationControl,
@@ -6,14 +6,26 @@ import Map, {
   Popup,
 } from "react-map-gl"
 import "mapbox-gl/dist/mapbox-gl.css"
-import geolib from "geolib"
+
 import getCenter from "geolib/es/getCenter"
 import { FaMapMarkerAlt } from "react-icons/fa"
 
 function MapApi({ data }) {
-  const [selectedLocation, setSelectedLocation] = useState({})
+  const [showPopup, setShowPopup] = useState(true)
+  console.log(showPopup)
+
+  const [selectedListingId, setSelectedListingId] = useState(null)
+  // console.log(selectedListingId)
+
+  // const [selectedLocation, setSelectedLocation] = useState({})
+  // console.log(selectedLocation)
+
+  const showPopUpAndLocation = (listingId) => {
+    setSelectedListingId(listingId)
+    setShowPopup(true)
+  }
+
   // const API_KEY = process.env.REACT_APP_MapboxAccessToken
-  console.log(selectedLocation)
 
   // fetches the coordinates from the listing results
   const coordinates = data.map((listing: any) => ({
@@ -33,7 +45,7 @@ function MapApi({ data }) {
     zoom: 4,
   })
 
-  console.log(viewState)
+  // console.log(viewState)
 
   return (
     <Map
@@ -48,22 +60,28 @@ function MapApi({ data }) {
       {data.map((listing) => (
         <div key={listing.id}>
           <Marker
+            onClick={() => showPopUpAndLocation(listing.id)}
             longitude={listing.longitude}
             latitude={listing.latitude}
-            // offsetLeft={-20}
-            // offsetTop={-10}
+            
           >
-            <button onClick={() => setSelectedLocation(listing)}>
-              <FaMapMarkerAlt className="text-xl text-green-600" />
-            </button>
+            {/* <p>Marker</p> */}
+            <FaMapMarkerAlt className="h-6 w-6 text-xl text-red-600" />
           </Marker>
+
           {/* popup if we click marker */}
-          {selectedLocation.id === listing.id && (
+          {selectedListingId === listing.id && (
             <Popup
-              onClose={setSelectedLocation({})}
-              closeOnClick={true}
               latitude={listing.latitude}
               longitude={listing.longitude}
+              anchor="bottom"
+              closeOnClick={false}
+              closeOnMove
+              closeButton={false}
+              onClose={() => {
+                setShowPopup(false)
+                setSelectedListingId(null)
+              }}
             >
               {listing.name}
             </Popup>
