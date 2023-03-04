@@ -263,7 +263,7 @@ function Availability({ data }:any) {
           <div className="w-3/4">
             <p>
               <span className="font-semibold">This is a rare find.</span>{" "}
-              Pedro's place on Airbnb is usually fully booked.
+              This place on Airbnb is usually fully booked.
             </p>
           </div>
           <SlDiamond className="block h-[32px] w-[32px] fill-[#E31C5F]" />
