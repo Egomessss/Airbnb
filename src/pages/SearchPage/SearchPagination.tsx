@@ -8,7 +8,7 @@ function SearchPagination({
   decrementPage,
   incrementPage,
   pageNumbers,
-}) {
+}:any) {
   return (
     <nav className="flex justify-center gap-4">
       <button>
@@ -19,7 +19,7 @@ function SearchPagination({
       </button>
 
       <div className="flex gap-4">
-        {pageNumbers.map((number) => (
+        {pageNumbers.map((number:number) => (
           <button
             onClick={() => changePage(number)}
             key={number}

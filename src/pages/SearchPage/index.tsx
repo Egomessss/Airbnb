@@ -10,8 +10,8 @@ import SearchPagination from "./SearchPagination"
 
 import Listings from "../../components/Listings"
 import ListingData from "../../assets/ListingsData.json"
-import { useLocation} from "react-router-dom"
-import {  format } from "date-fns"
+import { useLocation } from "react-router-dom"
+import { format } from "date-fns"
 import Footer from "../../components/Footer"
 import NavMobile from "../../components/Navbar/Navbar/NavMobile"
 import MapApi from "../../components/MapApi"
@@ -38,25 +38,28 @@ function SearchPage() {
 
   const guestsParam = searchParams.get("guests")
 
-
   const startDateParam = searchParams.get("startDate")
   const endDateParam = searchParams.get("endDate")
 
   // formats the dataparams into a human-readable format
-  const formattedStartDate = format(new Date(startDateParam), "PP")
-  const formattedEndDate = format(new Date(endDateParam), "PP")
+  const formattedStartDate = startDateParam
+    ? format(new Date(startDateParam), "PP")
+    : ""
+  const formattedEndDate = endDateParam
+    ? format(new Date(endDateParam), "PP")
+    : ""
+  const startDate = startDateParam ? new Date(startDateParam) : null
 
-  const startDate = new Date(startDateParam)
-  const endDate = new Date(endDateParam)
+  const endDate = endDateParam ? new Date(endDateParam) : null
 
-  const daysInBetween = Math.round(
-    (endDate.getTime() - startDate.getTime()) / 86400000
-  )
+  const daysInBetween = endDate && startDate
+  ? Math.round((endDate.getTime() - startDate.getTime()) / 86400000)
+  : 0;
 
   const guests = Number(guestsParam)
 
   // stores the filtered data
-  const [filteredData, setFilteredData] = useState([])
+  const [filteredData, setFilteredData] = useState<any[]>([])
 
   // use the useEffect hook to run the filtering logic whenever the query parameters change
 
@@ -92,7 +95,7 @@ function SearchPage() {
   const currentPosts = filteredData.slice(indexOfFirstPost, indexOfLastPost)
 
   // change page
-  const changePage = (pageNumber) => setCurrentPage(pageNumber)
+  const changePage = (pageNumber:number) => setCurrentPage(pageNumber)
 
   const decrementPage = () => {
     if (currentPage > 1) {
@@ -112,7 +115,6 @@ function SearchPage() {
   for (let i = 1; i <= Math.ceil(filteredData.length / postsPerPage); i++) {
     pageNumbers.push(i)
   }
-
 
   return (
     <div className="md:px-10 ">
@@ -152,7 +154,7 @@ function SearchPage() {
         </div>
 
         <div className="hidden w-full border-2 md:min-h-[995px] md:w-[40%] lg:inline-flex">
-        <MapApi data={currentPosts} />
+          <MapApi data={currentPosts} />
         </div>
 
         {/* open the map or the listing info */}
@@ -172,7 +174,7 @@ function SearchPage() {
               - for <span className="mr-2 font-semibold">{guestsParam}</span>
               {guests > 1 ? `guests` : `guest`}
             </p>
-          
+
             <div className=" mb-32">
               <Listings
                 days={daysInBetween}
@@ -191,8 +193,8 @@ function SearchPage() {
         )}
         <div className="md:hidden">
           <StickyButton
-             openMap={openMap}
-             flipText={toogleMap}
+            openMap={openMap}
+            flipText={toogleMap}
           />
         </div>
       </main>
