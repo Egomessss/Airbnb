@@ -1,3 +1,18 @@
+<h2>Languages and Tools</h2>
+
+-CSS
+-React
+-TailwindCSS
+-Typescript
+
+[Live demo link](https://firebnb.vercel.app/)
+
+<h2>What I added to improve functionality:</h2>
+
+This project served some simple purposes, push me to think like a developer, problem solve like a developer and get the main functionality as close to airbnbs.
+
+<h2>What functionalities did i achieve?</h2>
+
 Homepage/Search page
 - [x]  Location select, calendar and guests;
 - [x]  Navigation from the navbar to the search-page ;
