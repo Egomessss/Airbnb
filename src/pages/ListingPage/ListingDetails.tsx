@@ -93,7 +93,7 @@ function ListingDetails({
           <ul className="grid grid-cols-1 gap-4 md:grid-cols-2">
             {amenities.map((amenitie) => {
               return (
-                <li className="flex w-[250px] gap-2 whitespace-nowrap">
+                <li key={amenitie} className="flex w-[250px] gap-2 whitespace-nowrap">
                   <BiRightArrow className="block h-[24px] w-[24px]" />
                   <p>{amenitie}</p>
                 </li>

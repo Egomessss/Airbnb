@@ -20,9 +20,9 @@ function ListingCarousel({thisListing}) {
         }}
         modules={[Pagination]}
       >
-        {thisListing.thumbImages.map((img) => {
+        {thisListing.thumbImages.map((img, index) => {
           return (
-            <SwiperSlide key={thisListing.description}>
+            <SwiperSlide key={index}>
               <img
                 src={img}
                 alt=""
