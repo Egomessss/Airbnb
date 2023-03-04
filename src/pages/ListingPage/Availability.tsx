@@ -103,7 +103,7 @@ function Availability({ data }) {
               </li>
               <li>{data.rating}</li>
               <li className="text-gray-500 underline">
-                <a href="">{data.number_of_reviews} Reviews</a>
+                <p>{data.number_of_reviews} Reviews</p>
               </li>
             </ul>
           </div>

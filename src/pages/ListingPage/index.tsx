@@ -141,7 +141,7 @@ export default function ListingPage() {
           <MapApi data={thisListing} />
         </div>
       </div>
-      {/* <FooterMobile /> */}
+    
       <StickyBottomNav
         formattedStartDate={formattedStartDate}
         formattedendDate={formattedendDate}
