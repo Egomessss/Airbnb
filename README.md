@@ -11,7 +11,7 @@
 
 This project served some simple purposes, push me to think like a developer, problem solve like a developer and get the main functionality as close as possible to airbnbs without utilizing a backend.
 
-<h2>What functionalities did i achieve?</h2>
+<h2>What functionalities did I achieve?</h2>
 
 Homepage/Search page
 - [x]  Location select, calendar and guests;
