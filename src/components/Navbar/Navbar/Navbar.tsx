@@ -33,8 +33,8 @@ function Navbar({resetFilter}:any) {
   const endDateParam = searchParams.get("endDate")
 
   // formats the dataparams into a human-readable format
-  const formattedStartDate = format(new Date(startDateParam), "dd MMM")
-  const formattedEndDate = format(new Date(endDateParam), "dd MMM")
+const formattedStartDate = startDateParam ? format(new Date(startDateParam), "dd MMM") : '';
+const formattedEndDate = endDateParam ? format(new Date(endDateParam), "dd MMM") : '';
 
   const dateRange = `${formattedStartDate} - ${formattedEndDate}`
 

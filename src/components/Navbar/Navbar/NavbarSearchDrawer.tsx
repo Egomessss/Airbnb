@@ -44,7 +44,7 @@ export default function NavbarSearchDrawer({ open, setOpen }: any) {
   }
 
   // sets the start and end date in the calendar
-  const handleSelection = (ranges) => {
+  const handleSelection = (ranges:any) => {
     setStartDate(ranges.selection.startDate)
     setEndDate(ranges.selection.endDate)
   }
