@@ -1,11 +1,9 @@
-
-
 function StickyBottomNav({
   formattedStartDate,
   formattedendDate,
   priceTotal,
   pricePerNight,
-}:any) {
+}: any) {
   const displayTotal = priceTotal.toLocaleString("de-DE")
   return (
     <div className="fixed inset-x-0 bottom-0 z-50 flex h-[80px] w-full items-center justify-between bg-white px-6 py-2 shadow md:hidden">
@@ -24,7 +22,7 @@ function StickyBottomNav({
         </p>
       </div>
       <button className="h-[48px] w-[110px] rounded-lg bg-[#DF1362] font-semibold text-white">
-       Reserve
+        Reserve
       </button>
     </div>
   )
