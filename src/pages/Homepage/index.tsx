@@ -58,19 +58,19 @@ function Homepage() {
     maxPrice: Number(searchParams.get("maxPrice")),
   })
 
-  // console.log(priceFilter)
+
 
   const [selectedAmenities] = useState<string[]>(
     searchParams.get("selectedAmenities")?.split(",") || []
   )
-  // console.log(selectedAmenities)
+
 
   const [superhost] = useState<boolean>(
     searchParams.get("superhost") === "true"
   )
 
   const [filteredData, setFilteredData] = useState([])
-  console.log(filteredData)
+ 
 
   // executes a function when the component mounts and whenever the specified dependencies[priceFilter, selectedAmenities, superhost] change
   useEffect(() => {

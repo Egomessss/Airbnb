@@ -54,8 +54,7 @@ export default function ListingPage() {
   // formats the data so it can be shown in the navbar when a user select from the range picker
   const formattedStartDate = format(new Date(startDate), "dd MMM")
   const formattedendDate = format(new Date(endDate), "dd MMM")
-  console.log(formattedStartDate)
-  console.log(formattedendDate)
+
   // calculate the number of days between the start and end date
   const daysInBetween = Math.round(
     (endDate.getTime() - startDate.getTime()) / 86400000

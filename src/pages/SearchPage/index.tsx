@@ -35,9 +35,9 @@ function SearchPage() {
   // gives us access to the query parameters, which we store in separate variables (locationParam, guestsParam, startDateParam, and endDateParam).
 
   const locationParam = searchParams.get("location")
-  // console.log(locationParam)
+
   const guestsParam = searchParams.get("guests")
-  // console.log(guestsParam)
+
 
   const startDateParam = searchParams.get("startDate")
   const endDateParam = searchParams.get("endDate")

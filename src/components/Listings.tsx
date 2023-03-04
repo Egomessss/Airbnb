@@ -46,7 +46,7 @@ function Listings({ data, guests, days }) {
   //  gets the current location object, which we store in the location variable.
   const location = useLocation()
   const searchParams = new URLSearchParams(location.search)
-  console.log(searchParams)
+
 
   const [style, setStyle] = useState("")
 

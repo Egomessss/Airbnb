@@ -27,7 +27,7 @@ function FilterModal({ closeFilterDropdown }) {
     medianPrice = prices[middle]
   }
 
-  // console.log(medianPrice)
+  
 
   const [priceFilter, setPriceFilter] = useState({
     minPrice: lowestPrice,
