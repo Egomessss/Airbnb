@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react"
+
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react"
 
@@ -9,7 +9,7 @@ import "swiper/css/pagination"
 
 import { Pagination } from "swiper"
 
-import data from "../../assets/data.json"
+
 function ListingCarousel({thisListing}) {
   return (
     <div className="block md:hidden -mx-6">
