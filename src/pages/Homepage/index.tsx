@@ -6,7 +6,7 @@ import MapApi from "../../components/MapApi"
 import Navbar from "../../components/Navbar/Navbar/Navbar"
 import StickyButton from "../../components/StickyButton"
 import SwipeCarouselFilter from "../../components/SwipeCarouselFilter"
-
+import AlertModal from "../../components/AlertModal"
 import ListingData from "../../assets/ListingsData.json"
 
 import { useSearchParams } from "react-router-dom"
@@ -14,6 +14,17 @@ import { useSearchParams } from "react-router-dom"
 import NavMobile from "../../components/Navbar/Navbar/NavMobile"
 
 function Homepage() {
+  // state for the alert modal
+  const [openModal, setOpenModal] = useState(false)
+
+
+  useEffect(() => {
+    setTimeout(() => {
+      setOpenModal(true)
+    }, 2000)
+  }, [])
+
+
   // opens and closes the mapbox map
   const [openMap, setOpenMap] = useState(false)
 
@@ -121,6 +132,7 @@ function Homepage() {
 
   return (
     <div className="relative px-6 md:px-20">
+     {openModal && <AlertModal  close={() => setOpenModal(false)}/>}
       <div className="sticky top-0 z-10 bg-white">
         <Navbar resetFilter={() => setFilteredData(ListingData)} />
         <NavMobile
