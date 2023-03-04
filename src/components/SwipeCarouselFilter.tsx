@@ -122,7 +122,7 @@ function SwipeCarouselFilter(props:any) {
           >
             <img
               className="h-[28px] w-[28px]"
-              alt=""
+              alt="Suprise me with a random listing"
               src="https://a0.muscache.com/pictures/3726d94b-534a-42b8-bca0-a0304d912260.jpg"
             />
             <p className="mt-1 whitespace-nowrap text-xs">Surprise me</p>

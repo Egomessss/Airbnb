@@ -25,7 +25,7 @@ function ListingCarousel({thisListing}:any) {
             <SwiperSlide key={index}>
               <img
                 src={img}
-                alt=""
+                alt={thisListing.city}
                 className="object-cover w-full h-[360px]"
               />
             </SwiperSlide>

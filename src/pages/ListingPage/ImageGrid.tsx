@@ -11,35 +11,35 @@ function ImageGrid({thisListing}:any) {
           <img
             className="min-h-[410px] object-cover"
             src={thisListing.image1}
-            alt=""
+            alt={thisListing.city}
           />
         </li>
         <li className="col-span-1 row-span-1">
           <img
             className="min-h-[200px]  object-cover"
             src={thisListing.image2}
-            alt=""
+            alt={thisListing.city}
           />
         </li>
         <li className="col-span-1 row-span-1">
           <img
             className="min-h-[200px]  object-cover"
             src={thisListing.image3}
-            alt=""
+            alt={thisListing.city}
           />
         </li>
         <li className="col-span-1 row-span-1">
           <img
             className="min-h-[200px]  object-cover"
             src={thisListing.image4}
-            alt=""
+            alt={thisListing.city}
           />
         </li>
         <li className="col-span-1 row-span-1">
           <img
             className="min-h-[200px]  object-cover"
             src={thisListing.image5}
-            alt=""
+            alt={thisListing.city}
           />
         </li>
       </ul>

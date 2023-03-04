@@ -83,7 +83,7 @@ function MapApi({ data }:any) {
             >
               <img
                 src={data.image1}
-                alt=""
+                alt="data.city"
               />
               <p className="font-semibold">{data.city}</p>
               <Link to={`/ListingPage/${selectedListingId}`}>

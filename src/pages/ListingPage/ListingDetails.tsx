@@ -76,7 +76,7 @@ function ListingDetails({
         <div className="relative">
           <img
             src="https://a0.muscache.com/im/pictures/user/1f9954af-c6cb-425d-b975-d2a7e32ea999.jpg?im_w=240"
-            alt=""
+            alt={data.city}
             className="h-[54px] w-[54px] rounded-full"
           />
           <FaMedal className="absolute bottom-1 -right-2  z-20 text-2xl text-yellow-500" />
