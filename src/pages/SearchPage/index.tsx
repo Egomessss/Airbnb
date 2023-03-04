@@ -10,8 +10,8 @@ import SearchPagination from "./SearchPagination"
 
 import Listings from "../../components/Listings"
 import ListingData from "../../assets/ListingsData.json"
-import { useLocation, useSearchParams } from "react-router-dom"
-import { differenceInDays, format } from "date-fns"
+import { useLocation} from "react-router-dom"
+import {  format } from "date-fns"
 import Footer from "../../components/Footer"
 import NavMobile from "../../components/Navbar/Navbar/NavMobile"
 import MapApi from "../../components/MapApi"
@@ -113,7 +113,6 @@ function SearchPage() {
     pageNumbers.push(i)
   }
 
-  //
 
   return (
     <div className="md:px-10 ">
@@ -165,7 +164,7 @@ function SearchPage() {
           <div className="flex flex-col  px-4 md:hidden">
             <p className="py-4 text-sm font-medium">
               <span className="mr-2 font-semibold">{filteredData.length}</span>
-              homes available between
+              listings available between
               <span className="mx-2 font-semibold">{range}</span>
               <span className="mr-2 font-semibold">
                 {locationParam ? `in ${locationParam}` : ""}
