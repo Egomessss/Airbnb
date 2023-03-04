@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react"
+import React, { useEffect, useState } from "react"
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react"
 
@@ -9,10 +9,9 @@ import "swiper/css/pagination"
 // import required modules
 import { Navigation, Pagination } from "swiper"
 
-import { HeartIcon, StarIcon } from "@heroicons/react/24/outline"
+import { StarIcon } from "@heroicons/react/24/outline"
 import { Link, useLocation } from "react-router-dom"
 
-import favoriteButton from "./FavoriteButton"
 import FavoriteButton from "./FavoriteButton"
 
 function Listings({ data, guests, days }) {
@@ -53,23 +52,6 @@ function Listings({ data, guests, days }) {
 
   //! prevents the infinite loop of rendering
   //!if searchparams is empty we set a style for the listings, if the search params includes a filter, we set another style, same for the search page, this is to avoid making three components
-
-  // useEffect(() => {
-  //   if (searchParams.toString() === "") {
-  //     // homepage
-  //     setStyle(
-  //       "grid grid-cols-1 gap-4  sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
-  //     )
-  //   } else if (searchParams.toString().includes("filter")) {
-  //     // for the saerchpage
-  //     setStyle(
-  //       "grid grid-cols-1 gap-4  sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
-  //     )
-  //     // for the filter
-  //   } else {
-  //     setStyle("grid grid-cols-2 gap-4")
-  //   }
-  // }, [searchParams])
 
   useEffect(() => {
     searchParams.toString() === "" || searchParams.toString().includes("filter")
@@ -118,16 +100,7 @@ function Listings({ data, guests, days }) {
                     </Link>
 
                     <div className="absolute top-4 right-4">
-                    <FavoriteButton/>
-                      {/* <button onClick={toogleFavorite}>
-                        <HeartIcon
-                          className={
-                            !favorite
-                              ? "h-6 w-6 cursor-pointer fill-black/40 text-white"
-                              : "h-6 w-6 cursor-pointer fill-red-600"
-                          }
-                        />
-                      </button> */}
+                      <FavoriteButton />
                     </div>
                     {listing.isSuperhost ? (
                       <button
@@ -141,7 +114,7 @@ function Listings({ data, guests, days }) {
                 )
               })}
             </Swiper>
-            
+
             <div className="mt-4 h-[10%]  text-sm">
               <div className="flex justify-between">
                 <p className="mt-1 text-sm font-semibold">{`${listing.state}, ${listing.country}`}</p>
@@ -158,7 +131,6 @@ function Listings({ data, guests, days }) {
           </div>
         )
       })}
-      
     </div>
   )
 }
