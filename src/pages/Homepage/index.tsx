@@ -29,6 +29,8 @@ function Homepage() {
   const [openMap, setOpenMap] = useState(false)
 
   // flips the state between true and false to open the map or the list
+
+  
   const toogleMap = () => {
     setOpenMap((prevMode) => !prevMode)
   }
@@ -171,6 +173,7 @@ function Homepage() {
             openMap={openMap}
             flipText={toogleMap}
           />
+          {/* resets the filter and passes the original data */}
           <BottomNav resetFilter={() => setFilteredData(ListingData)} />
         </div>
       )}
@@ -182,6 +185,5 @@ function Homepage() {
   )
 }
 
-// disclaimer the data and the images are merely placeholders to build this airbnb clone, the data here is just to serve the purpose of showing the functionality, the data that is relevant is properly arranged and managed
 
 export default Homepage

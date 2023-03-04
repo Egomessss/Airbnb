@@ -12,7 +12,7 @@ import { useLocation } from "react-router-dom"
 import NavbarSearchDrawer from "./NavbarSearchDrawer"
 import {AiOutlineFire} from "react-icons/ai"
 
-function Navbar({resetFilter}) {
+function Navbar({resetFilter}:any) {
   // !state for the NavSearchModal
   const [open, setOpen] = useState(false)
 
