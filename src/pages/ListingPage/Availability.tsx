@@ -71,6 +71,13 @@ function Availability({ data }:any) {
   // closes the modal
   const closeBtn = () => setDatePopOver(false)
 
+  const OpenDateModal= ()=>{
+   setDatePopOver(true)
+   setGuestPopOver(false)
+  }
+
+
+
   // !Price breakdown
 
   const price = data.price_per_night
@@ -111,7 +118,7 @@ function Availability({ data }:any) {
         <div className="relative grid h-24 grid-cols-2 grid-rows-2 rounded-xl border-[1px] border-gray-500 text-xs">
           <button
             className="col-span-2 border-r-[1px] border-gray-500 active:rounded-lg active:border-2 active:border-black"
-            onClick={() => setDatePopOver(true)}
+            onClick={OpenDateModal}
           >
             <div className="flex justify-around">
               <p className="font-medium uppercase ">Check-in</p>
