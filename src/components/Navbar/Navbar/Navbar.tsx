@@ -1,7 +1,5 @@
-import React from "react"
+
 import { Link } from "react-router-dom"
-
-
 
 import {
   Bars3Icon,
@@ -19,7 +17,6 @@ function Navbar({resetFilter}) {
   const [open, setOpen] = useState(false)
 
   //  url searchparams filter
-
   //  gets the current location object, which we store in the location variable.
   const location = useLocation()
   const searchParams = new URLSearchParams(location.search)
@@ -43,7 +40,7 @@ function Navbar({resetFilter}) {
 
   const guests = Number(guestsParam)
 
-  // className="flex items-center justify-between  border-b-[1.5px] px-4 py-2 md:min-w-[400px]  md:pt-4"
+
   return (
     <nav className="hidden items-center justify-between border-b-[1.5px]  px-4 py-2 md:flex md:pt-4">
       {/* nav left side */}

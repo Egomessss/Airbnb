@@ -1,29 +1,23 @@
-import React, { useRef, useState } from "react"
+import { useState } from "react"
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react"
-
 // Import Swiper styles
 import "swiper/css"
-
 import "swiper/css/navigation"
-
 // import required modules
 import { Navigation } from "swiper"
 
-import {
-  AdjustmentsHorizontalIcon,
-  XMarkIcon,
-} from "@heroicons/react/24/outline"
+import { AdjustmentsHorizontalIcon } from "@heroicons/react/24/outline"
 
 import ListingData from "../assets/ListingsData.json"
 import filters from "../assets/filters.json"
-import amenities from "../assets/amenities.json"
-import { createSearchParams, Link, useSearchParams } from "react-router-dom"
+
+import { Link } from "react-router-dom"
 import FilterModal from "./FilterModal"
 // each search parameter needs to match their title to the search query
 
-function SwipeCarouselFilter(props) {
+function SwipeCarouselFilter(props): any {
   const [openFilterDropdown, setOpenFilterDropdown] = useState(false)
 
   // prevents scrolling when modal is open
@@ -55,8 +49,6 @@ function SwipeCarouselFilter(props) {
   } else {
     medianPrice = prices[middle]
   }
-
-  // console.log(medianPrice)
 
   const [priceFilter, setPriceFilter] = useState({
     minPrice: lowestPrice,
@@ -112,9 +104,6 @@ function SwipeCarouselFilter(props) {
     window.location.href = `/?${searchParams.toString()}`
   }
 
-
-
-
   return (
     <div className="mx-auto hidden w-[600px] items-center justify-center gap-2 py-6 md:flex">
       <Swiper
@@ -124,6 +113,7 @@ function SwipeCarouselFilter(props) {
         modules={[Navigation]}
       >
         <SwiperSlide className="my-2 flex h-[51px] w-[77px]  flex-col flex-wrap items-center justify-center decoration-2 underline-offset-8 hover:underline hover:decoration-gray-300  focus:underline focus:decoration-black">
+          {/* get a random number as links to the random listing */}
           <Link
             to={`/ListingPage/${
               ListingData[Math.floor(Math.random() * ListingData.length)].id
@@ -175,7 +165,6 @@ function SwipeCarouselFilter(props) {
 
 export default SwipeCarouselFilter
 
-
 //! how i got the amenities data
 
 // const amenities = [
@@ -219,6 +208,6 @@ export default SwipeCarouselFilter
 //     const randomIndex = Math.floor(Math.random() * amenities.length);
 //     randomAmenities.add(amenities[randomIndex]);
 //   }
-  
+
 //   return Array.from(randomAmenities); // convert the Set to an array before returning it
 // }

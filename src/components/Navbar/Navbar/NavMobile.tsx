@@ -2,11 +2,11 @@ import {
   AdjustmentsHorizontalIcon,
   MagnifyingGlassIcon,
 } from "@heroicons/react/24/outline"
-import React, { useState } from "react"
+import{ useState } from "react"
 import FilterModal from "../../FilterModal"
 import NavSearchModal from "./NavSearchModal"
 
-function NavMobile({ removeFixed, showFixed }) {
+function NavMobile({ removeFixed, showFixed }:any) {
   const [openFilterDropdown, setOpenFilterDropdown] = useState(false)
 
   // prevents scrolling when modal is open
