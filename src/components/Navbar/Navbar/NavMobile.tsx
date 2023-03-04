@@ -2,11 +2,11 @@ import {
   AdjustmentsHorizontalIcon,
   MagnifyingGlassIcon,
 } from "@heroicons/react/24/outline"
-import{ useState } from "react"
+import { useState } from "react"
 import FilterModal from "../../FilterModal"
 import NavSearchModal from "./NavSearchModal"
 
-function NavMobile({ removeFixed, showFixed }:any) {
+function NavMobile({ removeFixed, showFixed }: any) {
   const [openFilterDropdown, setOpenFilterDropdown] = useState(false)
 
   // prevents scrolling when modal is open
@@ -18,8 +18,7 @@ function NavMobile({ removeFixed, showFixed }:any) {
   }
 
   const ShowFilterRemoveFixed = () => {
-    if (removeFixed === undefined) {
-      showFilterModal()
+    if (removeFixed === null) {
     } else {
       removeFixed()
       showFilterModal()
@@ -43,7 +42,7 @@ function NavMobile({ removeFixed, showFixed }:any) {
   }
 
   const ShowModalRemoveFixed = () => {
-    if (removeFixed === undefined) {
+    if (removeFixed === null) {
       showSearchModal()
     } else {
       removeFixed()
@@ -58,7 +57,7 @@ function NavMobile({ removeFixed, showFixed }:any) {
   }
 
   const closeModalShowFixed = () => {
-    if (showFixed === undefined) {
+    if (showFixed === null) {
       closeSearchModal()
     } else {
       closeSearchModal()
@@ -67,7 +66,7 @@ function NavMobile({ removeFixed, showFixed }:any) {
   }
 
   return (
-    <nav className=" my-3 flex h-[55px] mx-4 items-center justify-around rounded-full border shadow md:hidden">
+    <nav className=" my-3 mx-4 flex h-[55px] items-center justify-around rounded-full border shadow md:hidden">
       <button>
         <MagnifyingGlassIcon
           // opens the modal
