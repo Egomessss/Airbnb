@@ -28,15 +28,15 @@ Listing:
 
 <h2>My biggest difficulties and how I overcame them</h2>
 
-[x]  CSSSSSSSSS and Tailwind CSS were a pain in the behind here because the website is so complex with such fine details, I broke my app constantly, but I got it done with a lot of try and error and documentation, so I have a love and hate relationship with these tools;
-[x]  Utilizing react-router was pretty challenging, as I wanted to keep the functionality only frontend, I had to utilize a lot of conditional rendering techniques to render the data on the pages and the navbar, and prevent as much as I could prop drilling, and I got it pretty close to airbnbs;
-[x]  the filters for things like amenities and price took me the longest to solve, because the same methods I used for the search page didn't work, my variables to track the URL parameters were all giving me true but the filters were never being passed, so I had to get pretty creative and separate my filters, one for the type of location and one for the rest of the filters, now they acted independently and started to work as intended, such as a simple solution that took me weeks of documentation.
+- [x]  CSSSSSSSSS and Tailwind CSS were a pain in the behind here because the website is so complex with such fine details, I broke my app constantly, but I got it done with a lot of try and error and documentation, so I have a love and hate relationship with these tools;
+- [x] Utilizing react-router was pretty challenging, as I wanted to keep the functionality only frontend, I had to utilize a lot of conditional rendering techniques to render the data on the pages and the navbar, and prevent as much as I could prop drilling, and I got it pretty close to airbnbs;
+- [x] the filters for things like amenities and price took me the longest to solve, because the same methods I used for the search page didn't work, my variables to track the URL parameters were all giving me true but the filters were never being passed, so I had to get pretty creative and separate my filters, one for the type of location and one for the rest of the filters, now they acted independently and started to work as intended, such as a simple solution that took me weeks of documentation.
 
 <h2>What I'm working on now:</h2>
 
-[x]  Improving the performance, utilizing techniques like debouncing/throttling to prevent excessive Mapbox api calls ;
-[x]  Modal close on outside click;
-[x]  Lazy loading for images optimization like airbnb utilizes.
+- [x] Improving the performance, utilizing techniques like debouncing/throttling to prevent excessive Mapbox api calls ;
+- [x] Modal close on outside click;
+- [x] Lazy loading for images optimization like airbnb utilizes.
 
 
 
