@@ -1,26 +1,42 @@
-<h2>Languages and Tools</h2>
+Homepage/Search page
+- [x]  Location select, calendar and guests
+- [x]  Navigation from the navbar to the search-page 
+- [x]  Filters(price, amenities,allows pets, children, house type) 
+- [x]  Filters by type of location
+- [x]  Dynamic navbar
+- [x]  Full mobile friendly and responsive
+- [x]  Dynamic price by date and guests
+- [x]  Favorite your favourite listings
+- [x]  Accessibility 
 
--HTML5
--CSS3
--JavaScript
--Virtual Studio Code
--Git
 
-<h2>It started as :</h2>
+Map:
+- [x]  Mapbox API
+- [x]  Shows the matches on the map
+- [x]  Map marker
+- [x]  Link to the listing detail
+- [x]  Pop-up is not responsive
 
-![](images/start.png)
+Listing:
 
-<h2>Ended as:</h2>
+- [x]  Dynamic listing data
+- [x]  Image grid
+- [x]  conditional rendering for super host, rare finds...
+- [x]  Min number of guests on the availability menu
+- [x]  Min number of stay time on the availability menu
 
-[Scoreboard link](https://egomessss.github.io/Basketball-Scoreboard/)
 
-<h2>What I added to improve functionality:</h2>
+<h2>My biggest difficulties and how I overcame them</h2>
+- [x]  CSSSSSSSSS and Tailwind CSS were a pain in the behind here because the website is so complex with such fine details, I broke my app constantly, but I got it done with a lot of try and error and documentation, so I have a love and hate relationship with these tools
+- [x]  Utilizing react-router was pretty challenging, as I wanted to keep the functionality only frontend, I had to utilize a lot of conditional rendering techniques to render the data on the pages and the navbar, and prevent as much as I could prop drilling, and I got it pretty close to airbnbs.
+- [x]  the filters for things like amenities and price took me the longest to solve, because the same methods I used for the search page didn't work, my variables to track the URL parameters were all giving me true but the filters were never being passed, so I had to get pretty creative and separate my filters, one for the type of location and one for the rest of the filters, now they acted independently and started to work as intended, such as a simple solution that took me weeks of documentation.
 
-What started as a simple scoreboard with just the functionality to display 1's, 2's and 3's to show my skills to add interactivity to a web application quicly turned into something more as i added the following features once I acquired new knowledge:
+<h2>What I'm working on now:</h2>
+- [x]  Improving the performance, utilizing techniques like debouncing/throttling to prevent excessive Mapbox api calls 
+- [x]  Modal close on outside click
+- [x]  Lazy loading for images optimization like airbnb utilizes.
 
-- A display that says who won, once the button to end the game is clicked;
-- A button to end the game;
-- A button to start a new game, which reset the values to 0.
 
-<h2>My biggests difficulties and how I overcame them</h2>
--The hardest part of this project was the reset button, which at first was not doing what i wanted it to do, to not only display the score "0" but reset the score of everything, when I first added this button it didnt work as intended as it only display the "0" but once I started to score again it would not restart the score but add to the previous one, after a good amount of time and attemps what worked for me was to add two new variables for each side that had just the functionaly to reset the scores, instead of just getting the score from one variable "count" that would just keep adding onto the pre-reset score.
+
+
+
