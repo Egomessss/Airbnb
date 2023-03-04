@@ -2,12 +2,13 @@ import { useEffect, useState } from "react"
 import BottomNav from "../../components/BottomNav"
 import Footer from "../../components/Footer"
 import Listings from "../../components/Listings"
-
 import MapApi from "../../components/MapApi"
 import Navbar from "../../components/Navbar/Navbar/Navbar"
 import StickyButton from "../../components/StickyButton"
 import SwipeCarouselFilter from "../../components/SwipeCarouselFilter"
+
 import ListingData from "../../assets/ListingsData.json"
+
 import { useSearchParams } from "react-router-dom"
 
 import NavMobile from "../../components/Navbar/Navbar/NavMobile"
@@ -22,7 +23,6 @@ function Homepage() {
   }
 
   // acess the search params in the url
-
   const [searchParams, setSearchParams] = useSearchParams()
 
   //! filter by location params settings
@@ -35,35 +35,37 @@ function Homepage() {
   }
 
   // filter for the filter carousel
-
   const [filteredLocationData, setFilteredLocationData] = useState([])
 
+  // filter the ListingData based on the filterByLocation value
   useEffect(() => {
+    // the filter method returns a new array with all elements that pass the test implemented by the provided function. In this case, the function checks if the type_of_location of each listing object matches the filterByLocation value
     const filteredLocationParam = ListingData.filter((listing: any) => {
       const typeOfLocationMatch: boolean =
         listing.type_of_location === filterByLocation
 
       return typeOfLocationMatch
     })
-    // Set the filtered data in the state
+
+    // filteredLocationParam array is then stored in  state using the setFilteredLocationData function. This allows the filtered data to be accessed and rendered in the component.
     setFilteredLocationData(filteredLocationParam)
   }, [filterByLocation])
 
   // filters for the filter modal
 
-  const [priceFilter, setPriceFilter] = useState({
+  const [priceFilter] = useState({
     minPrice: Number(searchParams.get("minPrice")),
     maxPrice: Number(searchParams.get("maxPrice")),
   })
 
   // console.log(priceFilter)
 
-  const [selectedAmenities, setSelectedAmenities] = useState<string[]>(
+  const [selectedAmenities] = useState<string[]>(
     searchParams.get("selectedAmenities")?.split(",") || []
   )
   // console.log(selectedAmenities)
 
-  const [superhost, setSuperhost] = useState<boolean>(
+  const [superhost] = useState<boolean>(
     searchParams.get("superhost") === "true"
   )
 
@@ -84,7 +86,7 @@ function Homepage() {
       })
     }
 
-    // only filters if the selected amenities filter conditions are met
+    // only filters the amentiies if the selected amenities filter conditions are equal to the selected listing
     if (selectedAmenities.length) {
       filteredDataParams = filteredDataParams.filter((listing: any) => {
         const listingAmenities: any = listing.amenities
@@ -93,7 +95,7 @@ function Homepage() {
         )
       })
     }
-    // only filters if the superhost filter conditions are met
+    // only filters if the superhost filter conditions are equal to the selected listing
     if (superhost) {
       filteredDataParams = filteredDataParams.filter((listing: any) => {
         return listing.isSuperhost
@@ -103,11 +105,6 @@ function Homepage() {
     setFilteredData(filteredDataParams)
   }, [priceFilter, selectedAmenities, superhost])
 
-  // !reset filters
-
-  const [resetFilter, setResetFilter] = useState(false)
-
-  // const toogleFilter = ()=>
 
   // ! fixed elements toogle
 
