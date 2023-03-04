@@ -22,7 +22,7 @@ Homepage/Search page
 - [x]  Full mobile friendly and responsive;
 - [x]  Dynamic price by date and guests;
 - [x]  Favorite your favourite listings;
-- [x]  Accessibility .
+- [x]  Great score in Accessibility >85 in both Lighthouseand PageSpeed Insights.
 
 
 Map:
