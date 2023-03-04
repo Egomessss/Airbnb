@@ -67,8 +67,7 @@ export default function ListingPage() {
 
   const priceTotal = price * daysInBetween
 
-  // console.log(priceTotal)
-  // console.log(price)
+
   return (
     <div className="mx-auto max-w-[1200px] px-6">
       <div className="hidden md:block">

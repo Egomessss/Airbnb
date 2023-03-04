@@ -1,21 +1,12 @@
-import {
-  StarIcon,
-  LanguageIcon,
-  ChevronRightIcon,
-} from "@heroicons/react/24/outline"
-import { addDays, format } from "date-fns"
-import React, { useState } from "react"
+import { StarIcon } from "@heroicons/react/24/outline"
+
 import { DateRangePicker } from "react-date-range"
-import { CiLocationOn, CiCalendar } from "react-icons/ci"
+
 import { FaMedal } from "react-icons/fa"
 import { SlDiamond } from "react-icons/sl"
 import { BiRightArrow } from "react-icons/bi"
 
 import MapApi from "../../components/MapApi"
-import MobileBtn from "../../components/MobileBtn"
-import Availability from "./Availability"
-
-// add conditional rending for the superhost and rare find properties
 
 function ListingDetails({
   data,
