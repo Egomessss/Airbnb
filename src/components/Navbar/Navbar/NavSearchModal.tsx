@@ -107,9 +107,9 @@ function NavSearchModal({ closeModal }: any) {
       {/* destination section */}
       {openLocation && (
         <div className="grid h-[190px] grid-cols-3 items-center justify-between gap-2 rounded-lg  bg-white  px-4 text-sm shadow-xl">
-          {data.map((img) => {
+          {data.map((img,index) => {
             return (
-              <button className="max-w-[150px]" onClick={() => SetSelectDestination(img.action)}>
+              <button key={index} className="max-w-[150px]" onClick={() => SetSelectDestination(img.action)}>
                 <img
                   className="rounded-xl shadow-md"
                   alt={img.title}
