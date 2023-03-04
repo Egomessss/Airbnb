@@ -82,6 +82,7 @@ function MapApi({ data }:any) {
               }}
             >
               <img
+              className="h-[100px]"
                 src={data.image1}
                 alt="data.city"
               />
