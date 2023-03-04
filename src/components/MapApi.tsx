@@ -13,11 +13,9 @@ import { Link } from "react-router-dom"
 import { AiOutlineArrowsAlt } from "react-icons/ai"
 
 function MapApi({ data }) {
-  
   const [showPopup, setShowPopup] = useState(true)
 
   const [selectedListingId, setSelectedListingId] = useState(null)
-
 
   const showPopUpAndLocation = (listingId) => {
     setSelectedListingId(listingId)
@@ -70,7 +68,8 @@ function MapApi({ data }) {
 
           {/* popup if we click marker */}
           {selectedListingId === index && (
-            <Popup className=""
+            <Popup
+              className=""
               latitude={listing.latitude}
               longitude={listing.longitude}
               anchor="bottom"
@@ -82,11 +81,14 @@ function MapApi({ data }) {
                 setSelectedListingId(null)
               }}
             >
-              <img src={data.image1} alt="" />
+              <img
+                src={data.image1}
+                alt=""
+              />
               <p className="font-semibold">{data.city}</p>
               <Link to={`/ListingPage/${selectedListingId}`}>
-                <AiOutlineArrowsAlt className="text-xl text-white w-full rounded-lg bg-blue-500"/>
-               </Link>
+                <AiOutlineArrowsAlt className="w-full rounded-lg bg-blue-500 text-xl text-white" />
+              </Link>
             </Popup>
           )}
         </div>
@@ -96,5 +98,3 @@ function MapApi({ data }) {
 }
 
 export default MapApi
-
-

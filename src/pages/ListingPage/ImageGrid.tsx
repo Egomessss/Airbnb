@@ -49,5 +49,3 @@ function ImageGrid({thisListing}) {
 
 export default ImageGrid
 
-// get the images(5) and put them in a list
-// there should be a prop that allows me to change the images and info based on id
