@@ -17,7 +17,7 @@ import { Link } from "react-router-dom"
 import FilterModal from "./FilterModal"
 // each search parameter needs to match their title to the search query
 
-function SwipeCarouselFilter(props): any {
+function SwipeCarouselFilter(props:any) {
   const [openFilterDropdown, setOpenFilterDropdown] = useState(false)
 
   // prevents scrolling when modal is open
@@ -56,7 +56,7 @@ function SwipeCarouselFilter(props): any {
   })
 
   // updates the state of priceFilter when either of the input fields is changed.
-  const handlePriceFilterChange = (e) => {
+  const handlePriceFilterChange = (e:any) => {
     let { name, value } = e.target
 
     // Validate max price input

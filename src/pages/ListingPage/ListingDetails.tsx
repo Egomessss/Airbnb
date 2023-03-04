@@ -20,7 +20,7 @@ function ListingDetails({
   ranges,
   onChange,
   daysInBetween,
-}) {
+}:any) {
   // fetches the amenities data from the json file and splits the string into multiple strings
   const amenities = data.amenities
 
@@ -91,7 +91,7 @@ function ListingDetails({
         <div className="border-t-[1px] pt-8 pb-6 md:h-[500px]">
           <h2 className="mb-4 text-xl font-semibold">What this place offers</h2>
           <ul className="grid grid-cols-1 gap-4 md:grid-cols-2">
-            {amenities.map((amenitie) => {
+            {amenities.map((amenitie:string) => {
               return (
                 <li key={amenitie} className="flex w-[250px] gap-2 whitespace-nowrap">
                   <BiRightArrow className="block h-[24px] w-[24px]" />

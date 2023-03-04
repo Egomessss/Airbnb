@@ -29,8 +29,6 @@ function Homepage() {
   const [openMap, setOpenMap] = useState(false)
 
   // flips the state between true and false to open the map or the list
-
-  
   const toogleMap = () => {
     setOpenMap((prevMode) => !prevMode)
   }
@@ -43,12 +41,12 @@ function Homepage() {
   const filterByLocation = searchParams.get("filter")
 
   // sets the filter params for the swipecarousel
-  function setFilter(filter) {
+  function setFilter(filter:any) {
     setSearchParams({ filter: filter })
   }
 
   // filter for the filter carousel
-  const [filteredLocationData, setFilteredLocationData] = useState([])
+  const [filteredLocationData, setFilteredLocationData] = useState<any[]>([])
 
   // filter the ListingData based on the filterByLocation value
   useEffect(() => {
@@ -82,7 +80,7 @@ function Homepage() {
     searchParams.get("superhost") === "true"
   )
 
-  const [filteredData, setFilteredData] = useState([])
+  const [filteredData, setFilteredData] = useState<any[]>([])
  
 
   // executes a function when the component mounts and whenever the specified dependencies[priceFilter, selectedAmenities, superhost] change

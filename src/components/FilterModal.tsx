@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 import amenities from "../assets/amenities.json"
 import ListingData from "../assets/ListingsData.json"
 
-function FilterModal({ closeFilterDropdown }) {
+function FilterModal({ closeFilterDropdown }:any) {
   // price breakdown
 
   // extract the prices from the data
@@ -35,7 +35,7 @@ function FilterModal({ closeFilterDropdown }) {
   })
 
   // updates the state of priceFilter when either of the input fields is changed.
-  const handlePriceFilterChange = (e) => {
+  const handlePriceFilterChange = (e:any) => {
     let { name, value } = e.target
 
     // Validate max price input

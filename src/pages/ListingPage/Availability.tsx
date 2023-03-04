@@ -5,7 +5,7 @@ import { DateRangePicker } from "react-date-range"
 import { CiKeyboard } from "react-icons/ci"
 import { SlDiamond } from "react-icons/sl"
 
-function Availability({ data }) {
+function Availability({ data }:any) {
   //! modal state
   const [datePopOver, setDatePopOver] = useState(false)
   const [guestPopOver, setGuestPopOver] = useState(false)

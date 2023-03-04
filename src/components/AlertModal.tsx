@@ -1,7 +1,7 @@
 import { XCircleIcon } from "@heroicons/react/24/outline"
 import { useEffect, useState } from "react"
 
-export default function AlertModal({ close }) {
+export default function AlertModal({ close }:any) {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center">
       <div className="flex h-[500px] w-[700px] flex-col items-center justify-center rounded-lg border-2 border-red-700 bg-white p-2">

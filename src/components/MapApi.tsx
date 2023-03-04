@@ -12,12 +12,12 @@ import { FaMapMarkerAlt } from "react-icons/fa"
 import { Link } from "react-router-dom"
 import { AiOutlineArrowsAlt } from "react-icons/ai"
 
-function MapApi({ data }) {
+function MapApi({ data }:any) {
   const [showPopup, setShowPopup] = useState(true)
 
   const [selectedListingId, setSelectedListingId] = useState(null)
 
-  const showPopUpAndLocation = (listingId) => {
+  const showPopUpAndLocation = (listingId:any) => {
     setSelectedListingId(listingId)
     setShowPopup(true)
   }

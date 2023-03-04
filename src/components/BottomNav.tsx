@@ -5,7 +5,7 @@ import {
 } from "@heroicons/react/24/outline"
 import { Link } from "react-router-dom"
 
-export default function BottomNav({ resetFilter }) {
+export default function BottomNav({ resetFilter }:any) {
   const aStyle =
     "w-[70px] focus:text-red-500 justify-center inline-block text-center"
   const iconStyle = "h-6 w-6 mx-2 inline-block mb-1"

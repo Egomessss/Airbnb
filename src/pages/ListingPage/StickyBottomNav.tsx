@@ -5,7 +5,7 @@ function StickyBottomNav({
   formattedendDate,
   priceTotal,
   pricePerNight,
-}) {
+}:any) {
   const displayTotal = priceTotal.toLocaleString("de-DE")
   return (
     <div className="fixed inset-x-0 bottom-0 z-50 flex h-[80px] w-full items-center justify-between bg-white px-6 py-2 shadow md:hidden">

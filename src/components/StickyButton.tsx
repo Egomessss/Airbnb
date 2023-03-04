@@ -1,7 +1,7 @@
 import { MapIcon } from "@heroicons/react/24/solid"
 
 
-function StickyButton({ flipText, openMap }) {
+function StickyButton({ flipText, openMap }:any) {
   
   return (
     <div className="fixed bottom-[4rem] left-1/2 z-30 -translate-x-1/2 md:bottom-[7rem]">

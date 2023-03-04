@@ -14,7 +14,7 @@ import { Link, useLocation } from "react-router-dom"
 
 import FavoriteButton from "./FavoriteButton"
 
-function Listings({ data, guests, days }) {
+function Listings({ data, guests, days }:any) {
   // handles favorite post state
   //   fetches state from localstorage and persists after reload
   //   the "!" tells the compiler the value cannot be null
@@ -64,7 +64,7 @@ function Listings({ data, guests, days }) {
   return (
     //! container
     <div className={style}>
-      {data.map((listing, index) => {
+      {data.map((listing:any, index:number) => {
         const total =
           days && guests
             ? listing.price_per_night * days + guests * listing.price_per_guest
@@ -85,7 +85,7 @@ function Listings({ data, guests, days }) {
               modules={[Pagination, Navigation]}
               className="h-[80%] w-full"
             >
-              {listing.thumbImages.map((image, index) => {
+              {listing.thumbImages.map((image:any, index:any) => {
                 return (
                   <SwiperSlide
                     key={index}

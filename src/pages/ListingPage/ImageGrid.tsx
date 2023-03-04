@@ -1,6 +1,6 @@
 import React from "react"
 
-function ImageGrid({thisListing}) {
+function ImageGrid({thisListing}:any) {
  
 
 

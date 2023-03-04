@@ -44,7 +44,7 @@ export default function ListingPage() {
   }
 
   // sets the start and end date in the calendar
-  const handleSelection = (ranges) => {
+  const handleSelection = (ranges: any) => {
     setStartDate(ranges.selection.startDate)
     setEndDate(ranges.selection.endDate)
   }
@@ -62,10 +62,11 @@ export default function ListingPage() {
 
   // !Price breakdown
 
-  const price = thisListing?.price_per_night
+  const price: number | undefined = thisListing?.price_per_night
 
-  const priceTotal = price * daysInBetween
-
+  let priceTotal 
+  if(price != undefined){
+   priceTotal = price * daysInBetween}
 
   return (
     <div className="mx-auto max-w-[1200px] px-6">
@@ -136,12 +137,12 @@ export default function ListingPage() {
       </div>
       <div className="hidden border-t-[1px] pt-8 pb-6 md:block ">
         <h2 className="mb-4 text-xl font-semibold">Where you'll be</h2>
-        <p className="mb-4">{thisListing.host_location}</p>
+        <p className="mb-4">{thisListing?.host_location}</p>
         <div className="mb-10 h-[718px]  w-full border-2 ">
           <MapApi data={thisListing} />
         </div>
       </div>
-    
+
       <StickyBottomNav
         formattedStartDate={formattedStartDate}
         formattedendDate={formattedendDate}
