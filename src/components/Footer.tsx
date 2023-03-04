@@ -9,7 +9,10 @@ function Footer() {
       >
         © 2023 EG, Inc.
       </a>
-
+<p className="font-semibold">The data contained in this web app is not true to reality as I don't
+            have acess to the airbnb api its merely for representation using a
+            custom json file, to show my abilities as a Frontend developer, the
+            data that is relevant is properly arranged and managed.</p>
       <ul className="mt-3 flex flex-wrap items-center text-sm font-semibold sm:mt-0">
         <li className="flex items-center">
           <a

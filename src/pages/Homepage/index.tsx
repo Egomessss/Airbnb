@@ -14,16 +14,7 @@ import { useSearchParams } from "react-router-dom"
 import NavMobile from "../../components/Navbar/Navbar/NavMobile"
 
 function Homepage() {
-  // state for the alert modal
-  const [openModal, setOpenModal] = useState(false)
-
-
-  useEffect(() => {
-    setTimeout(() => {
-      setOpenModal(true)
-    }, 2000)
-  }, [])
-
+ 
 
   // opens and closes the mapbox map
   const [openMap, setOpenMap] = useState(false)
@@ -41,7 +32,7 @@ function Homepage() {
   const filterByLocation = searchParams.get("filter")
 
   // sets the filter params for the swipecarousel
-  function setFilter(filter:any) {
+  function setFilter(filter: any) {
     setSearchParams({ filter: filter })
   }
 
@@ -69,19 +60,15 @@ function Homepage() {
     maxPrice: Number(searchParams.get("maxPrice")),
   })
 
-
-
   const [selectedAmenities] = useState<string[]>(
     searchParams.get("selectedAmenities")?.split(",") || []
   )
-
 
   const [superhost] = useState<boolean>(
     searchParams.get("superhost") === "true"
   )
 
   const [filteredData, setFilteredData] = useState<any[]>([])
- 
 
   // executes a function when the component mounts and whenever the specified dependencies[priceFilter, selectedAmenities, superhost] change
   useEffect(() => {
@@ -116,7 +103,6 @@ function Homepage() {
     setFilteredData(filteredDataParams)
   }, [priceFilter, selectedAmenities, superhost])
 
-
   // ! fixed elements toogle
 
   const [removeFixedElements, setRemoveFixedElements] = useState(true)
@@ -129,10 +115,11 @@ function Homepage() {
 
   // add blur to background
   const blur = () => {}
+ 
 
   return (
     <div className="relative px-6 md:px-20">
-     {openModal && <AlertModal  close={() => setOpenModal(false)}/>}
+     
       <div className="sticky top-0 z-10 bg-white">
         <Navbar resetFilter={() => setFilteredData(ListingData)} />
         <NavMobile
@@ -176,12 +163,10 @@ function Homepage() {
         </div>
       )}
       <div className="mt-10">
-     
         <Footer />
       </div>
     </div>
   )
 }
-
 
 export default Homepage
