@@ -6,7 +6,6 @@ import MapApi from "../../components/MapApi"
 import Navbar from "../../components/Navbar/Navbar/Navbar"
 import StickyButton from "../../components/StickyButton"
 import SwipeCarouselFilter from "../../components/SwipeCarouselFilter"
-import AlertModal from "../../components/AlertModal"
 import ListingData from "../../assets/ListingsData.json"
 
 import { useSearchParams } from "react-router-dom"
