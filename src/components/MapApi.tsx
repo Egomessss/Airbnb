@@ -13,10 +13,11 @@ import { Link } from "react-router-dom"
 import { AiOutlineArrowsAlt } from "react-icons/ai"
 
 function MapApi({ data }) {
-  console.log(data)
+  
   const [showPopup, setShowPopup] = useState(true)
 
   const [selectedListingId, setSelectedListingId] = useState(null)
+
 
   const showPopUpAndLocation = (listingId) => {
     setSelectedListingId(listingId)
@@ -96,4 +97,4 @@ function MapApi({ data }) {
 
 export default MapApi
 
-// !Ensure you add .env to the .gitignore file to prevent git from tracking it.
+
