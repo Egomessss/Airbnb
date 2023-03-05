@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 import amenities from "../assets/amenities.json"
 import ListingData from "../assets/ListingsData.json"
 
-function FilterModal({ closeFilterDropdown }:any) {
+function FilterModal({ closeFilterDropdown }: any) {
   // price breakdown
 
   // extract the prices from the data
@@ -27,15 +27,13 @@ function FilterModal({ closeFilterDropdown }:any) {
     medianPrice = prices[middle]
   }
 
-  
-
   const [priceFilter, setPriceFilter] = useState({
     minPrice: lowestPrice,
     maxPrice: highestPrice,
   })
 
   // updates the state of priceFilter when either of the input fields is changed.
-  const handlePriceFilterChange = (e:any) => {
+  const handlePriceFilterChange = (e: any) => {
     let { name, value } = e.target
 
     // Validate max price input
@@ -84,9 +82,12 @@ function FilterModal({ closeFilterDropdown }:any) {
   }
 
   return (
-    <div className="absolute top-0 h-[calc(100vh-56px)] w-full  overflow-auto rounded-lg border-[1px] bg-white px-4 md:top-44 md:h-[600px] md:w-[600px] ">
+    <div className="absolute top-0 h-[calc(100vh-56px)] w-full overflow-auto rounded-lg border-[1px] bg-white px-4 md:top-44 md:h-[600px] md:w-[600px] ">
       <div className="flex h-14 items-center justify-between border-b-2 ">
-        <button aria-label="close" onClick={closeFilterDropdown}>
+        <button
+          aria-label="close"
+          onClick={closeFilterDropdown}
+        >
           <XMarkIcon className="h-5" />
         </button>
         <p>Filters</p>
@@ -177,8 +178,9 @@ function FilterModal({ closeFilterDropdown }:any) {
           Superhost
         </label>
       </div>
-      <div className="inset-x-0 bottom-0 z-50 -mx-4 flex items-center justify-between rounded-lg border-t-[1px] bg-white py-4  px-4 shadow-xl">
-        <button aria-label="clear all filters"
+      <div className="bottom-0 z-50 -mx-4 flex items-center justify-between rounded-lg border-t-[1px] bg-white py-4  px-4 shadow-xl">
+        <button
+          aria-label="clear all filters"
           onClick={clearFilters}
           className="font-semibold underline"
         >
@@ -188,7 +190,10 @@ function FilterModal({ closeFilterDropdown }:any) {
           to="/"
           onClick={handleSubmit}
         >
-          <button aria-label="show filters" className=" flex w-[100px] rounded-md bg-[#E21C61] p-2 font-semibold text-white">
+          <button
+            aria-label="show filters"
+            className=" flex w-[100px] rounded-md bg-[#E21C61] p-2 font-semibold text-white"
+          >
             Show
           </button>
         </Link>
