@@ -178,7 +178,7 @@ function FilterModal({ closeFilterDropdown }:any) {
         </label>
       </div>
       <div className="inset-x-0 bottom-0 z-50 -mx-4 flex items-center justify-between rounded-lg border-t-[1px] bg-white py-4  px-4 shadow-xl">
-        <button
+        <button aria-label="clear all filters"
           onClick={clearFilters}
           className="font-semibold underline"
         >
@@ -188,7 +188,7 @@ function FilterModal({ closeFilterDropdown }:any) {
           to="/"
           onClick={handleSubmit}
         >
-          <button className=" flex w-[100px] rounded-md bg-[#E21C61] p-2 font-semibold text-white">
+          <button aria-label="show filters" className=" flex w-[100px] rounded-md bg-[#E21C61] p-2 font-semibold text-white">
             Show
           </button>
         </Link>

@@ -103,7 +103,7 @@ function Listings({ data, guests, days }:any) {
                       <FavoriteButton />
                     </div>
                     {listing.isSuperhost ? (
-                      <button
+                      <button aria-label="superhost"
                         className="absolute top-4 left-4 h-7
                        rounded-md bg-white p-1 text-sm font-medium"
                       >

@@ -146,7 +146,7 @@ export default function NavbarSearchDrawer({ open, setOpen }: any) {
                                         {data.map((img) => {
                                           return (
                                             <div key={img.id}>
-                                              <button
+                                              <button aria-label="search by region"
                                                 onClick={() =>
                                                   SetSelectDestination(
                                                     img.action
@@ -220,7 +220,7 @@ export default function NavbarSearchDrawer({ open, setOpen }: any) {
                                 >
                                   <Popover.Panel className="absolute right-[380px] z-50 mt-2 w-screen max-w-sm translate-x-1/2 ">
                                     <div className="flex h-[470px] w-[820px] flex-col items-center justify-center rounded-[40px] border-[1px] bg-white px-12 py-10">
-                                      <button
+                                      <button aria-label="choose dates"
                                         onClick={() => setOpenChooseDates(true)}
                                         className=" flex  rounded-3xl bg-gray-300 px-4 py-2 text-sm font-semibold  "
                                       >

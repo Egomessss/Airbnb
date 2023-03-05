@@ -134,7 +134,7 @@ function SwipeCarouselFilter(props:any) {
               key={data.id}
               className="my-2 flex h-[51px] w-[77px]  flex-col flex-wrap items-center justify-center decoration-2 underline-offset-8 hover:underline hover:decoration-gray-300  focus:underline focus:decoration-black"
             >
-              <button
+              <button aria-label="select type of location filter"
                 onClick={() => props.setFilter(`${data.title}`)}
                 className="flex w-full flex-col items-center justify-center"
               >
@@ -149,7 +149,7 @@ function SwipeCarouselFilter(props:any) {
           )
         })}
       </Swiper>
-      <button
+      <button aria-label="show filters"
         onClick={showFilterModal}
         className="relative hidden items-center gap-1 rounded-xl border-2 p-3 font-semibold md:flex"
       >

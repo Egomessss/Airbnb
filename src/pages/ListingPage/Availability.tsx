@@ -116,7 +116,7 @@ function Availability({ data }:any) {
           </div>
         </div>
         <div className="relative grid h-24 grid-cols-2 grid-rows-2 rounded-xl border-[1px] border-gray-500 text-xs">
-          <button
+          <button aria-label="choose dates"
             className="col-span-2 border-r-[1px] border-gray-500 active:rounded-lg active:border-2 active:border-black"
             onClick={OpenDateModal}
           >
@@ -135,7 +135,7 @@ function Availability({ data }:any) {
             </div>
           </button>
 
-          <button
+          <button aria-label="guests"
             onClick={handleGuestPopOver}
             className="col-span-2   border-t-[1px] border-gray-500 px-14 text-left"
           >
@@ -154,7 +154,7 @@ function Availability({ data }:any) {
               {accomodationPrice > price ? "Reserve" : "Check Availability"}
             </button>
           ) : (
-            <button
+            <button aria-label="reserve"
               onClick={() => setDatePopOver(true)}
               className="w-full  rounded-xl bg-[#DA0A65] p-3 font-semibold text-white"
             >
@@ -224,13 +224,13 @@ function Availability({ data }:any) {
                   </div>
                 )}
 
-                <button
+                <button aria-label="clear dates"
                   onClick={clearSelection}
                   className="font-medium underline"
                 >
                   Clear dates
                 </button>
-                <button
+                <button aria-label="close"
                   onClick={closeBtn}
                   className="rounded-lg bg-black py-1 px-3 font-semibold text-white"
                 >

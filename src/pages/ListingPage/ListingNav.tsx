@@ -11,7 +11,7 @@ function ListingNav() {
 
   return (
     <div className="flex h-[64px] items-center justify-between md:hidden">
-      <button
+      <button aria-label="go back"
         onClick={goBack}
         className="flex items-center"
       >

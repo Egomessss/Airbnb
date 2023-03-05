@@ -95,7 +95,7 @@ function NavSearchModal({ closeModal }: any) {
         <p className=" font-bold underline-offset-4 hover:underline">Stays</p>
       </div>
 
-      <button
+      <button aria-label="where to"
         onClick={handleLocation}
         className="flex h-12 items-center justify-between rounded-lg  bg-white p-2 px-4 text-sm shadow-xl"
       >
@@ -122,7 +122,7 @@ function NavSearchModal({ closeModal }: any) {
         </div>
       )}
       {/* dates section */}
-      <button
+      <button aria-label="when"
         onClick={handleDate}
         className="flex h-12 items-center justify-between rounded-lg  bg-white p-2 px-4 text-sm shadow-xl"
       >
@@ -146,7 +146,7 @@ function NavSearchModal({ closeModal }: any) {
         </div>
       )}
       {/* guest section */}
-      <button
+      <button aria-label="who"
         onClick={handleGuests}
         className="flex h-12 w-full items-center justify-between rounded-lg bg-white px-4 text-sm shadow-xl"
       >
@@ -174,7 +174,7 @@ function NavSearchModal({ closeModal }: any) {
       )}
 
       <div className="sticky top-[100vh] z-50 -mx-6 flex items-center justify-between rounded-lg bg-white py-2 px-6 shadow-xl">
-        <button
+        <button aria-label="clear all"
           onClick={clearSelections}
           className="font-semibold underline"
         >

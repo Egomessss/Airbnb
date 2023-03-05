@@ -20,7 +20,7 @@ function SearchPagination({
 
       <div className="flex gap-4">
         {pageNumbers.map((number:number) => (
-          <button
+          <button aria-label="change page"
             onClick={() => changePage(number)}
             key={number}
             className={
