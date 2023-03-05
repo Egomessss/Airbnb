@@ -59,7 +59,7 @@ const formattedEndDate = endDateParam ? format(new Date(endDateParam), "dd MMM")
           <li className="border-r-2 px-2 font-semibold">
             {/* if the searchparams is not empty and doesnt include the word filter we pass the variable otherwise we pass the placeholder  */}
             {searchParams.toString() !== "" &&
-            searchParams.toString().includes("filter") !== true
+            searchParams.toString().includes("filter") !== true  && searchParams.toString().includes("minPrice") !== true
               ? `${locationParam}`
               : "Anywhere"}
           </li>
@@ -69,7 +69,7 @@ const formattedEndDate = endDateParam ? format(new Date(endDateParam), "dd MMM")
           >
             {/* if the searchparams is not empty and doesnt include the word filter we pass the variable otherwise we pass the placeholder  */}
             {searchParams.toString() !== "" &&
-            searchParams.toString().includes("filter") !== true
+            searchParams.toString().includes("filter") !== true && searchParams.toString().includes("minPrice") !== true
               ? `${dateRange}`
               : "Any week"}
           </li>
@@ -77,13 +77,13 @@ const formattedEndDate = endDateParam ? format(new Date(endDateParam), "dd MMM")
           <li
             className={
               searchParams.toString() !== "" &&
-              searchParams.toString().includes("filter") !== true
+              searchParams.toString().includes("filter") !== true 
                 ? " flex items-center justify-center gap-2 font-semibold marker:text-gray-500	"
                 : " flex items-center justify-center gap-2 font-semibold text-gray-500"
             }
           >
             {searchParams.toString() !== "" &&
-            searchParams.toString().includes("filter") !== true
+            searchParams.toString().includes("filter") !== true  && searchParams.toString().includes("minPrice") !== true
               ? `${guests} ${guests > 1 ? "guests" : "guest"}`
               : "Add guests"}
           </li>
