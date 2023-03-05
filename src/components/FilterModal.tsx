@@ -96,7 +96,7 @@ function FilterModal({ closeFilterDropdown }:any) {
       {/* price filter */}
       <div className="h-[170px] border-b-2">
         <h2 className=" pt-4 font-semibold">Price range</h2>
-        <p>The average nightly price is €{medianPrice}</p>
+        <p>The average nightl price is €{medianPrice}</p>
         <div className="flex flex-col items-center">
           <div className="flex items-center gap-2">
             <div className="relative py-4">
