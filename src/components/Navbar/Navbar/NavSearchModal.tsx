@@ -182,7 +182,7 @@ function NavSearchModal({ closeModal }: any) {
         </button>
         <Link
           to={{
-            pathname: "/SearchPage",
+            pathname: "sSearchPage",
             search: `?${createSearchParams({
               location: selectDestination,
               startDate: startDate.toISOString(),

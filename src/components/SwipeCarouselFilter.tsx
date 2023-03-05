@@ -115,7 +115,7 @@ function SwipeCarouselFilter(props:any) {
         <SwiperSlide className="my-2 flex h-[51px] w-[77px]  flex-col flex-wrap items-center justify-center decoration-2 underline-offset-8 hover:underline hover:decoration-gray-300  focus:underline focus:decoration-black">
           {/* get a random number as links to the random listing */}
           <Link
-            to={`/ListingPage/${
+            to={`/listingpage/${
               ListingData[Math.floor(Math.random() * ListingData.length)].id
             }`}
             className="flex flex-col items-center justify-center"

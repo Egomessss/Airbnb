@@ -87,7 +87,7 @@ function MapApi({ data }:any) {
                 alt="data.city"
               />
               <p className="font-semibold">{data.city}</p>
-              <Link to={`/ListingPage/${selectedListingId}`}>
+              <Link to={`/listingpage/${selectedListingId}`}>
                 <AiOutlineArrowsAlt className="w-full rounded-lg bg-blue-500 text-xl text-white" />
               </Link>
             </Popup>

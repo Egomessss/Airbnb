@@ -91,7 +91,7 @@ function Listings({ data, guests, days }:any) {
                     key={index}
                     className="h-full w-full"
                   >
-                    <Link to={`/ListingPage/${listing.id}`}>
+                    <Link to={`/listingpage/${listing.id}`}>
                       <img
                         className="h-full w-full rounded-xl object-cover"
                         alt={listing.state}

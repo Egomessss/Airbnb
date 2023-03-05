@@ -308,7 +308,7 @@ export default function NavbarSearchDrawer({ open, setOpen }: any) {
                             <Link
                               className="flex gap-2"
                               to={{
-                                pathname: "/SearchPage",
+                                pathname: "/searchPage",
                                 search: `?${createSearchParams({
                                   location: selectDestination,
                                   startDate: startDate.toISOString(),

@@ -13,11 +13,11 @@ function App() {
           element={<Homepage />}
         />
         <Route
-          path="/SearchPage"
+          path="/searchPage"
           element={<SearchPage />}
         />
         <Route
-          path="/ListingPage/:listingId"
+          path="/listingpage/:listingId"
           element={<ListingPage />}
         />
       </Routes>
