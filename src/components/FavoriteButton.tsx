@@ -13,7 +13,7 @@ function favoriteButton() {
   //    reactively setting the favorite state in the local storage whenever it changes by using React's useEffect Hook
 
   const toogleFavorite = () => {
-    setFavorite(!favorite)
+    setFavorite((favorite:boolean) => !favorite)
   }
 
   // saves to local storage
