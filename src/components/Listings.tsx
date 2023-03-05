@@ -37,11 +37,7 @@ function Listings({ data, guests, days }:any) {
     localStorage.setItem("my-fav-posts", JSON.stringify(favorite))
   }, [favorite])
 
-  // !guardar state para cada card separado, provalmente nao dá porque o key e o mesmo
-  // listing card individuais
-  // display the swiper for the images
-  // text area em baixo
-  // fazer loop das imagens e
+ 
 
   //  gets the current location object, which we store in the location variable.
   const location = useLocation()
@@ -72,7 +68,7 @@ function Listings({ data, guests, days }:any) {
 
         // formats the number to introduce commas for the larger values
         const formattedTotal = total.toLocaleString("de-DE")
-        // h-[460px] w-[340px]
+    
         return (
           // listing
           <div
