@@ -84,7 +84,7 @@ function FilterModal({ closeFilterDropdown }:any) {
   }
 
   return (
-    <div className="absolute top-0 h-[calc(100vh-7px)] w-full  overflow-auto rounded-lg border-[1px] bg-white px-4 md:top-44 md:h-[600px] md:w-[600px] ">
+    <div className="absolute top-0 h-[calc(100vh-56px)] w-full  overflow-auto rounded-lg border-[1px] bg-white px-4 md:top-44 md:h-[600px] md:w-[600px] ">
       <div className="flex h-14 items-center justify-between border-b-2 ">
         <button aria-label="close" onClick={closeFilterDropdown}>
           <XMarkIcon className="h-5" />
@@ -96,7 +96,7 @@ function FilterModal({ closeFilterDropdown }:any) {
       {/* price filter */}
       <div className="h-[170px] border-b-2">
         <h2 className=" pt-4 font-semibold">Price range</h2>
-        <p>The average nightl price is €{medianPrice}</p>
+        <p>The average nightly price is €{medianPrice}</p>
         <div className="flex flex-col items-center">
           <div className="flex items-center gap-2">
             <div className="relative py-4">
@@ -177,7 +177,7 @@ function FilterModal({ closeFilterDropdown }:any) {
           Superhost
         </label>
       </div>
-      <div className="inset-x-0 bottom-0 z-50 pb-10 -mx-4 flex items-center justify-between rounded-lg border-t-[1px] bg-white py-4  px-4 shadow-xl">
+      <div className="inset-x-0 bottom-0 z-50 -mx-4 flex items-center justify-between rounded-lg border-t-[1px] bg-white py-4  px-4 shadow-xl">
         <button aria-label="clear all filters"
           onClick={clearFilters}
           className="font-semibold underline"
