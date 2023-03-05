@@ -51,9 +51,4 @@ Listing:
 
 - [x] Improving the performance, utilizing techniques like debouncing/throttling to prevent excessive Mapbox api calls ;
 - [x] Modal close on outside click;
-- [x] Lazy loading for images optimization like airbnb utilizes.
-
-
-
-
-
+- [x] Lazy loading for images/components optimization like airbnb utilizes.
