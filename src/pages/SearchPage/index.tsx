@@ -128,7 +128,7 @@ function SearchPage() {
         {/* full screen listing data */}
         <div className="hidden px-4 md:inline-block lg:w-[60%]">
           <p className="py-4 text-sm font-medium">
-            Over{" "}
+            Over
             <span className="mr-2 font-semibold">{filteredData.length}</span>
             homes available between
             <span className="mx-2 font-semibold">{range}</span>

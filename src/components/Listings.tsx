@@ -124,7 +124,7 @@ function Listings({ data, guests, days }:any) {
                 </div>
               </div>
               <p className=" mt-1 underline underline-offset-2">
-                <span className="font-semibold">€{formattedTotal}</span>{" "}
+                <span className="font-semibold">€{formattedTotal}</span>
                 {days && guests ? `total` : `per night`}
               </p>
             </div>

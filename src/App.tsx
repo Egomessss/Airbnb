@@ -15,11 +15,11 @@ function App() {
         <Route
           path="/SearchPage"
           element={<SearchPage />}
-        />{" "}
+        />
         <Route
           path="/ListingPage/:listingId"
           element={<ListingPage />}
-        />{" "}
+        />
       </Routes>
     </div>
   )

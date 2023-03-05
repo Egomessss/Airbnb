@@ -258,7 +258,7 @@ function Availability({ data }:any) {
             {/* trows an error if the the dates selected is lower than the minimum allowed */}
             {guests >= data.accommodates && (
               <p className="rounded-md bg-red-600 p-2  text-sm text-white">
-                {" "}
+               
                 Maximum number of guests is {data.accommodates}
               </p>
             )}
@@ -269,7 +269,7 @@ function Availability({ data }:any) {
         <div className=" mt-6 flex h-[92px] w-[372px] items-center justify-center  gap-2 rounded-xl border-[1px]  bg-scroll p-2 shadow-lg ">
           <div className="w-3/4">
             <p>
-              <span className="font-semibold">This is a rare find.</span>{" "}
+              <span className="font-semibold">This is a rare find.</span>
               This place on Airbnb is usually fully booked.
             </p>
           </div>

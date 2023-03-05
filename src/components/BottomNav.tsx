@@ -18,7 +18,7 @@ export default function BottomNav({ resetFilter }:any) {
         to="/"
       >
         <button>
-          {" "}
+         
           <MagnifyingGlassIcon className={iconStyle} />
           <span className={spanStyle}>Explore</span>
         </button>

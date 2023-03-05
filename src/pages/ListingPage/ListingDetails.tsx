@@ -84,7 +84,7 @@ function ListingDetails({
       </div>
       <div className="border-t-[1px] pt-8 pb-6">
         <div className="pb-6">
-          {" "}
+    
           <p className="leading-5">{data.description}</p>
         </div>
 

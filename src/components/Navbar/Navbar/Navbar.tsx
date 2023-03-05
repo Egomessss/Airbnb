@@ -106,7 +106,7 @@ const formattedEndDate = endDateParam ? format(new Date(endDateParam), "dd MMM")
         <button className="h-[30px] whitespace-nowrap p-1 text-sm font-semibold hover:rounded-full hover:bg-gray-100">
           Rent your home
         </button>
-        <GlobeAltIcon className="h-11 rounded-full p-3 hover:bg-gray-100" />{" "}
+        <GlobeAltIcon className="h-11 rounded-full p-3 hover:bg-gray-100" />
         <div className="flex h-[40px] w-[72px] cursor-pointer items-center justify-between gap-2 rounded-3xl border-2 border-gray-200 p-2 hover:shadow-lg">
           <Bars3Icon className="h-6" />
           <svg

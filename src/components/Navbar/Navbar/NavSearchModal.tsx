@@ -191,7 +191,6 @@ function NavSearchModal({ closeModal }: any) {
             })}`,
           }}
         >
-          {" "}
           <button className=" flex w-[100px] rounded-md bg-[#E21C61] p-2 text-white">
             <MagnifyingGlassIcon className="h-5 w-5" />
             Search

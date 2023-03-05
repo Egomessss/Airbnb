@@ -188,9 +188,8 @@ function FilterModal({ closeFilterDropdown }:any) {
           to="/"
           onClick={handleSubmit}
         >
-          {" "}
           <button className=" flex w-[100px] rounded-md bg-[#E21C61] p-2 font-semibold text-white">
-            show{}
+            Show
           </button>
         </Link>
       </div>
