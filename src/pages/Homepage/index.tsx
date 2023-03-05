@@ -117,7 +117,7 @@ function Homepage() {
  
 
   return (
-    <div className="relative px-6 md:px-20">
+    <div className="relative px-6 md:px-10 lg:px-20">
      
       <div className="sticky top-0 z-10 bg-white">
         <Navbar resetFilter={() => setFilteredData(ListingData)} />
