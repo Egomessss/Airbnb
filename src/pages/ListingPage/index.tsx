@@ -101,11 +101,11 @@ export default function ListingPage() {
             </li>
           </ul>
           <div className="flex justify-around">
-            <button className="flex w-[80px] items-center gap-2 rounded-lg p-2 hover:bg-gray-100 ">
+            <button aria-label="share" className="flex w-[80px] items-center gap-2 rounded-lg p-2 hover:bg-gray-100 ">
               <ArrowUpTrayIcon className="h-4" />
               <p>Share</p>
             </button>
-            <button className="flex w-[80px] items-center gap-2 rounded-lg p-2 hover:bg-gray-100 ">
+             <button aria-label="save" className="flex w-[80px] items-center gap-2 rounded-lg p-2 hover:bg-gray-100 ">
               <HeartIcon className="h-4" />
               <p>Save</p>
             </button>

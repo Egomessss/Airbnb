@@ -192,11 +192,11 @@ function Availability({ data }:any) {
                 <p>Minimum stay: {data.minimum_nights} </p>
               </div>
               <div className="flex w-[300px] gap-4 rounded-lg border-[1px] p-2">
-                <button className=" w-1/2 border-r-[1px] border-gray-500 px-2 text-left">
+                <button aria-label="check in" className=" w-1/2 border-r-[1px] border-gray-500 px-2 text-left">
                   <p className="text-[10px] font-medium  uppercase">Check-in</p>
                   <p>{formattedStartDate}</p>
                 </button>
-                <button className=" w-1/2  border-gray-500 px-2 text-left">
+                <button aria-label="check-out" className=" w-1/2  border-gray-500 px-2 text-left">
                   <p className="text-[10px] font-medium uppercase">Checkout</p>
                   <p>{formattedEndDate}</p>
                 </button>

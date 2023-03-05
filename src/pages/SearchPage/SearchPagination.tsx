@@ -11,7 +11,7 @@ function SearchPagination({
 }:any) {
   return (
     <nav className="flex justify-center gap-4">
-      <button>
+      <button  aria-label="decrement">
         <ChevronLeftIcon
           onClick={decrementPage}
           className="h-5"
@@ -34,7 +34,7 @@ function SearchPagination({
           </button>
         ))}
       </div>
-      <button>
+      <button aria-label="increase">
         <ChevronRightIcon
           onClick={incrementPage}
           className="h-5"

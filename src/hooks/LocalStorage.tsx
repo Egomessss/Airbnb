@@ -16,17 +16,3 @@ import React from "react"
 
 export default useLocalStorage
 
-// const App = () => {
-//     const [isOpen, setOpen] = useLocalStorage('is-open', false);
-  
-//     const handleToggle = () => {
-//       setOpen(!isOpen);
-//     };
-  
-//     return (
-//       <div>
-//         <button onClick={handleToggle}>Toggle</button>
-//         {isOpen && <div>Content</div>}
-//       </div>
-//     );
-//   };

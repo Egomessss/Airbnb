@@ -67,7 +67,7 @@ function NavMobile({ removeFixed, showFixed }: any) {
 
   return (
     <nav className=" my-3 mx-4 flex h-[55px] items-center justify-around rounded-full border shadow md:hidden">
-      <button>
+      <button aria-label="search">
         <MagnifyingGlassIcon
           // opens the modal
           onClick={ShowModalRemoveFixed}
@@ -91,7 +91,7 @@ function NavMobile({ removeFixed, showFixed }: any) {
       {/* renders the modal */}
       {showModal && <NavSearchModal closeModal={closeModalShowFixed} />}
 
-      <button onClick={ShowFilterRemoveFixed}>
+      <button aria-label="show filters" onClick={ShowFilterRemoveFixed}>
         <AdjustmentsHorizontalIcon className="h-5 w-5" />
       </button>
 

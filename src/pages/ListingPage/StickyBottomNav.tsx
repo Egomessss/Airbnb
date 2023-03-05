@@ -21,7 +21,7 @@ function StickyBottomNav({
           {`${formattedStartDate} - ${formattedendDate}`}
         </p>
       </div>
-      <button className="h-[48px] w-[110px] rounded-lg bg-[#DF1362] font-semibold text-white">
+      <button aria-label="reserve" className="h-[48px] w-[110px] rounded-lg bg-[#DF1362] font-semibold text-white">
         Reserve
       </button>
     </div>

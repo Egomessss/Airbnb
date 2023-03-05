@@ -88,7 +88,7 @@ const formattedEndDate = endDateParam ? format(new Date(endDateParam), "dd MMM")
               : "Add guests"}
           </li>
           <li>
-            <button>
+            <button aria-label="search">
               <MagnifyingGlassIcon className="h-8 w-8 rounded-full bg-red-500 p-2 text-white " />
             </button>
           </li>
@@ -103,7 +103,7 @@ const formattedEndDate = endDateParam ? format(new Date(endDateParam), "dd MMM")
       </div>
       {/* nav right side */}
       <div className=" hidden h-[50px] w-[260px] min-w-[280px] items-center justify-between md:flex">
-        <button className="h-[30px] whitespace-nowrap p-1 text-sm font-semibold hover:rounded-full hover:bg-gray-100">
+        <button aria-label="rent your home" className="h-[30px] whitespace-nowrap p-1 text-sm font-semibold hover:rounded-full hover:bg-gray-100">
           Rent your home
         </button>
         <GlobeAltIcon className="h-11 rounded-full p-3 hover:bg-gray-100" />

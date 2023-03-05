@@ -304,7 +304,7 @@ export default function NavbarSearchDrawer({ open, setOpen }: any) {
                               </>
                             )}
                           </Popover>
-                          <button className="flex h-[50px] items-center  justify-center rounded-3xl bg-[#DA0A64] text-white md:w-[50px] lg:w-[90px]">
+                          <button aria-label="search" className="flex h-[50px] items-center  justify-center rounded-3xl bg-[#DA0A64] text-white md:w-[50px] lg:w-[90px]">
                             <Link
                               className="flex gap-2"
                               to={{

@@ -17,17 +17,17 @@ export default function BottomNav({ resetFilter }:any) {
         onClick={resetFilter}
         to="/"
       >
-        <button>
+        <button aria-label="search">
          
           <MagnifyingGlassIcon className={iconStyle} />
           <span className={spanStyle}>Explore</span>
         </button>
       </Link>
-      <button className={aStyle}>
+      <button aria-label="favorite" className={aStyle}>
         <HeartIcon className={iconStyle} />
         <span className={spanStyle}>Wishlist</span>
       </button>
-      <button className={aStyle}>
+      <button aria-label="account" className={aStyle}>
         <UserCircleIcon className={iconStyle} />
         <span className={spanStyle}>Log in</span>
       </button>

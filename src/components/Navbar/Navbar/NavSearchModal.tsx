@@ -109,7 +109,7 @@ function NavSearchModal({ closeModal }: any) {
         <div className="grid h-[190px] grid-cols-3 items-center justify-between gap-2 rounded-lg  bg-white  px-4 text-sm shadow-xl">
           {data.map((img,index) => {
             return (
-              <button key={index} className="max-w-[150px]" onClick={() => SetSelectDestination(img.action)}>
+              <button aria-label="select destination" key={index} className="max-w-[150px]" onClick={() => SetSelectDestination(img.action)}>
                 <img
                   className="rounded-xl shadow-md"
                   alt={img.title}
@@ -191,7 +191,7 @@ function NavSearchModal({ closeModal }: any) {
             })}`,
           }}
         >
-          <button className=" flex w-[100px] rounded-md bg-[#E21C61] p-2 text-white">
+          <button aria-label="search" className=" flex w-[100px] rounded-md bg-[#E21C61] p-2 text-white">
             <MagnifyingGlassIcon className="h-5 w-5" />
             Search
           </button>

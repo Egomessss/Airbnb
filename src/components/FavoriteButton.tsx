@@ -26,7 +26,7 @@ function favoriteButton() {
   
   return (
     <>
-      <button onClick={toogleFavorite}>
+      <button aria-label="favorite" onClick={toogleFavorite}>
         <HeartIcon
           className={
             !favorite
