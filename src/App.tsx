@@ -1,24 +1,29 @@
-import Homepage from "./pages/Homepage/index"
+import { lazy, Suspense } from "react"
+import { Routes, Route } from "react-router-dom"
 
-import SearchPage from "./pages/SearchPage"
-import { BrowserRouter, Routes, Route } from "react-router-dom"
-import ListingPage from "./pages/ListingPage/index"
+const HomePage = lazy(() => import("./pages/HomePage/index"))
+const SearchPage = lazy(() => import("./pages/SearchPage/index"))
+const ListingPage = lazy(() => import("./pages/ListingPage/index"))
+
 
 function App() {
   return (
     <Routes>
-      <Route
-        path="/"
-        element={<Homepage />}
-      />
-      <Route
-        path="/searchPage"
-        element={<SearchPage />}
-      />
-      <Route
-        path="/listingpage/:listingId"
-        element={<ListingPage />}
-      />
+      <Suspense fallback={<div>Loading...</div>}>
+        {" "}
+        <Route
+          path="/"
+          element={<HomePage />}
+        />
+        <Route
+          path="/searchPage"
+          element={<SearchPage />}
+        />
+        <Route
+          path="/listingpage/:listingId"
+          element={<ListingPage />}
+        />
+      </Suspense>
     </Routes>
   )
 }

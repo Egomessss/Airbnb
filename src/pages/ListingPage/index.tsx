@@ -24,7 +24,7 @@ import NavMobile from "../../components/Navbar/Navbar/NavMobile"
 import MapApi from "../../components/MapApi"
 import Footer from "../../components/Footer"
 
-export default function ListingPage() {
+export default function Listingpage() {
 
   // forces the listing page to always open on the top of the page
   useEffect(() => {

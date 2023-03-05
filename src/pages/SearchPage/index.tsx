@@ -16,7 +16,7 @@ import Footer from "../../components/Footer"
 import NavMobile from "../../components/Navbar/Navbar/NavMobile"
 import MapApi from "../../components/MapApi"
 
-function SearchPage() {
+function Searchpage() {
   const [openMap, setOpenMap] = useState(false)
 
   // opens and closes the mapbox map
@@ -208,4 +208,4 @@ function SearchPage() {
   )
 }
 
-export default SearchPage
+export default Searchpage
