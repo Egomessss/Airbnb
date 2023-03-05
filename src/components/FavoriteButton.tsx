@@ -1,5 +1,5 @@
 import { HeartIcon } from "@heroicons/react/24/outline"
-import React, { useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 
 function favoriteButton() {
   // handles favorite post state
@@ -13,7 +13,7 @@ function favoriteButton() {
   //    reactively setting the favorite state in the local storage whenever it changes by using React's useEffect Hook
 
   const toogleFavorite = () => {
-    setFavorite((favorite:boolean) => !favorite)
+    setFavorite((favorite: boolean) => !favorite)
   }
 
   // saves to local storage

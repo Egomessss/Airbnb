@@ -1,5 +1,5 @@
 import { XMarkIcon } from "@heroicons/react/24/outline"
-import React, { useState } from "react"
+import { useState } from "react"
 import { Link } from "react-router-dom"
 import amenities from "../assets/amenities.json"
 import ListingData from "../assets/ListingsData.json"

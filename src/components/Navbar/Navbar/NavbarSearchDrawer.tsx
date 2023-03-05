@@ -62,14 +62,14 @@ export default function NavbarSearchDrawer({ open, setOpen }: any) {
   // if guest over 10 prevent further clicks
   const handleIncrementClickGuests = () => {
     if (guests < 10) {
-      setGuests(guests + 1)
+      setGuests((prevguests) => prevguests + 1)
     }
   }
 
   // minimum always 1 never below
   const handleDecrementClickGuests = () => {
     if (guests > 1) {
-      setGuests(guests - 1)
+      setGuests((prevguests) => prevguests- 1)
     }
   }
   

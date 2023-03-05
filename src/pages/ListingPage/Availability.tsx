@@ -1,6 +1,6 @@
 import { MinusIcon, PlusIcon, StarIcon } from "@heroicons/react/24/solid"
 import { addDays, format } from "date-fns"
-import React, { useState } from "react"
+import { useState } from "react"
 import { DateRangePicker } from "react-date-range"
 import { CiKeyboard } from "react-icons/ci"
 import { SlDiamond } from "react-icons/sl"
@@ -17,14 +17,14 @@ function Availability({ data }:any) {
   // if guest over the listing max prevent further clicks and alert
   const handleIncrementClickGuests = () => {
     if (guests < data.accommodates) {
-      setGuests(guests + 1)
+      setGuests((prevguests) => prevguests + 1)
     }
   }
 
   // minimum always 1 never below
   const handleDecrementClickGuests = () => {
     if (guests > 1) {
-      setGuests(guests - 1)
+      setGuests((prevguests) => prevguests - 1)
     }
   }
 
