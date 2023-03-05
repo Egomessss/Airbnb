@@ -88,7 +88,7 @@ function ListingDetails({
           <p className="leading-5">{data.description}</p>
         </div>
 
-        <div className="border-t-[1px] pt-8 pb-6 md:h-[500px]">
+        <div className="border-t-[1px] pt-8 pb-6 md:h-[650px]">
           <h2 className="mb-4 text-xl font-semibold">What this place offers</h2>
           <ul className="grid grid-cols-1 gap-4 md:grid-cols-2">
             {amenities.map((amenitie:string) => {
