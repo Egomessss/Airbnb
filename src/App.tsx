@@ -5,12 +5,10 @@ const HomePage = lazy(() => import("./pages/HomePage/index"))
 const SearchPage = lazy(() => import("./pages/SearchPage/index"))
 const ListingPage = lazy(() => import("./pages/ListingPage/index"))
 
-
 function App() {
   return (
-    <Routes>
-      <Suspense fallback={<div>Loading...</div>}>
-        {" "}
+    <Suspense fallback={<div>Loading...</div>}>
+      <Routes>
         <Route
           path="/"
           element={<HomePage />}
@@ -23,8 +21,8 @@ function App() {
           path="/listingpage/:listingId"
           element={<ListingPage />}
         />
-      </Suspense>
-    </Routes>
+      </Routes>
+    </Suspense>
   )
 }
 
