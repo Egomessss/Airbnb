@@ -12,7 +12,7 @@ import { useSearchParams } from "react-router-dom"
 
 import NavMobile from "../../components/Navbar/Navbar/NavMobile"
 
-function Homepage() {
+export default function Homepage() {
  
 
   // opens and closes the mapbox map
@@ -168,4 +168,4 @@ function Homepage() {
   )
 }
 
-export default Homepage
+ 
