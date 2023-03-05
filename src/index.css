@@ -106,8 +106,6 @@
   font-weight: 500;
 }
 
-
-
 /* range picker css */
 /* hides the defined range */
 
@@ -115,8 +113,7 @@
   display: none;
 }
 
-.rdrDateRangePickerWrapper{
-display: flex;
-justify-content: center;
+.rdrDateRangePickerWrapper {
+  display: flex;
+  justify-content: center;
 }
-
