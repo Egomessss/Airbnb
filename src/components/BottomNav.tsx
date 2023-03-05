@@ -5,7 +5,7 @@ import {
 } from "@heroicons/react/24/outline"
 import { Link } from "react-router-dom"
 
-export default function BottomNav({ resetFilter }:any) {
+export default function BottomNav({ resetFilter }: any) {
   const aStyle =
     "w-[70px] focus:text-red-500 justify-center inline-block text-center"
   const iconStyle = "h-6 w-6 mx-2 inline-block mb-1"
@@ -17,17 +17,27 @@ export default function BottomNav({ resetFilter }:any) {
         onClick={resetFilter}
         to="/"
       >
-        <button aria-label="search">
-         
+        <button
+          className="flex flex-col items-center"
+          aria-label="search"
+        >
           <MagnifyingGlassIcon className={iconStyle} />
           <span className={spanStyle}>Explore</span>
         </button>
       </Link>
-      <button aria-label="favorite" className={aStyle}>
+      <button
+        className="flex flex-col items-center"
+        aria-label="favorite"
+        className={aStyle}
+      >
         <HeartIcon className={iconStyle} />
         <span className={spanStyle}>Wishlist</span>
       </button>
-      <button aria-label="account" className={aStyle}>
+      <button
+        className="flex flex-col items-center"
+        aria-label="account"
+        className={aStyle}
+      >
         <UserCircleIcon className={iconStyle} />
         <span className={spanStyle}>Log in</span>
       </button>
