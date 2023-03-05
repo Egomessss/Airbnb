@@ -19,12 +19,18 @@ import {
 import { FaMedal } from "react-icons/fa"
 import { SlDiamond } from "react-icons/sl"
 import { addDays, format } from "date-fns"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import NavMobile from "../../components/Navbar/Navbar/NavMobile"
 import MapApi from "../../components/MapApi"
 import Footer from "../../components/Footer"
 
 export default function ListingPage() {
+
+  // forces the listing page to always open on the top of the page
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
   const { listingId } = useParams()
 
   // fetches the proper listing based on the url listing id

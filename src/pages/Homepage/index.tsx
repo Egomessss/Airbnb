@@ -119,7 +119,7 @@ function Homepage() {
   return (
     <div className="relative px-6 md:px-10 lg:px-20">
      
-      <div className="sticky top-0 z-10 bg-white">
+      <div className="sticky py-1 md:py-0 top-0 z-10 bg-white">
         <Navbar resetFilter={() => setFilteredData(ListingData)} />
         <NavMobile
           showFixed={showFixed}
