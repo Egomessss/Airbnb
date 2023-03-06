@@ -82,7 +82,7 @@ function FilterModal({ closeFilterDropdown }: any) {
   }
 
   return (
-    <div className="absolute top-0 h-[calc(100vh-56px)] w-full overflow-auto rounded-lg border-[1px] bg-white px-4 md:top-44 md:h-[600px] md:w-[600px] ">
+    <div className="absolute top-2 h-[calc(100vh-6px)] w-full overflow-auto rounded-lg border-[1px] bg-white px-4 md:top-44 md:h-[600px] md:w-[600px] ">
       <div className="flex h-14 items-center justify-between border-b-2 ">
         <button
           aria-label="close"
