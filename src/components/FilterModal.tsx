@@ -178,7 +178,7 @@ function FilterModal({ closeFilterDropdown }: any) {
         Superhost
       </label>
     </div>
-    <div className="-mx-4 flex items-center justify-between rounded-lg border-t-[1px] bg-white py-4  px-4 shadow-xl">
+    <div className="-mx-4 flex items-center justify-between rounded-lg border-t-[1px] bg-white pb-14 pt-4  px-4 shadow-xl">
       <button
         aria-label="clear all filters"
         onClick={clearFilters}
