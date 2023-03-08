@@ -74,7 +74,6 @@ function NavMobile({ removeFixed, showFixed }: any) {
       {/* renders the modal */}
       {showModal && <NavSearchModal closeModal={closeModalShowFixed} />}
       <Filter removeBottom={ShowFilterRemoveFixed} />
-  
     </nav>
   )
 }
