@@ -10,9 +10,9 @@ import { format } from "date-fns"
 import { useState } from "react"
 import { useLocation } from "react-router-dom"
 import NavbarSearchDrawer from "./NavbarSearchDrawer"
-import {AiOutlineFire} from "react-icons/ai"
+import { AiOutlineFire } from "react-icons/ai"
 
-function Navbar({resetFilter}:any) {
+function Navbar({ resetFilter }: any) {
   // !state for the NavSearchModal
   const [open, setOpen] = useState(false)
 
@@ -33,8 +33,8 @@ function Navbar({resetFilter}:any) {
   const endDateParam = searchParams.get("endDate")
 
   // formats the dataparams into a human-readable format
-const formattedStartDate = startDateParam ? format(new Date(startDateParam), "dd MMM") : '';
-const formattedEndDate = endDateParam ? format(new Date(endDateParam), "dd MMM") : '';
+  const formattedStartDate = startDateParam ? format(new Date(startDateParam), "dd MMM") : '';
+  const formattedEndDate = endDateParam ? format(new Date(endDateParam), "dd MMM") : '';
 
   const dateRange = `${formattedStartDate} - ${formattedEndDate}`
 
@@ -46,7 +46,7 @@ const formattedEndDate = endDateParam ? format(new Date(endDateParam), "dd MMM")
       {/* nav left side */}
       <div className=" hidden h-[50px] w-[280px] min-w-[40px] cursor-pointer items-center justify-start md:flex">
         <Link onClick={resetFilter} className="flex items-center font-bold" to="/">
-          <AiOutlineFire className="text-5xl h-full text-red-500"/>
+          <AiOutlineFire className="text-5xl h-full text-red-500" />
           <p className="text-red-500 text-xl hidden lg:block ">firebnb</p>
         </Link>
       </div>
@@ -55,11 +55,11 @@ const formattedEndDate = endDateParam ? format(new Date(endDateParam), "dd MMM")
         className="hidden h-[55px] min-w-[362px] cursor-pointer items-center justify-around rounded-full border shadow hover:shadow-lg md:flex"
         onClick={() => setOpen(true)}
       >
-        <ul className="flex items-center gap-7 text-xs ">
+        <ul className="flex items-center w-full justify-between px-2 text-xs ">
           <li className="border-r-2 px-2 font-semibold">
             {/* if the searchparams is not empty and doesnt include the word filter we pass the variable otherwise we pass the placeholder  */}
             {searchParams.toString() !== "" &&
-            searchParams.toString().includes("filter") !== true  && searchParams.toString().includes("minPrice") !== true
+              searchParams.toString().includes("filter") !== true && searchParams.toString().includes("minPrice") !== true
               ? `${locationParam}`
               : "Anywhere"}
           </li>
@@ -69,7 +69,7 @@ const formattedEndDate = endDateParam ? format(new Date(endDateParam), "dd MMM")
           >
             {/* if the searchparams is not empty and doesnt include the word filter we pass the variable otherwise we pass the placeholder  */}
             {searchParams.toString() !== "" &&
-            searchParams.toString().includes("filter") !== true && searchParams.toString().includes("minPrice") !== true
+              searchParams.toString().includes("filter") !== true && searchParams.toString().includes("minPrice") !== true
               ? `${dateRange}`
               : "Any week"}
           </li>
@@ -77,13 +77,13 @@ const formattedEndDate = endDateParam ? format(new Date(endDateParam), "dd MMM")
           <li
             className={
               searchParams.toString() !== "" &&
-              searchParams.toString().includes("filter") !== true 
+                searchParams.toString().includes("filter") !== true
                 ? " flex items-center justify-center gap-2 font-semibold marker:text-gray-500	"
                 : " flex items-center justify-center gap-2 font-semibold text-gray-500"
             }
           >
             {searchParams.toString() !== "" &&
-            searchParams.toString().includes("filter") !== true  && searchParams.toString().includes("minPrice") !== true
+              searchParams.toString().includes("filter") !== true && searchParams.toString().includes("minPrice") !== true
               ? `${guests} ${guests > 1 ? "guests" : "guest"}`
               : "Add guests"}
           </li>
