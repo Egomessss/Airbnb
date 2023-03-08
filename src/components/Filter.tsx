@@ -5,9 +5,9 @@ import { Link } from "react-router-dom";
 import amenities from "../assets/amenities.json"
 import ListingData from "../assets/ListingsData.json"
 
-type FilterProps = { removeBottom?: () => void }
 
-export default function Filter({ removeBottom }: FilterProps) {
+
+export default function Filter({ removeBottom }:any) {
 
     let [isOpen, setIsOpen] = useState(false);
 
