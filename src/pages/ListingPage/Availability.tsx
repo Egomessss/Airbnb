@@ -5,7 +5,7 @@ import { DateRangePicker } from "react-date-range"
 import { CiKeyboard } from "react-icons/ci"
 import { SlDiamond } from "react-icons/sl"
 
-function Availability({ data }:any) {
+function Availability({ data }: any) {
   //! modal state
   const [datePopOver, setDatePopOver] = useState(false)
   const [guestPopOver, setGuestPopOver] = useState(false)
@@ -71,9 +71,9 @@ function Availability({ data }:any) {
   // closes the modal
   const closeBtn = () => setDatePopOver(false)
 
-  const OpenDateModal= ()=>{
-   setDatePopOver(true)
-   setGuestPopOver(false)
+  const OpenDateModal = () => {
+    setDatePopOver(true)
+    setGuestPopOver(false)
   }
 
 
@@ -148,8 +148,8 @@ function Availability({ data }:any) {
         <div className="mt-4 ">
           {/* reserve button is only avaibable if not input has been passed by the user */}
           {accomodationPrice > price &&
-          guestPopOver === false &&
-          datePopOver === false ? (
+            guestPopOver === false &&
+            datePopOver === false ? (
             <button className="h-50 w-full rounded-xl bg-[#DA0A65] p-3 font-semibold text-white">
               {accomodationPrice > price ? "Reserve" : "Check Availability"}
             </button>
@@ -258,7 +258,7 @@ function Availability({ data }:any) {
             {/* trows an error if the the dates selected is lower than the minimum allowed */}
             {guests >= data.accommodates && (
               <p className="rounded-md bg-red-600 p-2  text-sm text-white">
-               
+
                 Maximum number of guests is {data.accommodates}
               </p>
             )}
