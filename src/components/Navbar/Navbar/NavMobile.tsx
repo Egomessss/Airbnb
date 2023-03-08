@@ -1,12 +1,12 @@
 import {
-  AdjustmentsHorizontalIcon,
   MagnifyingGlassIcon,
 } from "@heroicons/react/24/outline"
 import { useState } from "react"
-import FilterModal from "../../FilterModal"
+import Filter from "../../Filter"
 import NavSearchModal from "./NavSearchModal"
 
 function NavMobile({ removeFixed, showFixed }: any) {
+
   const [openFilterDropdown, setOpenFilterDropdown] = useState(false)
 
   // prevents scrolling when modal is open
@@ -18,17 +18,10 @@ function NavMobile({ removeFixed, showFixed }: any) {
   }
 
   const ShowFilterRemoveFixed = () => {
-    if (removeFixed === null) {
-    } else {
+    if (removeFixed !== null) {
       removeFixed()
       showFilterModal()
     }
-  }
-
-  // allows scrolling when the modal is closed
-  const closeFilterModal = () => {
-    setOpenFilterDropdown(false)
-    document.body.style.overflow = "unset"
   }
 
   const [showModal, setShowModal] = useState(false)
@@ -90,14 +83,8 @@ function NavMobile({ removeFixed, showFixed }: any) {
       </div>
       {/* renders the modal */}
       {showModal && <NavSearchModal closeModal={closeModalShowFixed} />}
-
-      <button aria-label="show filters" onClick={ShowFilterRemoveFixed}>
-        <AdjustmentsHorizontalIcon className="h-5 w-5" />
-      </button>
-
-      {openFilterDropdown && (
-        <FilterModal closeFilterDropdown={closeFilterModal} />
-      )}
+      <Filter removeBottom={ShowFilterRemoveFixed} />
+  
     </nav>
   )
 }

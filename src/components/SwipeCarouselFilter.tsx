@@ -8,25 +8,15 @@ import "swiper/css/navigation"
 // import required modules
 import { Navigation } from "swiper"
 
-import { AdjustmentsHorizontalIcon } from "@heroicons/react/24/outline"
-
 import ListingData from "../assets/ListingsData.json"
 import filters from "../assets/filters.json"
 
 import { Link } from "react-router-dom"
-import FilterModal from "./FilterModal"
+
+import Filter from "./Filter"
 // each search parameter needs to match their title to the search query
 
 function SwipeCarouselFilter(props:any) {
-  const [openFilterDropdown, setOpenFilterDropdown] = useState(false)
-
-  // prevents scrolling when modal is open
-  const showFilterModal = () => {
-    setOpenFilterDropdown(true)
-    if (typeof window != "undefined" && window.document) {
-      document.body.style.overflow = "hidden"
-    }
-  }
 
   // price breakdown
 
@@ -148,17 +138,8 @@ function SwipeCarouselFilter(props:any) {
             </SwiperSlide>
           )
         })}
-      </Swiper>
-      <button aria-label="show filters"
-        onClick={showFilterModal}
-        className="relative hidden items-center gap-1 rounded-xl border-2 p-3 font-semibold md:flex"
-      >
-        <AdjustmentsHorizontalIcon className="h-5" />
-        <p className="text-xs">Filters</p>
-      </button>
-      {openFilterDropdown && (
-        <FilterModal closeFilterDropdown={() => setOpenFilterDropdown(false)} />
-      )}
+      </Swiper> 
+      <Filter/>
     </div>
   )
 }
