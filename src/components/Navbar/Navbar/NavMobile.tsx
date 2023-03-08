@@ -7,20 +7,10 @@ import NavSearchModal from "./NavSearchModal"
 
 function NavMobile({ removeFixed, showFixed }: any) {
 
-  const [openFilterDropdown, setOpenFilterDropdown] = useState(false)
-
-  // prevents scrolling when modal is open
-  const showFilterModal = () => {
-    setOpenFilterDropdown(true)
-    if (typeof window != "undefined" && window.document) {
-      document.body.style.overflow = "hidden"
-    }
-  }
-
+  // removes bottom nav and map button when modal is open
   const ShowFilterRemoveFixed = () => {
     if (removeFixed !== null) {
       removeFixed()
-      showFilterModal()
     }
   }
 
