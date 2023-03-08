@@ -3,7 +3,7 @@
 -CSS
 -React
 -TailwindCSS
--Typescript
+-Javascript
 
 [Live demo link](https://firebnb.vercel.app/)
 
